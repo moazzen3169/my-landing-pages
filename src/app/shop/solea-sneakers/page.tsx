@@ -17,9 +17,9 @@ import ProductQuickView from '@/components/landing/solea-sneakers/ProductQuickVi
 import SearchOverlay from '@/components/landing/solea-sneakers/SearchOverlay';
 import CartDrawer from '@/components/landing/solea-sneakers/CartDrawer';
 import MobileDrawer from '@/components/landing/solea-sneakers/MobileDrawer';
+import SizeGuideModal from '@/components/landing/solea-sneakers/SizeGuideModal';
 
 import { SneakerProduct } from '@/data/solea-sneakers';
-import { useCart } from '@/context/CartContext';
 
 export default function SoleaSneakersLandingPage() {
   // STATE
@@ -27,6 +27,7 @@ export default function SoleaSneakersLandingPage() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSizeGuideOpen, setIsSizeGuideOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-[#0B1220] font-peyda antialiased selection:bg-[#0B1220] selection:text-[#F8FAFC]" dir="rtl">
@@ -39,7 +40,7 @@ export default function SoleaSneakersLandingPage() {
       />
 
       {/* MAIN CONTENT */}
-      <main className="space-y-6 sm:space-y-10 pt-2 pb-16   ">
+      <main className="space-y-6 sm:space-y-10 pt-2 pb-16">
 
         {/* HERO */}
         <Hero onOpenSearch={() => setIsSearchOpen(true)} />
@@ -75,12 +76,13 @@ export default function SoleaSneakersLandingPage() {
       </main>
 
       {/* FOOTER */}
-      <Footer />
+      <Footer onOpenSizeGuide={() => setIsSizeGuideOpen(true)} />
 
       {/* OVERLAYS & MODALS */}
       <ProductQuickView
         product={quickViewProduct}
         onClose={() => setQuickViewProduct(null)}
+        onOpenSizeGuide={() => setIsSizeGuideOpen(true)}
       />
 
       <SearchOverlay
@@ -98,6 +100,12 @@ export default function SoleaSneakersLandingPage() {
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
         onOpenSearch={() => setIsSearchOpen(true)}
+      />
+
+      <SizeGuideModal
+        isOpen={isSizeGuideOpen}
+        onClose={() => setIsSizeGuideOpen(false)}
+        initialCategory={quickViewProduct?.gender || 'unisex'}
       />
 
     </div>
