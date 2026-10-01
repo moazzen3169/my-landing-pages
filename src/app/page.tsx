@@ -32,11 +32,11 @@ export default function ShowcasePage() {
       </div>
 
       {/* Main Header */}
-      <header className="max-w-7xl mx-auto px-6 py-12 md:py-16 border-b border-[#2A2E39]/60">
+      <header className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 py-12 md:py-16 border-b border-[#2A2E39]/60">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#252019] border border-[#C8A97E]/30 text-[#C8A97E] text-xs font-semibold rounded-full mb-4">
-              <Sparkles className="w-3.5 h-3.5" />
+          <div className="text-start">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-[#252019] border border-[#C8A97E]/30 text-[#C8A97E] text-xs font-semibold rounded-full mb-4">
+              <Sparkles className="w-3.5 h-3.5 shrink-0" />
               کالکشن صفحات لندینگ اختصاصی
             </div>
             <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-3 font-peyda">
@@ -47,7 +47,7 @@ export default function ShowcasePage() {
             </p>
           </div>
 
-          <div className="flex items-center gap-3 bg-[#16181F] p-2 border border-[#2A2E39] rounded-xl self-start md:self-auto">
+          <div className="flex items-center gap-2.5 bg-[#16181F] p-2 border border-[#2A2E39] rounded-xl self-start md:self-auto shrink-0">
             {categories.map((cat) => (
               <button
                 key={cat.id}
@@ -66,7 +66,7 @@ export default function ShowcasePage() {
       </header>
 
       {/* Showcase Grid */}
-      <main className="max-w-7xl mx-auto px-6 py-12">
+      <main className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
           {filteredLandings.map((landing) => {
             const landingPath = `/shop/${landing.slug}`;
@@ -96,7 +96,7 @@ export default function ShowcasePage() {
                       </span>
                       {isPersian && (
                         <span className="px-3 py-1 bg-[#C8A97E] text-black font-extrabold text-[11px] rounded-md flex items-center gap-1 shadow-md">
-                          <Sparkles className="w-3 h-3" />
+                          <Sparkles className="w-3 h-3 shrink-0" />
                           زبان فارسی RTL
                         </span>
                       )}
@@ -104,7 +104,7 @@ export default function ShowcasePage() {
                   </div>
 
                   {/* Card Content */}
-                  <div className="p-6 sm:p-8">
+                  <div className="p-6 sm:p-8 text-start">
                     <h2 className="text-2xl font-bold text-white mb-3 group-hover:text-[#C8A97E] transition-colors">
                       {landing.title}
                     </h2>
@@ -113,21 +113,21 @@ export default function ShowcasePage() {
                     </p>
 
                     {/* Features list */}
-                    <div className="grid grid-cols-2 gap-2 pt-4 border-t border-[#232733] text-xs text-[#8E90A6]">
-                      <div className="flex items-center gap-1.5">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#C8A97E]" />
+                    <div className="grid grid-cols-2 gap-2.5 pt-4 border-t border-[#232733] text-xs text-[#8E90A6]">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#C8A97E] shrink-0" />
                         <span>طراحی responsive کامل</span>
                       </div>
-                      <div className="flex items-center gap-1.5">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#C8A97E]" />
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#C8A97E] shrink-0" />
                         <span>استایل و بخش‌های همسان</span>
                       </div>
-                      <div className="flex items-center gap-1.5">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#C8A97E]" />
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#C8A97E] shrink-0" />
                         <span>تصاویر محلی پروژه</span>
                       </div>
-                      <div className="flex items-center gap-1.5">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#C8A97E]" />
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#C8A97E] shrink-0" />
                         <span>سوئیچر دوزبانه مستقیم</span>
                       </div>
                     </div>
@@ -141,7 +141,7 @@ export default function ShowcasePage() {
                     className="w-full py-3.5 px-6 bg-[#232733] hover:bg-[#C8A97E] text-white hover:text-black font-bold text-sm rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group/btn"
                   >
                     <span>مشاهده لندینگ پیج</span>
-                    <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                    <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform shrink-0" />
                   </Link>
                 </div>
               </div>
@@ -151,7 +151,7 @@ export default function ShowcasePage() {
       </main>
 
       {/* Footer */}
-      <footer className="max-w-7xl mx-auto px-6 py-8 mt-12 border-t border-[#232733] text-center text-xs text-[#6B7082]">
+      <footer className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 py-8 mt-12 border-t border-[#232733] text-center text-xs text-[#6B7082]">
         <p>پلتفرم نمایش و تست صفحات لندینگ فروشگاهی لوکس — تمام حقوق محفوظ است.</p>
       </footer>
     </div>

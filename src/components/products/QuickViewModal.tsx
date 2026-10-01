@@ -46,9 +46,9 @@ export default function QuickViewModal({ product, onClose, isPersian = false }: 
 
         {/* Modal Box */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          initial={{ opacity: 0, scale: 0.95, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 20 }}
+          exit={{ opacity: 0, scale: 0.95, y: 15 }}
           transition={{ duration: 0.3 }}
           className="relative w-full max-w-4xl bg-[#F3F2EE] border border-[#D7D4CD] shadow-2xl overflow-hidden z-10 max-h-[90vh] overflow-y-auto"
         >
@@ -56,6 +56,7 @@ export default function QuickViewModal({ product, onClose, isPersian = false }: 
           <button
             onClick={onClose}
             className="absolute top-4 left-4 z-20 p-2 bg-white/80 rounded-full text-[#111111] hover:bg-white transition-colors"
+            aria-label={isPersian ? 'بستن' : 'Close'}
           >
             <X className="w-5 h-5" />
           </button>
@@ -73,7 +74,7 @@ export default function QuickViewModal({ product, onClose, isPersian = false }: 
 
               {/* Thumbnails */}
               {product.images.length > 1 && (
-                <div className="absolute bottom-4 right-4 flex space-x-2 space-x-reverse">
+                <div className="absolute bottom-4 right-4 flex gap-2">
                   {product.images.map((img, idx) => (
                     <button
                       key={idx}
@@ -90,9 +91,9 @@ export default function QuickViewModal({ product, onClose, isPersian = false }: 
             </div>
 
             {/* Content Right */}
-            <div className="p-8 flex flex-col justify-between space-y-6 bg-white">
+            <div className="p-6 sm:p-8 flex flex-col justify-between gap-6 bg-white text-start">
               <div className="space-y-4">
-                <div className="flex justify-between items-start">
+                <div className="flex justify-between items-start gap-4">
                   <div>
                     <span
                       className={
@@ -113,7 +114,7 @@ export default function QuickViewModal({ product, onClose, isPersian = false }: 
                       {product.name}
                     </h2>
                   </div>
-                  <span className="text-lg font-mono text-[#111111]">
+                  <span className="text-lg font-mono text-[#111111] shrink-0">
                     {formatPrice(product.price, product.currency)}
                   </span>
                 </div>
@@ -127,7 +128,7 @@ export default function QuickViewModal({ product, onClose, isPersian = false }: 
                 </p>
 
                 {/* Color Selector */}
-                <div className="space-y-2 pt-2">
+                <div className="space-y-2 pt-2 border-t border-[#F3F2EE]">
                   <div
                     className={`flex justify-between text-[#111111] ${
                       isPersian ? 'text-xs font-bold font-peyda' : 'text-xs font-mono uppercase'
@@ -136,7 +137,7 @@ export default function QuickViewModal({ product, onClose, isPersian = false }: 
                     <span>{isPersian ? 'رنگ' : 'COLOR'}</span>
                     <span className="text-[#77746E] font-normal">{selectedColor.name}</span>
                   </div>
-                  <div className="flex space-x-3 space-x-reverse">
+                  <div className="flex gap-2.5">
                     {product.colors.map((color) => (
                       <button
                         key={color.name}
@@ -204,23 +205,23 @@ export default function QuickViewModal({ product, onClose, isPersian = false }: 
               </div>
 
               {/* Actions */}
-              <div className="flex space-x-3 space-x-reverse pt-4 border-t border-[#D7D4CD]">
+              <div className="flex gap-3 pt-4 border-t border-[#D7D4CD]">
                 <button
                   onClick={handleAddToCart}
-                  className={`flex-1 bg-[#111111] text-[#F3F2EE] py-4 hover:bg-[#0B0B0B] transition-colors flex items-center justify-center space-x-2 space-x-reverse ${
+                  className={`flex-1 bg-[#111111] text-[#F3F2EE] py-3.5 sm:py-4 hover:bg-[#0B0B0B] transition-colors flex items-center justify-center gap-2.5 ${
                     isPersian
-                      ? 'text-xs sm:text-sm font-medium font-peyda tracking-normal'
-                      : 'text-[11px] font-bold tracking-[0.25em] uppercase'
+                      ? 'text-xs sm:text-sm font-medium font-peyda'
+                      : 'text-[11px] font-bold tracking-[0.25em] uppercase font-mono'
                   }`}
                 >
                   {addedSuccess ? (
                     <>
-                      <Check className="w-4 h-4 text-green-400" />
+                      <Check className="w-4 h-4 text-green-400 shrink-0" />
                       <span>{isPersian ? 'به سبد اضافه شد' : 'ADDED TO BAG'}</span>
                     </>
                   ) : (
                     <>
-                      <ShoppingBag className="w-4 h-4" />
+                      <ShoppingBag className="w-4 h-4 shrink-0" />
                       <span>{isPersian ? 'افزودن به سبد خرید' : 'ADD TO BAG'}</span>
                     </>
                   )}
@@ -228,7 +229,7 @@ export default function QuickViewModal({ product, onClose, isPersian = false }: 
 
                 <button
                   onClick={() => toggleWishlist(product)}
-                  className={`p-4 border border-[#D7D4CD] hover:border-[#111111] transition-colors ${
+                  className={`p-3.5 sm:p-4 border border-[#D7D4CD] hover:border-[#111111] transition-colors shrink-0 ${
                     inWishlist ? 'bg-[#111111] text-white' : 'text-[#111111]'
                   }`}
                 >

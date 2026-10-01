@@ -16,7 +16,7 @@ import SmoothScrollProvider from '@/components/ui/SmoothScrollProvider';
 import { NOIRE_PRODUCTS } from '@/data/noire';
 import { ProductColor } from '@/types';
 import { formatPrice } from '@/lib/utils';
-import { Heart, ShoppingBag, Check, ShieldCheck, Truck, RefreshCw, ChevronDown } from 'lucide-react';
+import { Heart, ShoppingBag, Check, ChevronDown } from 'lucide-react';
 
 export default function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = use(params);
@@ -36,14 +36,14 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
           <div className="min-h-screen flex flex-col bg-[#F3F2EE] text-[#111111]">
             <Header onOpenSearch={() => setIsSearchOpen(true)} />
 
-            <main className="flex-grow pt-28 pb-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
+            <main className="flex-grow pt-28 pb-20 max-w-[1440px] mx-auto w-full px-5 sm:px-8 md:px-12 lg:px-16">
               {/* Breadcrumb */}
-              <div className="flex items-center space-x-2 text-[10px] font-mono text-[#77746E] uppercase mb-8">
-                <Link href="/" className="hover:text-[#111111]">HOME</Link>
+              <div className="flex items-center gap-2 text-[10px] font-mono text-[#77746E] uppercase mb-8">
+                <Link href="/" className="hover:text-[#111111] transition-colors">HOME</Link>
                 <span>/</span>
-                <Link href="/shop" className="hover:text-[#111111]">COLLECTION</Link>
+                <Link href="/shop" className="hover:text-[#111111] transition-colors">COLLECTION</Link>
                 <span>/</span>
-                <span className="text-[#111111]">{product.name}</span>
+                <span className="text-[#111111] font-bold">{product.name}</span>
               </div>
 
               {/* Product Info Component */}
@@ -92,17 +92,17 @@ function ProductDetailsContent({ product }: { product: any }) {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start text-start">
       {/* Left Product Gallery */}
       <div className="lg:col-span-7 flex flex-col md:flex-row gap-4">
         {/* Thumbnails list */}
         {product.images.length > 1 && (
-          <div className="flex md:flex-col space-x-3 md:space-x-0 md:space-y-3 overflow-x-auto">
+          <div className="flex md:flex-col gap-3 overflow-x-auto shrink-0">
             {product.images.map((img: string, idx: number) => (
               <button
                 key={idx}
                 onClick={() => setActiveImage(img)}
-                className={`relative w-20 h-24 bg-[#E8E6E1] border overflow-hidden flex-shrink-0 transition-all ${
+                className={`relative w-20 h-24 bg-[#E8E6E1] border overflow-hidden shrink-0 transition-all ${
                   activeImage === img ? 'border-[#111111] ring-1 ring-[#111111]' : 'border-[#D7D4CD]'
                 }`}
               >
@@ -126,15 +126,15 @@ function ProductDetailsContent({ product }: { product: any }) {
       </div>
 
       {/* Right Product Buy Section */}
-      <div className="lg:col-span-5 space-y-6 bg-white p-8 border border-[#D7D4CD]">
+      <div className="lg:col-span-5 space-y-6 bg-white p-6 sm:p-8 border border-[#D7D4CD]">
         <div>
           <span className="text-[10px] font-mono tracking-[0.3em] text-[#A58B68] uppercase">
             {product.category}
           </span>
-          <h1 className="text-3xl font-light font-display uppercase tracking-wide text-[#111111] mt-1">
+          <h1 className="text-2xl sm:text-3xl font-light font-display uppercase tracking-wide text-[#111111] mt-1">
             {product.name}
           </h1>
-          <p className="text-xl font-mono text-[#111111] mt-2">
+          <p className="text-xl font-mono text-[#111111] mt-2 font-bold">
             {formatPrice(product.price, product.currency)}
           </p>
         </div>
@@ -144,12 +144,12 @@ function ProductDetailsContent({ product }: { product: any }) {
         </p>
 
         {/* Color Selector */}
-        <div className="space-y-2 pt-2 border-t border-[#D7D4CD]">
+        <div className="space-y-2 pt-3 border-t border-[#D7D4CD]">
           <div className="flex justify-between text-xs font-mono uppercase text-[#111111]">
             <span>COLOR</span>
             <span className="text-[#77746E]">{selectedColor.name}</span>
           </div>
-          <div className="flex space-x-3">
+          <div className="flex gap-2.5">
             {product.colors.map((color: ProductColor) => (
               <button
                 key={color.name}
@@ -190,19 +190,19 @@ function ProductDetailsContent({ product }: { product: any }) {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex space-x-3 pt-4">
+        <div className="flex gap-3 pt-4">
           <button
             onClick={handleAddToCart}
-            className="flex-1 bg-[#111111] text-[#F3F2EE] py-4 text-[11px] font-bold tracking-[0.25em] uppercase hover:bg-[#0B0B0B] transition-colors flex items-center justify-center space-x-2"
+            className="flex-1 bg-[#111111] text-[#F3F2EE] py-4 text-[11px] font-bold tracking-[0.25em] uppercase hover:bg-[#0B0B0B] transition-colors flex items-center justify-center gap-2"
           >
             {addedSuccess ? (
               <>
-                <Check className="w-4 h-4 text-green-400" />
+                <Check className="w-4 h-4 text-green-400 shrink-0" />
                 <span>ADDED TO BAG</span>
               </>
             ) : (
               <>
-                <ShoppingBag className="w-4 h-4" />
+                <ShoppingBag className="w-4 h-4 shrink-0" />
                 <span>ADD TO BAG</span>
               </>
             )}
@@ -210,9 +210,10 @@ function ProductDetailsContent({ product }: { product: any }) {
 
           <button
             onClick={() => toggleWishlist(product)}
-            className={`p-4 border border-[#D7D4CD] hover:border-[#111111] transition-colors ${
+            className={`p-4 border border-[#D7D4CD] hover:border-[#111111] transition-colors shrink-0 ${
               inWishlist ? 'bg-[#111111] text-white' : 'text-[#111111]'
             }`}
+            aria-label="Wishlist"
           >
             <Heart className={`w-4 h-4 ${inWishlist ? 'fill-white' : ''}`} />
           </button>
@@ -227,7 +228,7 @@ function ProductDetailsContent({ product }: { product: any }) {
               className="flex justify-between items-center w-full font-bold tracking-widest uppercase text-[#111111]"
             >
               <span>MATERIALS & SPECIFICATIONS</span>
-              <ChevronDown className={`w-4 h-4 transition-transform ${activeAccordion === 'desc' ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-4 h-4 transition-transform shrink-0 ${activeAccordion === 'desc' ? 'rotate-180' : ''}`} />
             </button>
             {activeAccordion === 'desc' && (
               <div className="pt-3 text-[#77746E] font-light space-y-1">
@@ -244,7 +245,7 @@ function ProductDetailsContent({ product }: { product: any }) {
               className="flex justify-between items-center w-full font-bold tracking-widest uppercase text-[#111111]"
             >
               <span>SHIPPING & WORLDWIDE RETURNS</span>
-              <ChevronDown className={`w-4 h-4 transition-transform ${activeAccordion === 'shipping' ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-4 h-4 transition-transform shrink-0 ${activeAccordion === 'shipping' ? 'rotate-180' : ''}`} />
             </button>
             {activeAccordion === 'shipping' && (
               <p className="pt-3 text-[#77746E] font-light leading-relaxed">

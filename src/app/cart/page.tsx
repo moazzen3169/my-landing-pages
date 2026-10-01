@@ -25,7 +25,7 @@ export default function CartPage() {
           <div className="min-h-screen flex flex-col bg-[#F3F2EE] text-[#111111]">
             <Header onOpenSearch={() => setIsSearchOpen(true)} />
 
-            <main className="flex-grow pt-28 pb-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
+            <main className="flex-grow pt-28 pb-20 max-w-[1440px] mx-auto w-full px-5 sm:px-8 md:px-12 lg:px-16">
               <CartMainContent />
             </main>
 
@@ -59,28 +59,28 @@ function CartMainContent() {
   }
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 text-start">
       <div className="border-b border-[#D7D4CD] pb-6">
         <span className="text-[10px] font-mono tracking-[0.3em] text-[#77746E] uppercase">ORDER SUMMARY</span>
-        <h1 className="text-4xl font-light font-display uppercase tracking-tight text-[#111111] mt-1">
+        <h1 className="text-3xl sm:text-4xl font-light font-display uppercase tracking-tight text-[#111111] mt-1">
           SHOPPING BAG
         </h1>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
         {/* Cart Items List */}
-        <div className="lg:col-span-8 space-y-6">
+        <div className="lg:col-span-8 space-y-5">
           {cart.map((item) => (
-            <div key={item.id} className="flex space-x-6 p-6 bg-white border border-[#D7D4CD]">
-              <div className="relative w-24 h-32 bg-[#E8E6E1] flex-shrink-0">
+            <div key={item.id} className="flex gap-5 p-5 bg-white border border-[#D7D4CD]">
+              <div className="relative w-24 h-32 bg-[#E8E6E1] shrink-0">
                 <Image src={item.product.images[0]} alt={item.product.name} fill className="object-cover" />
               </div>
 
-              <div className="flex-1 flex flex-col justify-between">
+              <div className="flex-1 flex flex-col justify-between min-w-0">
                 <div>
-                  <div className="flex justify-between items-start">
-                    <h3 className="text-base font-bold uppercase text-[#111111]">{item.product.name}</h3>
-                    <button onClick={() => removeFromCart(item.id)} className="text-[#77746E] hover:text-red-600">
+                  <div className="flex justify-between items-start gap-2">
+                    <h3 className="text-sm sm:text-base font-bold uppercase text-[#111111] truncate">{item.product.name}</h3>
+                    <button onClick={() => removeFromCart(item.id)} className="text-[#77746E] hover:text-red-600 shrink-0 p-1">
                       <Trash2 className="w-4 h-4" />
                     </button>
                   </div>
@@ -91,11 +91,11 @@ function CartMainContent() {
 
                 <div className="flex justify-between items-center mt-4">
                   <div className="flex items-center border border-[#D7D4CD] bg-[#F3F2EE]">
-                    <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="p-2">
+                    <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="p-2 hover:bg-[#D7D4CD]">
                       <Minus className="w-3.5 h-3.5" />
                     </button>
                     <span className="px-4 text-xs font-mono font-bold">{item.quantity}</span>
-                    <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="p-2">
+                    <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="p-2 hover:bg-[#D7D4CD]">
                       <Plus className="w-3.5 h-3.5" />
                     </button>
                   </div>
@@ -108,8 +108,8 @@ function CartMainContent() {
         </div>
 
         {/* Total Summary */}
-        <div className="lg:col-span-4 p-8 bg-white border border-[#D7D4CD] space-y-6">
-          <h3 className="text-xs font-bold tracking-[0.25em] uppercase text-[#111111]">SUMMARY</h3>
+        <div className="lg:col-span-4 p-6 sm:p-8 bg-white border border-[#D7D4CD] space-y-6">
+          <h3 className="text-xs font-bold tracking-[0.25em] uppercase text-[#111111] font-mono">SUMMARY</h3>
 
           <div className="space-y-3 text-xs font-mono border-b border-[#D7D4CD] pb-4">
             <div className="flex justify-between text-[#77746E]">
@@ -129,10 +129,10 @@ function CartMainContent() {
 
           <button
             onClick={() => alert('Proceeding to checkout prototype!')}
-            className="w-full bg-[#111111] text-white py-4 text-[11px] font-bold tracking-[0.25em] uppercase hover:bg-[#0B0B0B] flex items-center justify-center space-x-2"
+            className="w-full bg-[#111111] text-white py-4 text-[11px] font-bold tracking-[0.25em] uppercase hover:bg-[#0B0B0B] transition-colors flex items-center justify-center gap-2 font-mono"
           >
             <span>PROCEED TO CHECKOUT</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 shrink-0" />
           </button>
         </div>
       </div>

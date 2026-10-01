@@ -23,7 +23,6 @@ export default function ProductCard({
 }: ProductCardProps) {
   const { toggleWishlist, isInWishlist } = useWishlist();
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const [, setIsHovered] = useState(false);
 
   const inWishlist = isInWishlist(product.id);
 
@@ -36,24 +35,22 @@ export default function ProductCard({
 
   return (
     <div
-      className="group relative flex flex-col w-full bg-[#FFFFFF] border border-[#D7D4CD] overflow-hidden"
+      className="group relative flex flex-col w-full bg-[#FFFFFF] border border-[#D7D4CD] overflow-hidden transition-all duration-300 hover:shadow-lg"
       onMouseEnter={() => {
-        setIsHovered(true);
         if (product.images.length > 1) setActiveImageIndex(1);
       }}
       onMouseLeave={() => {
-        setIsHovered(false);
         setActiveImageIndex(0);
       }}
     >
       {/* Top Badges & Wishlist Toggle */}
-      <div className="absolute top-4 left-4 right-4 z-20 flex justify-between items-center pointer-events-none">
+      <div className="absolute top-3.5 left-3.5 right-3.5 sm:top-4 sm:left-4 sm:right-4 z-20 flex justify-between items-center pointer-events-none">
         <div>
           {product.badge && (
             <span
-              className={`inline-block bg-[#111111] text-white px-2 py-1 ${
+              className={`inline-block bg-[#111111] text-white px-2.5 py-1 ${
                 isPersian
-                  ? 'text-[11px] font-medium font-peyda tracking-normal'
+                  ? 'text-[11px] font-medium font-peyda'
                   : 'text-[9px] font-mono tracking-[0.2em] uppercase'
               }`}
             >
@@ -62,9 +59,9 @@ export default function ProductCard({
           )}
           {product.isNew && !product.badge && (
             <span
-              className={`inline-block bg-[#A58B68] text-white px-2 py-1 ${
+              className={`inline-block bg-[#A58B68] text-white px-2.5 py-1 ${
                 isPersian
-                  ? 'text-[11px] font-medium font-peyda tracking-normal'
+                  ? 'text-[11px] font-medium font-peyda'
                   : 'text-[9px] font-mono tracking-[0.2em] uppercase'
               }`}
             >
@@ -79,10 +76,10 @@ export default function ProductCard({
             e.stopPropagation();
             toggleWishlist(product);
           }}
-          className="pointer-events-auto p-2 rounded-full bg-white/80 backdrop-blur-md text-[#111111] hover:bg-white transition-all shadow-sm"
-          aria-label="Add to wishlist"
+          className="pointer-events-auto p-2 rounded-full bg-white/85 backdrop-blur-md text-[#111111] hover:bg-white hover:scale-110 transition-all shadow-sm"
+          aria-label={isPersian ? 'افزودن به علاقه‌مندی‌ها' : 'Add to wishlist'}
         >
-          <Heart className={`w-4 h-4 ${inWishlist ? 'fill-[#111111]' : ''}`} />
+          <Heart className={`w-4 h-4 transition-colors ${inWishlist ? 'fill-[#111111] text-[#111111]' : 'text-[#111111]'}`} />
         </button>
       </div>
 
@@ -98,21 +95,21 @@ export default function ProductCard({
 
         {/* Quick View Button overlay on Hover */}
         {onQuickView && (
-          <div className="absolute inset-x-4 bottom-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="absolute inset-x-3.5 bottom-3.5 sm:inset-x-4 sm:bottom-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <button
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 onQuickView(product);
               }}
-              className={`w-full bg-[#111111]/90 backdrop-blur-sm text-[#F3F2EE] py-3 hover:bg-[#111111] transition-colors flex items-center justify-center space-x-2 space-x-reverse ${
+              className={`w-full bg-[#111111]/90 backdrop-blur-sm text-[#F3F2EE] py-2.5 sm:py-3 hover:bg-[#111111] transition-colors flex items-center justify-center gap-2 ${
                 isPersian
-                  ? 'text-xs font-medium font-peyda tracking-normal'
-                  : 'text-[10px] font-bold tracking-[0.2em] uppercase'
+                  ? 'text-xs font-medium font-peyda'
+                  : 'text-[10px] font-bold tracking-[0.2em] uppercase font-mono'
               }`}
               data-cursor-text={isPersian ? 'مشاهده سریع' : 'QUICK VIEW'}
             >
-              <Eye className="w-3.5 h-3.5" />
+              <Eye className="w-3.5 h-3.5 shrink-0" />
               <span>{isPersian ? 'مشاهده سریع' : 'QUICK VIEW'}</span>
             </button>
           </div>
@@ -120,36 +117,36 @@ export default function ProductCard({
       </Link>
 
       {/* Product Details */}
-      <div className="p-5 flex flex-col justify-between flex-1 space-y-2 bg-white">
-        <div className="flex justify-between items-start space-x-2 space-x-reverse">
-          <Link href={`/product/${product.slug}`} className="group-hover:text-[#77746E] transition-colors flex-1 min-w-0">
+      <div className="p-4 sm:p-5 flex flex-col justify-between flex-1 gap-2 bg-white text-start">
+        <div className="flex justify-between items-baseline gap-3">
+          <Link href={`/product/${product.slug}`} className="group-hover:text-[#A58B68] transition-colors flex-1 min-w-0">
             <h3
-              className={`text-[#111111] line-clamp-1 ${
+              className={`text-[#111111] truncate ${
                 isPersian
-                  ? 'text-xs sm:text-sm font-semibold font-peyda leading-relaxed tracking-normal'
+                  ? 'text-xs sm:text-sm font-semibold font-peyda leading-snug'
                   : 'text-sm font-medium tracking-wide uppercase font-sans'
               }`}
             >
               {product.name}
             </h3>
           </Link>
-          <span className="text-xs font-mono font-medium text-[#111111] whitespace-nowrap">
+          <span className="text-xs font-mono font-bold text-[#111111] shrink-0">
             {formatPrice(product.price, product.currency)}
           </span>
         </div>
 
         <div
-          className={`flex justify-between items-center text-[#77746E] ${
-            isPersian ? 'text-xs font-peyda font-normal' : 'text-[11px] uppercase tracking-wider'
+          className={`flex justify-between items-center text-[#77746E] pt-2 border-t border-[#F3F2EE] ${
+            isPersian ? 'text-xs font-peyda' : 'text-[11px] uppercase tracking-wider font-mono'
           }`}
         >
           <span>{product.category}</span>
           {/* Color Swatches */}
-          <div className="flex items-center space-x-1 space-x-reverse">
+          <div className="flex items-center gap-1.5">
             {product.colors.map((color) => (
               <span
                 key={color.name}
-                className="w-2.5 h-2.5 rounded-full border border-black/20"
+                className="w-2.5 h-2.5 rounded-full border border-black/20 shrink-0"
                 style={{ backgroundColor: color.hex }}
                 title={color.name}
               />

@@ -30,7 +30,7 @@ export default function HeroSection({
   };
 
   return (
-    <section className="relative w-full min-h-screen bg-[#0B0B0B] text-[#F3F2EE] flex flex-col justify-between pt-24 pb-12 px-6 md:px-12 overflow-hidden select-none">
+    <section className="relative w-full min-h-screen bg-[#0B0B0B] text-[#F3F2EE] flex flex-col justify-between pt-28 pb-10 sm:pb-14 overflow-hidden select-none">
       {/* Background Image Container with Smooth Crossfade */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="wait">
@@ -47,42 +47,48 @@ export default function HeroSection({
               alt={activeLook.title}
               fill
               priority
-              className="object-cover object-center filter grayscale-[20%] contrast-105"
+              className="object-cover object-center filter grayscale-[15%] contrast-105"
               sizes="100vw"
             />
             {/* Editorial Vignette & Gradient overlays */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/30 to-[#0B0B0B]/60" />
-            <div className="absolute inset-0 bg-radial-vignette opacity-50" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/35 to-[#0B0B0B]/60" />
+            <div className="absolute inset-0 bg-radial-vignette opacity-50 pointer-events-none" />
           </motion.div>
         </AnimatePresence>
       </div>
 
       {/* Top Meta Information */}
-      <div
-        className={`relative z-10 max-w-7xl w-full mx-auto flex items-center justify-between text-[#D7D4CD] ${
-          isPersian
-            ? 'text-xs md:text-sm font-medium font-peyda tracking-normal'
-            : 'text-[11px] tracking-[0.25em] uppercase font-mono'
-        }`}
-      >
-        <div className="flex items-center space-x-3 space-x-reverse">
-          <span className="w-2 h-2 rounded-full bg-[#A58B68] animate-pulse" />
+      <div className="relative z-10 max-w-[1440px] w-full mx-auto px-5 sm:px-8 md:px-12 lg:px-16 flex items-center justify-between text-[#D7D4CD]">
+        <div
+          className={`flex items-center gap-2.5 ${
+            isPersian
+              ? 'text-xs md:text-sm font-medium font-peyda'
+              : 'text-[11px] tracking-[0.25em] uppercase font-mono'
+          }`}
+        >
+          <span className="w-2 h-2 rounded-full bg-[#A58B68] animate-pulse shrink-0" />
           <span>{isPersian ? 'کالکشن بهار / تابستان ۲۰۲۶' : 'S/S 2026 CAMPAIGN'}</span>
         </div>
-        <span className="hidden sm:inline">
+        <span
+          className={`hidden sm:inline ${
+            isPersian
+              ? 'text-xs md:text-sm font-medium font-peyda'
+              : 'text-[11px] tracking-[0.25em] uppercase font-mono'
+          }`}
+        >
           {isPersian ? 'پوشاک معماری مردانه' : 'ARCHITECTURAL MENSWEAR'}
         </span>
       </div>
 
       {/* Center Hero Typography & Editorial Headline */}
-      <div className="relative z-10 max-w-7xl w-full mx-auto my-auto py-12 flex flex-col items-start justify-center">
+      <div className="relative z-10 max-w-[1440px] w-full mx-auto px-5 sm:px-8 md:px-12 lg:px-16 my-auto py-10 md:py-16 flex flex-col items-start justify-center text-start">
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className={
             isPersian
-              ? 'text-xs sm:text-sm font-medium font-peyda text-[#A58B68] tracking-normal mb-3'
+              ? 'text-xs sm:text-sm font-medium font-peyda text-[#A58B68] mb-3'
               : 'text-xs sm:text-sm font-mono tracking-[0.3em] text-[#A58B68] uppercase mb-4'
           }
         >
@@ -90,18 +96,18 @@ export default function HeroSection({
         </motion.p>
 
         {/* Huge Editorial Scale Headline */}
-        <div className="relative overflow-hidden w-full">
+        <div className="relative overflow-hidden w-full max-w-5xl">
           <AnimatePresence mode="wait">
             <motion.h1
               key={activeLook.title}
               initial={{ y: '100%' }}
               animate={{ y: 0 }}
               exit={{ y: '-100%' }}
-              transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
+              transition={{ duration: 0.65, ease: [0.76, 0, 0.24, 1] }}
               className={
                 isPersian
-                  ? 'text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-peyda text-white leading-[1.18] tracking-normal whitespace-pre-line py-1'
-                  : 'text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-light tracking-tighter uppercase font-display text-white leading-[0.9]'
+                  ? 'text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-peyda text-white leading-[1.2] whitespace-pre-line py-1 text-start'
+                  : 'text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-light tracking-tighter uppercase font-display text-white leading-[0.9] text-start'
               }
             >
               {activeLook.title}
@@ -110,9 +116,9 @@ export default function HeroSection({
         </div>
 
         <p
-          className={`max-w-xl text-[#D7D4CD] mt-6 mb-8 ${
+          className={`max-w-xl text-[#D7D4CD] mt-5 sm:mt-6 mb-8 text-start ${
             isPersian
-              ? 'text-sm md:text-base font-normal font-peyda leading-relaxed tracking-normal max-w-lg'
+              ? 'text-sm md:text-base font-normal font-peyda leading-relaxed'
               : 'text-sm md:text-base font-light leading-relaxed'
           }`}
         >
@@ -123,16 +129,16 @@ export default function HeroSection({
         <div className="flex flex-wrap items-center gap-4 sm:gap-6">
           <Link
             href="/shop"
-            className={`group relative inline-flex items-center space-x-4 space-x-reverse bg-white text-[#111111] px-8 py-4 font-bold transition-transform hover:scale-105 ${
+            className={`group relative inline-flex items-center gap-3.5 bg-white text-[#111111] px-7 sm:px-8 py-3.5 sm:py-4 font-bold transition-all hover:bg-[#E8E6E1] hover:scale-[1.02] active:scale-[0.98] ${
               isPersian
-                ? 'text-xs md:text-sm font-medium font-peyda tracking-normal'
+                ? 'text-xs md:text-sm font-medium font-peyda'
                 : 'text-[11px] tracking-[0.25em] uppercase'
             }`}
             data-cursor-text={isPersian ? 'مشاهده' : 'EXPLORE'}
           >
             <span>{isPersian ? 'مشاهده کالکشن' : 'EXPLORE COLLECTION'}</span>
             <ArrowRight
-              className={`w-4 h-4 transition-transform ${
+              className={`w-4 h-4 shrink-0 transition-transform ${
                 isPersian
                   ? 'rotate-180 group-hover:-translate-x-1'
                   : 'group-hover:translate-x-1'
@@ -142,13 +148,13 @@ export default function HeroSection({
 
           <button
             onClick={handleAddLookToCart}
-            className={`group inline-flex items-center space-x-3 space-x-reverse border border-[#D7D4CD]/40 hover:border-white bg-[#0B0B0B]/50 backdrop-blur-md px-6 py-4 text-white transition-all ${
+            className={`group inline-flex items-center gap-3 border border-[#D7D4CD]/40 hover:border-white bg-[#0B0B0B]/60 backdrop-blur-md px-6 sm:px-7 py-3.5 sm:py-4 text-white transition-all hover:scale-[1.02] active:scale-[0.98] ${
               isPersian
-                ? 'text-xs md:text-sm font-medium font-peyda tracking-normal'
+                ? 'text-xs md:text-sm font-medium font-peyda'
                 : 'text-[11px] font-medium tracking-[0.25em] uppercase'
             }`}
           >
-            <ShoppingBag className="w-4 h-4 text-[#A58B68]" />
+            <ShoppingBag className="w-4 h-4 text-[#A58B68] shrink-0" />
             <span>
               {isPersian
                 ? `افزودن کامل استایل (€${activeLook.price})`
@@ -159,36 +165,36 @@ export default function HeroSection({
       </div>
 
       {/* Bottom Hero Look Selector Switcher */}
-      <div className="relative z-10 max-w-7xl w-full mx-auto border-t border-[#2B2B2B] pt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="relative z-10 max-w-[1440px] w-full mx-auto px-5 sm:px-8 md:px-12 lg:px-16 border-t border-[#2B2B2B] pt-5 sm:pt-6 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
         {looks.map((look, index) => {
           const isActive = index === activeLookIndex;
           return (
             <button
               key={look.id}
               onClick={() => setActiveLookIndex(index)}
-              className={`group text-right p-3 transition-all ${
-                isPersian ? 'border-l-2' : 'border-r-2'
-              } ${
+              className={`group text-start p-3 sm:p-3.5 transition-all border-s-2 ${
                 isActive
                   ? 'border-[#A58B68] bg-white/5 backdrop-blur-sm'
-                  : 'border-transparent hover:border-[#D7D4CD]/40'
+                  : 'border-transparent hover:border-[#D7D4CD]/30 hover:bg-white/[0.02]'
               }`}
             >
               <div
-                className={`flex justify-between items-center text-[#77746E] mb-1 ${
+                className={`flex justify-between items-center text-[#77746E] mb-1.5 ${
                   isPersian
-                    ? 'text-xs font-peyda tracking-normal'
+                    ? 'text-xs font-peyda'
                     : 'text-[10px] font-mono tracking-widest uppercase'
                 }`}
               >
                 <span>{look.number}</span>
-                <span className="font-mono">€{look.price}</span>
+                <span className="font-mono text-[#A58B68]">€{look.price}</span>
               </div>
               <h4
-                className={`truncate group-hover:text-[#A58B68] transition-colors ${
+                className={`truncate transition-colors ${
+                  isActive ? 'text-[#A58B68]' : 'text-white group-hover:text-[#D7D4CD]'
+                } ${
                   isPersian
-                    ? 'text-xs md:text-sm font-medium font-peyda text-white tracking-normal'
-                    : 'text-xs md:text-sm font-medium tracking-wider text-white'
+                    ? 'text-xs md:text-sm font-medium font-peyda'
+                    : 'text-xs md:text-sm font-medium tracking-wider'
                 }`}
               >
                 {look.title.replace(/\n/g, ' ')}

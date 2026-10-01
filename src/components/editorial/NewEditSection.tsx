@@ -11,14 +11,14 @@ interface NewEditSectionProps {
 
 export default function NewEditSection({ isPersian = false }: NewEditSectionProps) {
   return (
-    <section className="py-24 bg-[#0B0B0B] text-[#F3F2EE] border-y border-[#2B2B2B] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <section className="bg-[#0B0B0B] text-[#F3F2EE] border-y border-[#2B2B2B] overflow-hidden section-padding">
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
         {/* Left Editorial Text */}
-        <div className="lg:col-span-5 space-y-6">
+        <div className="lg:col-span-5 space-y-6 text-start">
           <span
             className={
               isPersian
-                ? 'text-xs font-medium text-[#A58B68] font-peyda tracking-normal'
+                ? 'text-xs font-medium text-[#A58B68] font-peyda'
                 : 'text-[10px] font-mono tracking-[0.35em] text-[#A58B68] uppercase'
             }
           >
@@ -28,8 +28,8 @@ export default function NewEditSection({ isPersian = false }: NewEditSectionProp
           <h2
             className={
               isPersian
-                ? 'text-4xl sm:text-5xl md:text-6xl font-bold font-peyda text-white leading-[1.25] tracking-normal'
-                : 'text-5xl sm:text-6xl md:text-7xl font-light font-display tracking-tight text-white uppercase leading-none'
+                ? 'text-3xl sm:text-5xl md:text-6xl font-bold font-peyda text-white leading-[1.25]'
+                : 'text-4xl sm:text-6xl md:text-7xl font-light font-display tracking-tight text-white uppercase leading-none'
             }
           >
             {isPersian ? (
@@ -50,7 +50,7 @@ export default function NewEditSection({ isPersian = false }: NewEditSectionProp
           <p
             className={`text-[#D7D4CD] leading-relaxed max-w-md ${
               isPersian
-                ? 'text-sm md:text-base font-normal font-peyda tracking-normal'
+                ? 'text-sm md:text-base font-normal font-peyda'
                 : 'text-sm md:text-base font-light'
             }`}
           >
@@ -59,19 +59,19 @@ export default function NewEditSection({ isPersian = false }: NewEditSectionProp
               : 'Uncompromising modern tailoring designed for high-density city living. Defined by clean lines, heavy organic textiles, and effortless versatility.'}
           </p>
 
-          <div className="pt-4">
+          <div className="pt-2">
             <Link
               href="/shop"
-              className={`inline-flex items-center space-x-3 space-x-reverse text-white hover:text-[#A58B68] transition-colors border-b border-[#D7D4CD] pb-2 ${
+              className={`group inline-flex items-center gap-3 text-white hover:text-[#A58B68] transition-colors border-b border-[#D7D4CD]/40 hover:border-[#A58B68] pb-2 ${
                 isPersian
-                  ? 'text-xs md:text-sm font-medium font-peyda tracking-normal'
+                  ? 'text-xs md:text-sm font-medium font-peyda'
                   : 'text-[11px] font-bold tracking-[0.25em] uppercase'
               }`}
               data-cursor-text={isPersian ? 'کشف' : 'DISCOVER'}
             >
               <span>{isPersian ? 'کشف جدیدترین کالکشن' : 'DISCOVER THE LATEST COLLECTION'}</span>
               <ArrowRight
-                className={`w-4 h-4 transition-transform ${
+                className={`w-4 h-4 shrink-0 transition-transform ${
                   isPersian ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'
                 }`}
               />
@@ -80,7 +80,7 @@ export default function NewEditSection({ isPersian = false }: NewEditSectionProp
         </div>
 
         {/* Right Large Image Reveal */}
-        <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="relative aspect-[3/4] w-full bg-[#181818] border border-[#2B2B2B] overflow-hidden">
             <Image
               src="/images/banners/Group-242.jpg"
@@ -91,7 +91,7 @@ export default function NewEditSection({ isPersian = false }: NewEditSectionProp
             />
           </div>
 
-          <div className="relative aspect-[3/4] w-full bg-[#181818] border border-[#2B2B2B] overflow-hidden md:translate-y-8">
+          <div className="relative aspect-[3/4] w-full bg-[#181818] border border-[#2B2B2B] overflow-hidden sm:translate-y-8">
             <Image
               src="/images/men-hoodies/g-star-premium-core-track-jacket-sweater-dark-blue.png"
               alt="The New Edit Look 2"

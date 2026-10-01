@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, ShieldCheck, RefreshCw, Truck, Lock } from 'lucide-react';
+import { ShieldCheck, RefreshCw, Truck, Lock } from 'lucide-react';
 
 interface EditorialSectionProps {
   isPersian?: boolean;
@@ -11,13 +11,13 @@ interface EditorialSectionProps {
 
 export function BrandStory({ isPersian = false }: EditorialSectionProps) {
   return (
-    <section className="py-24 bg-[#0B0B0B] text-[#F3F2EE] border-t border-[#2B2B2B]">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <div className="lg:col-span-6 space-y-6">
+    <section className="section-padding bg-[#0B0B0B] text-[#F3F2EE] border-t border-[#2B2B2B]">
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+        <div className="lg:col-span-6 space-y-6 text-start">
           <span
             className={
               isPersian
-                ? 'text-xs font-medium text-[#A58B68] font-peyda tracking-normal'
+                ? 'text-xs font-medium text-[#A58B68] font-peyda'
                 : 'text-[10px] font-mono tracking-[0.35em] text-[#A58B68] uppercase'
             }
           >
@@ -26,8 +26,8 @@ export function BrandStory({ isPersian = false }: EditorialSectionProps) {
           <h2
             className={
               isPersian
-                ? 'text-3xl sm:text-5xl font-bold font-peyda text-white leading-[1.25] tracking-normal'
-                : 'text-4xl sm:text-6xl font-light font-display tracking-tight text-white uppercase leading-tight'
+                ? 'text-3xl sm:text-5xl font-bold font-peyda text-white leading-[1.25]'
+                : 'text-3xl sm:text-5xl md:text-6xl font-light font-display tracking-tight text-white uppercase leading-tight'
             }
           >
             {isPersian ? (
@@ -43,7 +43,7 @@ export function BrandStory({ isPersian = false }: EditorialSectionProps) {
           <p
             className={`text-[#D7D4CD] leading-relaxed ${
               isPersian
-                ? 'text-sm md:text-base font-normal font-peyda tracking-normal'
+                ? 'text-sm md:text-base font-normal font-peyda'
                 : 'text-sm md:text-base font-light'
             }`}
           >
@@ -75,7 +75,7 @@ export function BrandStory({ isPersian = false }: EditorialSectionProps) {
           </div>
         </div>
 
-        <div className="lg:col-span-6 relative aspect-[4/3] w-full bg-[#181818] border border-[#2B2B2B]">
+        <div className="lg:col-span-6 relative aspect-[4/3] w-full bg-[#181818] border border-[#2B2B2B] overflow-hidden">
           <Image
             src="/images/banners/Group-242.jpg"
             alt="Brand Story Editorial"
@@ -105,21 +105,21 @@ export function QualitySection({ isPersian = false }: EditorialSectionProps) {
       ];
 
   return (
-    <section className="py-16 bg-[#F3F2EE] border-y border-[#D7D4CD] px-6 md:px-12">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <section className="section-padding-sm bg-[#F3F2EE] border-y border-[#D7D4CD]">
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
         {SERVICES.map((srv) => {
           const Icon = srv.icon;
           return (
-            <div key={srv.title} className="flex items-start space-x-4 space-x-reverse">
-              <div className="p-3 border border-[#D7D4CD] bg-white flex-shrink-0">
+            <div key={srv.title} className="flex items-start gap-4 text-start p-4 bg-white/60 border border-[#D7D4CD]">
+              <div className="p-3 border border-[#D7D4CD] bg-white shrink-0">
                 <Icon className="w-5 h-5 text-[#111111]" />
               </div>
               <div>
                 <h4
                   className={
                     isPersian
-                      ? 'text-xs sm:text-sm font-bold font-peyda text-[#111111] tracking-normal'
-                      : 'text-xs font-bold tracking-widest text-[#111111] uppercase'
+                      ? 'text-xs sm:text-sm font-bold font-peyda text-[#111111]'
+                      : 'text-xs font-bold tracking-widest text-[#111111] uppercase font-mono'
                   }
                 >
                   {srv.title}
@@ -142,12 +142,12 @@ export function QualitySection({ isPersian = false }: EditorialSectionProps) {
 
 export function Newsletter({ isPersian = false }: EditorialSectionProps) {
   return (
-    <section className="py-24 bg-[#0B0B0B] text-[#F3F2EE] px-6 md:px-12 border-t border-[#2B2B2B]">
-      <div className="max-w-3xl mx-auto text-center space-y-6">
+    <section className="section-padding bg-[#0B0B0B] text-[#F3F2EE] border-t border-[#2B2B2B]">
+      <div className="max-w-2xl mx-auto px-5 text-center space-y-6">
         <span
           className={
             isPersian
-              ? 'text-xs font-medium text-[#A58B68] font-peyda tracking-normal'
+              ? 'text-xs font-medium text-[#A58B68] font-peyda'
               : 'text-[10px] font-mono tracking-[0.35em] text-[#A58B68] uppercase'
           }
         >
@@ -156,7 +156,7 @@ export function Newsletter({ isPersian = false }: EditorialSectionProps) {
         <h2
           className={
             isPersian
-              ? 'text-2xl sm:text-4xl font-bold font-peyda text-white leading-tight tracking-normal'
+              ? 'text-2xl sm:text-4xl font-bold font-peyda text-white leading-tight'
               : 'text-3xl sm:text-5xl font-light font-display text-white uppercase tracking-tight'
           }
         >
@@ -164,7 +164,7 @@ export function Newsletter({ isPersian = false }: EditorialSectionProps) {
         </h2>
         <p
           className={`text-[#D7D4CD] max-w-md mx-auto leading-relaxed ${
-            isPersian ? 'text-xs sm:text-sm font-normal font-peyda tracking-normal' : 'text-xs sm:text-sm font-light'
+            isPersian ? 'text-xs sm:text-sm font-normal font-peyda' : 'text-xs sm:text-sm font-light'
           }`}
         >
           {isPersian
@@ -183,14 +183,14 @@ export function Newsletter({ isPersian = false }: EditorialSectionProps) {
             type="email"
             required
             placeholder={isPersian ? 'ایمیل خود را وارد کنید...' : 'ENTER YOUR EMAIL'}
-            className={`w-full bg-[#181818] border border-[#2B2B2B] px-4 py-3.5 text-white placeholder-[#77746E] focus:outline-none focus:border-white ${
+            className={`w-full bg-[#181818] border border-[#2B2B2B] px-4 py-3.5 text-white placeholder-[#77746E] focus:outline-none focus:border-[#A58B68] transition-colors ${
               isPersian ? 'text-xs font-normal font-peyda' : 'text-xs font-mono uppercase'
             }`}
           />
           <button
             type="submit"
-            className={`w-full sm:w-auto bg-white text-[#111111] px-6 py-3.5 font-bold hover:bg-[#D7D4CD] transition-colors whitespace-nowrap ${
-              isPersian ? 'text-xs font-medium font-peyda' : 'text-[10px] tracking-[0.25em] uppercase'
+            className={`w-full sm:w-auto bg-white text-[#111111] px-6 py-3.5 font-bold hover:bg-[#A58B68] hover:text-white transition-colors shrink-0 ${
+              isPersian ? 'text-xs font-medium font-peyda' : 'text-[10px] tracking-[0.25em] uppercase font-mono'
             }`}
           >
             {isPersian ? 'عضویت' : 'JOIN THE LIST'}
@@ -203,11 +203,11 @@ export function Newsletter({ isPersian = false }: EditorialSectionProps) {
 
 export function Footer({ isPersian = false }: EditorialSectionProps) {
   return (
-    <footer className="bg-[#0B0B0B] text-[#D7D4CD] border-t border-[#2B2B2B] pt-16 pb-12 px-6 md:px-12 text-xs">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
+    <footer className="bg-[#0B0B0B] text-[#D7D4CD] border-t border-[#2B2B2B] pt-16 pb-12 text-xs">
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 grid grid-cols-1 md:grid-cols-5 gap-10 mb-16 text-start">
         {/* Brand Column */}
         <div className="md:col-span-2 space-y-4">
-          <Link href="/" className="text-3xl font-light font-display tracking-[0.3em] text-white">
+          <Link href="/" className="text-3xl font-light font-display tracking-[0.3em] text-white inline-block">
             NOIRÉ
           </Link>
           <p
@@ -226,7 +226,7 @@ export function Footer({ isPersian = false }: EditorialSectionProps) {
           <p
             className={
               isPersian
-                ? 'text-white text-xs font-bold tracking-normal'
+                ? 'text-white text-xs font-bold'
                 : 'text-white text-[10px] tracking-[0.25em] uppercase font-bold'
             }
           >
@@ -246,7 +246,7 @@ export function Footer({ isPersian = false }: EditorialSectionProps) {
           <p
             className={
               isPersian
-                ? 'text-white text-xs font-bold tracking-normal'
+                ? 'text-white text-xs font-bold'
                 : 'text-white text-[10px] tracking-[0.25em] uppercase font-bold'
             }
           >
@@ -265,7 +265,7 @@ export function Footer({ isPersian = false }: EditorialSectionProps) {
           <p
             className={
               isPersian
-                ? 'text-white text-xs font-bold tracking-normal'
+                ? 'text-white text-xs font-bold'
                 : 'text-white text-[10px] tracking-[0.25em] uppercase font-bold'
             }
           >
@@ -281,15 +281,15 @@ export function Footer({ isPersian = false }: EditorialSectionProps) {
       </div>
 
       <div
-        className={`max-w-7xl mx-auto border-t border-[#2B2B2B] pt-8 flex flex-col sm:flex-row justify-between items-center text-[#77746E] space-y-4 sm:space-y-0 ${
+        className={`max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 border-t border-[#2B2B2B] pt-8 flex flex-col sm:flex-row justify-between items-center text-[#77746E] gap-4 ${
           isPersian ? 'text-xs font-normal font-peyda' : 'text-[10px] font-mono uppercase'
         }`}
       >
         <p>© 2026 NOIRÉ MENSWEAR. {isPersian ? 'تمام حقوق محفوظ است.' : 'ALL RIGHTS RESERVED.'}</p>
-        <div className="flex space-x-6 space-x-reverse">
-          <span className="hover:text-white cursor-pointer">{isPersian ? 'حریم خصوصی' : 'PRIVACY POLICY'}</span>
-          <span className="hover:text-white cursor-pointer">{isPersian ? 'شرایط استفاده' : 'TERMS OF SERVICE'}</span>
-          <span className="hover:text-white cursor-pointer">{isPersian ? 'کوکی‌ها' : 'COOKIES'}</span>
+        <div className="flex gap-6">
+          <span className="hover:text-white cursor-pointer transition-colors">{isPersian ? 'حریم خصوصی' : 'PRIVACY POLICY'}</span>
+          <span className="hover:text-white cursor-pointer transition-colors">{isPersian ? 'شرایط استفاده' : 'TERMS OF SERVICE'}</span>
+          <span className="hover:text-white cursor-pointer transition-colors">{isPersian ? 'کوکی‌ها' : 'COOKIES'}</span>
         </div>
       </div>
     </footer>
