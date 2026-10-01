@@ -14,13 +14,25 @@ export function BrandStory({ isPersian = false }: EditorialSectionProps) {
     <section className="py-24 bg-[#0B0B0B] text-[#F3F2EE] border-t border-[#2B2B2B]">
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-6 space-y-6">
-          <span className="text-[10px] font-mono tracking-[0.35em] text-[#A58B68] uppercase">
+          <span
+            className={
+              isPersian
+                ? 'text-xs font-medium text-[#A58B68] font-peyda tracking-normal'
+                : 'text-[10px] font-mono tracking-[0.35em] text-[#A58B68] uppercase'
+            }
+          >
             {isPersian ? 'بیانیه نوآر' : 'OUR MANIFESTO'}
           </span>
-          <h2 className="text-4xl sm:text-6xl font-light font-display tracking-tight text-white uppercase leading-tight">
+          <h2
+            className={
+              isPersian
+                ? 'text-3xl sm:text-5xl font-bold font-peyda text-white leading-[1.25] tracking-normal'
+                : 'text-4xl sm:text-6xl font-light font-display tracking-tight text-white uppercase leading-tight'
+            }
+          >
             {isPersian ? (
               <>
-                طراحی شده برای <br /> نحوه حرکت شما.
+                طراحی‌شده برای <br /> وقارِ حرکتِ شما.
               </>
             ) : (
               <>
@@ -28,23 +40,33 @@ export function BrandStory({ isPersian = false }: EditorialSectionProps) {
               </>
             )}
           </h2>
-          <p className="text-sm md:text-base text-[#D7D4CD] font-light leading-relaxed">
+          <p
+            className={`text-[#D7D4CD] leading-relaxed ${
+              isPersian
+                ? 'text-sm md:text-base font-normal font-peyda tracking-normal'
+                : 'text-sm md:text-base font-light'
+            }`}
+          >
             {isPersian
               ? 'برند نوآر (NOIRÉ) بر پایه یک اصل معماری بنیادین بنا شده است: پوشاک معاصر مردانه باید وقار بصری مطلوبی را همراه با قدرت لمس پارچه‌های فاخر ارائه دهد.'
               : 'NOIRÉ was founded on a singular architectural thesis: that contemporary menswear should embody absolute visual restraint while delivering tactile power.'}
           </p>
-          <div className="grid grid-cols-2 gap-6 pt-6 border-t border-[#2B2B2B] text-xs font-mono">
+          <div
+            className={`grid grid-cols-2 gap-6 pt-6 border-t border-[#2B2B2B] ${
+              isPersian ? 'text-xs font-peyda' : 'text-xs font-mono'
+            }`}
+          >
             <div>
-              <p className="text-[#A58B68]">{isPersian ? 'طراحی' : 'DESIGN'}</p>
-              <p className="text-[#D7D4CD] mt-1 font-light">
+              <p className="text-[#A58B68] font-medium">{isPersian ? 'طراحی' : 'DESIGN'}</p>
+              <p className={`text-[#D7D4CD] mt-1 ${isPersian ? 'font-normal' : 'font-light'}`}>
                 {isPersian
                   ? 'برش‌های معماری مینیمال مهندسی‌شده برای وقار ایستایی.'
                   : 'Minimal architectural cuts engineered for posture.'}
               </p>
             </div>
             <div>
-              <p className="text-[#A58B68]">{isPersian ? 'متریال' : 'MATERIAL'}</p>
-              <p className="text-[#D7D4CD] mt-1 font-light">
+              <p className="text-[#A58B68] font-medium">{isPersian ? 'متریال' : 'MATERIAL'}</p>
+              <p className={`text-[#D7D4CD] mt-1 ${isPersian ? 'font-normal' : 'font-light'}`}>
                 {isPersian
                   ? '۱۰۰٪ پشم طبیعی، ابریشم کرپ و کشمیر مغولی.'
                   : '100% natural wools, silk crepes & Mongolian cashmere.'}
@@ -93,8 +115,22 @@ export function QualitySection({ isPersian = false }: EditorialSectionProps) {
                 <Icon className="w-5 h-5 text-[#111111]" />
               </div>
               <div>
-                <h4 className="text-xs font-bold tracking-widest text-[#111111] uppercase">{srv.title}</h4>
-                <p className="text-xs text-[#77746E] font-light mt-1">{srv.desc}</p>
+                <h4
+                  className={
+                    isPersian
+                      ? 'text-xs sm:text-sm font-bold font-peyda text-[#111111] tracking-normal'
+                      : 'text-xs font-bold tracking-widest text-[#111111] uppercase'
+                  }
+                >
+                  {srv.title}
+                </h4>
+                <p
+                  className={`text-xs text-[#77746E] mt-1 ${
+                    isPersian ? 'font-normal font-peyda' : 'font-light'
+                  }`}
+                >
+                  {srv.desc}
+                </p>
               </div>
             </div>
           );
@@ -108,13 +144,29 @@ export function Newsletter({ isPersian = false }: EditorialSectionProps) {
   return (
     <section className="py-24 bg-[#0B0B0B] text-[#F3F2EE] px-6 md:px-12 border-t border-[#2B2B2B]">
       <div className="max-w-3xl mx-auto text-center space-y-6">
-        <span className="text-[10px] font-mono tracking-[0.35em] text-[#A58B68] uppercase">
+        <span
+          className={
+            isPersian
+              ? 'text-xs font-medium text-[#A58B68] font-peyda tracking-normal'
+              : 'text-[10px] font-mono tracking-[0.35em] text-[#A58B68] uppercase'
+          }
+        >
           {isPersian ? 'دسترسی اختصاصی' : 'PRIVATE ACCESS'}
         </span>
-        <h2 className="text-3xl sm:text-5xl font-light font-display text-white uppercase tracking-tight">
+        <h2
+          className={
+            isPersian
+              ? 'text-2xl sm:text-4xl font-bold font-peyda text-white leading-tight tracking-normal'
+              : 'text-3xl sm:text-5xl font-light font-display text-white uppercase tracking-tight'
+          }
+        >
           {isPersian ? 'به دنیای نوآر بپیوندید.' : 'ENTER THE WORLD OF NOIRÉ.'}
         </h2>
-        <p className="text-xs sm:text-sm text-[#D7D4CD] font-light max-w-md mx-auto leading-relaxed">
+        <p
+          className={`text-[#D7D4CD] max-w-md mx-auto leading-relaxed ${
+            isPersian ? 'text-xs sm:text-sm font-normal font-peyda tracking-normal' : 'text-xs sm:text-sm font-light'
+          }`}
+        >
           {isPersian
             ? 'اطلاعیه‌های انتشار کالکشن‌های خصوصی، رونمایی‌های محدود و پیش‌نمایش لوک‌بوک‌های معاصر را دریافت کنید.'
             : 'Receive private editorial release notices, invitation-only capsules, and contemporary lookbook previews.'}
@@ -130,12 +182,16 @@ export function Newsletter({ isPersian = false }: EditorialSectionProps) {
           <input
             type="email"
             required
-            placeholder={isPersian ? 'ایمیل خود را وارد کنید' : 'ENTER YOUR EMAIL'}
-            className="w-full bg-[#181818] border border-[#2B2B2B] px-4 py-3.5 text-xs font-mono text-white placeholder-[#77746E] focus:outline-none focus:border-white uppercase"
+            placeholder={isPersian ? 'ایمیل خود را وارد کنید...' : 'ENTER YOUR EMAIL'}
+            className={`w-full bg-[#181818] border border-[#2B2B2B] px-4 py-3.5 text-white placeholder-[#77746E] focus:outline-none focus:border-white ${
+              isPersian ? 'text-xs font-normal font-peyda' : 'text-xs font-mono uppercase'
+            }`}
           />
           <button
             type="submit"
-            className="w-full sm:w-auto bg-white text-[#111111] px-6 py-3.5 text-[10px] font-bold tracking-[0.25em] uppercase hover:bg-[#D7D4CD] transition-colors whitespace-nowrap"
+            className={`w-full sm:w-auto bg-white text-[#111111] px-6 py-3.5 font-bold hover:bg-[#D7D4CD] transition-colors whitespace-nowrap ${
+              isPersian ? 'text-xs font-medium font-peyda' : 'text-[10px] tracking-[0.25em] uppercase'
+            }`}
           >
             {isPersian ? 'عضویت' : 'JOIN THE LIST'}
           </button>
@@ -154,7 +210,11 @@ export function Footer({ isPersian = false }: EditorialSectionProps) {
           <Link href="/" className="text-3xl font-light font-display tracking-[0.3em] text-white">
             NOIRÉ
           </Link>
-          <p className="text-[#77746E] font-light max-w-sm leading-relaxed">
+          <p
+            className={`text-[#77746E] max-w-sm leading-relaxed ${
+              isPersian ? 'text-xs font-normal font-peyda' : 'font-light'
+            }`}
+          >
             {isPersian
               ? 'پوشاک مردانه لوکس معاصر طراحی‌شده با وقار معماری. پاریس — میلان — توکیو.'
               : 'Contemporary luxury menswear designed with architectural restraint. Paris — Milan — Tokyo.'}
@@ -162,13 +222,19 @@ export function Footer({ isPersian = false }: EditorialSectionProps) {
         </div>
 
         {/* Shop */}
-        <div className="space-y-3 font-mono">
-          <p className="text-white text-[10px] tracking-[0.25em] uppercase font-bold">
+        <div className={`space-y-3 ${isPersian ? 'font-peyda' : 'font-mono'}`}>
+          <p
+            className={
+              isPersian
+                ? 'text-white text-xs font-bold tracking-normal'
+                : 'text-white text-[10px] tracking-[0.25em] uppercase font-bold'
+            }
+          >
             {isPersian ? 'فروشگاه' : 'SHOP'}
           </p>
           <ul className="space-y-2 text-[#77746E]">
             <li><Link href="/shop/suits" className="hover:text-white transition-colors">{isPersian ? 'کت و شلوار' : 'Suits & Tailoring'}</Link></li>
-            <li><Link href="/shop/blazers" className="hover:text-white transition-colors">{isPersian ? 'کت و تک' : 'Blazers & Jackets'}</Link></li>
+            <li><Link href="/shop/blazers" className="hover:text-white transition-colors">{isPersian ? 'کت تک' : 'Blazers & Jackets'}</Link></li>
             <li><Link href="/shop/shirts" className="hover:text-white transition-colors">{isPersian ? 'پیراهن و ابریشم' : 'Shirts & Silk'}</Link></li>
             <li><Link href="/shop/trousers" className="hover:text-white transition-colors">{isPersian ? 'شلوار و کتان' : 'Trousers & Chinos'}</Link></li>
             <li><Link href="/shop/hoodies" className="hover:text-white transition-colors">{isPersian ? 'بافت و هودی' : 'Knitwear & Hoodies'}</Link></li>
@@ -176,8 +242,14 @@ export function Footer({ isPersian = false }: EditorialSectionProps) {
         </div>
 
         {/* Brand */}
-        <div className="space-y-3 font-mono">
-          <p className="text-white text-[10px] tracking-[0.25em] uppercase font-bold">
+        <div className={`space-y-3 ${isPersian ? 'font-peyda' : 'font-mono'}`}>
+          <p
+            className={
+              isPersian
+                ? 'text-white text-xs font-bold tracking-normal'
+                : 'text-white text-[10px] tracking-[0.25em] uppercase font-bold'
+            }
+          >
             {isPersian ? 'برند' : 'COMPANY'}
           </p>
           <ul className="space-y-2 text-[#77746E]">
@@ -189,8 +261,14 @@ export function Footer({ isPersian = false }: EditorialSectionProps) {
         </div>
 
         {/* Help */}
-        <div className="space-y-3 font-mono">
-          <p className="text-white text-[10px] tracking-[0.25em] uppercase font-bold">
+        <div className={`space-y-3 ${isPersian ? 'font-peyda' : 'font-mono'}`}>
+          <p
+            className={
+              isPersian
+                ? 'text-white text-xs font-bold tracking-normal'
+                : 'text-white text-[10px] tracking-[0.25em] uppercase font-bold'
+            }
+          >
             {isPersian ? 'راهنما' : 'HELP'}
           </p>
           <ul className="space-y-2 text-[#77746E]">
@@ -202,7 +280,11 @@ export function Footer({ isPersian = false }: EditorialSectionProps) {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto border-t border-[#2B2B2B] pt-8 flex flex-col sm:flex-row justify-between items-center text-[10px] font-mono text-[#77746E] space-y-4 sm:space-y-0 uppercase">
+      <div
+        className={`max-w-7xl mx-auto border-t border-[#2B2B2B] pt-8 flex flex-col sm:flex-row justify-between items-center text-[#77746E] space-y-4 sm:space-y-0 ${
+          isPersian ? 'text-xs font-normal font-peyda' : 'text-[10px] font-mono uppercase'
+        }`}
+      >
         <p>© 2026 NOIRÉ MENSWEAR. {isPersian ? 'تمام حقوق محفوظ است.' : 'ALL RIGHTS RESERVED.'}</p>
         <div className="flex space-x-6 space-x-reverse">
           <span className="hover:text-white cursor-pointer">{isPersian ? 'حریم خصوصی' : 'PRIVACY POLICY'}</span>

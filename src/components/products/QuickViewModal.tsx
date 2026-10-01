@@ -94,10 +94,22 @@ export default function QuickViewModal({ product, onClose, isPersian = false }: 
               <div className="space-y-4">
                 <div className="flex justify-between items-start">
                   <div>
-                    <span className="text-[10px] font-mono tracking-[0.25em] text-[#77746E] uppercase">
+                    <span
+                      className={
+                        isPersian
+                          ? 'text-xs font-normal font-peyda text-[#77746E]'
+                          : 'text-[10px] font-mono tracking-[0.25em] text-[#77746E] uppercase'
+                      }
+                    >
                       {product.category}
                     </span>
-                    <h2 className="text-2xl font-light font-display text-[#111111] uppercase mt-1">
+                    <h2
+                      className={
+                        isPersian
+                          ? 'text-xl sm:text-2xl font-bold font-peyda text-[#111111] mt-1'
+                          : 'text-2xl font-light font-display text-[#111111] uppercase mt-1'
+                      }
+                    >
                       {product.name}
                     </h2>
                   </div>
@@ -106,15 +118,23 @@ export default function QuickViewModal({ product, onClose, isPersian = false }: 
                   </span>
                 </div>
 
-                <p className="text-xs text-[#77746E] leading-relaxed font-light">
+                <p
+                  className={`text-[#77746E] leading-relaxed ${
+                    isPersian ? 'text-xs sm:text-sm font-normal font-peyda' : 'text-xs font-light'
+                  }`}
+                >
                   {product.description}
                 </p>
 
                 {/* Color Selector */}
                 <div className="space-y-2 pt-2">
-                  <div className="flex justify-between text-xs font-mono uppercase text-[#111111]">
+                  <div
+                    className={`flex justify-between text-[#111111] ${
+                      isPersian ? 'text-xs font-bold font-peyda' : 'text-xs font-mono uppercase'
+                    }`}
+                  >
                     <span>{isPersian ? 'رنگ' : 'COLOR'}</span>
-                    <span className="text-[#77746E]">{selectedColor.name}</span>
+                    <span className="text-[#77746E] font-normal">{selectedColor.name}</span>
                   </div>
                   <div className="flex space-x-3 space-x-reverse">
                     {product.colors.map((color) => (
@@ -135,16 +155,22 @@ export default function QuickViewModal({ product, onClose, isPersian = false }: 
 
                 {/* Size Selector */}
                 <div className="space-y-2 pt-2">
-                  <div className="flex justify-between text-xs font-mono uppercase text-[#111111]">
+                  <div
+                    className={`flex justify-between text-[#111111] ${
+                      isPersian ? 'text-xs font-bold font-peyda' : 'text-xs font-mono uppercase'
+                    }`}
+                  >
                     <span>{isPersian ? 'سایز' : 'SIZE'}</span>
-                    <span className="text-[#77746E]">{selectedSize}</span>
+                    <span className="text-[#77746E] font-normal">{selectedSize}</span>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {product.sizes.map((size) => (
                       <button
                         key={size}
                         onClick={() => setSelectedSize(size)}
-                        className={`px-4 py-2 text-xs font-mono border transition-all ${
+                        className={`px-4 py-2 text-xs border transition-all ${
+                          isPersian ? 'font-peyda font-medium' : 'font-mono'
+                        } ${
                           selectedSize === size
                             ? 'bg-[#111111] text-white border-[#111111]'
                             : 'border-[#D7D4CD] text-[#111111] hover:border-[#111111]'
@@ -157,15 +183,19 @@ export default function QuickViewModal({ product, onClose, isPersian = false }: 
                 </div>
 
                 {/* Material Details */}
-                <div className="text-[11px] font-mono text-[#77746E] border-t border-[#D7D4CD] pt-4 space-y-1">
+                <div
+                  className={`text-[#77746E] border-t border-[#D7D4CD] pt-4 space-y-1 ${
+                    isPersian ? 'text-xs font-peyda' : 'text-[11px] font-mono'
+                  }`}
+                >
                   <div>
-                    <span className="text-[#111111]">
+                    <span className="text-[#111111] font-medium">
                       {isPersian ? 'جنس:' : 'MATERIAL:'}
                     </span>{' '}
                     {product.material}
                   </div>
                   <div>
-                    <span className="text-[#111111]">
+                    <span className="text-[#111111] font-medium">
                       {isPersian ? 'برش:' : 'FIT:'}
                     </span>{' '}
                     {product.fit}
@@ -177,7 +207,11 @@ export default function QuickViewModal({ product, onClose, isPersian = false }: 
               <div className="flex space-x-3 space-x-reverse pt-4 border-t border-[#D7D4CD]">
                 <button
                   onClick={handleAddToCart}
-                  className="flex-1 bg-[#111111] text-[#F3F2EE] py-4 text-[11px] font-bold tracking-[0.25em] uppercase hover:bg-[#0B0B0B] transition-colors flex items-center justify-center space-x-2 space-x-reverse"
+                  className={`flex-1 bg-[#111111] text-[#F3F2EE] py-4 hover:bg-[#0B0B0B] transition-colors flex items-center justify-center space-x-2 space-x-reverse ${
+                    isPersian
+                      ? 'text-xs sm:text-sm font-medium font-peyda tracking-normal'
+                      : 'text-[11px] font-bold tracking-[0.25em] uppercase'
+                  }`}
                 >
                   {addedSuccess ? (
                     <>

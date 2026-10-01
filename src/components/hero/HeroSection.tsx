@@ -58,12 +58,18 @@ export default function HeroSection({
       </div>
 
       {/* Top Meta Information */}
-      <div className="relative z-10 max-w-7xl w-full mx-auto flex items-center justify-between text-[11px] tracking-[0.25em] text-[#D7D4CD] uppercase">
+      <div
+        className={`relative z-10 max-w-7xl w-full mx-auto flex items-center justify-between text-[#D7D4CD] ${
+          isPersian
+            ? 'text-xs md:text-sm font-medium font-peyda tracking-normal'
+            : 'text-[11px] tracking-[0.25em] uppercase font-mono'
+        }`}
+      >
         <div className="flex items-center space-x-3 space-x-reverse">
           <span className="w-2 h-2 rounded-full bg-[#A58B68] animate-pulse" />
           <span>{isPersian ? 'کالکشن بهار / تابستان ۲۰۲۶' : 'S/S 2026 CAMPAIGN'}</span>
         </div>
-        <span className="hidden sm:inline font-mono">
+        <span className="hidden sm:inline">
           {isPersian ? 'پوشاک معماری مردانه' : 'ARCHITECTURAL MENSWEAR'}
         </span>
       </div>
@@ -74,7 +80,11 @@ export default function HeroSection({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-xs sm:text-sm font-mono tracking-[0.3em] text-[#A58B68] uppercase mb-4"
+          className={
+            isPersian
+              ? 'text-xs sm:text-sm font-medium font-peyda text-[#A58B68] tracking-normal mb-3'
+              : 'text-xs sm:text-sm font-mono tracking-[0.3em] text-[#A58B68] uppercase mb-4'
+          }
         >
           {activeLook.subtitle} — {activeLook.number}
         </motion.p>
@@ -88,14 +98,24 @@ export default function HeroSection({
               animate={{ y: 0 }}
               exit={{ y: '-100%' }}
               transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
-              className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-light tracking-tighter uppercase font-display text-white leading-[0.9]"
+              className={
+                isPersian
+                  ? 'text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-peyda text-white leading-[1.18] tracking-normal whitespace-pre-line py-1'
+                  : 'text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-light tracking-tighter uppercase font-display text-white leading-[0.9]'
+              }
             >
               {activeLook.title}
             </motion.h1>
           </AnimatePresence>
         </div>
 
-        <p className="max-w-xl text-sm md:text-base text-[#D7D4CD] font-light leading-relaxed mt-6 mb-8">
+        <p
+          className={`max-w-xl text-[#D7D4CD] mt-6 mb-8 ${
+            isPersian
+              ? 'text-sm md:text-base font-normal font-peyda leading-relaxed tracking-normal max-w-lg'
+              : 'text-sm md:text-base font-light leading-relaxed'
+          }`}
+        >
           {activeLook.description}
         </p>
 
@@ -103,16 +123,30 @@ export default function HeroSection({
         <div className="flex flex-wrap items-center gap-4 sm:gap-6">
           <Link
             href="/shop"
-            className="group relative inline-flex items-center space-x-4 space-x-reverse bg-white text-[#111111] px-8 py-4 text-[11px] font-bold tracking-[0.25em] uppercase transition-transform hover:scale-105"
+            className={`group relative inline-flex items-center space-x-4 space-x-reverse bg-white text-[#111111] px-8 py-4 font-bold transition-transform hover:scale-105 ${
+              isPersian
+                ? 'text-xs md:text-sm font-medium font-peyda tracking-normal'
+                : 'text-[11px] tracking-[0.25em] uppercase'
+            }`}
             data-cursor-text={isPersian ? 'مشاهده' : 'EXPLORE'}
           >
             <span>{isPersian ? 'مشاهده کالکشن' : 'EXPLORE COLLECTION'}</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight
+              className={`w-4 h-4 transition-transform ${
+                isPersian
+                  ? 'rotate-180 group-hover:-translate-x-1'
+                  : 'group-hover:translate-x-1'
+              }`}
+            />
           </Link>
 
           <button
             onClick={handleAddLookToCart}
-            className="group inline-flex items-center space-x-3 space-x-reverse border border-[#D7D4CD]/40 hover:border-white bg-[#0B0B0B]/50 backdrop-blur-md px-6 py-4 text-[11px] font-medium tracking-[0.25em] uppercase text-white transition-all"
+            className={`group inline-flex items-center space-x-3 space-x-reverse border border-[#D7D4CD]/40 hover:border-white bg-[#0B0B0B]/50 backdrop-blur-md px-6 py-4 text-white transition-all ${
+              isPersian
+                ? 'text-xs md:text-sm font-medium font-peyda tracking-normal'
+                : 'text-[11px] font-medium tracking-[0.25em] uppercase'
+            }`}
           >
             <ShoppingBag className="w-4 h-4 text-[#A58B68]" />
             <span>
@@ -132,18 +166,32 @@ export default function HeroSection({
             <button
               key={look.id}
               onClick={() => setActiveLookIndex(index)}
-              className={`group text-right p-3 transition-all border-r-2 ${
+              className={`group text-right p-3 transition-all ${
+                isPersian ? 'border-l-2' : 'border-r-2'
+              } ${
                 isActive
                   ? 'border-[#A58B68] bg-white/5 backdrop-blur-sm'
                   : 'border-transparent hover:border-[#D7D4CD]/40'
               }`}
             >
-              <div className="flex justify-between items-center text-[10px] font-mono tracking-widest text-[#77746E] uppercase mb-1">
+              <div
+                className={`flex justify-between items-center text-[#77746E] mb-1 ${
+                  isPersian
+                    ? 'text-xs font-peyda tracking-normal'
+                    : 'text-[10px] font-mono tracking-widest uppercase'
+                }`}
+              >
                 <span>{look.number}</span>
-                <span>€{look.price}</span>
+                <span className="font-mono">€{look.price}</span>
               </div>
-              <h4 className="text-xs md:text-sm font-medium tracking-wider text-white truncate group-hover:text-[#A58B68] transition-colors">
-                {look.title}
+              <h4
+                className={`truncate group-hover:text-[#A58B68] transition-colors ${
+                  isPersian
+                    ? 'text-xs md:text-sm font-medium font-peyda text-white tracking-normal'
+                    : 'text-xs md:text-sm font-medium tracking-wider text-white'
+                }`}
+              >
+                {look.title.replace(/\n/g, ' ')}
               </h4>
             </button>
           );
