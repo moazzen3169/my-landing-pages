@@ -1,0 +1,65 @@
+'use client';
+
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+
+export default function NewEditSection() {
+  return (
+    <section className="py-24 bg-[#0B0B0B] text-[#F3F2EE] border-y border-[#2B2B2B] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        {/* Left Editorial Text */}
+        <div className="lg:col-span-5 space-y-6">
+          <span className="text-[10px] font-mono tracking-[0.35em] text-[#A58B68] uppercase">
+            SEASONAL EDITORIAL
+          </span>
+
+          <h2 className="text-5xl sm:text-6xl md:text-7xl font-light font-display tracking-tight text-white uppercase leading-none">
+            THE <br />
+            NEW <br />
+            EDIT.
+          </h2>
+
+          <p className="text-sm md:text-base text-[#D7D4CD] font-light leading-relaxed max-w-md">
+            Uncompromising modern tailoring designed for high-density city living. Defined by clean lines, heavy organic textiles, and effortless versatility.
+          </p>
+
+          <div className="pt-4">
+            <Link
+              href="/shop"
+              className="inline-flex items-center space-x-3 text-[11px] font-bold tracking-[0.25em] uppercase text-white hover:text-[#A58B68] transition-colors border-b border-[#D7D4CD] pb-2"
+              data-cursor-text="DISCOVER"
+            >
+              <span>DISCOVER THE LATEST COLLECTION</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Right Large Image Reveal */}
+        <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="relative aspect-[3/4] w-full bg-[#181818] border border-[#2B2B2B] overflow-hidden">
+            <Image
+              src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop"
+              alt="The New Edit Look 1"
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-700 ease-out"
+              sizes="(max-width: 768px) 100vw, 35vw"
+            />
+          </div>
+
+          <div className="relative aspect-[3/4] w-full bg-[#181818] border border-[#2B2B2B] overflow-hidden md:translate-y-8">
+            <Image
+              src="https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1200&auto=format&fit=crop"
+              alt="The New Edit Look 2"
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-700 ease-out"
+              sizes="(max-width: 768px) 100vw, 35vw"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
