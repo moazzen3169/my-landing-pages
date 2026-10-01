@@ -12,16 +12,18 @@ interface ProductCardProps {
   product: Product;
   onQuickView?: (product: Product) => void;
   aspectRatio?: 'portrait' | 'square' | 'tall';
+  isPersian?: boolean;
 }
 
 export default function ProductCard({
   product,
   onQuickView,
   aspectRatio = 'portrait',
+  isPersian = false,
 }: ProductCardProps) {
   const { toggleWishlist, isInWishlist } = useWishlist();
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
+  const [, setIsHovered] = useState(false);
 
   const inWishlist = isInWishlist(product.id);
 
@@ -54,7 +56,7 @@ export default function ProductCard({
           )}
           {product.isNew && !product.badge && (
             <span className="inline-block bg-[#A58B68] text-white text-[9px] font-mono tracking-[0.2em] px-2 py-1 uppercase">
-              NEW
+              {isPersian ? 'جدید' : 'NEW'}
             </span>
           )}
         </div>
@@ -91,11 +93,11 @@ export default function ProductCard({
                 e.stopPropagation();
                 onQuickView(product);
               }}
-              className="w-full bg-[#111111]/90 backdrop-blur-sm text-[#F3F2EE] py-3 text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-[#111111] transition-colors flex items-center justify-center space-x-2"
-              data-cursor-text="QUICK VIEW"
+              className="w-full bg-[#111111]/90 backdrop-blur-sm text-[#F3F2EE] py-3 text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-[#111111] transition-colors flex items-center justify-center space-x-2 space-x-reverse"
+              data-cursor-text={isPersian ? 'مشاهده سریع' : 'QUICK VIEW'}
             >
               <Eye className="w-3.5 h-3.5" />
-              <span>QUICK VIEW</span>
+              <span>{isPersian ? 'مشاهده سریع' : 'QUICK VIEW'}</span>
             </button>
           </div>
         )}
@@ -103,7 +105,7 @@ export default function ProductCard({
 
       {/* Product Details */}
       <div className="p-5 flex flex-col justify-between flex-1 space-y-2 bg-white">
-        <div className="flex justify-between items-start space-x-2">
+        <div className="flex justify-between items-start space-x-2 space-x-reverse">
           <Link href={`/product/${product.slug}`} className="group-hover:text-[#77746E] transition-colors">
             <h3 className="text-sm font-medium tracking-wide text-[#111111] uppercase font-sans line-clamp-1">
               {product.name}
@@ -117,7 +119,7 @@ export default function ProductCard({
         <div className="flex justify-between items-center text-[11px] text-[#77746E]">
           <span className="uppercase tracking-wider">{product.category}</span>
           {/* Color Swatches */}
-          <div className="flex items-center space-x-1">
+          <div className="flex items-center space-x-1 space-x-reverse">
             {product.colors.map((color) => (
               <span
                 key={color.name}

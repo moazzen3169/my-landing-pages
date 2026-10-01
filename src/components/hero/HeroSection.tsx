@@ -6,13 +6,22 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ShoppingBag } from 'lucide-react';
 import { NOIRE_LOOKS } from '@/data/noire';
+import { Look } from '@/types';
 import { useCart } from '@/context/CartContext';
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  looks?: Look[];
+  isPersian?: boolean;
+}
+
+export default function HeroSection({
+  looks = NOIRE_LOOKS,
+  isPersian = false,
+}: HeroSectionProps) {
   const [activeLookIndex, setActiveLookIndex] = useState(0);
   const { addToCart } = useCart();
 
-  const activeLook = NOIRE_LOOKS[activeLookIndex];
+  const activeLook = looks[activeLookIndex] || looks[0];
 
   const handleAddLookToCart = () => {
     activeLook.products.forEach((product) => {
@@ -50,11 +59,13 @@ export default function HeroSection() {
 
       {/* Top Meta Information */}
       <div className="relative z-10 max-w-7xl w-full mx-auto flex items-center justify-between text-[11px] tracking-[0.25em] text-[#D7D4CD] uppercase">
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-3 space-x-reverse">
           <span className="w-2 h-2 rounded-full bg-[#A58B68] animate-pulse" />
-          <span>S/S 2026 CAMPAIGN</span>
+          <span>{isPersian ? 'کالکشن بهار / تابستان ۲۰۲۶' : 'S/S 2026 CAMPAIGN'}</span>
         </div>
-        <span className="hidden sm:inline font-mono">ARCHITECTURAL MENSWEAR</span>
+        <span className="hidden sm:inline font-mono">
+          {isPersian ? 'پوشاک معماری مردانه' : 'ARCHITECTURAL MENSWEAR'}
+        </span>
       </div>
 
       {/* Center Hero Typography & Editorial Headline */}
@@ -92,32 +103,36 @@ export default function HeroSection() {
         <div className="flex flex-wrap items-center gap-4 sm:gap-6">
           <Link
             href="/shop"
-            className="group relative inline-flex items-center space-x-4 bg-white text-[#111111] px-8 py-4 text-[11px] font-bold tracking-[0.25em] uppercase transition-transform hover:scale-105"
-            data-cursor-text="EXPLORE"
+            className="group relative inline-flex items-center space-x-4 space-x-reverse bg-white text-[#111111] px-8 py-4 text-[11px] font-bold tracking-[0.25em] uppercase transition-transform hover:scale-105"
+            data-cursor-text={isPersian ? 'مشاهده' : 'EXPLORE'}
           >
-            <span>EXPLORE COLLECTION</span>
+            <span>{isPersian ? 'مشاهده کالکشن' : 'EXPLORE COLLECTION'}</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
 
           <button
             onClick={handleAddLookToCart}
-            className="group inline-flex items-center space-x-3 border border-[#D7D4CD]/40 hover:border-white bg-[#0B0B0B]/50 backdrop-blur-md px-6 py-4 text-[11px] font-medium tracking-[0.25em] uppercase text-white transition-all"
+            className="group inline-flex items-center space-x-3 space-x-reverse border border-[#D7D4CD]/40 hover:border-white bg-[#0B0B0B]/50 backdrop-blur-md px-6 py-4 text-[11px] font-medium tracking-[0.25em] uppercase text-white transition-all"
           >
             <ShoppingBag className="w-4 h-4 text-[#A58B68]" />
-            <span>ADD FULL LOOK (€{activeLook.price})</span>
+            <span>
+              {isPersian
+                ? `افزودن کامل استایل (€${activeLook.price})`
+                : `ADD FULL LOOK (€${activeLook.price})`}
+            </span>
           </button>
         </div>
       </div>
 
       {/* Bottom Hero Look Selector Switcher */}
       <div className="relative z-10 max-w-7xl w-full mx-auto border-t border-[#2B2B2B] pt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-        {NOIRE_LOOKS.map((look, index) => {
+        {looks.map((look, index) => {
           const isActive = index === activeLookIndex;
           return (
             <button
               key={look.id}
               onClick={() => setActiveLookIndex(index)}
-              className={`group text-left p-3 transition-all border-l-2 ${
+              className={`group text-right p-3 transition-all border-r-2 ${
                 isActive
                   ? 'border-[#A58B68] bg-white/5 backdrop-blur-sm'
                   : 'border-transparent hover:border-[#D7D4CD]/40'

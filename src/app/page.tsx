@@ -4,14 +4,14 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { LANDING_REGISTRY } from '@/data/noire';
-import { ArrowLeft, Sparkles, ExternalLink, Layers, CheckCircle2 } from 'lucide-react';
+import { Sparkles, ExternalLink, CheckCircle2 } from 'lucide-react';
 
 export default function ShowcasePage() {
   const [activeCategory, setActiveCategory] = useState<string>('all');
 
   const categories = [
     { id: 'all', namePersian: 'همه لندینگ‌ها', nameEnglish: 'ALL LANDINGS' },
-    { id: 'men-formal', namePersian: 'پوشاک مردانه', nameEnglish: 'MENSWEAR' },
+    { id: 'men-formal', namePersian: 'پوشاک مردانه معاصر', nameEnglish: 'MENSWEAR' },
   ];
 
   const filteredLandings = activeCategory === 'all'
@@ -40,10 +40,10 @@ export default function ShowcasePage() {
               کالکشن صفحات لندینگ اختصاصی
             </div>
             <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-3 font-peyda">
-              کاتالوگ لندینگ‌های اختصاصی
+              کاتالوگ لندینگ‌های اختصاصی NOIRÉ
             </h1>
             <p className="text-[#9E9EB2] max-w-2xl text-base sm:text-lg leading-relaxed font-vazir">
-              از این بخش می‌توانید تمام لندینگ پیج‌های ساخته‌شده در این پروژه را مشاهده کنید. هر لندینگ پیج دارای استایل، چیدمان، کامپوننت و ساختار کاملاً مستقل است.
+              مشاهده و تست دو نسخه لندینگ پیج اختصاصی نوآر (NOIRÉ) به دو زبان انگلیسی و فارسی. هر دو نسخه دارای چیدمان، استایل و بخش‌های دقیقاً یکسان با تصاویر محلی پروژه هستند.
             </p>
           </div>
 
@@ -69,11 +69,8 @@ export default function ShowcasePage() {
       <main className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
           {filteredLandings.map((landing) => {
-            const landingPath = landing.slug === 'noire-men-formal'
-              ? '/shop/noire-men-formal'
-              : `/shop/${landing.slug}`;
-
-            const isPersian = landing.slug.includes('persian');
+            const landingPath = `/shop/${landing.slug}`;
+            const isPersian = landing.slug.includes('fa') || landing.slug.includes('persian');
 
             return (
               <div
@@ -95,12 +92,12 @@ export default function ShowcasePage() {
                     {/* Badge */}
                     <div className="absolute top-4 right-4 flex gap-2">
                       <span className="px-3 py-1 bg-[#0E0F12]/80 backdrop-blur-md border border-white/10 text-white text-[11px] font-bold rounded-md uppercase tracking-wider">
-                        {landing.category}
+                        {isPersian ? 'نسخه فارسی (FA)' : 'ENGLISH VERSION (EN)'}
                       </span>
                       {isPersian && (
                         <span className="px-3 py-1 bg-[#C8A97E] text-black font-extrabold text-[11px] rounded-md flex items-center gap-1 shadow-md">
                           <Sparkles className="w-3 h-3" />
-                          لندینگ جدید فارسی RTL
+                          زبان فارسی RTL
                         </span>
                       )}
                     </div>
@@ -123,15 +120,15 @@ export default function ShowcasePage() {
                       </div>
                       <div className="flex items-center gap-1.5">
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#C8A97E]" />
-                        <span>کامپوننت‌های ایزوله</span>
+                        <span>استایل و بخش‌های همسان</span>
                       </div>
                       <div className="flex items-center gap-1.5">
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#C8A97E]" />
-                        <span>داده‌های مستقل اختصاصی</span>
+                        <span>تصاویر محلی پروژه</span>
                       </div>
                       <div className="flex items-center gap-1.5">
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#C8A97E]" />
-                        <span>پشتیبانی کامل RTL و فونت</span>
+                        <span>سوئیچر دوزبانه مستقیم</span>
                       </div>
                     </div>
                   </div>

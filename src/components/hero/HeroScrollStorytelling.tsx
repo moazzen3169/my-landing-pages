@@ -9,40 +9,52 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const STORY_STEPS = [
-  {
-    step: '01 / 04',
-    title: 'THE ARCHITECTURE OF SILHOUETTE',
-    subtitle: 'PRECISION TAILORING',
-    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1600&auto=format&fit=crop',
-    description: 'Every garment begins with a structural concept. Clean shoulder pads, chest canvassing, and sculpted lapels engineered for effortless posture.'
-  },
-  {
-    step: '02 / 04',
-    title: 'TACTILE MATERIAL DISCIPLINE',
-    subtitle: 'NATURAL FIBERS',
-    image: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1600&auto=format&fit=crop',
-    description: '100% Super 120s virgin wools from Biella, grade-A Mongolian cashmere, and long-staple Egyptian twill. Pure tactile uncompromising luxury.'
-  },
-  {
-    step: '03 / 04',
-    title: 'THE MODERN UNIFORM',
-    subtitle: 'VERSATILE FUNCTION',
-    image: 'https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?q=80&w=1600&auto=format&fit=crop',
-    description: 'Designed to move seamlessly between daylight meetings and low-light evening engagements. Timeless forms for the modern global traveler.'
-  },
-  {
-    step: '04 / 04',
-    title: 'CRAFTED WITHOUT COMPROMISE',
-    subtitle: 'FINISHING TOUCH',
-    image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=1600&auto=format&fit=crop',
-    description: 'Hand-sewn buttonholes, horn buttons, and cupro silk linings. Attention to the micro-details that define high-end menswear.'
-  }
-];
+interface HeroScrollStorytellingProps {
+  isPersian?: boolean;
+}
 
-export default function HeroScrollStorytelling() {
+export default function HeroScrollStorytelling({ isPersian = false }: HeroScrollStorytellingProps) {
   const triggerRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const STORY_STEPS = [
+    {
+      step: '01 / 04',
+      title: isPersian ? 'معماری سیلوئت و ساختار' : 'THE ARCHITECTURE OF SILHOUETTE',
+      subtitle: isPersian ? 'خیاطی و دوخت دقیق' : 'PRECISION TAILORING',
+      image: '/images/banners/Group 242.jpg',
+      description: isPersian
+        ? 'هر لباس با یک مفهوم ساختاری آغاز می‌شود. پدهای شانه تمیز، لایه‌دوزی سینه و یقه تراشیده‌شده مهندسی‌شده برای وقار و ایستایی راحت.'
+        : 'Every garment begins with a structural concept. Clean shoulder pads, chest canvassing, and sculpted lapels engineered for effortless posture.'
+    },
+    {
+      step: '02 / 04',
+      title: isPersian ? 'انضباط و دقت متریال لمسی' : 'TACTILE MATERIAL DISCIPLINE',
+      subtitle: isPersian ? 'الیاف کاملاً طبیعی' : 'NATURAL FIBERS',
+      image: '/images/men-hoodies/g-star-premium-core-track-jacket-sweater-dark-blue.png',
+      description: isPersian
+        ? '۱۰۰٪ پشم خالص Super 120s از بیلا، کشمیر درجه یک مغولی و کتان کج‌راه مصر. لوکس واقعی بدون سازش لمسی.'
+        : '100% Super 120s virgin wools from Biella, grade-A Mongolian cashmere, and long-staple Egyptian twill. Pure tactile uncompromising luxury.'
+    },
+    {
+      step: '03 / 04',
+      title: isPersian ? 'یونیفرم مدرن شهری' : 'THE MODERN UNIFORM',
+      subtitle: isPersian ? 'کاربرد چندمنظوره' : 'VERSATILE FUNCTION',
+      image: '/images/Men-panets/g-star-bend-loose-jeans-dark-blue.png',
+      description: isPersian
+        ? 'طراحی‌شده برای حرکت روان بین جلسات کاری روز و دیدارهای رسمی شبانه. فرم‌های جاودانه برای مسافران مدرن جهان.'
+        : 'Designed to move seamlessly between daylight meetings and low-light evening engagements. Timeless forms for the modern global traveler.'
+    },
+    {
+      step: '04 / 04',
+      title: isPersian ? 'ساخته‌شده بدون هیچ‌گونه سازش' : 'CRAFTED WITHOUT COMPROMISE',
+      subtitle: isPersian ? 'لمس جزییات نهایی' : 'FINISHING TOUCH',
+      image: '/images/Men-shirts/g-star-waffle-henley-relaxed-t-shirt-white.png',
+      description: isPersian
+        ? 'جافتحه‌های دست‌دوز، دکمه‌های شاخ طبیعی و آسترهای ابریشم کوپرو. توجه به ریزترین جزییاتی که پوشاک لوکس مردانه را تعریف می‌کنند.'
+        : 'Hand-sewn buttonholes, horn buttons, and cupro silk linings. Attention to the micro-details that define high-end menswear.'
+    }
+  ];
 
   useEffect(() => {
     const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -81,7 +93,7 @@ export default function HeroScrollStorytelling() {
     }, triggerRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [STORY_STEPS.length]);
 
   return (
     <div ref={triggerRef} className="relative w-full" style={{ height: `${STORY_STEPS.length * 100}vh` }}>
@@ -124,8 +136,8 @@ export default function HeroScrollStorytelling() {
 
             {/* Bottom Indicator */}
             <div className="flex justify-between items-center text-[10px] tracking-[0.2em] text-[#77746E] uppercase border-t border-white/10 pt-4">
-              <span>SCROLL TO CONTINUE STORY</span>
-              <span>NOIRÉ MANIFESTO</span>
+              <span>{isPersian ? 'اسکرول کنید تا داستان ادامه یابد' : 'SCROLL TO CONTINUE STORY'}</span>
+              <span>{isPersian ? 'بیانیه نوآر' : 'NOIRÉ MANIFESTO'}</span>
             </div>
           </div>
         ))}

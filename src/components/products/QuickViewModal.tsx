@@ -12,9 +12,10 @@ import { formatPrice } from '@/lib/utils';
 interface QuickViewModalProps {
   product: Product;
   onClose: () => void;
+  isPersian?: boolean;
 }
 
-export default function QuickViewModal({ product, onClose }: QuickViewModalProps) {
+export default function QuickViewModal({ product, onClose, isPersian = false }: QuickViewModalProps) {
   const { addToCart } = useCart();
   const { toggleWishlist, isInWishlist } = useWishlist();
 
@@ -33,7 +34,7 @@ export default function QuickViewModal({ product, onClose }: QuickViewModalProps
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 md:p-10">
+      <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 md:p-10 font-sans">
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -54,14 +55,14 @@ export default function QuickViewModal({ product, onClose }: QuickViewModalProps
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 z-20 p-2 bg-white/80 rounded-full text-[#111111] hover:bg-white transition-colors"
+            className="absolute top-4 left-4 z-20 p-2 bg-white/80 rounded-full text-[#111111] hover:bg-white transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
 
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Gallery Left */}
-            <div className="relative aspect-[3/4] bg-[#E8E6E1] border-b md:border-b-0 md:border-r border-[#D7D4CD]">
+            <div className="relative aspect-[3/4] bg-[#E8E6E1] border-b md:border-b-0 md:border-l border-[#D7D4CD]">
               <Image
                 src={product.images[activeImageIndex] || product.images[0]}
                 alt={product.name}
@@ -72,7 +73,7 @@ export default function QuickViewModal({ product, onClose }: QuickViewModalProps
 
               {/* Thumbnails */}
               {product.images.length > 1 && (
-                <div className="absolute bottom-4 left-4 flex space-x-2">
+                <div className="absolute bottom-4 right-4 flex space-x-2 space-x-reverse">
                   {product.images.map((img, idx) => (
                     <button
                       key={idx}
@@ -112,10 +113,10 @@ export default function QuickViewModal({ product, onClose }: QuickViewModalProps
                 {/* Color Selector */}
                 <div className="space-y-2 pt-2">
                   <div className="flex justify-between text-xs font-mono uppercase text-[#111111]">
-                    <span>COLOR</span>
+                    <span>{isPersian ? 'رنگ' : 'COLOR'}</span>
                     <span className="text-[#77746E]">{selectedColor.name}</span>
                   </div>
-                  <div className="flex space-x-3">
+                  <div className="flex space-x-3 space-x-reverse">
                     {product.colors.map((color) => (
                       <button
                         key={color.name}
@@ -135,7 +136,7 @@ export default function QuickViewModal({ product, onClose }: QuickViewModalProps
                 {/* Size Selector */}
                 <div className="space-y-2 pt-2">
                   <div className="flex justify-between text-xs font-mono uppercase text-[#111111]">
-                    <span>SIZE</span>
+                    <span>{isPersian ? 'سایز' : 'SIZE'}</span>
                     <span className="text-[#77746E]">{selectedSize}</span>
                   </div>
                   <div className="flex flex-wrap gap-2">
@@ -157,26 +158,36 @@ export default function QuickViewModal({ product, onClose }: QuickViewModalProps
 
                 {/* Material Details */}
                 <div className="text-[11px] font-mono text-[#77746E] border-t border-[#D7D4CD] pt-4 space-y-1">
-                  <div><span className="text-[#111111]">MATERIAL:</span> {product.material}</div>
-                  <div><span className="text-[#111111]">FIT:</span> {product.fit}</div>
+                  <div>
+                    <span className="text-[#111111]">
+                      {isPersian ? 'جنس:' : 'MATERIAL:'}
+                    </span>{' '}
+                    {product.material}
+                  </div>
+                  <div>
+                    <span className="text-[#111111]">
+                      {isPersian ? 'برش:' : 'FIT:'}
+                    </span>{' '}
+                    {product.fit}
+                  </div>
                 </div>
               </div>
 
               {/* Actions */}
-              <div className="flex space-x-3 pt-4 border-t border-[#D7D4CD]">
+              <div className="flex space-x-3 space-x-reverse pt-4 border-t border-[#D7D4CD]">
                 <button
                   onClick={handleAddToCart}
-                  className="flex-1 bg-[#111111] text-[#F3F2EE] py-4 text-[11px] font-bold tracking-[0.25em] uppercase hover:bg-[#0B0B0B] transition-colors flex items-center justify-center space-x-2"
+                  className="flex-1 bg-[#111111] text-[#F3F2EE] py-4 text-[11px] font-bold tracking-[0.25em] uppercase hover:bg-[#0B0B0B] transition-colors flex items-center justify-center space-x-2 space-x-reverse"
                 >
                   {addedSuccess ? (
                     <>
                       <Check className="w-4 h-4 text-green-400" />
-                      <span>ADDED TO BAG</span>
+                      <span>{isPersian ? 'به سبد اضافه شد' : 'ADDED TO BAG'}</span>
                     </>
                   ) : (
                     <>
                       <ShoppingBag className="w-4 h-4" />
-                      <span>ADD TO BAG</span>
+                      <span>{isPersian ? 'افزودن به سبد خرید' : 'ADD TO BAG'}</span>
                     </>
                   )}
                 </button>

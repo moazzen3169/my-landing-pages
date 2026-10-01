@@ -9,14 +9,19 @@ interface ProductGridProps {
   products: Product[];
   title?: string;
   subtitle?: string;
+  isPersian?: boolean;
 }
 
 export default function ProductGrid({
   products,
-  title = 'ESSENTIALS COLLECTION',
-  subtitle = 'CONTEMPORARY SELECTION',
+  title,
+  subtitle,
+  isPersian = false,
 }: ProductGridProps) {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
+  const displayTitle = title || (isPersian ? 'کالکشن ضروریات نوآر' : 'THE ESSENTIAL EDIT');
+  const displaySubtitle = subtitle || (isPersian ? 'جدیدترین‌های ۲۰۲۶' : 'NEW ARRIVALS 2026');
 
   return (
     <section className="py-20 px-6 md:px-12 max-w-7xl mx-auto w-full">
@@ -24,14 +29,16 @@ export default function ProductGrid({
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-[#D7D4CD] pb-6">
         <div>
           <span className="text-[10px] font-mono tracking-[0.3em] text-[#77746E] uppercase">
-            {subtitle}
+            {displaySubtitle}
           </span>
           <h2 className="text-3xl sm:text-5xl font-light tracking-tight uppercase font-display text-[#111111] mt-1">
-            {title}
+            {displayTitle}
           </h2>
         </div>
         <span className="text-xs font-mono text-[#77746E] uppercase mt-4 md:mt-0">
-          SHOWING {products.length} PRODUCTS
+          {isPersian
+            ? `نمایش ${products.length} محصول`
+            : `SHOWING ${products.length} PRODUCTS`}
         </span>
       </div>
 
@@ -49,6 +56,7 @@ export default function ProductGrid({
                 product={product}
                 onQuickView={(p) => setSelectedProduct(p)}
                 aspectRatio={isFeaturedCard ? 'square' : 'portrait'}
+                isPersian={isPersian}
               />
             </div>
           );
@@ -60,6 +68,7 @@ export default function ProductGrid({
         <QuickViewModal
           product={selectedProduct}
           onClose={() => setSelectedProduct(null)}
+          isPersian={isPersian}
         />
       )}
     </section>

@@ -9,15 +9,13 @@ export const NOIRE_PRODUCTS: Product[] = [
     price: 289,
     currency: 'EUR',
     colors: [
-      { name: 'Charcoal', hex: '#2B2B2B', image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop' },
-      { name: 'Black', hex: '#111111', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=1200&auto=format&fit=crop' },
-      { name: 'Stone', hex: '#A8A39A', image: 'https://images.unsplash.com/photo-1598808503746-f34c53b9323e?q=80&w=1200&auto=format&fit=crop' }
+      { name: 'Charcoal', hex: '#2B2B2B', image: '/images/men-hoodies/g-star-premium-core-track-jacket-sweater-dark-blue.png' },
+      { name: 'Black', hex: '#111111', image: '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-black.png' }
     ],
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     images: [
-      'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1598808503746-f34c53b9323e?q=80&w=1200&auto=format&fit=crop'
+      '/images/men-hoodies/g-star-premium-core-track-jacket-sweater-dark-blue.png',
+      '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-black.png'
     ],
     description: 'A structured contemporary blazer cut from a refined wool blend, designed for a clean architectural silhouette from day to evening.',
     material: '68% Virgin Wool, 28% Polyester, 4% Elastane. Lining: 100% Cupro.',
@@ -38,15 +36,15 @@ export const NOIRE_PRODUCTS: Product[] = [
     price: 129,
     currency: 'EUR',
     colors: [
-      { name: 'Crisp White', hex: '#FFFFFF', image: 'https://images.unsplash.com/photo-1620012253295-c15cc3e65df4?q=80&w=1200&auto=format&fit=crop' },
-      { name: 'Sky Blue', hex: '#B0C4DE', image: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=1200&auto=format&fit=crop' },
-      { name: 'Onyx Black', hex: '#181818', image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=1200&auto=format&fit=crop' }
+      { name: 'Crisp White', hex: '#FFFFFF', image: '/images/Men-shirts/g-star-waffle-henley-relaxed-t-shirt-white.png' },
+      { name: 'Sky Blue', hex: '#B0C4DE', image: '/images/Men-shirts/g-star-lash-t-shirt-light-blue.png' },
+      { name: 'Onyx Black', hex: '#181818', image: '/images/Men-shirts/g-star-lash-t-shirt-black.png' }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
     images: [
-      'https://images.unsplash.com/photo-1620012253295-c15cc3e65df4?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=1200&auto=format&fit=crop'
+      '/images/Men-shirts/g-star-waffle-henley-relaxed-t-shirt-white.png',
+      '/images/Men-shirts/g-star-lash-t-shirt-light-blue.png',
+      '/images/Men-shirts/g-star-lash-t-shirt-black.png'
     ],
     description: 'Crafted from long-staple Egyptian cotton twill, offering crisp feel and exceptional breathability.',
     material: '100% Organic Long-Staple Cotton',
@@ -64,14 +62,13 @@ export const NOIRE_PRODUCTS: Product[] = [
     price: 159,
     currency: 'EUR',
     colors: [
-      { name: 'Charcoal', hex: '#2B2B2B', image: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=1200&auto=format&fit=crop' },
-      { name: 'Off White', hex: '#EAE6DF', image: 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=1200&auto=format&fit=crop' },
-      { name: 'Dark Navy', hex: '#1B263B', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=1200&auto=format&fit=crop' }
+      { name: 'Charcoal', hex: '#2B2B2B', image: '/images/Men-panets/g-star-rovic-zip-3d-straight-tapered-pant-grey.png' },
+      { name: 'Off White', hex: '#EAE6DF', image: '/images/Men-panets/g-star-clean-regular-cargo-pants-black.png' }
     ],
     sizes: ['46', '48', '50', '52', '54'],
     images: [
-      'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=1200&auto=format&fit=crop'
+      '/images/Men-panets/g-star-rovic-zip-3d-straight-tapered-pant-grey.png',
+      '/images/Men-panets/g-star-clean-regular-cargo-pants-black.png'
     ],
     description: 'Single-pleat trousers cut from tropical weight wool with a slight stretch for seamless fluid movement.',
     material: '96% Italian Wool, 4% Elastane',
@@ -89,14 +86,13 @@ export const NOIRE_PRODUCTS: Product[] = [
     price: 69,
     currency: 'EUR',
     colors: [
-      { name: 'Off-White', hex: '#F0ECE1', image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop' },
-      { name: 'Deep Black', hex: '#111111', image: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1200&auto=format&fit=crop' },
-      { name: 'Taupe', hex: '#8C8275', image: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1200&auto=format&fit=crop' }
+      { name: 'Off-White', hex: '#F0ECE1', image: '/images/Men-shirts/g-star-ductsoon-relaxed-t-shirt-white.png' },
+      { name: 'Deep Black', hex: '#111111', image: '/images/Men-shirts/g-star-base-s-t-shirt-black.png' }
     ],
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     images: [
-      'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1200&auto=format&fit=crop'
+      '/images/Men-shirts/g-star-ductsoon-relaxed-t-shirt-white.png',
+      '/images/Men-shirts/g-star-base-s-t-shirt-black.png'
     ],
     description: '300 GSM heavy combed jersey offering an architectural drape that holds its boxy form perfectly.',
     material: '100% Heavy Organic Combed Cotton',
@@ -114,13 +110,13 @@ export const NOIRE_PRODUCTS: Product[] = [
     price: 179,
     currency: 'EUR',
     colors: [
-      { name: 'Sandstone', hex: '#C2B6A2', image: 'https://images.unsplash.com/photo-1516257984-b1b4d707412e?q=80&w=1200&auto=format&fit=crop' },
-      { name: 'Espresso', hex: '#3B2F2F', image: 'https://images.unsplash.com/photo-1548883354-7622d03aca27?q=80&w=1200&auto=format&fit=crop' }
+      { name: 'Sandstone', hex: '#C2B6A2', image: '/images/Men-shirts/g-star-relaxed-base-t-shirt-beige.png' },
+      { name: 'Espresso', hex: '#3B2F2F', image: '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-brown.png' }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
     images: [
-      'https://images.unsplash.com/photo-1516257984-b1b4d707412e?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1548883354-7622d03aca27?q=80&w=1200&auto=format&fit=crop'
+      '/images/Men-shirts/g-star-relaxed-base-t-shirt-beige.png',
+      '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-brown.png'
     ],
     description: 'A versatile transitional layer featuring concealed horn buttons and double utility chest pockets.',
     material: '70% Recycled Melton Wool, 30% Polyamide',
@@ -138,13 +134,13 @@ export const NOIRE_PRODUCTS: Product[] = [
     price: 495,
     currency: 'EUR',
     colors: [
-      { name: 'Onyx Black', hex: '#111111', image: 'https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?q=80&w=1200&auto=format&fit=crop' },
-      { name: 'Graphite', hex: '#3A3B3C', image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop' }
+      { name: 'Onyx Black', hex: '#111111', image: '/images/banners/Group 242.jpg' },
+      { name: 'Graphite', hex: '#3A3B3C', image: '/images/men-hoodies/g-star-core-crew-sweat-long-sleeve-black.png' }
     ],
     sizes: ['46', '48', '50', '52', '54'],
     images: [
-      'https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop'
+      '/images/banners/Group 242.jpg',
+      '/images/men-hoodies/g-star-core-crew-sweat-long-sleeve-black.png'
     ],
     description: 'Two-piece modern evening suit tailored from Super 120s Italian merino wool with satin finish lapels.',
     material: '100% Super 120s Italian Virgin Wool',
@@ -163,13 +159,13 @@ export const NOIRE_PRODUCTS: Product[] = [
     price: 220,
     currency: 'EUR',
     colors: [
-      { name: 'Oatmeal', hex: '#DCD4C5', image: 'https://images.unsplash.com/photo-1614975058789-41316d0e2e9c?q=80&w=1200&auto=format&fit=crop' },
-      { name: 'Charcoal', hex: '#2B2B2B', image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1200&auto=format&fit=crop' }
+      { name: 'Oatmeal', hex: '#DCD4C5', image: '/images/men-hoodies/g-star-logo-sweater-grey.png' },
+      { name: 'Charcoal', hex: '#2B2B2B', image: '/images/men-hoodies/g-star-core-crew-sweat-long-sleeve-grey.png' }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
     images: [
-      'https://images.unsplash.com/photo-1614975058789-41316d0e2e9c?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1200&auto=format&fit=crop'
+      '/images/men-hoodies/g-star-logo-sweater-grey.png',
+      '/images/men-hoodies/g-star-core-crew-sweat-long-sleeve-grey.png'
     ],
     description: 'Ultra-soft 12-gauge grade-A Mongolian cashmere crewneck with seamless seamless rib detailing.',
     material: '100% Grade-A Mongolian Cashmere',
@@ -187,13 +183,13 @@ export const NOIRE_PRODUCTS: Product[] = [
     price: 349,
     currency: 'EUR',
     colors: [
-      { name: 'Taupe Stone', hex: '#8F8B82', image: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1200&auto=format&fit=crop' },
-      { name: 'Midnight Black', hex: '#0B0B0B', image: 'https://images.unsplash.com/photo-1548883354-7622d03aca27?q=80&w=1200&auto=format&fit=crop' }
+      { name: 'Taupe Stone', hex: '#8F8B82', image: '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-brown.png' },
+      { name: 'Midnight Black', hex: '#0B0B0B', image: '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-black.png' }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
     images: [
-      'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1548883354-7622d03aca27?q=80&w=1200&auto=format&fit=crop'
+      '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-brown.png',
+      '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-black.png'
     ],
     description: 'Water-repellent gabardine mac coat with hidden placket and sharp point collar.',
     material: '100% Water-Repellent Cotton Gabardine',
@@ -211,13 +207,13 @@ export const NOIRE_PRODUCTS: Product[] = [
     price: 119,
     currency: 'EUR',
     colors: [
-      { name: 'Cement Grey', hex: '#A3A3A3', image: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop' },
-      { name: 'Pitch Black', hex: '#111111', image: 'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=1200&auto=format&fit=crop' }
+      { name: 'Cement Grey', hex: '#A3A3A3', image: '/images/men-hoodies/g-star-premium-core-hooded-sweater-grey.png' },
+      { name: 'Pitch Black', hex: '#111111', image: '/images/men-hoodies/g-star-core-half-zip-sweat-black.png' }
     ],
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     images: [
-      'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=1200&auto=format&fit=crop'
+      '/images/men-hoodies/g-star-premium-core-hooded-sweater-grey.png',
+      '/images/men-hoodies/g-star-core-half-zip-sweat-black.png'
     ],
     description: '480 GSM organic cotton loopback French terry with double-lined hood and seamless pouch pocket.',
     material: '100% Heavy Organic Loopback Cotton',
@@ -235,13 +231,13 @@ export const NOIRE_PRODUCTS: Product[] = [
     price: 139,
     currency: 'EUR',
     colors: [
-      { name: 'Pebble Beige', hex: '#D5CCBB', image: 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?q=80&w=1200&auto=format&fit=crop' },
-      { name: 'Washed Olive', hex: '#555D50', image: 'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=1200&auto=format&fit=crop' }
+      { name: 'Pebble Beige', hex: '#D5CCBB', image: '/images/Men-panets/g-star-rovic-zip-3d-regular-tapered-pants-brown (1).png' },
+      { name: 'Washed Olive', hex: '#555D50', image: '/images/Men-panets/g-star-utility-loose-cargo-pants-medium-blue.png' }
     ],
     sizes: ['46', '48', '50', '52'],
     images: [
-      'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=1200&auto=format&fit=crop'
+      '/images/Men-panets/g-star-rovic-zip-3d-regular-tapered-pants-brown (1).png',
+      '/images/Men-panets/g-star-utility-loose-cargo-pants-medium-blue.png'
     ],
     description: 'High-density cotton twill with garment wash finish and double front pleats.',
     material: '100% Japanese Cotton Twill',
@@ -259,13 +255,13 @@ export const NOIRE_PRODUCTS: Product[] = [
     price: 329,
     currency: 'EUR',
     colors: [
-      { name: 'Midnight Navy', hex: '#111827', image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop' },
-      { name: 'Jet Black', hex: '#0B0B0B', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=1200&auto=format&fit=crop' }
+      { name: 'Midnight Navy', hex: '#111827', image: '/images/men-hoodies/g-star-old-skool-crew-sweat-long-sleeve-dark-blue.png' },
+      { name: 'Jet Black', hex: '#0B0B0B', image: '/images/men-hoodies/g-star-core-crew-sweat-long-sleeve-black.png' }
     ],
     sizes: ['46', '48', '50', '52', '54'],
     images: [
-      'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=1200&auto=format&fit=crop'
+      '/images/men-hoodies/g-star-old-skool-crew-sweat-long-sleeve-dark-blue.png',
+      '/images/men-hoodies/g-star-core-crew-sweat-long-sleeve-black.png'
     ],
     description: 'Refined shawl collar tuxedo blazer with satin silk trimmings and hand-stitched details.',
     material: '92% Virgin Wool, 8% Silk',
@@ -283,13 +279,11 @@ export const NOIRE_PRODUCTS: Product[] = [
     price: 249,
     currency: 'EUR',
     colors: [
-      { name: 'Matte Black', hex: '#181818', image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1200&auto=format&fit=crop' },
-      { name: 'Raw Chestnut', hex: '#5C3A21', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1200&auto=format&fit=crop' }
+      { name: 'Matte Black', hex: '#181818', image: '/images/banners/Group 242.jpg' }
     ],
     sizes: ['One Size'],
     images: [
-      'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1200&auto=format&fit=crop'
+      '/images/banners/Group 242.jpg'
     ],
     description: 'Full-grain vegetable-tanned calfskin leather tote with magnetic top clasp and padded laptop pouch.',
     material: '100% Tuscan Full-Grain Calfskin Leather',
@@ -307,13 +301,13 @@ export const NOIRE_PRODUCTS: Product[] = [
     price: 189,
     currency: 'EUR',
     colors: [
-      { name: 'Off-White Silk', hex: '#F5F5F0', image: 'https://images.unsplash.com/photo-1620012253295-c15cc3e65df4?q=80&w=1200&auto=format&fit=crop' },
-      { name: 'Onyx Silk', hex: '#111111', image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=1200&auto=format&fit=crop' }
+      { name: 'Off-White Silk', hex: '#F5F5F0', image: '/images/Men-shirts/g-star-structured-tweeter-grandad-t-shirt-white.png' },
+      { name: 'Onyx Silk', hex: '#111111', image: '/images/Men-shirts/g-star-lash-t-shirt-dark-blue.png' }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
     images: [
-      'https://images.unsplash.com/photo-1620012253295-c15cc3e65df4?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=1200&auto=format&fit=crop'
+      '/images/Men-shirts/g-star-structured-tweeter-grandad-t-shirt-white.png',
+      '/images/Men-shirts/g-star-lash-t-shirt-dark-blue.png'
     ],
     description: 'Sandwashed 19mm silk crepe de chine shirt with concealed front placket.',
     material: '100% Sandwashed Silk',
@@ -331,13 +325,13 @@ export const NOIRE_PRODUCTS: Product[] = [
     price: 169,
     currency: 'EUR',
     colors: [
-      { name: 'Charcoal', hex: '#2B2B2B', image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1200&auto=format&fit=crop' },
-      { name: 'Warm Cream', hex: '#EBE5D8', image: 'https://images.unsplash.com/photo-1614975058789-41316d0e2e9c?q=80&w=1200&auto=format&fit=crop' }
+      { name: 'Charcoal', hex: '#2B2B2B', image: '/images/men-hoodies/g-star-premium-core-half-zip-sweater-dark-blue.png' },
+      { name: 'Warm Cream', hex: '#EBE5D8', image: '/images/men-hoodies/g-star-sunfaded-sweater-dark-blue.png' }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
     images: [
-      'https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1614975058789-41316d0e2e9c?q=80&w=1200&auto=format&fit=crop'
+      '/images/men-hoodies/g-star-premium-core-half-zip-sweater-dark-blue.png',
+      '/images/men-hoodies/g-star-sunfaded-sweater-dark-blue.png'
     ],
     description: 'Extra fine 100% Merino wool knit with comfortable roll-neck collar for crisp cold weather layering.',
     material: '100% Extra Fine Merino Wool',
@@ -355,13 +349,13 @@ export const NOIRE_PRODUCTS: Product[] = [
     price: 420,
     currency: 'EUR',
     colors: [
-      { name: 'Pitch Black', hex: '#111111', image: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1200&auto=format&fit=crop' },
-      { name: 'Camel', hex: '#B8860B', image: 'https://images.unsplash.com/photo-1548883354-7622d03aca27?q=80&w=1200&auto=format&fit=crop' }
+      { name: 'Pitch Black', hex: '#111111', image: '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-black.png' },
+      { name: 'Camel', hex: '#B8860B', image: '/images/banners/Group 242.jpg' }
     ],
     sizes: ['46', '48', '50', '52'],
     images: [
-      'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1548883354-7622d03aca27?q=80&w=1200&auto=format&fit=crop'
+      '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-black.png',
+      '/images/banners/Group 242.jpg'
     ],
     description: 'Heavy wool-blend overcoat with peak lapels, deep welt flap pockets and back vent.',
     material: '80% Heavy Virgin Wool, 20% Cashmere',
@@ -379,11 +373,11 @@ export const NOIRE_PRODUCTS: Product[] = [
     price: 89,
     currency: 'EUR',
     colors: [
-      { name: 'Matte Black / Silver', hex: '#111111', image: 'https://images.unsplash.com/photo-1624222247344-550fb60583dc?q=80&w=1200&auto=format&fit=crop' }
+      { name: 'Matte Black / Silver', hex: '#111111', image: '/images/Men-panets/g-star-clean-regular-cargo-pants-black.png' }
     ],
     sizes: ['85', '90', '95', '100'],
     images: [
-      'https://images.unsplash.com/photo-1624222247344-550fb60583dc?q=80&w=1200&auto=format&fit=crop'
+      '/images/Men-panets/g-star-clean-regular-cargo-pants-black.png'
     ],
     description: 'Hand-finished bridle leather with custom brushed steel geometric buckle.',
     material: '100% Italian Bridle Leather',
@@ -403,7 +397,7 @@ export const NOIRE_LOOKS: Look[] = [
     subtitle: 'FORMAL ARCHITECTURE',
     name: 'The Modern Tailored Suit Look',
     price: 624,
-    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop',
+    image: '/images/banners/Group 242.jpg',
     products: [NOIRE_PRODUCTS[5], NOIRE_PRODUCTS[1]], // Suit + Oxford Shirt
     description: 'Precision tailoring combined with crisp Egyptian cotton for high-powered evening presence.'
   },
@@ -414,7 +408,7 @@ export const NOIRE_LOOKS: Look[] = [
     subtitle: 'URBAN ELEGANCE',
     name: 'The Architect Blazer & Trouser Look',
     price: 448,
-    image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=1200&auto=format&fit=crop',
+    image: '/images/men-hoodies/g-star-premium-core-track-jacket-sweater-dark-blue.png',
     products: [NOIRE_PRODUCTS[0], NOIRE_PRODUCTS[2]], // Blazer + Trouser
     description: 'The foundation of modern contemporary dressing. Sharp geometry meets relaxed luxury.'
   },
@@ -425,7 +419,7 @@ export const NOIRE_LOOKS: Look[] = [
     subtitle: 'ELEVATED CASUAL',
     name: 'Structured Overshirt & Heavy Tee Look',
     price: 248,
-    image: 'https://images.unsplash.com/photo-1516257984-b1b4d707412e?q=80&w=1200&auto=format&fit=crop',
+    image: '/images/Men-shirts/g-star-relaxed-base-t-shirt-beige.png',
     products: [NOIRE_PRODUCTS[4], NOIRE_PRODUCTS[3]], // Overshirt + Heavy Tee
     description: 'Relaxed proportions and tactile fabrics designed for seamless weekend transit.'
   },
@@ -436,7 +430,7 @@ export const NOIRE_LOOKS: Look[] = [
     subtitle: 'NIGHT SILHOUETTE',
     name: 'Dinner Jacket & Tapered Trouser Look',
     price: 488,
-    image: 'https://images.unsplash.com/photo-1598808503746-f34c53b9323e?q=80&w=1200&auto=format&fit=crop',
+    image: '/images/Men-panets/g-star-rovic-zip-3d-straight-tapered-pant-grey.png',
     products: [NOIRE_PRODUCTS[10], NOIRE_PRODUCTS[2]], // Dinner Jacket + Trouser
     description: 'Subtle shine and flawless drape crafted for low-light sophistication.'
   }
@@ -447,52 +441,50 @@ export const NOIRE_LOOKBOOK: LookbookSlide[] = [
     id: 'lb-01',
     title: 'VOLUME & FORM',
     subtitle: 'SPRING / SUMMER EDIT',
-    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1600&auto=format&fit=crop',
+    image: '/images/banners/Group 242.jpg',
     hotspots: [
       { id: 'hs-01', productId: 'noire-01', x: 45, y: 35, productName: 'The Architect Blazer', productPrice: 289 },
       { id: 'hs-02', productId: 'noire-03', x: 50, y: 70, productName: 'The Tapered Wool Trouser', productPrice: 159 }
     ]
   },
   {
-    id: 'lb-02',
+    id: 'lb-03',
     title: 'MONOCHROME DISCIPLINE',
     subtitle: 'ARCHITECTURAL MENSWEAR',
-    image: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1600&auto=format&fit=crop',
+    image: '/images/men-hoodies/g-star-premium-core-track-jacket-sweater-dark-blue.png',
     hotspots: [
       { id: 'hs-03', productId: 'noire-08', x: 52, y: 40, productName: 'The Minimalist Trench Jacket', productPrice: 349 },
       { id: 'hs-04', productId: 'noire-12', x: 30, y: 65, productName: 'The Italian Leather Tote Bag', productPrice: 249 }
     ]
   },
   {
-    id: 'lb-03',
+    id: 'lb-02',
     title: 'THE EVENING TONE',
     subtitle: 'FORMAL REFINEMENT',
-    image: 'https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?q=80&w=1600&auto=format&fit=crop',
+    image: '/images/Men-panets/g-star-bend-loose-jeans-dark-blue.png',
     hotspots: [
       { id: 'hs-05', productId: 'noire-06', x: 48, y: 45, productName: 'The Modern Tailored Suit', productPrice: 495 }
     ]
   }
 ];
 
-import { PERSIAN_LANDING_INFO } from './persian-luxury';
-
 export const LANDING_REGISTRY: LandingPageInfo[] = [
-  {
-    slug: 'persian-luxury-v1',
-    category: 'men-formal',
-    title: 'گارنِت (GARNET) — لندینگ پیج اختصاصی فارسی',
-    description: 'کالکشن لوکس و فاخر پوشاک مردانه با طراحی اختصاصی، تایپوگرافی فارسی، چیدمان RTL و تجربه خرید پریمیوم.',
-    theme: 'persian-lux-dark-gold',
-    dataset: 'PERSIAN_LUXURY_PRODUCTS',
-    previewImage: '/images/banners/Group 242.jpg'
-  },
   {
     slug: 'noire-men-formal',
     category: 'men-formal',
-    title: 'NOIRÉ — Contemporary Menswear',
+    title: 'NOIRÉ — Contemporary Menswear (English)',
     description: 'High-end editorial fashion experience combining everyday essentials, smart casual, and formal menswear.',
     theme: 'minimal-luxury',
     dataset: 'NOIRE_PRODUCTS',
-    previewImage: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop'
+    previewImage: '/images/banners/Group 242.jpg'
+  },
+  {
+    slug: 'noire-men-formal-fa',
+    category: 'men-formal',
+    title: 'نوآر (NOIRÉ) — پوشاک مردانه معاصر (فارسی)',
+    description: 'تجربه استایل و مد لوکس معاصر به زبان فارسی، شامل پوشاک رسمی، کت و شلوار، لباس‌های مینیمال و کالکشن‌های اختصاصی.',
+    theme: 'minimal-luxury',
+    dataset: 'NOIRE_PRODUCTS_FA',
+    previewImage: '/images/men-hoodies/g-star-premium-core-track-jacket-sweater-dark-blue.png'
   }
 ];
