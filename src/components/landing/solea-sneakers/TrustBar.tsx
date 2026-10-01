@@ -13,7 +13,7 @@ export default function TrustBar() {
     {
       icon: Shield,
       title: 'اصالت ۱۰۰٪ کالا',
-      subtitle: 'ضمانت بازگشت تمام وجه در صورت عدم اصالت',
+      subtitle: 'ضمانت بازگشت وجه در صورت عدم اصالت',
     },
     {
       icon: Truck,
@@ -28,12 +28,12 @@ export default function TrustBar() {
     {
       icon: Headphones,
       title: 'پشتیبانی اختصاصی',
-      subtitle: 'پاسخگویی سریع کارشناسان استایل',
+      subtitle: 'پاسخگویی کارشناسان استایل',
     },
   ];
 
   return (
-    <section className="py-8 bg-[#FAFAF7] border-y border-[#111111]/[0.06] font-peyda" dir="rtl">
+    <section className="py-7 bg-[#F1F5F9] border-y border-[#CBD5E1]/60 font-peyda" dir="rtl">
       <div className="max-w-[1600px] mx-auto px-5 sm:px-8 md:px-12">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 items-center text-right">
           {trustItems.map((item, index) => {
@@ -41,16 +41,16 @@ export default function TrustBar() {
             return (
               <div
                 key={index}
-                className="flex items-center gap-3.5 group transition-all"
+                className="flex items-center gap-3.5 group transition-colors"
               >
-                <div className="w-10 h-10 rounded-xl bg-[#F4F5F2] border border-[#111111]/10 flex items-center justify-center text-[#111111] group-hover:bg-[#111111] group-hover:text-white transition-all shrink-0 shadow-sm">
+                <div className="w-10 h-10 rounded-xl bg-[#FFFFFF] border border-[#CBD5E1]/50 flex items-center justify-center text-[#0B1220] group-hover:bg-[#0B1220] group-hover:text-[#F8FAFC] transition-colors shrink-0">
                   <Icon className="w-4 h-4 shrink-0" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-semibold text-[#111111] leading-snug">
+                  <h4 className="text-xs font-semibold text-[#0B1220] leading-snug">
                     {item.title}
                   </h4>
-                  <p className="text-[11px] text-[#6B6B68] font-vazir mt-0.5 font-normal">
+                  <p className="text-[11px] text-[#475569] font-peyda mt-0.5 font-normal">
                     {item.subtitle}
                   </p>
                 </div>

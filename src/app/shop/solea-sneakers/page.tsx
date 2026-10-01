@@ -29,7 +29,7 @@ export default function SoleaSneakersLandingPage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#F4F5F2] text-[#111111] font-vazir antialiased selection:bg-[#111111] selection:text-white" dir="rtl">
+    <div className="min-h-screen bg-[#F8FAFC] text-[#0B1220] font-peyda antialiased selection:bg-[#0B1220] selection:text-[#F8FAFC]" dir="rtl">
 
       {/* HEADER */}
       <Header

@@ -5,76 +5,75 @@ import Image from 'next/image';
 import { ArrowLeft, Sparkles, Compass } from 'lucide-react';
 
 export default function EditorialStory() {
+  const editorialStats = [
+    { label: '100% ORIGINAL', desc: 'تضمین اصالت مستقیم از نمایندگی' },
+    { label: '8-POINT CHECK', desc: 'بررسی فیزیکی و تخصصی بارکد' },
+    { label: 'EXPRESS DELIVERY', desc: 'ارسال ایمن ۲۴ ساعته سراسری' },
+  ];
+
   return (
-    <section className="py-10 sm:py-16 bg-[#FAFAF7] font-peyda text-right" dir="rtl">
+    <section className="py-12 sm:py-16 bg-[#F8FAFC] font-peyda text-right border-t border-[#CBD5E1]/60" dir="rtl">
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12">
 
-        <div className="bg-[#111111] text-white rounded-[32px] p-8 sm:p-12 lg:p-16 overflow-hidden relative shadow-2xl">
-
-          {/* AMBIENT BACKGROUND GLOW */}
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#A89B84]/15 rounded-full filter blur-3xl pointer-events-none" />
+        <div className="bg-[#0B1220] text-[#F8FAFC] rounded-[28px] sm:rounded-[36px] p-8 sm:p-12 lg:p-16 overflow-hidden relative border border-[#CBD5E1]/20">
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
 
-            {/* RIGHT COLUMN (RTL): EDITORIAL TEXT & MANIFESTO */}
+            {/* RIGHT COLUMN (RTL): EDITORIAL STATEMENT & FACTS */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8">
 
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/10 border border-white/15 rounded-full text-xs font-medium text-[#A89B84]">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#16233A] border border-[#CBD5E1]/20 rounded-full text-xs font-semibold text-[#8FA9C4]">
                 <Sparkles className="w-3.5 h-3.5 shrink-0" />
-                <span>فلسفه طراحی و برند SOLEA</span>
+                <span>فلسفه استایل و حرکت — SOLEA EDITORIAL</span>
               </div>
 
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] font-peyda">
-                فراتر از یک کفش؛ <br />
-                بیانیه‌ای برای <span className="text-[#A89B84]">حرکت و هویت.</span>
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-[#F8FAFC] leading-[1.15] font-peyda">
+                هنر خیابانی؛ <br />
+                <span className="text-[#8FA9C4]">ارگونومی و هویت.</span>
               </h2>
 
-              <p className="text-sm sm:text-base lg:text-lg text-[#D0C8B8] font-vazir leading-relaxed max-w-2xl font-normal">
-                اسنیکر فقط بخشی از پوشش شما نیست؛ نقطه تقاطع مهندسی ارگونومیک، هنر خیابانی و نحوه مواجهه شما با دنیای اطراف است. ما در سولئا بر این باوریم که هر گام، امضای استایل شماست.
+              <p className="text-sm sm:text-base lg:text-lg text-[#CBD5E1] font-peyda leading-relaxed max-w-2xl font-normal">
+                هر گام بیانیه‌ای برای سبک زندگی شماست. ما در سولئا فقط اسنیکرهای اصیل و برتر جهان را گردآوری کرده‌ایم تا تجربه حرکت شما فراتر از یک پوشش معمولی باشد.
               </p>
 
-              <div className="grid grid-cols-2 gap-6 pt-4 border-t border-white/10 text-xs font-vazir text-[#A0A5B5]">
-                <div>
-                  <div className="text-xl font-extrabold text-white font-mono mb-1">100% ORIGINAL</div>
-                  <div className="font-normal">ضمانت اصالت تمام محصولات از نمایندگی‌های رسمی</div>
-                </div>
-                <div>
-                  <div className="text-xl font-extrabold text-white font-mono mb-1">CURATED SELECTION</div>
-                  <div className="font-normal">انتخاب وسواس‌گونه مدل‌های برتر سال</div>
-                </div>
+              {/* SHOW DON'T TELL: VISUAL FACTS GRID */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-[#CBD5E1]/15 text-xs font-peyda">
+                {editorialStats.map((item, idx) => (
+                  <div key={idx} className="bg-[#16233A]/80 p-3.5 rounded-2xl border border-[#CBD5E1]/15">
+                    <div className="text-base font-bold text-[#8FA9C4] font-mono mb-1">{item.label}</div>
+                    <div className="font-normal text-[#CBD5E1] text-[11px]">{item.desc}</div>
+                  </div>
+                ))}
               </div>
 
               <div className="pt-2">
                 <a
                   href="#products"
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-[#A89B84] hover:bg-white text-black font-semibold text-sm rounded-full transition-all duration-300 shadow-lg group"
+                  className="inline-flex items-center gap-3 px-8 py-3.5 bg-[#8FA9C4] hover:bg-[#F8FAFC] text-[#0B1220] font-semibold text-sm rounded-full transition-colors group"
                 >
                   <Compass className="w-4 h-4 shrink-0" />
-                  <span>داستان ما و کشف کالکشن</span>
-                  <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1.5 transition-transform" />
+                  <span>کشف کالکشن روز</span>
+                  <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                 </a>
               </div>
 
             </div>
 
-            {/* LEFT COLUMN (RTL): EDITORIAL VISUAL */}
-            <div className="lg:col-span-5 relative aspect-4/5">
-              <div className="relative aspect-4/5 h-full rounded-[24px] overflow-hidden ">
-                <Image
-                  src="/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_plp_standard.png"
-                  alt="Solea Editorial Heritage"
-                  fill
-                  className="object-contain  group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none" />
-                <div className="absolute bottom-6 right-6 left-6 text-right">
-                  <span className="text-[10px] font-mono font-bold tracking-widest text-[#A89B84] uppercase">
-                    SOLEA EDITORIAL — VOLUME 04
-                  </span>
-                  <p className="text-xs text-white/90 font-vazir mt-1">
-                    ترکیب استایل شهری و فناوری روز جهان
-                  </p>
-                </div>
+            {/* LEFT COLUMN (RTL): EDITORIAL VISUAL SPOTLIGHT */}
+            <div className="lg:col-span-5 relative aspect-[4/5] bg-[#16233A] rounded-[24px] overflow-hidden border border-[#CBD5E1]/20 flex items-center justify-center p-6">
+              <Image
+                src="/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_plp_standard.png"
+                alt="Solea Editorial Heritage"
+                fill
+                className="object-contain hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute bottom-4 right-4 left-4 bg-[#0B1220]/90 backdrop-blur-md p-3.5 rounded-xl border border-[#CBD5E1]/20 text-right">
+                <span className="text-[10px] font-mono font-bold tracking-widest text-[#8FA9C4] uppercase block">
+                  SOLEA EDITORIAL VOL. 04
+                </span>
+                <p className="text-xs text-[#F8FAFC] font-peyda mt-0.5">
+                  تلفیق نوآوری ارگونومیک و زیبایی‌شناسی خیابانی
+                </p>
               </div>
             </div>
 
