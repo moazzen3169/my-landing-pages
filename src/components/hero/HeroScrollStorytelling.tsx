@@ -101,7 +101,7 @@ export default function HeroScrollStorytelling({ isPersian = false }: HeroScroll
         {STORY_STEPS.map((step, idx) => (
           <div
             key={step.step}
-            className={`story-card absolute inset-0 w-full h-full flex flex-col justify-between p-8 md:p-16 select-none ${
+            className={`story-card absolute inset-0 w-full h-full flex flex-col justify-between py-12 md:py-16 select-none ${
               idx === 0 ? 'z-10' : ''
             }`}
             style={{ zIndex: idx + 10 }}
@@ -118,50 +118,53 @@ export default function HeroScrollStorytelling({ isPersian = false }: HeroScroll
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/40 to-transparent" />
             </div>
 
-            {/* Top Bar */}
-            <div
-              className={`flex justify-between items-center text-[#A58B68] ${
-                isPersian
-                  ? 'text-xs font-medium font-peyda tracking-normal'
-                  : 'text-[11px] font-mono tracking-[0.3em] uppercase'
-              }`}
-            >
-              <span>{step.subtitle}</span>
-              <span className="font-mono">{step.step}</span>
-            </div>
-
-            {/* Center Main Story text */}
-            <div className="max-w-4xl my-auto space-y-6">
-              <h2
-                className={
+            {/* Inner Content Container */}
+            <div className="max-w-[1440px] w-full mx-auto px-5 sm:px-8 md:px-12 lg:px-16 flex flex-col justify-between h-full">
+              {/* Top Bar */}
+              <div
+                className={`flex justify-between items-center text-[#A58B68] ${
                   isPersian
-                    ? 'text-3xl sm:text-5xl md:text-6xl font-bold font-peyda text-white leading-[1.25] tracking-normal'
-                    : 'text-4xl sm:text-6xl md:text-7xl font-light font-display tracking-tight text-white leading-none'
-                }
-              >
-                {step.title}
-              </h2>
-              <p
-                className={`text-[#D7D4CD] leading-relaxed ${
-                  isPersian
-                    ? 'max-w-xl text-sm sm:text-base font-normal font-peyda tracking-normal'
-                    : 'max-w-lg text-sm sm:text-base font-light'
+                    ? 'text-xs font-medium font-peyda'
+                    : 'text-[11px] font-mono tracking-[0.3em] uppercase'
                 }`}
               >
-                {step.description}
-              </p>
-            </div>
+                <span>{step.subtitle}</span>
+                <span className="font-mono">{step.step}</span>
+              </div>
 
-            {/* Bottom Indicator */}
-            <div
-              className={`flex justify-between items-center text-[#77746E] border-t border-white/10 pt-4 ${
-                isPersian
-                  ? 'text-xs font-medium font-peyda tracking-normal'
-                  : 'text-[10px] tracking-[0.2em] uppercase font-mono'
-              }`}
-            >
-              <span>{isPersian ? 'اسکرول کنید تا داستان ادامه یابد' : 'SCROLL TO CONTINUE STORY'}</span>
-              <span>{isPersian ? 'بیانیه نوآر' : 'NOIRÉ MANIFESTO'}</span>
+              {/* Center Main Story text */}
+              <div className="max-w-3xl my-auto space-y-6 text-start">
+                <h2
+                  className={
+                    isPersian
+                      ? 'text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-peyda text-white leading-[1.25]'
+                      : 'text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light font-display tracking-tight text-white leading-tight uppercase'
+                  }
+                >
+                  {step.title}
+                </h2>
+                <p
+                  className={`text-[#D7D4CD] leading-relaxed ${
+                    isPersian
+                      ? 'max-w-xl text-sm sm:text-base font-normal font-peyda'
+                      : 'max-w-lg text-sm sm:text-base font-light'
+                  }`}
+                >
+                  {step.description}
+                </p>
+              </div>
+
+              {/* Bottom Indicator */}
+              <div
+                className={`flex justify-between items-center text-[#77746E] border-t border-white/10 pt-4 ${
+                  isPersian
+                    ? 'text-xs font-medium font-peyda'
+                    : 'text-[10px] tracking-[0.2em] uppercase font-mono'
+                }`}
+              >
+                <span>{isPersian ? 'اسکرول کنید تا داستان ادامه یابد' : 'SCROLL TO CONTINUE STORY'}</span>
+                <span>{isPersian ? 'بیانیه نوآر' : 'NOIRÉ MANIFESTO'}</span>
+              </div>
             </div>
           </div>
         ))}

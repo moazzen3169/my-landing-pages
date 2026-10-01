@@ -62,24 +62,24 @@ export default function MegaMenu({ isOpen, onClose, isPersian = false }: MegaMen
           initial={{ opacity: 0, y: '-100%' }}
           animate={{ opacity: 1, y: '0%' }}
           exit={{ opacity: 0, y: '-100%' }}
-          transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-          className="fixed inset-0 z-[999] bg-[#0B0B0B] text-[#F3F2EE] flex flex-col justify-between overflow-y-auto font-sans"
+          transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
+          className="fixed inset-0 z-[999] bg-[#0B0B0B] text-[#F3F2EE] flex flex-col justify-between overflow-y-auto"
         >
           {/* Top Bar */}
-          <div className="flex items-center justify-between px-8 py-6 border-b border-[#181818]">
+          <div className="flex items-center justify-between px-6 sm:px-12 py-6 border-b border-[#181818]">
             <span
               className={
                 isPersian
-                  ? 'text-xs font-medium tracking-normal text-[#77746E] font-peyda'
-                  : 'text-[10px] tracking-[0.3em] text-[#77746E] uppercase'
+                  ? 'text-xs font-medium text-[#77746E] font-peyda'
+                  : 'text-[10px] tracking-[0.3em] text-[#77746E] uppercase font-mono'
               }
             >
               {isPersian ? 'ناوبری و کالکشن‌های نوآر' : 'NOIRÉ NAVIGATION'}
             </span>
             <button
               onClick={onClose}
-              className={`group flex items-center space-x-2 space-x-reverse text-[#D7D4CD] hover:text-white transition-colors ${
-                isPersian ? 'text-xs font-medium font-peyda tracking-normal' : 'text-[11px] tracking-[0.2em]'
+              className={`group flex items-center gap-2.5 text-[#D7D4CD] hover:text-white transition-colors ${
+                isPersian ? 'text-xs font-medium font-peyda' : 'text-[11px] tracking-[0.2em] font-mono uppercase'
               }`}
             >
               <span>{isPersian ? 'بستن' : 'CLOSE'}</span>
@@ -90,14 +90,14 @@ export default function MegaMenu({ isOpen, onClose, isPersian = false }: MegaMen
           </div>
 
           {/* Main Grid */}
-          <div className="max-w-7xl w-full mx-auto px-8 py-12 grid grid-cols-1 lg:grid-cols-12 gap-12 flex-1 items-center">
+          <div className="max-w-[1440px] w-full mx-auto px-6 sm:px-12 py-10 grid grid-cols-1 lg:grid-cols-12 gap-12 flex-1 items-center">
             {/* Category Navigation Links */}
-            <div className="lg:col-span-7 flex flex-col space-y-4">
+            <div className="lg:col-span-7 flex flex-col gap-3">
               <span
                 className={
                   isPersian
-                    ? 'text-xs font-medium tracking-normal text-[#77746E] font-peyda mb-2'
-                    : 'text-[10px] tracking-[0.3em] text-[#77746E] uppercase mb-2'
+                    ? 'text-xs font-medium text-[#77746E] font-peyda mb-2'
+                    : 'text-[10px] tracking-[0.3em] text-[#77746E] uppercase font-mono mb-2'
                 }
               >
                 {isPersian ? 'دسته‌بندی‌های اختصاصی' : 'COLLECTIONS & CATEGORIES'}
@@ -106,9 +106,9 @@ export default function MegaMenu({ isOpen, onClose, isPersian = false }: MegaMen
               {CATEGORIES.map((cat, idx) => (
                 <motion.div
                   key={cat.name}
-                  initial={{ opacity: 0, x: isPersian ? 30 : -30 }}
+                  initial={{ opacity: 0, x: isPersian ? 20 : -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 + idx * 0.05, duration: 0.5 }}
+                  transition={{ delay: 0.1 + idx * 0.04, duration: 0.4 }}
                   onMouseEnter={() => {
                     setActiveImage(cat.image);
                     setActiveSubtitle(cat.subtitle);
@@ -117,19 +117,19 @@ export default function MegaMenu({ isOpen, onClose, isPersian = false }: MegaMen
                   <Link
                     href={cat.href}
                     onClick={onClose}
-                    className="group flex items-center justify-between py-2 border-b border-[#181818] hover:border-[#D7D4CD] transition-colors"
+                    className="group flex items-center justify-between py-3 border-b border-[#181818] hover:border-[#D7D4CD] transition-colors"
                   >
                     <span
                       className={`text-[#D7D4CD] group-hover:text-white transition-colors ${
                         isPersian
-                          ? 'text-xl sm:text-2xl md:text-3xl font-medium font-peyda tracking-normal leading-relaxed'
+                          ? 'text-lg sm:text-2xl md:text-3xl font-medium font-peyda leading-relaxed'
                           : 'text-2xl sm:text-3xl md:text-4xl font-light tracking-wider font-display'
                       }`}
                     >
                       {cat.name}
                     </span>
                     <ArrowUpRight
-                      className={`w-6 h-6 text-[#77746E] group-hover:text-white transition-transform ${
+                      className={`w-5 h-5 text-[#77746E] group-hover:text-white transition-transform ${
                         isPersian
                           ? 'rotate-[-90deg] group-hover:-translate-x-1 group-hover:-translate-y-1'
                           : 'group-hover:translate-x-1 group-hover:-translate-y-1'
@@ -141,15 +141,15 @@ export default function MegaMenu({ isOpen, onClose, isPersian = false }: MegaMen
             </div>
 
             {/* Dynamic Preview Card */}
-            <div className="lg:col-span-5 hidden lg:flex flex-col space-y-4">
+            <div className="lg:col-span-5 hidden lg:flex flex-col gap-4">
               <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#181818] border border-[#2B2B2B]">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeImage}
-                    initial={{ opacity: 0, scale: 1.05 }}
+                    initial={{ opacity: 0, scale: 1.04 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1 }}
-                    transition={{ duration: 0.4 }}
+                    transition={{ duration: 0.35 }}
                     className="absolute inset-0"
                   >
                     <Image
@@ -162,12 +162,12 @@ export default function MegaMenu({ isOpen, onClose, isPersian = false }: MegaMen
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B]/80 via-transparent to-transparent" />
                   </motion.div>
                 </AnimatePresence>
-                <div className="absolute bottom-6 left-6 right-6 text-white space-y-1 z-10">
+                <div className="absolute bottom-6 left-6 right-6 text-white space-y-1.5 z-10">
                   <p
                     className={
                       isPersian
-                        ? 'text-xs font-medium text-[#A58B68] font-peyda tracking-normal'
-                        : 'text-[11px] tracking-[0.2em] text-[#A58B68] uppercase'
+                        ? 'text-xs font-medium text-[#A58B68] font-peyda'
+                        : 'text-[11px] tracking-[0.2em] text-[#A58B68] uppercase font-mono'
                     }
                   >
                     {isPersian ? 'پیش‌نمایش اختصاصی' : 'EDITORIAL EDIT'}
@@ -186,20 +186,20 @@ export default function MegaMenu({ isOpen, onClose, isPersian = false }: MegaMen
 
           {/* Bottom Bar */}
           <div
-            className={`px-8 py-6 border-t border-[#181818] flex flex-col sm:flex-row justify-between items-center text-[#77746E] gap-4 ${
+            className={`px-6 sm:px-12 py-6 border-t border-[#181818] flex flex-col sm:flex-row justify-between items-center text-[#77746E] gap-4 ${
               isPersian
-                ? 'text-xs font-medium font-peyda tracking-normal'
-                : 'text-[11px] tracking-[0.2em] uppercase'
+                ? 'text-xs font-medium font-peyda'
+                : 'text-[11px] tracking-[0.2em] uppercase font-mono'
             }`}
           >
-            <div className="flex space-x-6 space-x-reverse">
+            <div className="flex gap-6">
               <Link href="/shop" onClick={onClose} className="hover:text-white transition-colors">
                 {isPersian ? 'همه محصولات' : 'ALL PRODUCTS'}
               </Link>
               <Link href="/lookbook" onClick={onClose} className="hover:text-white transition-colors">
                 {isPersian ? 'لوک‌بوک' : 'LOOKBOOK'}
               </Link>
-              <Link href="/collections/new" onClick={onClose} className="hover:text-white transition-colors">
+              <Link href="/shop" onClick={onClose} className="hover:text-white transition-colors">
                 {isPersian ? 'داستان برند' : 'BRAND STORY'}
               </Link>
             </div>

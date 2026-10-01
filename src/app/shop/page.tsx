@@ -11,7 +11,7 @@ import { CartProvider } from '@/context/CartContext';
 import { WishlistProvider } from '@/context/WishlistContext';
 import SmoothScrollProvider from '@/components/ui/SmoothScrollProvider';
 import { NOIRE_PRODUCTS } from '@/data/noire';
-import { Filter, SlidersHorizontal } from 'lucide-react';
+import { SlidersHorizontal } from 'lucide-react';
 
 export default function ShopPage() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -48,13 +48,13 @@ export default function ShopPage() {
           <div className="min-h-screen flex flex-col bg-[#F3F2EE] text-[#111111]">
             <Header onOpenSearch={() => setIsSearchOpen(true)} />
 
-            <main className="flex-grow pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
+            <main className="flex-grow pt-28 pb-20 max-w-[1440px] mx-auto w-full px-5 sm:px-8 md:px-12 lg:px-16">
               {/* Header Title */}
-              <div className="border-b border-[#D7D4CD] pb-8 mb-12">
+              <div className="border-b border-[#D7D4CD] pb-8 mb-10 text-start">
                 <span className="text-[10px] font-mono tracking-[0.3em] text-[#77746E] uppercase">
                   CATALOG
                 </span>
-                <h1 className="text-4xl sm:text-6xl font-light font-display uppercase tracking-tight text-[#111111] mt-2">
+                <h1 className="text-3xl sm:text-5xl md:text-6xl font-light font-display uppercase tracking-tight text-[#111111] mt-2">
                   THE COMPLETE COLLECTION
                 </h1>
                 <p className="text-sm font-light text-[#77746E] mt-2 max-w-lg">
@@ -63,7 +63,7 @@ export default function ShopPage() {
               </div>
 
               {/* Filters and Controls */}
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-[#D7D4CD]">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-[#D7D4CD] mb-8 text-start">
                 {/* Category Filter Pills */}
                 <div className="flex flex-wrap gap-2">
                   {categories.map((cat) => (
@@ -72,7 +72,7 @@ export default function ShopPage() {
                       onClick={() => setSelectedCategory(cat.id)}
                       className={`px-4 py-2 text-[10px] font-mono tracking-widest uppercase border transition-all ${
                         selectedCategory === cat.id
-                          ? 'bg-[#111111] text-white border-[#111111]'
+                          ? 'bg-[#111111] text-white border-[#111111] font-bold'
                           : 'bg-white text-[#111111] border-[#D7D4CD] hover:border-[#111111]'
                       }`}
                     >
@@ -82,13 +82,13 @@ export default function ShopPage() {
                 </div>
 
                 {/* Sort dropdown */}
-                <div className="flex items-center space-x-3 text-xs font-mono">
-                  <SlidersHorizontal className="w-4 h-4 text-[#77746E]" />
+                <div className="flex items-center gap-2.5 text-xs font-mono shrink-0">
+                  <SlidersHorizontal className="w-4 h-4 text-[#77746E] shrink-0" />
                   <span className="text-[#77746E] uppercase">SORT:</span>
                   <select
                     value={sortBy}
                     onChange={(e: any) => setSortBy(e.target.value)}
-                    className="bg-white border border-[#D7D4CD] px-3 py-2 text-xs font-mono uppercase focus:outline-none"
+                    className="bg-white border border-[#D7D4CD] px-3 py-2 text-xs font-mono uppercase focus:outline-none focus:border-[#111111]"
                   >
                     <option value="featured">FEATURED</option>
                     <option value="price-asc">PRICE: LOW TO HIGH</option>

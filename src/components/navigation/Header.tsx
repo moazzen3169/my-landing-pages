@@ -53,7 +53,7 @@ export default function Header({
   const isHeaderDarkTheme = isDarkBackground && !isScrolled;
 
   const headerBg = isScrolled
-    ? 'bg-[#F3F2EE]/90 backdrop-blur-md border-b border-[#D7D4CD] text-[#111111]'
+    ? 'bg-[#F3F2EE]/95 backdrop-blur-md border-b border-[#D7D4CD] text-[#111111] shadow-sm'
     : isHeaderDarkTheme
     ? 'bg-transparent text-[#F3F2EE]'
     : 'bg-transparent text-[#111111]';
@@ -65,25 +65,26 @@ export default function Header({
           isVisible ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-8 h-20 flex items-center justify-between">
-          {/* LEFT / RIGHT (Depending on dir): Nav Links & Menu Toggle */}
-          <div className="flex items-center space-x-6 sm:space-x-8 space-x-reverse">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 h-20 md:h-22 flex items-center justify-between">
+          {/* LEFT SECTION (Nav Links & Menu Toggle) */}
+          <div className="flex items-center gap-6 sm:gap-8">
             <button
               onClick={() => setIsMegaMenuOpen(true)}
-              className={`flex items-center space-x-2 space-x-reverse hover:opacity-70 transition-opacity ${
+              className={`flex items-center gap-2 hover:opacity-75 transition-opacity ${
                 isPersian
-                  ? 'text-xs md:text-sm font-medium tracking-normal font-peyda'
+                  ? 'text-xs md:text-sm font-medium font-peyda'
                   : 'text-[11px] font-medium tracking-[0.2em] uppercase'
               }`}
+              aria-label={isPersian ? 'باز کردن منو' : 'Open Menu'}
             >
-              <Menu className="w-4 h-4" />
-              <span className="hidden md:inline">{isPersian ? 'منو' : 'MENU'}</span>
+              <Menu className="w-4 h-4 shrink-0" />
+              <span className="hidden sm:inline">{isPersian ? 'منو' : 'MENU'}</span>
             </button>
 
             <nav
-              className={`hidden lg:flex items-center space-x-6 space-x-reverse ${
+              className={`hidden lg:flex items-center gap-6 ${
                 isPersian
-                  ? 'text-xs md:text-sm font-medium tracking-normal font-peyda'
+                  ? 'text-xs md:text-sm font-medium font-peyda'
                   : 'text-[11px] font-medium tracking-[0.2em] uppercase'
               }`}
             >
@@ -102,50 +103,52 @@ export default function Header({
           {/* CENTER: Brand Logo */}
           <div className="absolute left-1/2 -translate-x-1/2">
             <Link href="/" className="group flex flex-col items-center">
-              <span className="text-2xl md:text-3xl font-light tracking-[0.3em] font-display">
+              <span className="text-2xl sm:text-3xl font-light tracking-[0.3em] font-display">
                 NOIRÉ
               </span>
-              <span className="text-[8px] tracking-[0.35em] text-[#77746E] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 -mt-1">
+              <span className="text-[8px] tracking-[0.35em] text-[#77746E] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 -mt-0.5">
                 PARIS
               </span>
             </Link>
           </div>
 
-          {/* RIGHT / LEFT: Language Toggle, Search, Wishlist, Cart */}
-          <div className="flex items-center space-x-4 sm:space-x-6 space-x-reverse">
+          {/* RIGHT SECTION: Language Toggle, Search, Wishlist, Cart */}
+          <div className="flex items-center gap-3 sm:gap-5">
             {/* Language Switcher Button */}
             <Link
               href={isPersian ? '/shop/noire-men-formal' : '/shop/noire-men-formal-fa'}
-              className="flex items-center space-x-1.5 space-x-reverse text-[11px] font-bold tracking-wider uppercase px-2.5 py-1 border border-current/30 rounded hover:border-current transition-all"
+              className="flex items-center gap-1.5 text-[11px] font-bold tracking-wider uppercase px-2.5 py-1 border border-current/30 rounded-full hover:border-current transition-all shrink-0"
               title={isPersian ? 'تغییر زبان به انگلیسی' : 'Switch to Persian'}
             >
-              <Globe className="w-3.5 h-3.5" />
+              <Globe className="w-3.5 h-3.5 shrink-0" />
               <span>{isPersian ? 'EN' : 'FA / فارسی'}</span>
             </Link>
 
             <button
               onClick={onOpenSearch}
-              className={`flex items-center space-x-2 space-x-reverse hover:opacity-70 transition-opacity ${
+              className={`flex items-center gap-2 hover:opacity-75 transition-opacity ${
                 isPersian
-                  ? 'text-xs md:text-sm font-medium tracking-normal font-peyda'
+                  ? 'text-xs md:text-sm font-medium font-peyda'
                   : 'text-[11px] font-medium tracking-[0.2em] uppercase'
               }`}
+              aria-label={isPersian ? 'جستجو' : 'Search'}
             >
-              <Search className="w-4 h-4" />
+              <Search className="w-4 h-4 shrink-0" />
               <span className="hidden md:inline">{isPersian ? 'جستجو' : 'SEARCH'}</span>
             </button>
 
             <Link
               href="/shop"
-              className={`hidden sm:flex items-center space-x-1.5 space-x-reverse hover:opacity-70 transition-opacity relative ${
+              className={`hidden sm:flex items-center gap-1.5 hover:opacity-75 transition-opacity relative ${
                 isPersian
-                  ? 'text-xs md:text-sm font-medium tracking-normal font-peyda'
+                  ? 'text-xs md:text-sm font-medium font-peyda'
                   : 'text-[11px] font-medium tracking-[0.2em] uppercase'
               }`}
+              aria-label={isPersian ? 'علاقه‌مندی‌ها' : 'Wishlist'}
             >
-              <Heart className="w-4 h-4" />
+              <Heart className="w-4 h-4 shrink-0" />
               {wishlistCount > 0 && (
-                <span className="absolute -top-1.5 -right-2 text-[9px] bg-[#111111] text-[#F3F2EE] px-1 rounded-full">
+                <span className="absolute -top-1.5 -right-2 text-[9px] bg-[#111111] text-[#F3F2EE] px-1 rounded-full font-mono">
                   {wishlistCount}
                 </span>
               )}
@@ -153,16 +156,17 @@ export default function Header({
 
             <button
               onClick={() => setIsCartOpen(true)}
-              className={`flex items-center space-x-2 space-x-reverse hover:opacity-70 transition-opacity relative ${
+              className={`flex items-center gap-2 hover:opacity-75 transition-opacity relative ${
                 isPersian
-                  ? 'text-xs md:text-sm font-medium tracking-normal font-peyda'
+                  ? 'text-xs md:text-sm font-medium font-peyda'
                   : 'text-[11px] font-medium tracking-[0.2em] uppercase'
               }`}
+              aria-label={isPersian ? 'سبد خرید' : 'Cart'}
             >
-              <ShoppingBag className="w-4 h-4" />
+              <ShoppingBag className="w-4 h-4 shrink-0" />
               <span className="hidden md:inline">{isPersian ? 'سبد خرید' : 'BAG'}</span>
               {totalItems > 0 && (
-                <span className="mx-1 px-1.5 py-0.5 text-[10px] bg-[#111111] text-[#F3F2EE] font-mono rounded-full">
+                <span className="px-1.5 py-0.5 text-[10px] bg-[#111111] text-[#F3F2EE] font-mono rounded-full leading-none">
                   {totalItems}
                 </span>
               )}

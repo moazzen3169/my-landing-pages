@@ -24,14 +24,14 @@ export default function ProductGrid({
   const displaySubtitle = subtitle || (isPersian ? 'جدیدترین‌های ۲۰۲۶' : 'NEW ARRIVALS 2026');
 
   return (
-    <section className="py-20 px-6 md:px-12 max-w-7xl mx-auto w-full">
+    <section className="section-padding container-editorial">
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-[#D7D4CD] pb-6">
-        <div>
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-12 border-b border-[#D7D4CD] pb-6 gap-4">
+        <div className="text-start">
           <span
             className={
               isPersian
-                ? 'text-xs font-medium text-[#77746E] font-peyda tracking-normal'
+                ? 'text-xs font-medium text-[#77746E] font-peyda'
                 : 'text-[10px] font-mono tracking-[0.3em] text-[#77746E] uppercase'
             }
           >
@@ -40,7 +40,7 @@ export default function ProductGrid({
           <h2
             className={
               isPersian
-                ? 'text-2xl sm:text-4xl font-bold font-peyda text-[#111111] tracking-normal leading-tight mt-1'
+                ? 'text-2xl sm:text-4xl font-bold font-peyda text-[#111111] leading-tight mt-1'
                 : 'text-3xl sm:text-5xl font-light tracking-tight uppercase font-display text-[#111111] mt-1'
             }
           >
@@ -50,8 +50,8 @@ export default function ProductGrid({
         <span
           className={
             isPersian
-              ? 'text-xs font-normal font-peyda text-[#77746E] mt-4 md:mt-0'
-              : 'text-xs font-mono text-[#77746E] uppercase mt-4 md:mt-0'
+              ? 'text-xs font-normal font-peyda text-[#77746E] text-start'
+              : 'text-xs font-mono text-[#77746E] uppercase text-start'
           }
         >
           {isPersian
@@ -61,7 +61,7 @@ export default function ProductGrid({
       </div>
 
       {/* Editorial Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
         {products.map((product, index) => {
           // Asymmetrical editorial proportions
           const isFeaturedCard = index % 5 === 0;

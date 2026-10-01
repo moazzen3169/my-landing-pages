@@ -30,9 +30,9 @@ export default function LookbookPage() {
           <div className="min-h-screen flex flex-col bg-[#0B0B0B] text-[#F3F2EE]">
             <Header onOpenSearch={() => setIsSearchOpen(true)} isDarkBackground={true} />
 
-            <main className="flex-grow pt-28 pb-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
+            <main className="flex-grow pt-28 pb-20 max-w-[1440px] mx-auto w-full px-5 sm:px-8 md:px-12 lg:px-16">
               {/* Header */}
-              <div className="border-b border-[#2B2B2B] pb-8 mb-12 flex flex-col md:flex-row md:items-end justify-between">
+              <div className="border-b border-[#2B2B2B] pb-8 mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6 text-start">
                 <div>
                   <span className="text-[10px] font-mono tracking-[0.3em] text-[#A58B68] uppercase">
                     INTERACTIVE EDITORIAL
@@ -42,14 +42,14 @@ export default function LookbookPage() {
                   </h1>
                 </div>
                 {/* Lookbook Switcher */}
-                <div className="flex space-x-3 mt-4 md:mt-0 font-mono text-xs">
+                <div className="flex flex-wrap gap-2.5 font-mono text-xs">
                   {NOIRE_LOOKBOOK.map((slide, idx) => (
                     <button
                       key={slide.id}
                       onClick={() => setActiveSlideIndex(idx)}
                       className={`px-4 py-2 border uppercase transition-colors ${
                         activeSlideIndex === idx
-                          ? 'bg-white text-[#111111] border-white'
+                          ? 'bg-white text-[#111111] border-white font-bold'
                           : 'border-[#2B2B2B] text-[#77746E] hover:text-white'
                       }`}
                     >
@@ -67,7 +67,7 @@ export default function LookbookPage() {
                     initial={{ opacity: 0, scale: 1.02 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.5 }}
                     className="relative w-full h-full"
                   >
                     <Image
@@ -93,7 +93,7 @@ export default function LookbookPage() {
                         </div>
 
                         {/* Hover Popup Box */}
-                        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-56 p-4 bg-[#111111] border border-[#2B2B2B] text-white shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-30">
+                        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-56 p-4 bg-[#111111] border border-[#2B2B2B] text-white shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-30 text-start">
                           <p className="text-[9px] font-mono tracking-widest text-[#A58B68] uppercase">
                             FEATURED PIECE
                           </p>
@@ -105,10 +105,10 @@ export default function LookbookPage() {
                           </p>
                           <Link
                             href={`/shop`}
-                            className="mt-3 inline-flex items-center space-x-1 text-[9px] font-bold tracking-widest uppercase text-white hover:text-[#A58B68] transition-colors"
+                            className="mt-3 inline-flex items-center gap-1.5 text-[9px] font-bold tracking-widest uppercase text-white hover:text-[#A58B68] transition-colors"
                           >
                             <span>VIEW PRODUCT</span>
-                            <ArrowUpRight className="w-3 h-3" />
+                            <ArrowUpRight className="w-3 h-3 shrink-0" />
                           </Link>
                         </div>
                       </div>
@@ -117,7 +117,7 @@ export default function LookbookPage() {
                 </AnimatePresence>
 
                 {/* Bottom Overlay Label */}
-                <div className="absolute bottom-8 left-8 text-white z-10 space-y-1">
+                <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-8 text-white z-10 space-y-1 text-start">
                   <p className="text-[10px] font-mono tracking-[0.3em] text-[#A58B68] uppercase">
                     {currentSlide.subtitle}
                   </p>
