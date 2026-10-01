@@ -62,7 +62,7 @@ export default function LimitedDrop({ onQuickView }: LimitedDropProps) {
   };
 
   return (
-    <section id="limited-drop" className="py-20 sm:py-28 bg-[#151515] text-white font-peyda text-right relative overflow-hidden" dir="rtl">
+    <section id="limited-drop" className="py-12 sm:py-18 bg-[#151515] text-white font-peyda text-right relative overflow-hidden" dir="rtl">
 
       {/* AMBIENT GLOW & PATTERN */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80 pointer-events-none" />
@@ -74,21 +74,21 @@ export default function LimitedDrop({ onQuickView }: LimitedDropProps) {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-10 border-b border-white/10 mb-12">
 
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-bold rounded-full mb-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-medium rounded-full mb-3">
               <Flame className="w-4 h-4 shrink-0 animate-pulse" />
               <span>LIMITED EDITION DROPS — موجودی فوق‌العاده محدود</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-black text-white">
               دراپ محدود کلکسیونی
             </h2>
-            <p className="text-sm sm:text-base text-[#A0A09A] font-vazir mt-2">
+            <p className="text-sm sm:text-base text-[#A0A09A] font-vazir mt-2 font-normal">
               مدل‌هایی با تولید محدود جهانی که قرار نیست برای همیشه در دسترس باشند.
             </p>
           </div>
 
           {/* FUNCTIONAL COUNTDOWN TIMER */}
           <div className="bg-[#222222] border border-white/10 p-4 sm:p-5 rounded-2xl flex items-center gap-4 shrink-0 shadow-2xl">
-            <div className="flex items-center gap-2 text-xs font-bold text-[#A89B84] shrink-0">
+            <div className="flex items-center gap-2 text-xs font-medium text-[#A89B84] shrink-0">
               <Clock className="w-4 h-4" />
               <span>زمان باقی‌مانده:</span>
             </div>
@@ -133,7 +133,7 @@ export default function LimitedDrop({ onQuickView }: LimitedDropProps) {
                   fill
                   className="object-contain -rotate-6 group-hover:rotate-0 group-hover:scale-105 transition-transform duration-700"
                 />
-                <span className="absolute top-3 right-3 px-3 py-1 bg-rose-600 text-white text-[10px] font-black rounded-full">
+                <span className="absolute top-3 right-3 px-3 py-1 bg-rose-600 text-white text-[10px] font-medium rounded-full">
                   {drop.tag}
                 </span>
               </div>
@@ -141,25 +141,25 @@ export default function LimitedDrop({ onQuickView }: LimitedDropProps) {
               {/* CONTENT */}
               <div className="w-full sm:w-1/2 flex flex-col justify-between space-y-4">
                 <div>
-                  <span className="text-xs font-mono font-bold text-[#A89B84] uppercase tracking-wider">
+                  <span className="text-xs font-mono font-medium text-[#A89B84] uppercase tracking-wider">
                     {drop.brand}
                   </span>
-                  <h3 className="text-lg sm:text-xl font-extrabold text-white mt-1 group-hover:text-[#A89B84] transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold text-white mt-1 group-hover:text-[#A89B84] transition-colors">
                     {drop.title}
                   </h3>
-                  <div className="text-xs text-[#888] font-vazir mt-2">
-                    تنها <span className="text-white font-bold">{drop.stockRemaining} جفت</span> در انبار باقی مانده است.
+                  <div className="text-xs text-[#888] font-vazir mt-2 font-normal">
+                    تنها <span className="text-white font-medium">{drop.stockRemaining} جفت</span> در انبار باقی مانده است.
                   </div>
                 </div>
 
                 <div className="pt-2 border-t border-white/10">
-                  <div className="text-lg font-black text-white mb-3">
-                    {formatPrice(drop.price)} <span className="text-xs font-medium text-[#888]">تومان</span>
+                  <div className="text-lg font-bold text-white mb-3">
+                    {formatPrice(drop.price)} <span className="text-xs font-normal text-[#888]">تومان</span>
                   </div>
 
                   <button
                     onClick={() => handleQuickAdd(drop)}
-                    className="w-full py-3.5 px-5 bg-white text-black hover:bg-[#A89B84] font-bold text-xs rounded-full transition-all duration-300 flex items-center justify-center gap-2 group/btn"
+                    className="w-full py-3.5 px-5 bg-white text-black hover:bg-[#A89B84] font-semibold text-xs rounded-full transition-all duration-300 flex items-center justify-center gap-2 group/btn"
                   >
                     <ShoppingBag className="w-4 h-4 shrink-0" />
                     <span>مشاهده و رزرو مستقیم</span>

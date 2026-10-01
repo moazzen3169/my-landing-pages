@@ -8,7 +8,7 @@ export default function BrandSection() {
   const marqueeBrands = [...SOLEA_BRANDS, ...SOLEA_BRANDS, ...SOLEA_BRANDS];
 
   return (
-    <section className="py-14 bg-[#F4F5F2] border-y border-[#111111]/[0.08] overflow-hidden font-peyda" dir="rtl">
+    <section className="py-8 bg-[#F4F5F2] border-y border-[#111111]/[0.08] overflow-hidden font-peyda" dir="rtl">
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12 text-center mb-8">
         <span className="text-xs font-mono font-extrabold tracking-[0.2em] text-[#6B6B68] uppercase">
           CURATED HOUSE OF BRANDS

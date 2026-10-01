@@ -39,7 +39,7 @@ export default function SoleaSneakersLandingPage() {
       />
 
       {/* MAIN CONTENT */}
-      <main className="space-y-16 sm:space-y-24 pt-4 sm:pt-6 pb-20">
+      <main className="space-y-6 sm:space-y-10 pt-2 pb-16">
 
         {/* HERO */}
         <Hero onOpenSearch={() => setIsSearchOpen(true)} />

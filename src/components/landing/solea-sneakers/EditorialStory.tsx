@@ -6,7 +6,7 @@ import { ArrowLeft, Sparkles, Compass } from 'lucide-react';
 
 export default function EditorialStory() {
   return (
-    <section className="py-20 sm:py-28 bg-[#FAFAF7] font-peyda text-right" dir="rtl">
+    <section className="py-10 sm:py-16 bg-[#FAFAF7] font-peyda text-right" dir="rtl">
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12">
 
         <div className="bg-[#111111] text-white rounded-[32px] p-8 sm:p-12 lg:p-16 overflow-hidden relative shadow-2xl">
@@ -19,7 +19,7 @@ export default function EditorialStory() {
             {/* RIGHT COLUMN (RTL): EDITORIAL TEXT & MANIFESTO */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8">
 
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/10 border border-white/15 rounded-full text-xs font-bold text-[#A89B84]">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/10 border border-white/15 rounded-full text-xs font-medium text-[#A89B84]">
                 <Sparkles className="w-3.5 h-3.5 shrink-0" />
                 <span>فلسفه طراحی و برند SOLEA</span>
               </div>
@@ -29,25 +29,25 @@ export default function EditorialStory() {
                 بیانیه‌ای برای <span className="text-[#A89B84]">حرکت و هویت.</span>
               </h2>
 
-              <p className="text-sm sm:text-base lg:text-lg text-[#D0C8B8] font-vazir leading-relaxed max-w-2xl">
+              <p className="text-sm sm:text-base lg:text-lg text-[#D0C8B8] font-vazir leading-relaxed max-w-2xl font-normal">
                 اسنیکر فقط بخشی از پوشش شما نیست؛ نقطه تقاطع مهندسی ارگونومیک، هنر خیابانی و نحوه مواجهه شما با دنیای اطراف است. ما در سولئا بر این باوریم که هر گام، امضای استایل شماست.
               </p>
 
               <div className="grid grid-cols-2 gap-6 pt-4 border-t border-white/10 text-xs font-vazir text-[#A0A5B5]">
                 <div>
-                  <div className="text-xl font-black text-white font-mono mb-1">100% ORIGINAL</div>
-                  <div>ضمانت اصالت تمام محصولات از نمایندگی‌های رسمی</div>
+                  <div className="text-xl font-extrabold text-white font-mono mb-1">100% ORIGINAL</div>
+                  <div className="font-normal">ضمانت اصالت تمام محصولات از نمایندگی‌های رسمی</div>
                 </div>
                 <div>
-                  <div className="text-xl font-black text-white font-mono mb-1">CURATED SELECTION</div>
-                  <div>انتخاب وسواس‌گونه مدل‌های برتر سال</div>
+                  <div className="text-xl font-extrabold text-white font-mono mb-1">CURATED SELECTION</div>
+                  <div className="font-normal">انتخاب وسواس‌گونه مدل‌های برتر سال</div>
                 </div>
               </div>
 
               <div className="pt-2">
                 <a
                   href="#products"
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-[#A89B84] hover:bg-white text-black font-extrabold text-sm rounded-full transition-all duration-300 shadow-lg group"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-[#A89B84] hover:bg-white text-black font-semibold text-sm rounded-full transition-all duration-300 shadow-lg group"
                 >
                   <Compass className="w-4 h-4 shrink-0" />
                   <span>داستان ما و کشف کالکشن</span>

@@ -28,7 +28,7 @@ export default function CustomerTrustSection() {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-[#F4F5F2] border-t border-[#111111]/[0.08] font-peyda text-right" dir="rtl">
+    <section className="py-10 sm:py-14 bg-[#F4F5F2] border-t border-[#111111]/[0.08] font-peyda text-right" dir="rtl">
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {guarantees.map((item, idx) => {
@@ -42,10 +42,10 @@ export default function CustomerTrustSection() {
                   <div className="w-12 h-12 rounded-2xl bg-[#111111] text-white flex items-center justify-center mb-5 shadow-md">
                     <Icon className="w-6 h-6 shrink-0" />
                   </div>
-                  <h3 className="text-base font-extrabold text-[#111111] mb-2">
+                  <h3 className="text-base font-bold text-[#111111] mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-[#6B6B68] font-vazir leading-relaxed">
+                  <p className="text-xs text-[#6B6B68] font-vazir leading-relaxed font-normal">
                     {item.description}
                   </p>
                 </div>

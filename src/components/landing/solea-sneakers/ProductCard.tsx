@@ -69,12 +69,12 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
           {/* BADGES (TOP RIGHT IN RTL) */}
           <div className="absolute top-3.5 right-3.5 flex flex-col gap-1.5 z-10 items-start">
             {product.badge && (
-              <span className="px-3 py-1 bg-[#111111] text-white text-[10px] font-bold rounded-full uppercase tracking-wider shadow-sm">
+              <span className="px-3 py-1 bg-[#111111] text-white text-[10px] font-medium rounded-full uppercase tracking-wider shadow-sm">
                 {product.badge}
               </span>
             )}
             {product.discountPercentage && (
-              <span className="px-2.5 py-0.5 bg-[#A89B84] text-black text-[10px] font-extrabold rounded-full">
+              <span className="px-2.5 py-0.5 bg-[#A89B84] text-black text-[10px] font-medium rounded-full">
                 ٪{product.discountPercentage}-
               </span>
             )}
@@ -103,7 +103,7 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
                 e.stopPropagation();
                 onQuickView(product);
               }}
-              className="flex-1 py-2.5 bg-white/95 backdrop-blur-md hover:bg-[#111111] hover:text-white text-[#111111] text-xs font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-1.5 shadow-md"
+              className="flex-1 py-2.5 bg-white/95 backdrop-blur-md hover:bg-[#111111] hover:text-white text-[#111111] text-xs font-medium rounded-xl transition-all duration-200 flex items-center justify-center gap-1.5 shadow-md"
             >
               <Eye className="w-3.5 h-3.5" />
               <span>مشاهده سریع</span>
@@ -125,21 +125,21 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
           </div>
 
           {/* TITLE */}
-          <h3 className="text-sm sm:text-base font-extrabold text-[#111111] line-clamp-1 group-hover:text-[#A89B84] transition-colors mb-2">
+          <h3 className="text-sm sm:text-base font-bold text-[#111111] line-clamp-1 group-hover:text-[#A89B84] transition-colors mb-2">
             {product.name}
           </h3>
 
           {/* RATING */}
           <div className="flex items-center gap-1 text-[11px] text-[#6B6B68] font-vazir mb-3">
-            <span className="text-amber-500 font-bold">★ {product.rating}</span>
+            <span className="text-amber-500 font-medium">★ {product.rating}</span>
             <span>({product.reviewCount} نظر)</span>
           </div>
 
           {/* PRICE & ADD TO CART ACTION */}
           <div className="flex items-center justify-between pt-2 border-t border-[#111111]/[0.06]">
             <div>
-              <div className="text-sm sm:text-base font-black text-[#111111]">
-                {formatPrice(product.price)} <span className="text-xs font-medium text-[#6B6B68]">تومان</span>
+              <div className="text-sm sm:text-base font-bold text-[#111111]">
+                {formatPrice(product.price)} <span className="text-xs font-normal text-[#6B6B68]">تومان</span>
               </div>
               {product.compareAtPrice && (
                 <div className="text-xs text-[#6B6B68] line-through font-vazir">
