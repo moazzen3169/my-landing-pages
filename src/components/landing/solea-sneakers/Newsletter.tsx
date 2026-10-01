@@ -20,24 +20,24 @@ export default function Newsletter() {
   return (
     <section className="py-10 sm:py-14 font-peyda text-right" dir="rtl">
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12">
-        <div className="bg-[#C8D1CE] border border-[#111111]/10 rounded-[32px] p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-xl shadow-black/5">
+        <div className="bg-[#16233A] border border-[#CBD5E1]/20 rounded-[28px] p-8 sm:p-12 lg:p-16 relative overflow-hidden text-[#F8FAFC]">
 
           <div className="max-w-3xl mx-auto text-center space-y-6 relative z-10">
-            <div className="w-12 h-12 rounded-2xl bg-[#111111] text-white flex items-center justify-center mx-auto shadow-md">
+            <div className="w-12 h-12 rounded-2xl bg-[#0B1220] text-[#8FA9C4] border border-[#CBD5E1]/20 flex items-center justify-center mx-auto">
               <Mail className="w-6 h-6 shrink-0" />
             </div>
 
-            <h2 className="text-2xl sm:text-4xl font-black text-[#111111]">
-              از جدیدترین دراپ‌ها باخبر شو
+            <h2 className="text-2xl sm:text-4xl font-bold text-[#F8FAFC]">
+              اطلاع از دراپ‌ها و کالکشن‌های جدید
             </h2>
 
-            <p className="text-xs sm:text-base text-[#3A3A37] font-vazir leading-relaxed max-w-xl mx-auto font-normal">
-              با عضویت در خبرنامه سولئا، اولین نفری باشید که از انتشار مدل‌های لیمیتد ادیشن، تخفیف‌های خاص و کالکشن‌های جدید مطلع می‌شوید.
+            <p className="text-xs sm:text-base text-[#CBD5E1] font-peyda leading-relaxed max-w-xl mx-auto font-normal">
+              با ثبت ایمیل، پیش از دیگران از انتشار مدل‌های لیمیتد ادیشن، تخفیف‌های ویژه و ورود کالکشن‌های جدید مطلع شوید.
             </p>
 
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto pt-2">
               {subscribed ? (
-                <div className="w-full py-3.5 px-6 bg-emerald-700 text-white font-medium text-sm rounded-full flex items-center justify-center gap-2">
+                <div className="w-full py-3.5 px-6 bg-emerald-800 text-white font-medium text-sm rounded-full flex items-center justify-center gap-2">
                   <CheckCircle className="w-5 h-5 shrink-0" />
                   <span>عضویت شما با موفقیت ثبت شد!</span>
                 </div>
@@ -49,11 +49,11 @@ export default function Newsletter() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="آدرس ایمیل شما..."
                     required
-                    className="w-full px-6 py-4 bg-white/90 border border-[#111111]/15 rounded-full text-sm font-vazir text-[#111111] placeholder-[#888] focus:outline-none focus:border-[#111111] shadow-sm"
+                    className="w-full px-6 py-3.5 bg-[#0B1220] border border-[#CBD5E1]/30 rounded-full text-sm font-peyda text-[#F8FAFC] placeholder-[#94A3B8] focus:outline-none focus:border-[#8FA9C4]"
                   />
                   <button
                     type="submit"
-                    className="w-full sm:w-auto px-8 py-4 bg-[#111111] hover:bg-[#252525] text-white font-semibold text-sm rounded-full transition-all duration-300 flex items-center justify-center gap-2 shrink-0 shadow-lg shadow-black/10"
+                    className="w-full sm:w-auto px-8 py-3.5 bg-[#8FA9C4] hover:bg-[#F8FAFC] text-[#0B1220] font-semibold text-sm rounded-full transition-colors flex items-center justify-center gap-2 shrink-0"
                   >
                     <span>عضویت</span>
                     <ArrowLeft className="w-4 h-4 shrink-0" />
@@ -62,8 +62,8 @@ export default function Newsletter() {
               )}
             </form>
 
-            <div className="text-[11px] text-[#6B6B68] font-vazir pt-2 font-normal">
-              ما به حریم خصوصی شما احترام می‌گذاریم. هر زمان خواستید می‌توانید لغو عضویت کنید.
+            <div className="text-[11px] text-[#94A3B8] font-peyda pt-2 font-normal">
+              اطلاعات شما نزد سولئا محفوظ است. امکان لغو عضویت در هر زمان وجود دارد.
             </div>
           </div>
 

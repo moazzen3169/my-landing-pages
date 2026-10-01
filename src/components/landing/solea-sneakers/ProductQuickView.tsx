@@ -69,79 +69,90 @@ export default function ProductQuickView({ product, onClose }: ProductQuickViewP
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-md animate-fade-in font-peyda"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#0B1220]/70 backdrop-blur-sm font-peyda"
       dir="rtl"
       onClick={onClose}
     >
       <div
-        className="relative bg-[#FAFAF7] border border-[#111111]/10 w-full max-w-4xl rounded-[28px] overflow-hidden shadow-2xl my-auto text-right max-h-[90vh] flex flex-col md:flex-row"
+        className="relative bg-[#F8FAFC] border border-[#CBD5E1]/80 w-full max-w-4xl rounded-[24px] overflow-hidden my-auto text-right max-h-[90vh] flex flex-col md:flex-row"
         onClick={(e) => e.stopPropagation()}
       >
         {/* CLOSE BUTTON */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/80 hover:bg-[#111111] hover:text-white border border-[#111111]/10 flex items-center justify-center transition-all duration-300 shadow-sm"
+          className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-[#FFFFFF] hover:bg-[#0B1220] hover:text-[#F8FAFC] border border-[#CBD5E1]/60 flex items-center justify-center transition-colors text-[#0B1220]"
           aria-label="بستن"
         >
-          <X className="w-5 h-5 shrink-0" />
+          <X className="w-4 h-4 shrink-0" />
         </button>
 
-        {/* LEFT/TOP: PRODUCT GALLERY AREA */}
-        <div className="w-full md:w-1/2 bg-[#EAEFF0] p-8 flex items-center justify-center relative min-h-[300px] md:min-h-[460px]">
+        {/* LEFT/TOP: GALLERY AREA */}
+        <div className="w-full md:w-1/2 bg-[#F1F5F9] p-8 flex items-center justify-center relative min-h-[300px] md:min-h-[460px] border-b md:border-b-0 md:border-l border-[#CBD5E1]/60">
           <div className="relative w-full h-full min-h-[260px] flex items-center justify-center">
             <Image
               src={activeColor?.image || product.images[0]}
               alt={product.name}
               fill
-              className="object-contain -rotate-6 hover:rotate-0 transition-transform duration-500"
+              className="object-contain hover:scale-105 transition-transform duration-500"
             />
           </div>
 
           {/* BADGES */}
           <div className="absolute top-6 left-6 flex flex-col gap-2">
             {product.badge && (
-              <span className="px-3 py-1 bg-[#111111] text-white text-xs font-bold rounded-full">
+              <span className="px-3 py-1 bg-[#0B1220] text-[#F8FAFC] text-xs font-semibold rounded-full">
                 {product.badge}
               </span>
             )}
           </div>
         </div>
 
-        {/* RIGHT/BOTTOM: PRODUCT SPECS & PURCHASE OPTIONS */}
+        {/* RIGHT/BOTTOM: PRODUCT SPECS & OPTIONS */}
         <div className="w-full md:w-1/2 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto max-h-[80vh] md:max-h-[90vh]">
           <div>
             {/* BRAND & RATING */}
-            <div className="flex items-center justify-between text-xs font-mono font-bold text-[#6B6B68] mb-2">
-              <span className="text-[#111111] uppercase tracking-wider">{product.brand}</span>
+            <div className="flex items-center justify-between text-xs font-mono font-bold text-[#475569] mb-2">
+              <span className="text-[#0B1220] uppercase tracking-wider">{product.brand}</span>
               <span className="text-amber-600">★ {product.rating} ({product.reviewCount} نظر)</span>
             </div>
 
             {/* TITLE */}
-            <h2 className="text-xl sm:text-2xl font-black text-[#111111] mb-3">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#0B1220] mb-3">
               {product.name}
             </h2>
 
             {/* PRICE */}
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-2xl font-black text-[#111111]">
-                {formatPrice(product.price)} <span className="text-xs font-medium text-[#6B6B68]">تومان</span>
+              <span className="text-2xl font-bold text-[#0B1220]">
+                {formatPrice(product.price)} <span className="text-xs font-normal text-[#475569]">تومان</span>
               </span>
               {product.compareAtPrice && (
-                <span className="text-sm text-[#6B6B68] line-through">
+                <span className="text-sm text-[#475569] line-through">
                   {formatPrice(product.compareAtPrice)}
                 </span>
               )}
             </div>
 
-            {/* DESCRIPTION */}
-            <p className="text-xs sm:text-sm text-[#4A4A46] font-vazir leading-relaxed mb-6 border-b border-[#111111]/[0.08] pb-4">
-              {product.description}
-            </p>
+            {/* VISUAL TECHNICAL METRICS (SHOW DON'T TELL) */}
+            <div className="bg-[#FFFFFF] border border-[#CBD5E1]/60 p-3.5 rounded-xl text-xs font-peyda space-y-2 mb-5">
+              <div className="flex items-center justify-between">
+                <span className="text-[#0B1220] font-semibold">کوشنینگ / نرمی:</span>
+                <span className="text-[#0B1220] font-mono tracking-widest font-bold">● ● ● ● ○</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-[#0B1220] font-semibold">انعطاف زیره:</span>
+                <span className="text-[#0B1220] font-mono tracking-widest font-bold">● ● ● ● ●</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-[#0B1220] font-semibold">تنفس‌پذیری:</span>
+                <span className="text-[#0B1220] font-mono tracking-widest font-bold">● ● ● ● ○</span>
+              </div>
+            </div>
 
             {/* COLOR SELECTION */}
             <div className="mb-5">
-              <label className="block text-xs font-bold text-[#111111] mb-2">
-                انتخاب رنگ: <span className="text-[#6B6B68] font-normal">{activeColor?.name}</span>
+              <label className="block text-xs font-bold text-[#0B1220] mb-2">
+                انتخاب رنگ: <span className="text-[#475569] font-normal">{activeColor?.name}</span>
               </label>
               <div className="flex items-center gap-2.5">
                 {product.colors.map((c, idx) => (
@@ -149,13 +160,13 @@ export default function ProductQuickView({ product, onClose }: ProductQuickViewP
                     key={idx}
                     onClick={() => setSelectedColorIndex(idx)}
                     className={`w-8 h-8 rounded-full border-2 transition-all flex items-center justify-center ${
-                      selectedColorIndex === idx ? 'border-[#111111] scale-110 shadow-sm' : 'border-transparent'
+                      selectedColorIndex === idx ? 'border-[#0B1220] scale-105' : 'border-transparent'
                     }`}
                     style={{ backgroundColor: c.hex }}
                     title={c.name}
                   >
                     {selectedColorIndex === idx && (
-                      <Check className={`w-4 h-4 ${c.hex === '#FAFAF7' || c.hex === '#FFFFFF' ? 'text-black' : 'text-white'}`} />
+                      <Check className={`w-4 h-4 ${c.hex === '#F8FAFC' || c.hex === '#FFFFFF' ? 'text-black' : 'text-white'}`} />
                     )}
                   </button>
                 ))}
@@ -165,10 +176,10 @@ export default function ProductQuickView({ product, onClose }: ProductQuickViewP
             {/* SIZE SELECTION */}
             <div className="mb-6">
               <div className="flex justify-between items-center mb-2">
-                <label className="text-xs font-bold text-[#111111]">
+                <label className="text-xs font-bold text-[#0B1220]">
                   انتخاب سایز (EUR):
                 </label>
-                <span className="text-[11px] text-[#A89B84] font-bold cursor-pointer hover:underline">
+                <span className="text-[11px] text-[#8FA9C4] font-semibold cursor-pointer hover:underline">
                   راهنمای سایز
                 </span>
               </div>
@@ -178,10 +189,10 @@ export default function ProductQuickView({ product, onClose }: ProductQuickViewP
                   <button
                     key={sz}
                     onClick={() => setSelectedSize(sz)}
-                    className={`py-2 text-xs font-mono font-bold rounded-xl border transition-all ${
+                    className={`py-2 text-xs font-mono font-bold rounded-xl border transition-colors ${
                       selectedSize === sz
-                        ? 'bg-[#111111] text-white border-[#111111]'
-                        : 'bg-white text-[#111111] border-[#111111]/15 hover:border-[#111111]'
+                        ? 'bg-[#0B1220] text-[#F8FAFC] border-[#0B1220]'
+                        : 'bg-[#FFFFFF] text-[#0B1220] border-[#CBD5E1]/60 hover:border-[#0B1220]'
                     }`}
                   >
                     {sz}
@@ -191,10 +202,10 @@ export default function ProductQuickView({ product, onClose }: ProductQuickViewP
             </div>
 
             {/* SPECIFICATIONS */}
-            <div className="bg-[#F1F1EE] p-3.5 rounded-2xl text-[11px] font-vazir space-y-1 text-[#4A4A46] mb-6">
-              <div><strong className="text-[#111111]">رویه:</strong> {product.specifications.upper}</div>
-              <div><strong className="text-[#111111]">کوشنینگ:</strong> {product.specifications.cushioning}</div>
-              <div><strong className="text-[#111111]">زیره:</strong> {product.specifications.outsole}</div>
+            <div className="bg-[#F1F5F9] p-3.5 rounded-xl text-[11px] font-peyda space-y-1 text-[#475569] mb-6 border border-[#CBD5E1]/40">
+              <div><strong className="text-[#0B1220]">رویه:</strong> {product.specifications.upper}</div>
+              <div><strong className="text-[#0B1220]">کوشنینگ:</strong> {product.specifications.cushioning}</div>
+              <div><strong className="text-[#0B1220]">زیره:</strong> {product.specifications.outsole}</div>
             </div>
           </div>
 
@@ -202,10 +213,10 @@ export default function ProductQuickView({ product, onClose }: ProductQuickViewP
           <div>
             <button
               onClick={handleAddToCart}
-              className={`w-full py-4 px-6 rounded-full font-extrabold text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-lg ${
+              className={`w-full py-3.5 px-6 rounded-full font-bold text-sm transition-colors flex items-center justify-center gap-2 ${
                 added
-                  ? 'bg-emerald-600 text-white'
-                  : 'bg-[#111111] hover:bg-[#252525] text-white shadow-black/15'
+                  ? 'bg-emerald-700 text-[#F8FAFC]'
+                  : 'bg-[#0B1220] hover:bg-[#16233A] text-[#F8FAFC]'
               }`}
             >
               {added ? (
@@ -222,17 +233,17 @@ export default function ProductQuickView({ product, onClose }: ProductQuickViewP
             </button>
 
             {/* TRUST MINI ICONS */}
-            <div className="grid grid-cols-3 gap-2 mt-4 text-[10px] text-[#6B6B68] font-vazir text-center pt-3 border-t border-[#111111]/[0.08]">
+            <div className="grid grid-cols-3 gap-2 mt-4 text-[10px] text-[#475569] font-peyda text-center pt-3 border-t border-[#CBD5E1]/40">
               <div className="flex items-center justify-center gap-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#111111]" />
+                <ShieldCheck className="w-3.5 h-3.5 text-[#0B1220]" />
                 <span>ضمانت اصالت</span>
               </div>
               <div className="flex items-center justify-center gap-1">
-                <Truck className="w-3.5 h-3.5 text-[#111111]" />
+                <Truck className="w-3.5 h-3.5 text-[#0B1220]" />
                 <span>ارسال اکسپرس</span>
               </div>
               <div className="flex items-center justify-center gap-1">
-                <RotateCcw className="w-3.5 h-3.5 text-[#111111]" />
+                <RotateCcw className="w-3.5 h-3.5 text-[#0B1220]" />
                 <span>۷ روز بازگشت</span>
               </div>
             </div>
