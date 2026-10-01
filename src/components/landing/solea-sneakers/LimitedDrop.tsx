@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import { Flame, Clock, ShoppingBag, ArrowLeft } from 'lucide-react';
+import { Flame, ShoppingBag, ArrowLeft, Clock } from 'lucide-react';
 import { SOLEA_LIMITED_DROPS, SneakerProduct, SOLEA_PRODUCTS } from '@/data/solea-sneakers';
 import { useCart } from '@/context/CartContext';
 
@@ -12,32 +12,13 @@ interface LimitedDropProps {
 
 export default function LimitedDrop({ onQuickView }: LimitedDropProps) {
   const { addToCart } = useCart();
-  const [timeLeft, setTimeLeft] = useState({
-    days: 2,
-    hours: 8,
-    minutes: 32,
-    seconds: 18,
-  });
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev.seconds > 0) return { ...prev, seconds: prev.seconds - 1 };
-        if (prev.minutes > 0) return { ...prev, minutes: 59, seconds: 59 };
-        if (prev.hours > 0) return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        if (prev.days > 0) return { ...prev, days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 };
-        return prev;
-      });
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
 
   const formatPrice = (amount: number) => {
     return new Intl.NumberFormat('fa-IR').format(amount);
   };
 
   const handleQuickAdd = (drop: typeof SOLEA_LIMITED_DROPS[0]) => {
-    const matched = SOLEA_PRODUCTS.find(p => p.id === 'solea-11') || SOLEA_PRODUCTS[0];
+    const matched = SOLEA_PRODUCTS.find(p => p.id === 'solea-11' || p.id === 'solea-09') || SOLEA_PRODUCTS[0];
     if (onQuickView) {
       onQuickView(matched);
       return;
@@ -51,119 +32,87 @@ export default function LimitedDrop({ onQuickView }: LimitedDropProps) {
       category: 'accessories' as const,
       price: drop.price,
       currency: 'TMN',
-      colors: [{ name: 'محدود', hex: '#111111' }],
+      colors: [{ name: 'محدود', hex: '#171717' }],
       sizes: ['41', '42', '43'],
       images: [drop.image],
       description: 'نسخه کاملاً محدود کلکسیونی',
       material: 'چرم اختصاصی',
       fit: 'استاندارد',
     };
-    addToCart(product, { name: 'محدود', hex: '#111111' }, '42');
+    addToCart(product, { name: 'محدود', hex: '#171717' }, '42');
   };
 
   return (
-    <section id="limited-drop" className="py-12 sm:py-18 bg-[#151515] text-white font-peyda text-right relative overflow-hidden" dir="rtl">
+    <section id="limited-drop" className="py-12 sm:py-16 bg-[#171717] text-white font-peyda text-right relative overflow-hidden" dir="rtl">
+      <div className="max-w-[1500px] mx-auto px-4 sm:px-6 md:px-8">
 
-      {/* AMBIENT GLOW & PATTERN */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80 pointer-events-none" />
-      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-rose-950/20 rounded-full filter blur-3xl pointer-events-none" />
-
-      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12 relative z-10">
-
-        {/* HEADER & COUNTDOWN TIMER */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-10 border-b border-white/10 mb-12">
-
+        {/* HEADER */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#262626] mb-10">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-medium rounded-full mb-3">
-              <Flame className="w-4 h-4 shrink-0 animate-pulse" />
-              <span>LIMITED EDITION DROPS — موجودی فوق‌العاده محدود</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#CCFF00] text-[#171717] text-xs font-mono font-bold rounded mb-3">
+              <Flame className="w-3.5 h-3.5" />
+              <span>LIMITED RELEASE</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black text-white">
-              دراپ محدود کلکسیونی
+            <h2 className="text-2xl sm:text-4xl font-black text-white">
+              دراپ‌های کلکسیونی محدود
             </h2>
-            <p className="text-sm sm:text-base text-[#A0A09A] font-vazir mt-2 font-normal">
-              مدل‌هایی با تولید محدود جهانی که قرار نیست برای همیشه در دسترس باشند.
+            <p className="text-xs sm:text-sm text-[#A3A3A3] font-vazir mt-1.5 font-normal">
+              مدل‌هایی با موجودی اندک در سطح جهانی که برای مجموعه‌داران و علاقه‌مندان خاص عرضه می‌شوند.
             </p>
           </div>
 
-          {/* FUNCTIONAL COUNTDOWN TIMER */}
-          <div className="bg-[#222222] border border-white/10 p-4 sm:p-5 rounded-2xl flex items-center gap-4 shrink-0 shadow-2xl">
-            <div className="flex items-center gap-2 text-xs font-medium text-[#A89B84] shrink-0">
-              <Clock className="w-4 h-4" />
-              <span>زمان باقی‌مانده:</span>
-            </div>
-
-            <div className="flex items-center gap-3 font-mono text-center" dir="ltr">
-              <div className="bg-[#111111] px-3 py-2 rounded-xl border border-white/10 min-w-[50px]">
-                <span className="text-xl font-black text-white block">{String(timeLeft.days).padStart(2, '0')}</span>
-                <span className="text-[9px] text-[#888] font-vazir block">روز</span>
-              </div>
-              <span className="text-xl font-bold text-[#A89B84]">:</span>
-              <div className="bg-[#111111] px-3 py-2 rounded-xl border border-white/10 min-w-[50px]">
-                <span className="text-xl font-black text-white block">{String(timeLeft.hours).padStart(2, '0')}</span>
-                <span className="text-[9px] text-[#888] font-vazir block">ساعت</span>
-              </div>
-              <span className="text-xl font-bold text-[#A89B84]">:</span>
-              <div className="bg-[#111111] px-3 py-2 rounded-xl border border-white/10 min-w-[50px]">
-                <span className="text-xl font-black text-white block">{String(timeLeft.minutes).padStart(2, '0')}</span>
-                <span className="text-[9px] text-[#888] font-vazir block">دقیقه</span>
-              </div>
-              <span className="text-xl font-bold text-[#A89B84]">:</span>
-              <div className="bg-[#111111] px-3 py-2 rounded-xl border border-white/10 min-w-[50px]">
-                <span className="text-xl font-black text-rose-500 block">{String(timeLeft.seconds).padStart(2, '0')}</span>
-                <span className="text-[9px] text-[#888] font-vazir block">ثانیه</span>
-              </div>
-            </div>
+          <div className="text-xs font-vazir text-[#A3A3A3] flex items-center gap-2">
+            <Clock className="w-4 h-4 text-[#CCFF00]" />
+            <span>عرضه انحصاری در SOLEA</span>
           </div>
-
         </div>
 
         {/* DROPS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {SOLEA_LIMITED_DROPS.map((drop) => (
             <div
               key={drop.id}
-              className="bg-[#1E1E1E] border border-white/10 rounded-[28px] overflow-hidden p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 group hover:border-[#A89B84]/60 transition-all duration-500 shadow-xl"
+              className="bg-[#262626] border border-[#333333] rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 hover:border-[#CCFF00] transition-all duration-300"
             >
-              {/* IMAGE CONTAINER */}
-              <div className="relative w-full sm:w-1/2 aspect-square rounded-2xl bg-[#141414] overflow-hidden p-4 flex items-center justify-center shrink-0">
+              {/* IMAGE */}
+              <div className="relative w-full sm:w-1/2 aspect-square rounded-xl bg-[#171717] border border-[#333333] p-4 flex items-center justify-center shrink-0">
                 <Image
                   src={drop.image}
                   alt={drop.title}
                   fill
-                  className="object-contain -rotate-6 group-hover:rotate-0 group-hover:scale-105 transition-transform duration-700"
+                  className="object-contain p-2 hover:scale-105 transition-transform"
                 />
-                <span className="absolute top-3 right-3 px-3 py-1 bg-rose-600 text-white text-[10px] font-medium rounded-full">
+                <span className="absolute top-3 right-3 px-2.5 py-0.5 bg-[#CCFF00] text-[#171717] text-[10px] font-mono font-bold rounded">
                   {drop.tag}
                 </span>
               </div>
 
-              {/* CONTENT */}
+              {/* DETAILS */}
               <div className="w-full sm:w-1/2 flex flex-col justify-between space-y-4">
                 <div>
-                  <span className="text-xs font-mono font-medium text-[#A89B84] uppercase tracking-wider">
+                  <span className="text-[11px] font-mono font-bold text-[#CCFF00] uppercase tracking-wider">
                     {drop.brand}
                   </span>
-                  <h3 className="text-lg sm:text-xl font-bold text-white mt-1 group-hover:text-[#A89B84] transition-colors">
+                  <h3 className="text-base sm:text-lg font-bold text-white mt-1">
                     {drop.title}
                   </h3>
-                  <div className="text-xs text-[#888] font-vazir mt-2 font-normal">
-                    تنها <span className="text-white font-medium">{drop.stockRemaining} جفت</span> در انبار باقی مانده است.
+                  <div className="text-xs text-[#A3A3A3] font-vazir mt-2 font-normal">
+                    موجودی باقی‌مانده: <span className="text-white font-bold">{drop.stockRemaining} جفت</span>
                   </div>
                 </div>
 
-                <div className="pt-2 border-t border-white/10">
-                  <div className="text-lg font-bold text-white mb-3">
-                    {formatPrice(drop.price)} <span className="text-xs font-normal text-[#888]">تومان</span>
+                <div className="pt-3 border-t border-[#333333]">
+                  <div className="text-base font-bold text-white mb-3">
+                    {formatPrice(drop.price)} <span className="text-xs font-normal text-[#A3A3A3]">تومان</span>
                   </div>
 
                   <button
                     onClick={() => handleQuickAdd(drop)}
-                    className="w-full py-3.5 px-5 bg-white text-black hover:bg-[#A89B84] font-semibold text-xs rounded-full transition-all duration-300 flex items-center justify-center gap-2 group/btn"
+                    className="w-full py-3 bg-[#CCFF00] hover:bg-[#B8E600] text-[#171717] font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-2"
                   >
-                    <ShoppingBag className="w-4 h-4 shrink-0" />
+                    <ShoppingBag className="w-4 h-4" />
                     <span>مشاهده و رزرو مستقیم</span>
-                    <ArrowLeft className="w-3.5 h-3.5 group-hover/btn:-translate-x-1 transition-transform" />
+                    <ArrowLeft className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>

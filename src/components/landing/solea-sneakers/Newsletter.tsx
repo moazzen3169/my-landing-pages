@@ -18,27 +18,28 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="py-10 sm:py-14 font-peyda text-right" dir="rtl">
-      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12">
-        <div className="bg-[#C8D1CE] border border-[#111111]/10 rounded-[32px] p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-xl shadow-black/5">
+    <section className="py-12 sm:py-16 font-peyda text-right" dir="rtl">
+      <div className="max-w-[1500px] mx-auto px-4 sm:px-6 md:px-8">
+        <div className="bg-[#FFFFFF] border border-[#E5E4E0] rounded-2xl p-8 sm:p-12 text-center relative overflow-hidden shadow-sm">
 
-          <div className="max-w-3xl mx-auto text-center space-y-6 relative z-10">
-            <div className="w-12 h-12 rounded-2xl bg-[#111111] text-white flex items-center justify-center mx-auto shadow-md">
-              <Mail className="w-6 h-6 shrink-0" />
+          <div className="max-w-xl mx-auto space-y-4">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#F5F4F0] border border-[#E5E4E0] rounded-full text-[11px] font-mono font-bold text-[#171717] uppercase tracking-wider">
+              <Mail className="w-3.5 h-3.5 text-[#171717]" />
+              GET THE NEXT DROP
             </div>
 
-            <h2 className="text-2xl sm:text-4xl font-black text-[#111111]">
-              از جدیدترین دراپ‌ها باخبر شو
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#171717]">
+              عضویت در خبرنامه دراپ‌های سولئا
             </h2>
 
-            <p className="text-xs sm:text-base text-[#3A3A37] font-vazir leading-relaxed max-w-xl mx-auto font-normal">
-              با عضویت در خبرنامه سولئا، اولین نفری باشید که از انتشار مدل‌های لیمیتد ادیشن، تخفیف‌های خاص و کالکشن‌های جدید مطلع می‌شوید.
+            <p className="text-xs sm:text-sm text-[#777777] font-vazir leading-relaxed font-normal">
+              جدیدترین دراپ‌ها، انتشار مدل‌های لیمیتد و پیشنهادهای هفتگی استایلیست‌ها مستقیم در ایمیل شما.
             </p>
 
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto pt-2">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-2 pt-2">
               {subscribed ? (
-                <div className="w-full py-3.5 px-6 bg-emerald-700 text-white font-medium text-sm rounded-full flex items-center justify-center gap-2">
-                  <CheckCircle className="w-5 h-5 shrink-0" />
+                <div className="w-full py-3 px-6 bg-[#171717] text-[#CCFF00] font-bold text-xs rounded-full flex items-center justify-center gap-2">
+                  <CheckCircle className="w-4 h-4" />
                   <span>عضویت شما با موفقیت ثبت شد!</span>
                 </div>
               ) : (
@@ -49,21 +50,21 @@ export default function Newsletter() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="آدرس ایمیل شما..."
                     required
-                    className="w-full px-6 py-4 bg-white/90 border border-[#111111]/15 rounded-full text-sm font-vazir text-[#111111] placeholder-[#888] focus:outline-none focus:border-[#111111] shadow-sm"
+                    className="w-full px-5 py-3 bg-[#F5F4F0] border border-[#E5E4E0] rounded-full text-xs font-vazir text-[#171717] placeholder-[#777777] focus:outline-none focus:border-[#171717]"
                   />
                   <button
                     type="submit"
-                    className="w-full sm:w-auto px-8 py-4 bg-[#111111] hover:bg-[#252525] text-white font-semibold text-sm rounded-full transition-all duration-300 flex items-center justify-center gap-2 shrink-0 shadow-lg shadow-black/10"
+                    className="w-full sm:w-auto px-6 py-3 bg-[#171717] hover:bg-[#262626] text-white font-semibold text-xs rounded-full transition-all flex items-center justify-center gap-2 shrink-0"
                   >
                     <span>عضویت</span>
-                    <ArrowLeft className="w-4 h-4 shrink-0" />
+                    <ArrowLeft className="w-3.5 h-3.5 text-[#CCFF00]" />
                   </button>
                 </>
               )}
             </form>
 
-            <div className="text-[11px] text-[#6B6B68] font-vazir pt-2 font-normal">
-              ما به حریم خصوصی شما احترام می‌گذاریم. هر زمان خواستید می‌توانید لغو عضویت کنید.
+            <div className="text-[10px] text-[#777777] font-vazir pt-1 font-normal">
+              احترام به حریم خصوصی شما؛ لغو عضویت در هر زمان با یک کلیک.
             </div>
           </div>
 

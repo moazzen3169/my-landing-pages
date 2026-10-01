@@ -19,7 +19,6 @@ import CartDrawer from '@/components/landing/solea-sneakers/CartDrawer';
 import MobileDrawer from '@/components/landing/solea-sneakers/MobileDrawer';
 
 import { SneakerProduct } from '@/data/solea-sneakers';
-import { useCart } from '@/context/CartContext';
 
 export default function SoleaSneakersLandingPage() {
   // STATE
@@ -28,8 +27,23 @@ export default function SoleaSneakersLandingPage() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [selectedGender, setSelectedGender] = useState<string>('all');
+
+  const handleSelectCategory = (cat: string) => {
+    setSelectedCategory(cat);
+    const el = document.getElementById('products');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleSelectGender = (g: string) => {
+    setSelectedGender(g);
+    const el = document.getElementById('products');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <div className="min-h-screen bg-[#F4F5F2] text-[#111111] font-vazir antialiased selection:bg-[#111111] selection:text-white" dir="rtl">
+    <div className="min-h-screen bg-[#F5F4F0] text-[#171717] font-vazir antialiased selection:bg-[#171717] selection:text-white" dir="rtl">
 
       {/* HEADER */}
       <Header
@@ -39,26 +53,34 @@ export default function SoleaSneakersLandingPage() {
       />
 
       {/* MAIN CONTENT */}
-      <main className="space-y-6 sm:space-y-10 pt-2 pb-16">
+      <main className="space-y-4 sm:space-y-8 pt-2 pb-12">
 
         {/* HERO */}
-        <Hero onOpenSearch={() => setIsSearchOpen(true)} />
+        <Hero
+          onOpenSearch={() => setIsSearchOpen(true)}
+          onSelectCategory={handleSelectCategory}
+          onSelectGender={handleSelectGender}
+        />
 
         {/* TRUST BAR */}
         <TrustBar />
 
-        {/* FEATURED PRODUCTS */}
+        {/* FEATURED PRODUCTS (NEW ARRIVALS & SELECTION) */}
         <FeaturedProducts
           onQuickView={(p) => setQuickViewProduct(p)}
+          selectedCategoryFromHero={selectedCategory}
+          selectedGenderFromHero={selectedGender}
         />
 
-        {/* CATEGORY SHOWCASE */}
-        <CategoryShowcase />
+        {/* SHOP BY CATEGORY */}
+        <CategoryShowcase
+          onSelectCategory={handleSelectCategory}
+        />
 
-        {/* BRAND STRIP */}
+        {/* SHOP BY BRAND */}
         <BrandSection />
 
-        {/* EDITORIAL STORY */}
+        {/* THE SOLEA EDIT */}
         <EditorialStory />
 
         {/* LIMITED DROP */}
@@ -66,7 +88,7 @@ export default function SoleaSneakersLandingPage() {
           onQuickView={(p) => setQuickViewProduct(p)}
         />
 
-        {/* CUSTOMER TRUST */}
+        {/* TRUST SECTION */}
         <CustomerTrustSection />
 
         {/* NEWSLETTER */}

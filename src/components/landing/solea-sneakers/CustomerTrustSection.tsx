@@ -7,45 +7,45 @@ export default function CustomerTrustSection() {
   const guarantees = [
     {
       icon: ShieldCheck,
-      title: 'اصالت ۱۰۰٪ کالا',
-      description: 'تضمین اصالت و اورجینال بودن تمام اسنیکرها مستقیماً از نمایندگی‌های رسمی.',
+      title: 'ضمانت ۱۰۰٪ اصالت',
+      description: 'تضمین اصالت و اورجینال بودن تمام اسنیکرها مستقیماً از نمایندگی‌های رسمی جهانی.',
     },
     {
       icon: Truck,
       title: 'ارسال اکسپرس سراسری',
-      description: 'بسته‌بندی ایمن کادویی و ارسال رایگان برای خریدهای بالای ۲ میلیون تومان.',
+      description: 'تحویل سریع و ایمن به همراه ارسال رایگان برای سفارش‌های بالای ۲ میلیون تومان.',
     },
     {
       icon: RotateCcw,
-      title: '۷ روز ضمانت بازگشت',
-      description: 'فرصت تست سایز و تعویض بی‌قید و شرط مدل بدون پرداخت هزینه‌های جانبی.',
+      title: '۷ روز ضمانت تعویض',
+      description: 'امکان تست سایز و تعویض مدل بدون هزینه اضافی در صورت عدم تطابق.',
     },
     {
       icon: Headphones,
       title: 'پشتیبانی اختصاصی استایل',
-      description: 'مشاوره رایگان انتخاب سایز و استایل در تمام روزهای هفته از ۸ صبح تا ۱۲ شب.',
+      description: 'مشاوره تخصصی سایز و انتخاب کتانی توسط تیم استایلیست‌های سولئا.',
     },
   ];
 
   return (
-    <section className="py-10 sm:py-14 bg-[#F4F5F2] border-t border-[#111111]/[0.08] font-peyda text-right" dir="rtl">
-      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <section className="py-10 bg-[#F5F4F0] border-t border-[#E5E4E0] font-peyda text-right" dir="rtl">
+      <div className="max-w-[1500px] mx-auto px-4 sm:px-6 md:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {guarantees.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
                 key={idx}
-                className="bg-[#FAFAF7] border border-[#111111]/[0.08] p-6 rounded-[22px] transition-all duration-300 hover:border-[#111111]/30 hover:shadow-lg shadow-black/5 flex flex-col justify-between"
+                className="bg-[#FFFFFF] border border-[#E5E4E0] p-5 rounded-2xl flex items-start gap-4 hover:border-[#171717] transition-all"
               >
+                <div className="w-10 h-10 rounded-xl bg-[#171717] text-[#CCFF00] flex items-center justify-center shrink-0">
+                  <Icon className="w-5 h-5" />
+                </div>
                 <div>
-                  <div className="w-12 h-12 rounded-2xl bg-[#111111] text-white flex items-center justify-center mb-5 shadow-md">
-                    <Icon className="w-6 h-6 shrink-0" />
-                  </div>
-                  <h3 className="text-base font-bold text-[#111111] mb-2">
+                  <h3 className="text-xs font-bold text-[#171717] mb-1">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-[#6B6B68] font-vazir leading-relaxed font-normal">
+                  <p className="text-[11px] text-[#777777] font-vazir leading-relaxed font-normal">
                     {item.description}
                   </p>
                 </div>
