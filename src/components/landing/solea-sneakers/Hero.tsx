@@ -20,17 +20,72 @@ export default function Hero({ onOpenSearch, onSelectCategory }: HeroProps) {
   ];
 
   return (
-    <section className="pt-28 pb-10 sm:pt-36 sm:pb-16 font-peyda" dir="rtl">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 md:px-12">
+    <section className="pt-28 sm:pt-18   font-peyda" dir="rtl">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 ">
         {/* HERO CONTAINER WITH ELEGANT WARM LUXURY CANVAS */}
-        <div className="relative bg-[#EAE8E3] rounded-[32px] sm:rounded-[40px] overflow-hidden p-6 sm:p-10 md:p-14 lg:p-16 border border-[#111111]/[0.08] shadow-2xl shadow-black/5 min-h-[660px] lg:min-h-[720px] flex flex-col justify-between">
+        <div className="relative bg-[#B0BFC2] rounded-[16px] sm:rounded-[24px] overflow-hidden p-6 sm:p-10 md:p-14 lg:p-16 border border-[#111111]/[0.08] shadow-2xl shadow-black/5 min-h-[660px] lg:min-h-[720px] flex flex-col justify-between">
 
           {/* BACKGROUND SUBTLE NOISE & GRADIENT */}
           <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-[#D8D4CB]/40 pointer-events-none" />
           <div className="absolute -top-24 -left-24 w-[550px] h-[550px] bg-white/40 rounded-full filter blur-3xl pointer-events-none" />
 
           {/* TWO-COLUMN GRID CONTENT */}
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center my-auto">
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-start my-auto">
+
+       {/* LEFT COLUMN (RTL): HERO MAIN IMAGE & FLOATING CARDS */}
+            <div className="lg:col-span-5 relative flex items-center justify-center mt-6 lg:mt-0">
+
+              {/* MAIN HERO IMAGE CONTAINER */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="relative w-full max-w-[480px] lg:max-w-[600px] aspect-[4/6]  overflow-hidden "
+              >
+                <Image
+                  src="/images/landings/solea-sneakers/Sporty-Woman-on-Gray-Studio-Block-for-hero-section.png"
+                  alt="Solea Luxury Sneaker Hero"
+                  fill
+                  priority
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+
+                {/* Subtle bottom gradient for image tag */}
+
+                {/* Floating Image Label */}
+                <div className="absolute bottom-5 right-5 z-10 bg-white/85 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/40 shadow-lg text-right">
+                  <div className="text-xs font-black text-[#111111]">کالکشن استایل لوکس</div>
+                  <div className="text-[10px] text-[#6B6B68] font-vazir">طراحی آینده‌نگرانه و راحت</div>
+                </div>
+              </motion.div>
+
+              {/* FLOATING CARD 1: FREE SHIPPING */}
+              <motion.div
+                initial={{ opacity: 0, x: -20, y: -10 }}
+                animate={{ opacity: 1, x: 0, y: [0, -6, 0] }}
+                transition={{
+                  opacity: { duration: 0.6, delay: 0.5 },
+                  y: { repeat: Infinity, duration: 4, ease: 'easeInOut' },
+                }}
+                className="absolute -bottom-4 -right-2 sm:bottom-6 sm:-right-4 bg-white/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border border-[#111111]/10 shadow-2xl flex items-center gap-3 z-20"
+              >
+                <div className="w-10 h-10 rounded-xl bg-[#111111] text-white flex items-center justify-center shrink-0">
+                  <Truck className="w-5 h-5" />
+                </div>
+                <div className="text-right">
+                  <div className="text-xs font-bold text-[#111111]">
+                    ارسال اکسپرس رایگان
+                  </div>
+                  <div className="text-[10px] text-[#6B6B68] font-vazir">
+                    برای سفارش‌های بالای ۲ میلیون تومان
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* FLOATING CARD 2: GUARANTEE */}
+
+
+            </div>
 
             {/* RIGHT COLUMN (RTL): HEADLINE, TEXT & ACTION BUTTONS */}
             <div className="lg:col-span-7 flex flex-col items-start text-right space-y-6 sm:space-y-8">
@@ -52,11 +107,12 @@ export default function Hero({ onOpenSearch, onSelectCategory }: HeroProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-4xl sm:text-6xl lg:text-[68px] xl:text-[76px] font-black text-[#111111] leading-[1.05] font-peyda"
+                className="text-4xl sm:text-6xl lg:text-[68px] xl:text-[76px] font-black text-[#111111] leading-[1.1] font-peyda"
               >
-                کفش‌هایی <br />
-                برای <span className="underline decoration-[#A89B84]/50 decoration-wavy underline-offset-8">حرکت.</span> <br />
-                استایل. <span className="text-[#6B6B68] font-extrabold">روزمرگی.</span>
+                کفش‌هایی 
+                برای <br /> 
+                <span>ورزش.</span> <br />
+                استـــایل. <br /> <span className="text-[#6B6B68] font-extrabold">روزمرگی.</span>
               </motion.h1>
 
               {/* SUBTITLE */}
@@ -132,82 +188,7 @@ export default function Hero({ onOpenSearch, onSelectCategory }: HeroProps) {
 
             </div>
 
-            {/* LEFT COLUMN (RTL): HERO MAIN IMAGE & FLOATING CARDS */}
-            <div className="lg:col-span-5 relative flex items-center justify-center mt-6 lg:mt-0">
-
-              {/* MAIN HERO IMAGE CONTAINER */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative w-full max-w-[480px] lg:max-w-[560px] aspect-[4/5] rounded-[32px] overflow-hidden border border-[#111111]/10 shadow-2xl group"
-              >
-                <Image
-                  src="/images/landings/solea-sneakers/Sporty-Woman-on-Gray-Studio-Block-for-hero-section.png"
-                  alt="Solea Luxury Sneaker Hero"
-                  fill
-                  priority
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-
-                {/* Subtle bottom gradient for image tag */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
-
-                {/* Floating Image Label */}
-                <div className="absolute bottom-5 right-5 z-10 bg-white/85 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/40 shadow-lg text-right">
-                  <div className="text-xs font-black text-[#111111]">کالکشن استایل لوکس</div>
-                  <div className="text-[10px] text-[#6B6B68] font-vazir">طراحی آینده‌نگرانه و راحت</div>
-                </div>
-              </motion.div>
-
-              {/* FLOATING CARD 1: FREE SHIPPING */}
-              <motion.div
-                initial={{ opacity: 0, x: -20, y: -10 }}
-                animate={{ opacity: 1, x: 0, y: [0, -6, 0] }}
-                transition={{
-                  opacity: { duration: 0.6, delay: 0.5 },
-                  y: { repeat: Infinity, duration: 4, ease: 'easeInOut' },
-                }}
-                className="absolute -bottom-4 -right-2 sm:bottom-6 sm:-right-4 bg-white/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border border-[#111111]/10 shadow-2xl flex items-center gap-3 z-20"
-              >
-                <div className="w-10 h-10 rounded-xl bg-[#111111] text-white flex items-center justify-center shrink-0">
-                  <Truck className="w-5 h-5" />
-                </div>
-                <div className="text-right">
-                  <div className="text-xs font-bold text-[#111111]">
-                    ارسال اکسپرس رایگان
-                  </div>
-                  <div className="text-[10px] text-[#6B6B68] font-vazir">
-                    برای سفارش‌های بالای ۲ میلیون تومان
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* FLOATING CARD 2: GUARANTEE */}
-              <motion.div
-                initial={{ opacity: 0, x: 20, y: -10 }}
-                animate={{ opacity: 1, x: 0, y: [0, 6, 0] }}
-                transition={{
-                  opacity: { duration: 0.6, delay: 0.6 },
-                  y: { repeat: Infinity, duration: 5, ease: 'easeInOut', delay: 1 },
-                }}
-                className="absolute -top-4 -left-2 sm:top-4 sm:-left-4 bg-white/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border border-[#111111]/10 shadow-2xl flex items-center gap-3 z-20"
-              >
-                <div className="w-10 h-10 rounded-xl bg-[#A89B84] text-black flex items-center justify-center shrink-0">
-                  <ShieldCheck className="w-5 h-5" />
-                </div>
-                <div className="text-right">
-                  <div className="text-xs font-bold text-[#111111]">
-                    ضمانت اصالت ۱۰۰٪
-                  </div>
-                  <div className="text-[10px] text-[#6B6B68] font-vazir">
-                    تضمین بازگشت ۷ روزه کالا
-                  </div>
-                </div>
-              </motion.div>
-
-            </div>
-
+     
           </div>
 
         </div>

@@ -43,7 +43,7 @@ export default function CategoryShowcase({ onSelectCategory }: CategoryShowcaseP
               <div
                 key={cat.id}
                 onClick={() => onSelectCategory && onSelectCategory(cat.id)}
-                className="group relative h-[360px] sm:h-[400px] bg-[#EAE8E3] rounded-[28px] overflow-hidden cursor-pointer border border-[#111111]/10 shadow-lg shadow-black/5 flex flex-col justify-between p-6 transition-all duration-500 hover:shadow-2xl"
+                className="group relative h-[360px] sm:h-[400px] bg-[#EAEFF0] rounded-[28px] overflow-hidden cursor-pointer border border-[#111111]/10 shadow-lg shadow-black/5 flex flex-col justify-between p-6 transition-all duration-500 hover:shadow-2xl"
               >
                 {/* TOP HEADER: ICON & COUNT BADGE */}
                 <div className="relative z-10 flex items-center justify-between">
@@ -61,7 +61,7 @@ export default function CategoryShowcase({ onSelectCategory }: CategoryShowcaseP
                     src={cat.image}
                     alt={cat.titlePersian}
                     fill
-                    className="object-contain -rotate-6 group-hover:rotate-0 group-hover:scale-110 transition-all duration-700 ease-out drop-shadow-md"
+                    className="object-contain -rotate-6 group-hover:rotate-0 group-hover:scale-110 transition-all duration-700 ease-out "
                   />
                 </div>
 

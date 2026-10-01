@@ -54,7 +54,7 @@ export default function Header({
       }`}
       dir="rtl"
     >
-      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12 flex items-center justify-between gap-4">
+      <div className="max-w-[1600px] mx-auto px-5 sm:px-8 md:px-8 flex items-center justify-between gap-4">
 
         {/* RIGHT (RTL): BRAND LOGO */}
         <div className="flex items-center gap-6">
@@ -65,19 +65,10 @@ export default function Header({
             <span className="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-[#111111] uppercase font-peyda leading-none group-hover:opacity-80 transition-opacity">
               SOLEA
             </span>
-            <span className="text-[9px] font-mono tracking-[0.25em] text-[#6B6B68] uppercase mt-1">
-              HAUTE SNEAKERS
-            </span>
+
           </Link>
 
-          {/* CATALOG SHOWCASE BACK LINK */}
-          <Link
-            href="/"
-            className="hidden xl:inline-flex items-center gap-1.5 px-3 py-1 bg-[#111111]/[0.05] hover:bg-[#111111] hover:text-white text-[#6B6B68] text-[11px] font-medium rounded-full transition-all duration-300"
-          >
-            <ArrowRight className="w-3 h-3 shrink-0" />
-            <span>کاتالوگ لندینگ‌ها</span>
-          </Link>
+
         </div>
 
         {/* CENTER: DESKTOP NAVIGATION */}
@@ -98,13 +89,13 @@ export default function Header({
           {/* SEARCH BUTTON */}
           <button
             onClick={onOpenSearch}
-            className="p-2.5 rounded-full hover:bg-[#111111]/[0.06] text-[#111111] transition-all flex items-center gap-2"
+            className="p-2.5 w-40 rounded-full  hover:bg-[#111111]/[0.06] text-[#111111] transition-all  flex items-center justify-end gap-6"
             aria-label="جستجو"
           >
-            <Search className="w-5 h-5 shrink-0" />
             <span className="hidden xl:inline text-xs font-medium text-[#6B6B68]">
               جستجو...
             </span>
+            <Search className="w-5 h-5 shrink-0" />
           </button>
 
           {/* WISHLIST BUTTON */}

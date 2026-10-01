@@ -80,7 +80,7 @@ export default function ProductQuickView({ product, onClose }: ProductQuickViewP
         {/* CLOSE BUTTON */}
         <button
           onClick={onClose}
-          className="absolute top-4 left-4 z-20 w-10 h-10 rounded-full bg-white/80 hover:bg-[#111111] hover:text-white border border-[#111111]/10 flex items-center justify-center transition-all duration-300 shadow-sm"
+          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/80 hover:bg-[#111111] hover:text-white border border-[#111111]/10 flex items-center justify-center transition-all duration-300 shadow-sm"
           aria-label="بستن"
         >
           <X className="w-5 h-5 shrink-0" />
@@ -98,7 +98,7 @@ export default function ProductQuickView({ product, onClose }: ProductQuickViewP
           </div>
 
           {/* BADGES */}
-          <div className="absolute top-6 right-6 flex flex-col gap-2">
+          <div className="absolute top-6 left-6 flex flex-col gap-2">
             {product.badge && (
               <span className="px-3 py-1 bg-[#111111] text-white text-xs font-bold rounded-full">
                 {product.badge}
