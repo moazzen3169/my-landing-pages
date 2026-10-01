@@ -43,49 +43,47 @@ export default function CategoryShowcase({ onSelectCategory }: CategoryShowcaseP
               <div
                 key={cat.id}
                 onClick={() => onSelectCategory && onSelectCategory(cat.id)}
-                className="group relative h-[320px] sm:h-[360px] rounded-[24px] overflow-hidden cursor-pointer border border-[#111111]/10 shadow-lg shadow-black/5 flex flex-col justify-end p-6 transition-all duration-500"
+                className="group relative h-[360px] sm:h-[400px] bg-[#EAE8E3] rounded-[28px] overflow-hidden cursor-pointer border border-[#111111]/10 shadow-lg shadow-black/5 flex flex-col justify-between p-6 transition-all duration-500 hover:shadow-2xl"
               >
-                {/* BACKGROUND IMAGE WITH ZOOM */}
-                <Image
-                  src={cat.image}
-                  alt={cat.titlePersian}
-                  fill
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-
-                {/* DARK GRADIENT OVERLAY */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300" />
-
-                {/* CONTENT OVERLAY */}
-                <div className="relative z-10 text-white transform group-hover:-translate-y-1.5 transition-transform duration-300">
-
-                  {/* ICON & COUNT BADGE */}
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md border border-white/20 flex items-center justify-center text-white">
-                      <Icon className="w-5 h-5 shrink-0" />
-                    </div>
-                    <span className="text-[10px] font-mono font-bold bg-white/20 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
-                      {cat.count} مدل
-                    </span>
+                {/* TOP HEADER: ICON & COUNT BADGE */}
+                <div className="relative z-10 flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-xl bg-[#111111] text-white flex items-center justify-center shadow-md">
+                    <Icon className="w-5 h-5 shrink-0" />
                   </div>
+                  <span className="text-[10px] font-mono font-bold bg-white/80 text-[#111111] backdrop-blur-md px-3 py-1 rounded-full border border-[#111111]/10">
+                    {cat.count} مدل
+                  </span>
+                </div>
 
+                {/* CENTER REAL SHOE IMAGE */}
+                <div className="relative w-full h-[180px] my-auto flex items-center justify-center">
+                  <Image
+                    src={cat.image}
+                    alt={cat.titlePersian}
+                    fill
+                    className="object-contain -rotate-6 group-hover:rotate-0 group-hover:scale-110 transition-all duration-700 ease-out drop-shadow-md"
+                  />
+                </div>
+
+                {/* BOTTOM CONTENT OVERLAY */}
+                <div className="relative z-10 text-[#111111] transform group-hover:-translate-y-1 transition-transform duration-300">
                   {/* TITLE */}
-                  <h3 className="text-xl font-extrabold text-white mb-1.5">
+                  <h3 className="text-xl font-extrabold text-[#111111] mb-1">
                     {cat.titlePersian}
                   </h3>
 
                   {/* DESCRIPTION */}
-                  <p className="text-xs text-white/80 font-vazir leading-relaxed line-clamp-2 mb-4">
+                  <p className="text-xs text-[#6B6B68] font-vazir leading-relaxed line-clamp-2 mb-3">
                     {cat.descriptionPersian}
                   </p>
 
                   {/* ACTION LINK */}
-                  <div className="inline-flex items-center gap-2 text-xs font-bold text-[#A89B84] group-hover:text-white transition-colors">
+                  <div className="inline-flex items-center gap-2 text-xs font-bold text-[#111111] group-hover:text-[#A89B84] transition-colors">
                     <span>مشاهده مدل‌ها</span>
                     <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
                   </div>
-
                 </div>
+
               </div>
             );
           })}
