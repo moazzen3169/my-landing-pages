@@ -477,7 +477,7 @@ export const SOLEA_LIMITED_DROPS = [
     title: 'Adidas Adistar XLG 2.0 Studio Limited',
     brand: 'ADIDAS',
     price: 19900000,
-    image: '/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_plp_standard.png',
+    image: '/images/landings/solea-sneakers/HOOPS_CLASSIC_Schoenen_Wit_KI1061_00_plp_standard.png',
     tag: 'کالکشن اختصاصی',
     stockRemaining: 3,
     releaseDate: '۱۴۰۵/۰۹/۰۱',
