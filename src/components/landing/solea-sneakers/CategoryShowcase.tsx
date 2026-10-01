@@ -51,7 +51,7 @@ export default function CategoryShowcase({ onSelectCategory }: CategoryShowcaseP
               <div
                 key={cat.id}
                 onClick={() => onSelectCategory && onSelectCategory(cat.id)}
-                className="group relative h-[380px] bg-[#FFFFFF] rounded-[24px] overflow-hidden cursor-pointer border border-[#CBD5E1]/60 flex flex-col justify-between p-6 transition-colors duration-300 hover:border-[#0B1220]"
+                className="group relative h-[380px] bg-[#EAEFF0] rounded-[24px] overflow-hidden cursor-pointer border border-[#CBD5E1]/60 flex flex-col justify-between p-6 transition-colors duration-300 hover:border-[#0B1220]"
               >
                 {/* TOP HEADER: ICON, TITLE ENGLISH & COUNT */}
                 <div className="relative z-10 flex items-center justify-between">

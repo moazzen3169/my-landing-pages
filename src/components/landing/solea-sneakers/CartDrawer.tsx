@@ -223,19 +223,9 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                     <span>تکمیل و ثبت سفارش</span>
                     <ArrowLeft className="w-4 h-4" />
                   </button>
-
-                  <button
-                    onClick={onClose}
-                    className="w-full py-2.5 text-xs text-[#475569] hover:text-[#0B1220] transition-colors"
-                  >
-                    ادامه خرید
-                  </button>
                 </div>
 
-                <div className="flex items-center justify-center gap-1.5 text-[11px] text-[#64748B] pt-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" />
-                  <span>ضمانت اصالت و بازگشت ۷ روزه کالا</span>
-                </div>
+
               </div>
             )}
           </motion.div>

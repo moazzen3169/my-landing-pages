@@ -54,7 +54,7 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
     >
       <div>
         {/* 1. IMAGE FIRST (ASPECT 1/1, #F1F5F9) */}
-        <div className="relative aspect-square w-full bg-[#F1F5F9] overflow-hidden flex items-center justify-center p-6">
+        <div className="relative aspect-square w-full bg-[#EAEFF0] overflow-hidden flex items-center justify-center p-6">
 
           {/* SNEAKER IMAGE WITH SUBTLE ZOOM */}
           <div className="relative w-full h-full flex items-center justify-center">
