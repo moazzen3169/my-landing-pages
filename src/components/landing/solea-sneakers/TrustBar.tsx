@@ -47,10 +47,10 @@ export default function TrustBar() {
                   <Icon className="w-4 h-4 shrink-0" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-extrabold text-[#111111] leading-snug">
+                  <h4 className="text-xs font-semibold text-[#111111] leading-snug">
                     {item.title}
                   </h4>
-                  <p className="text-[11px] text-[#6B6B68] font-vazir mt-0.5">
+                  <p className="text-[11px] text-[#6B6B68] font-vazir mt-0.5 font-normal">
                     {item.subtitle}
                   </p>
                 </div>

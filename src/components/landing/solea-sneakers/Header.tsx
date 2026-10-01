@@ -77,7 +77,7 @@ export default function Header({
             <a
               key={idx}
               href={link.href}
-              className="text-xs font-semibold text-[#111111]/80 hover:text-[#111111] transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:right-0 after:w-0 after:h-[1.5px] after:bg-[#111111] hover:after:w-full after:transition-all after:duration-300"
+              className="text-xs font-medium text-[#111111]/80 hover:text-[#111111] transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:right-0 after:w-0 after:h-[1.5px] after:bg-[#111111] hover:after:w-full after:transition-all after:duration-300"
             >
               {link.label}
             </a>
@@ -89,7 +89,7 @@ export default function Header({
           {/* SEARCH BUTTON */}
           <button
             onClick={onOpenSearch}
-            className="p-2.5 w-40 rounded-full  hover:bg-[#111111]/[0.06] text-[#111111] transition-all  flex items-center justify-end gap-6"
+            className="p-2.5 sm:w-36 rounded-full hover:bg-[#111111]/[0.06] text-[#111111] transition-all flex items-center justify-end gap-3"
             aria-label="جستجو"
           >
             <span className="hidden xl:inline text-xs font-medium text-[#6B6B68]">
@@ -106,7 +106,7 @@ export default function Header({
           >
             <Heart className="w-5 h-5 shrink-0" />
             {wishlistCount > 0 && (
-              <span className="absolute -top-0.5 -left-0.5 w-4 h-4 rounded-full bg-[#111111] text-white text-[9px] font-bold flex items-center justify-center animate-scale-in">
+              <span className="absolute -top-0.5 -left-0.5 w-4 h-4 rounded-full bg-[#111111] text-white text-[9px] font-medium flex items-center justify-center animate-scale-in">
                 {wishlistCount}
               </span>
             )}
@@ -119,11 +119,11 @@ export default function Header({
             aria-label="سبد خرید"
           >
             <ShoppingBag className="w-4 h-4 shrink-0" />
-            <span className="text-xs font-bold hidden sm:inline">
+            <span className="text-xs font-medium hidden sm:inline">
               سبد خرید
             </span>
             {totalItems > 0 && (
-              <span className="w-5 h-5 rounded-full bg-[#A89B84] text-black text-[10px] font-extrabold flex items-center justify-center">
+              <span className="w-5 h-5 rounded-full bg-[#A89B84] text-black text-[10px] font-bold flex items-center justify-center">
                 {totalItems}
               </span>
             )}

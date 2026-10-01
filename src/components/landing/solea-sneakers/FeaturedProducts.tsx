@@ -51,20 +51,20 @@ export default function FeaturedProducts({
   }
 
   return (
-    <section id="products" className="py-16 sm:py-24 font-peyda text-right" dir="rtl">
+    <section id="products" className="py-10 sm:py-16 font-peyda text-right" dir="rtl">
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12">
 
         {/* SECTION HEADER */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#111111]/[0.08] mb-10">
           <div>
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-extrabold uppercase tracking-widest text-[#A89B84] mb-2">
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-medium uppercase tracking-widest text-[#A89B84] mb-2">
               <span className="w-2 h-2 rounded-full bg-[#111111]"></span>
               FEATURED COLLECTION
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#111111]">
               انتخاب‌های محبوب
             </h2>
-            <p className="text-sm sm:text-base text-[#6B6B68] font-vazir mt-2">
+            <p className="text-sm sm:text-base text-[#6B6B68] font-vazir mt-2 font-normal">
               مدل‌هایی که این روزها بیشترین استایل و لایف‌استایل را تجربه می‌کنند.
             </p>
           </div>
@@ -75,7 +75,7 @@ export default function FeaturedProducts({
               <button
                 key={tab.id}
                 onClick={() => setActiveGender(tab.id)}
-                className={`px-4 py-2 text-xs font-extrabold rounded-full transition-all duration-300 ${
+                className={`px-4 py-2 text-xs font-medium rounded-full transition-all duration-300 ${
                   activeGender === tab.id
                     ? 'bg-[#111111] text-white shadow-md'
                     : 'bg-[#FAFAF8] text-[#111111]/80 hover:bg-[#EBEBE6] border border-[#111111]/10'
@@ -90,16 +90,16 @@ export default function FeaturedProducts({
         {/* SUB-CONTROLS & SORTING */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
           <div className="text-xs font-vazir text-[#6B6B68]">
-            نمایش <span className="font-extrabold text-[#111111]">{filtered.length}</span> مدل اسنیکر منتخب
+            نمایش <span className="font-bold text-[#111111]">{filtered.length}</span> مدل اسنیکر منتخب
           </div>
 
           <div className="flex items-center gap-2 text-xs font-vazir shrink-0">
             <SlidersHorizontal className="w-4 h-4 text-[#A89B84] shrink-0" />
-            <span className="text-[#6B6B68] font-bold">مرتب‌سازی:</span>
+            <span className="text-[#6B6B68] font-medium">مرتب‌سازی:</span>
             <select
               value={sortBy}
               onChange={(e: any) => setSortBy(e.target.value)}
-              className="bg-[#FAFAF8] border border-[#111111]/15 rounded-xl px-3 py-2 text-xs font-bold text-[#111111] focus:outline-none focus:border-[#111111]"
+              className="bg-[#FAFAF8] border border-[#111111]/15 rounded-xl px-3 py-2 text-xs font-medium text-[#111111] focus:outline-none focus:border-[#111111]"
             >
               <option value="featured">پیش‌فرض (محبوب‌ترین‌ها)</option>
               <option value="price-asc">قیمت: از کم به زیاد</option>
@@ -124,7 +124,7 @@ export default function FeaturedProducts({
         <div className="mt-14 text-center">
           <a
             href="#categories"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#FAFAF8] hover:bg-[#111111] text-[#111111] hover:text-white border border-[#111111]/15 font-extrabold text-sm rounded-full transition-all duration-300 shadow-sm group"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#FAFAF8] hover:bg-[#111111] text-[#111111] hover:text-white border border-[#111111]/15 font-semibold text-sm rounded-full transition-all duration-300 shadow-sm group"
           >
             <span>مشاهده تمام دسته‌بندی‌ها</span>
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />

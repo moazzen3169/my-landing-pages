@@ -57,10 +57,10 @@ export default function Footer() {
 
             {/* COL 1: SHOP */}
             <div>
-              <h4 className="text-sm font-extrabold text-[#A89B84] font-peyda mb-4 uppercase tracking-wider">
+              <h4 className="text-sm font-semibold text-[#A89B84] font-peyda mb-4 uppercase tracking-wider">
                 خرید اسنیکر
               </h4>
-              <ul className="space-y-2.5 text-[#C0C0BA]">
+              <ul className="space-y-2.5 text-[#C0C0BA] font-normal">
                 <li><a href="#products" className="hover:text-white transition-colors">همه اسنیکرها</a></li>
                 <li><a href="#products" className="hover:text-white transition-colors">جدیدترین‌ها</a></li>
                 <li><a href="#products" className="hover:text-white transition-colors">پرفروش‌ها</a></li>
@@ -72,10 +72,10 @@ export default function Footer() {
 
             {/* COL 2: GUIDE */}
             <div>
-              <h4 className="text-sm font-extrabold text-[#A89B84] font-peyda mb-4 uppercase tracking-wider">
+              <h4 className="text-sm font-semibold text-[#A89B84] font-peyda mb-4 uppercase tracking-wider">
                 راهنمای مشتریان
               </h4>
-              <ul className="space-y-2.5 text-[#C0C0BA]">
+              <ul className="space-y-2.5 text-[#C0C0BA] font-normal">
                 <li><a href="#" className="hover:text-white transition-colors">راهنمای سایز اختصاصی</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">شرایط ارسال و تحویل</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">قوانین بازگشت ۷ روزه</a></li>
@@ -86,10 +86,10 @@ export default function Footer() {
 
             {/* COL 3: ABOUT */}
             <div>
-              <h4 className="text-sm font-extrabold text-[#A89B84] font-peyda mb-4 uppercase tracking-wider">
+              <h4 className="text-sm font-semibold text-[#A89B84] font-peyda mb-4 uppercase tracking-wider">
                 درباره سولئا
               </h4>
-              <ul className="space-y-2.5 text-[#C0C0BA]">
+              <ul className="space-y-2.5 text-[#C0C0BA] font-normal">
                 <li><a href="#" className="hover:text-white transition-colors">داستان برند ما</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">تماس با کارشناسان</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">شعب و بوتیک‌ها</a></li>
@@ -100,11 +100,11 @@ export default function Footer() {
 
             {/* COL 4: SUPPORT */}
             <div>
-              <h4 className="text-sm font-extrabold text-[#A89B84] font-peyda mb-4 uppercase tracking-wider">
+              <h4 className="text-sm font-semibold text-[#A89B84] font-peyda mb-4 uppercase tracking-wider">
                 پشتیبانی مشتریان
               </h4>
-              <ul className="space-y-2.5 text-[#C0C0BA]">
-                <li><span className="block text-white font-bold">۰۲۱-۹۱۰) ۷۷ ۰ ۰۰</span></li>
+              <ul className="space-y-2.5 text-[#C0C0BA] font-normal">
+                <li><span className="block text-white font-medium">۰۲۱-۹۱۰) ۷۷ ۰ ۰۰</span></li>
                 <li><span>پاسخگویی ۸ الی ۲۴</span></li>
                 <li><a href="#" className="hover:text-white transition-colors">پشتیبانی آنلاین تلگرام</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">ضمانت اصالت و سلامت</a></li>

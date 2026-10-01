@@ -18,7 +18,7 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="py-16 sm:py-20 font-peyda text-right" dir="rtl">
+    <section className="py-10 sm:py-14 font-peyda text-right" dir="rtl">
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12">
         <div className="bg-[#C8D1CE] border border-[#111111]/10 rounded-[32px] p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-xl shadow-black/5">
 
@@ -31,13 +31,13 @@ export default function Newsletter() {
               از جدیدترین دراپ‌ها باخبر شو
             </h2>
 
-            <p className="text-xs sm:text-base text-[#3A3A37] font-vazir leading-relaxed max-w-xl mx-auto">
+            <p className="text-xs sm:text-base text-[#3A3A37] font-vazir leading-relaxed max-w-xl mx-auto font-normal">
               با عضویت در خبرنامه سولئا، اولین نفری باشید که از انتشار مدل‌های لیمیتد ادیشن، تخفیف‌های خاص و کالکشن‌های جدید مطلع می‌شوید.
             </p>
 
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto pt-2">
               {subscribed ? (
-                <div className="w-full py-3.5 px-6 bg-emerald-700 text-white font-bold text-sm rounded-full flex items-center justify-center gap-2">
+                <div className="w-full py-3.5 px-6 bg-emerald-700 text-white font-medium text-sm rounded-full flex items-center justify-center gap-2">
                   <CheckCircle className="w-5 h-5 shrink-0" />
                   <span>عضویت شما با موفقیت ثبت شد!</span>
                 </div>
@@ -53,7 +53,7 @@ export default function Newsletter() {
                   />
                   <button
                     type="submit"
-                    className="w-full sm:w-auto px-8 py-4 bg-[#111111] hover:bg-[#252525] text-white font-extrabold text-sm rounded-full transition-all duration-300 flex items-center justify-center gap-2 shrink-0 shadow-lg shadow-black/10"
+                    className="w-full sm:w-auto px-8 py-4 bg-[#111111] hover:bg-[#252525] text-white font-semibold text-sm rounded-full transition-all duration-300 flex items-center justify-center gap-2 shrink-0 shadow-lg shadow-black/10"
                   >
                     <span>عضویت</span>
                     <ArrowLeft className="w-4 h-4 shrink-0" />
@@ -62,7 +62,7 @@ export default function Newsletter() {
               )}
             </form>
 
-            <div className="text-[11px] text-[#6B6B68] font-vazir pt-2">
+            <div className="text-[11px] text-[#6B6B68] font-vazir pt-2 font-normal">
               ما به حریم خصوصی شما احترام می‌گذاریم. هر زمان خواستید می‌توانید لغو عضویت کنید.
             </div>
           </div>
