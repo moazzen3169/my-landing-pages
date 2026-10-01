@@ -23,7 +23,7 @@ export default function Hero({ onOpenSearch, onSelectCategory }: HeroProps) {
     <section className="pt-24 sm:pt-28 font-peyda" dir="rtl">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8">
         {/* HERO CONTAINER WITH ELEGANT LUXURY CANVAS */}
-        <div className="relative bg-[#B0BFC2] rounded-[20px] sm:rounded-[28px] overflow-hidden p-6 sm:p-10 md:p-12 lg:p-14 border border-[#111111]/[0.08] shadow-xl shadow-black/5">
+        <div className="relative bg-[#B0BFC2] rounded-[20px] sm:rounded-[28px] overflow-hidden p-6 sm:p-10 md:p-12 lg:p-6 border border-[#111111]/[0.08] shadow-xl shadow-black/5">
 
           {/* BACKGROUND SUBTLE NOISE & GRADIENT */}
           <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-[#D8D4CB]/40 pointer-events-none" />
@@ -40,7 +40,7 @@ export default function Hero({ onOpenSearch, onSelectCategory }: HeroProps) {
                 initial={{ opacity: 0, scale: 0.96, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.15 }}
-                className="relative w-full max-w-[420px] lg:max-w-[480px] aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl shadow-black/10"
+                className="relative w-full max-w-[300px] h-[500px]  lg:max-w-[480px] lg:h-[650px]  rounded-2xl overflow-hidden "
               >
                 <Image
                   src="/images/landings/solea-sneakers/Sporty-Woman-on-Gray-Studio-Block-for-hero-section.png"

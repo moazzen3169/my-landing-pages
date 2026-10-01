@@ -34,7 +34,7 @@ export default function TrustBar() {
 
   return (
     <section className="py-8 bg-[#FAFAF7] border-y border-[#111111]/[0.06] font-peyda" dir="rtl">
-      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12">
+      <div className="max-w-[1600px] mx-auto px-5 sm:px-8 md:px-12">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 items-center text-right">
           {trustItems.map((item, index) => {
             const Icon = item.icon;
