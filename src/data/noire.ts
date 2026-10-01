@@ -502,5 +502,14 @@ export const LANDING_REGISTRY: LandingPageInfo[] = [
     theme: 'minimal-luxury',
     dataset: 'NOIRE_PRODUCTS_FA',
     previewImage: '/images/men-hoodies/g-star-premium-core-track-jacket-sweater-dark-blue.png'
+  },
+  {
+    slug: 'solea-sneakers',
+    category: 'footwear-sneakers',
+    title: 'سولئا (SOLEA) — بوتیک تخصصی اسنیکر لوکس (فارسی RTL)',
+    description: 'کالکشن اختصاصی اسنیکرهای روز دنیا از برندهای نایکی، آدیداس، نیوبالانس، اسیکس و جردن با طراحی مدرن و مینیمال لوکس.',
+    theme: 'luxury-sports-editorial',
+    dataset: 'SOLEA_PRODUCTS',
+    previewImage: '/images/landings/solea-sneakers/nike-air-max-dn.svg'
   }
 ];
