@@ -70,13 +70,23 @@ export default function Header({
           <div className="flex items-center space-x-6 sm:space-x-8 space-x-reverse">
             <button
               onClick={() => setIsMegaMenuOpen(true)}
-              className="flex items-center space-x-2 space-x-reverse text-[11px] font-medium tracking-[0.2em] uppercase hover:opacity-70 transition-opacity"
+              className={`flex items-center space-x-2 space-x-reverse hover:opacity-70 transition-opacity ${
+                isPersian
+                  ? 'text-xs md:text-sm font-medium tracking-normal font-peyda'
+                  : 'text-[11px] font-medium tracking-[0.2em] uppercase'
+              }`}
             >
               <Menu className="w-4 h-4" />
               <span className="hidden md:inline">{isPersian ? 'منو' : 'MENU'}</span>
             </button>
 
-            <nav className="hidden lg:flex items-center space-x-6 space-x-reverse text-[11px] font-medium tracking-[0.2em] uppercase">
+            <nav
+              className={`hidden lg:flex items-center space-x-6 space-x-reverse ${
+                isPersian
+                  ? 'text-xs md:text-sm font-medium tracking-normal font-peyda'
+                  : 'text-[11px] font-medium tracking-[0.2em] uppercase'
+              }`}
+            >
               <Link href="/shop" className="hover:opacity-60 transition-opacity">
                 {isPersian ? 'کالکشن‌ها' : 'COLLECTIONS'}
               </Link>
@@ -106,7 +116,7 @@ export default function Header({
             {/* Language Switcher Button */}
             <Link
               href={isPersian ? '/shop/noire-men-formal' : '/shop/noire-men-formal-fa'}
-              className="flex items-center space-x-1.5 space-x-reverse text-[11px] font-bold tracking-[0.15em] uppercase px-2.5 py-1 border border-current/30 rounded hover:border-current transition-all"
+              className="flex items-center space-x-1.5 space-x-reverse text-[11px] font-bold tracking-wider uppercase px-2.5 py-1 border border-current/30 rounded hover:border-current transition-all"
               title={isPersian ? 'تغییر زبان به انگلیسی' : 'Switch to Persian'}
             >
               <Globe className="w-3.5 h-3.5" />
@@ -115,7 +125,11 @@ export default function Header({
 
             <button
               onClick={onOpenSearch}
-              className="flex items-center space-x-2 space-x-reverse text-[11px] font-medium tracking-[0.2em] uppercase hover:opacity-70 transition-opacity"
+              className={`flex items-center space-x-2 space-x-reverse hover:opacity-70 transition-opacity ${
+                isPersian
+                  ? 'text-xs md:text-sm font-medium tracking-normal font-peyda'
+                  : 'text-[11px] font-medium tracking-[0.2em] uppercase'
+              }`}
             >
               <Search className="w-4 h-4" />
               <span className="hidden md:inline">{isPersian ? 'جستجو' : 'SEARCH'}</span>
@@ -123,7 +137,11 @@ export default function Header({
 
             <Link
               href="/shop"
-              className="hidden sm:flex items-center space-x-1.5 space-x-reverse text-[11px] font-medium tracking-[0.2em] uppercase hover:opacity-70 transition-opacity relative"
+              className={`hidden sm:flex items-center space-x-1.5 space-x-reverse hover:opacity-70 transition-opacity relative ${
+                isPersian
+                  ? 'text-xs md:text-sm font-medium tracking-normal font-peyda'
+                  : 'text-[11px] font-medium tracking-[0.2em] uppercase'
+              }`}
             >
               <Heart className="w-4 h-4" />
               {wishlistCount > 0 && (
@@ -135,12 +153,16 @@ export default function Header({
 
             <button
               onClick={() => setIsCartOpen(true)}
-              className="flex items-center space-x-2 space-x-reverse text-[11px] font-medium tracking-[0.2em] uppercase hover:opacity-70 transition-opacity relative"
+              className={`flex items-center space-x-2 space-x-reverse hover:opacity-70 transition-opacity relative ${
+                isPersian
+                  ? 'text-xs md:text-sm font-medium tracking-normal font-peyda'
+                  : 'text-[11px] font-medium tracking-[0.2em] uppercase'
+              }`}
             >
               <ShoppingBag className="w-4 h-4" />
               <span className="hidden md:inline">{isPersian ? 'سبد خرید' : 'BAG'}</span>
               {totalItems > 0 && (
-                <span className="ml-1 px-1.5 py-0.5 text-[10px] bg-[#111111] text-[#F3F2EE] font-mono rounded-full">
+                <span className="mx-1 px-1.5 py-0.5 text-[10px] bg-[#111111] text-[#F3F2EE] font-mono rounded-full">
                   {totalItems}
                 </span>
               )}

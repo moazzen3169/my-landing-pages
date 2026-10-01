@@ -50,12 +50,24 @@ export default function ProductCard({
       <div className="absolute top-4 left-4 right-4 z-20 flex justify-between items-center pointer-events-none">
         <div>
           {product.badge && (
-            <span className="inline-block bg-[#111111] text-white text-[9px] font-mono tracking-[0.2em] px-2 py-1 uppercase">
+            <span
+              className={`inline-block bg-[#111111] text-white px-2 py-1 ${
+                isPersian
+                  ? 'text-[11px] font-medium font-peyda tracking-normal'
+                  : 'text-[9px] font-mono tracking-[0.2em] uppercase'
+              }`}
+            >
               {product.badge}
             </span>
           )}
           {product.isNew && !product.badge && (
-            <span className="inline-block bg-[#A58B68] text-white text-[9px] font-mono tracking-[0.2em] px-2 py-1 uppercase">
+            <span
+              className={`inline-block bg-[#A58B68] text-white px-2 py-1 ${
+                isPersian
+                  ? 'text-[11px] font-medium font-peyda tracking-normal'
+                  : 'text-[9px] font-mono tracking-[0.2em] uppercase'
+              }`}
+            >
               {isPersian ? 'جدید' : 'NEW'}
             </span>
           )}
@@ -93,7 +105,11 @@ export default function ProductCard({
                 e.stopPropagation();
                 onQuickView(product);
               }}
-              className="w-full bg-[#111111]/90 backdrop-blur-sm text-[#F3F2EE] py-3 text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-[#111111] transition-colors flex items-center justify-center space-x-2 space-x-reverse"
+              className={`w-full bg-[#111111]/90 backdrop-blur-sm text-[#F3F2EE] py-3 hover:bg-[#111111] transition-colors flex items-center justify-center space-x-2 space-x-reverse ${
+                isPersian
+                  ? 'text-xs font-medium font-peyda tracking-normal'
+                  : 'text-[10px] font-bold tracking-[0.2em] uppercase'
+              }`}
               data-cursor-text={isPersian ? 'مشاهده سریع' : 'QUICK VIEW'}
             >
               <Eye className="w-3.5 h-3.5" />
@@ -106,18 +122,28 @@ export default function ProductCard({
       {/* Product Details */}
       <div className="p-5 flex flex-col justify-between flex-1 space-y-2 bg-white">
         <div className="flex justify-between items-start space-x-2 space-x-reverse">
-          <Link href={`/product/${product.slug}`} className="group-hover:text-[#77746E] transition-colors">
-            <h3 className="text-sm font-medium tracking-wide text-[#111111] uppercase font-sans line-clamp-1">
+          <Link href={`/product/${product.slug}`} className="group-hover:text-[#77746E] transition-colors flex-1 min-w-0">
+            <h3
+              className={`text-[#111111] line-clamp-1 ${
+                isPersian
+                  ? 'text-xs sm:text-sm font-semibold font-peyda leading-relaxed tracking-normal'
+                  : 'text-sm font-medium tracking-wide uppercase font-sans'
+              }`}
+            >
               {product.name}
             </h3>
           </Link>
-          <span className="text-xs font-mono font-medium text-[#111111]">
+          <span className="text-xs font-mono font-medium text-[#111111] whitespace-nowrap">
             {formatPrice(product.price, product.currency)}
           </span>
         </div>
 
-        <div className="flex justify-between items-center text-[11px] text-[#77746E]">
-          <span className="uppercase tracking-wider">{product.category}</span>
+        <div
+          className={`flex justify-between items-center text-[#77746E] ${
+            isPersian ? 'text-xs font-peyda font-normal' : 'text-[11px] uppercase tracking-wider'
+          }`}
+        >
+          <span>{product.category}</span>
           {/* Color Swatches */}
           <div className="flex items-center space-x-1 space-x-reverse">
             {product.colors.map((color) => (

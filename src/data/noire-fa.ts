@@ -3,7 +3,7 @@ import { Product, Look, LookbookSlide } from '../types';
 export const NOIRE_PRODUCTS_FA: Product[] = [
   {
     id: 'noire-01',
-    name: 'کت ارکیتکت (The Architect Blazer)',
+    name: 'کت تک ارکیتکت',
     slug: 'the-architect-blazer',
     category: 'blazers',
     price: 289,
@@ -17,20 +17,20 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
       '/images/men-hoodies/g-star-premium-core-track-jacket-sweater-dark-blue.png',
       '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-black.png'
     ],
-    description: 'کت تک ساختاریافته معاصر دوخته‌شده از ترکیب پشم پریمیوم، طراحی‌شده برای سیلوئت معماری تمیز از روز تا شب.',
-    material: '۶۸٪ پشم خالص، ۲۸٪ پلی‌استر، ۴٪ الاستان. آستر: ۱۰۰٪ کوپرو.',
-    fit: 'برش آزاد ساختاریافته با پد شانه و کمر مدرن.',
+    description: 'کت تک باوقار و ساختاریافته، دوخته‌شده از ترکیب پشم خالص ایتالیایی. طراحی‌شده برای سیلوئت معاصر از دیدارهای روزانه تا مراسم شبانه.',
+    material: '۶۸٪ پشم خالص، ۲۸٪ پلی‌استر، ۴٪ الاستان. آستر: ۱۰۰٪ ابریشم کوپرو.',
+    fit: 'برش آزاد ساختاریافته با سرشانه‌های مشخص.',
     featured: true,
     isNew: true,
     badge: 'ضروری فصل',
     rating: 4.9,
     reviewCount: 38,
-    careInstructions: 'خشکشویی تخصصی. اتوکشی ملايم. نگهداری روی چوب‌لباسی ساختاریافته.',
+    careInstructions: 'خشکشویی تخصصی. اتوکشی ملایم. نگهداری روی چوب‌لباسی ساختاریافته.',
     shippingInfo: 'ارسال اکسپرس ۲ الی ۴ روز کاری. بسته‌بندی فاخر نوآر.'
   },
   {
     id: 'noire-02',
-    name: 'پیراهن آکسفورد بیسیک (The Essential Oxford)',
+    name: 'پیراهن آکسفورد بیسیک',
     slug: 'the-essential-oxford-shirt',
     category: 'shirts',
     price: 129,
@@ -46,7 +46,7 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
       '/images/Men-shirts/g-star-lash-t-shirt-light-blue.png',
       '/images/Men-shirts/g-star-lash-t-shirt-black.png'
     ],
-    description: 'دوخته‌شده از کتان کج‌راه مصری با الیاف بلند، ارائه‌دهنده حس لمس خنک و تنفس‌پذیری فوق‌العاده.',
+    description: 'دوخته‌شده از کتان کج‌راه مصری با الیاف بلند؛ ارائه‌دهنده حس لمس خنک، بافت آهاردار و تنفس‌پذیری فوق‌العاده.',
     material: '۱۰۰٪ پنبه ارگانیک مصری الیاف بلند',
     fit: 'برش راسته معاصر با دوخت فرانسوی و دکمه‌های صدف طبیعی.',
     featured: true,
@@ -56,7 +56,7 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
   },
   {
     id: 'noire-03',
-    name: 'شلوار پشمی مخروطی (The Tapered Trouser)',
+    name: 'شلوار پشمی مخروطی',
     slug: 'the-tapered-wool-trouser',
     category: 'trousers',
     price: 159,
@@ -70,7 +70,7 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
       '/images/Men-panets/g-star-rovic-zip-3d-straight-tapered-pant-grey.png',
       '/images/Men-panets/g-star-clean-regular-cargo-pants-black.png'
     ],
-    description: 'شلوار تک‌پیلی برش‌خورده از پشم استوایی سبک با انعطاف‌پذیری ملايم برای حرکتی روان و بی‌نقص.',
+    description: 'شلوار تک‌پیلی دوخته‌شده از پشم استوایی سبک با انعطاف‌پذیری ملایم برای حرکتی روان و خط اتوی بی‌نقص.',
     material: '۹۶٪ پشم ایتالیایی، ۴٪ الاستان',
     fit: 'فاق بلند، مخروطی ظریف تا دمپای تمیز.',
     featured: true,
@@ -80,7 +80,7 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
   },
   {
     id: 'noire-04',
-    name: 'تی‌شرت سنگین استودیو (The Heavyweight Tee)',
+    name: 'تی‌شرت سنگین استودیو',
     slug: 'the-heavyweight-studio-tee',
     category: 't-shirts',
     price: 69,
@@ -94,7 +94,7 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
       '/images/Men-shirts/g-star-ductsoon-relaxed-t-shirt-white.png',
       '/images/Men-shirts/g-star-base-s-t-shirt-black.png'
     ],
-    description: 'پارچه تریکو سنگین ۳۰۰ گرمی ارائه‌دهنده افت ایستایی معماری که فرم جعبه‌ای خود را حفظ می‌کند.',
+    description: 'پارچه تریکو سنگین ۳۰۰ گرمی با افت ایستایی فوق‌العاده که فرم جعبه‌ای و مدرن خود را در تمام روز حفظ می‌کند.',
     material: '۱۰۰٪ پنبه ارگانیک سنگین شانه شده',
     fit: 'برش آزاد لش با سرشانه افتاده.',
     featured: false,
@@ -104,7 +104,7 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
   },
   {
     id: 'noire-05',
-    name: 'اورشرت پشمی ساختاریافته (The Wool Overshirt)',
+    name: 'اورشرت پشمی ساختاریافته',
     slug: 'the-structured-wool-overshirt',
     category: 'overshirts',
     price: 179,
@@ -118,7 +118,7 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
       '/images/Men-shirts/g-star-relaxed-base-t-shirt-beige.png',
       '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-brown.png'
     ],
-    description: 'لایه کاربردی انتقالی با دکمه‌های مخفی شاخ و جیب‌های دوگانه پاکتی روی سینه.',
+    description: 'لایه‌ای کاربردی برای فصل‌های انتقالی با دکمه‌های مخفی از جنس شاخ طبیعی و جیب‌های پاکتی سینه.',
     material: '۷۰٪ پشم ملتون بازیافتی، ۳۰٪ پلی‌آمید',
     fit: 'آزاد و مناسب لایه‌بندی با لبه پایینی راسته.',
     featured: true,
@@ -128,7 +128,7 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
   },
   {
     id: 'noire-06',
-    name: 'کت و شلوار مدرن دوخته‌شده (The Tailored Suit)',
+    name: 'کت و شلوار دوخته‌شده مدرن',
     slug: 'the-modern-tailored-suit',
     category: 'suits',
     price: 495,
@@ -142,7 +142,7 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
       '/images/banners/Group 242.jpg',
       '/images/men-hoodies/g-star-core-crew-sweat-long-sleeve-black.png'
     ],
-    description: 'کت و شلوار دو تکه شبانه مدرن دوخته‌شده از پشم مرینوس ایتالیایی Super 120s با یقه‌های ساتن نهایی.',
+    description: 'کت و شلوار دو تکه شبانه دوخته‌شده از پشم مرینوس Super 120s ایتالیا با برگردان‌های ساتن ابریشمی.',
     material: '۱۰۰٪ پشم خالص مرینوس Super 120s ایتالیا',
     fit: 'برش اندامی مدرن با شانه‌های طبیعی.',
     featured: true,
@@ -153,7 +153,7 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
   },
   {
     id: 'noire-07',
-    name: 'بافت کشمیر مینیمال (The Cashmere Knit)',
+    name: 'بافت کشمیر مینیمال',
     slug: 'the-minimal-cashmere-knit',
     category: 'knitwear',
     price: 220,
@@ -167,9 +167,9 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
       '/images/men-hoodies/g-star-logo-sweater-grey.png',
       '/images/men-hoodies/g-star-core-crew-sweat-long-sleeve-grey.png'
     ],
-    description: 'بافت یقه گرد فوق‌العاده نرم از کشمیر درجه یک مغولی با جزییات کشباف بدون دوخت.',
+    description: 'بافت یقه گرد فوق‌العاده نرم از کشمیر درجه یک مغولستان با جزییات کشباف بدون دوخت.',
     material: '۱۰۰٪ کشمیر درجه یک مغولستان',
-    fit: 'برش کلاسیک استاندار.',
+    fit: 'برش کلاسیک استاندارد.',
     featured: false,
     isNew: false,
     rating: 5.0,
@@ -177,7 +177,7 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
   },
   {
     id: 'noire-08',
-    name: 'بارانی مینیمالیست (The Trench Jacket)',
+    name: 'بارانی مینیمالیست',
     slug: 'the-minimalist-trench-jacket',
     category: 'jackets',
     price: 349,
@@ -201,7 +201,7 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
   },
   {
     id: 'noire-09',
-    name: 'هودی سنگین دورس (The Loopback Hoodie)',
+    name: 'هودی سنگین دورس',
     slug: 'the-heavy-loopback-hoodie',
     category: 'hoodies',
     price: 119,
@@ -225,7 +225,7 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
   },
   {
     id: 'noire-10',
-    name: 'شلوار کتان پیلی‌دار (The Pleated Chino)',
+    name: 'شلوار کتان پیلی‌دار',
     slug: 'the-relaxed-pleated-chino',
     category: 'trousers',
     price: 139,
@@ -249,7 +249,7 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
   },
   {
     id: 'noire-11',
-    name: 'کت تک تاکسیدو شب (The Evening Dinner Jacket)',
+    name: 'کت تک تاکسیدو شب',
     slug: 'the-wool-evening-dinner-jacket',
     category: 'blazers',
     price: 329,
@@ -273,7 +273,7 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
   },
   {
     id: 'noire-12',
-    name: 'کیف توت چرم ایتالیایی (The Leather Tote Bag)',
+    name: 'کیف توت چرم ایتالیایی',
     slug: 'the-italian-leather-tote-bag',
     category: 'accessories',
     price: 249,
@@ -295,7 +295,7 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
   },
   {
     id: 'noire-13',
-    name: 'پیراهن ابریشم مینیمال (The Silk Dress Shirt)',
+    name: 'پیراهن ابریشم مینیمال',
     slug: 'the-minimal-silk-dress-shirt',
     category: 'shirts',
     price: 189,
@@ -319,7 +319,7 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
   },
   {
     id: 'noire-14',
-    name: 'بافت یقه اسکی مرینوس (The Merino Turtleneck)',
+    name: 'بافت یقه اسکی مرینوس',
     slug: 'the-merino-turtleneck-sweater',
     category: 'knitwear',
     price: 169,
@@ -343,7 +343,7 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
   },
   {
     id: 'noire-15',
-    name: 'پالتو دوطرف دکمه پشمی (Double-Breasted Coat)',
+    name: 'پالتو دوطرف دکمه پشمی',
     slug: 'the-structured-double-breasted-coat',
     category: 'jackets',
     price: 420,
@@ -367,7 +367,7 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
   },
   {
     id: 'noire-16',
-    name: 'کمربند چرم تراشیده‌شده (The Sculpted Belt)',
+    name: 'کمربند چرم تراشیده‌شده',
     slug: 'the-sculpted-leather-belt',
     category: 'accessories',
     price: 89,
@@ -393,8 +393,8 @@ export const NOIRE_LOOKS_FA: Look[] = [
   {
     id: 'look-01',
     number: 'استایل ۰۱',
-    title: 'کت و شلوار مدرن',
-    subtitle: 'معماری تشریفات',
+    title: 'بیانِ\nشخصیِ\nتشریفات',
+    subtitle: 'معماری دوخت رسمی',
     name: 'استایل کت و شلوار دوخته‌شده مدرن',
     price: 624,
     image: '/images/banners/Group 242.jpg',
@@ -404,8 +404,8 @@ export const NOIRE_LOOKS_FA: Look[] = [
   {
     id: 'look-02',
     number: 'استایل ۰۲',
-    title: 'یونیفرم شهری',
-    subtitle: 'شیک‌پوشی شهری',
+    title: 'یونیفرمِ\nجدیدِ\nشهر',
+    subtitle: 'شیک‌پوشی معاصر',
     name: 'استایل کت ارکیتکت و شلوار پشمی',
     price: 448,
     image: '/images/men-hoodies/g-star-premium-core-track-jacket-sweater-dark-blue.png',
@@ -415,7 +415,7 @@ export const NOIRE_LOOKS_FA: Look[] = [
   {
     id: 'look-03',
     number: 'استایل ۰۳',
-    title: 'ادیت آخر هفته',
+    title: 'روایتِ\nآزادِ\nاستایل',
     subtitle: 'کژوال ارتقایافته',
     name: 'استایل اورشرت ساختاریافته و تی‌شرت سنگین',
     price: 248,
@@ -426,8 +426,8 @@ export const NOIRE_LOOKS_FA: Look[] = [
   {
     id: 'look-04',
     number: 'استایل ۰۴',
-    title: 'فرم شبانه',
-    subtitle: 'سیلوئت تاریکی',
+    title: 'وقارِ\nسیلوئتِ\nشب',
+    subtitle: 'فرم‌های تشریفاتی',
     name: 'استایل کت تاکسیدو و شلوار مخروطی',
     price: 488,
     image: '/images/Men-panets/g-star-rovic-zip-3d-straight-tapered-pant-grey.png',
@@ -440,10 +440,10 @@ export const NOIRE_LOOKBOOK_FA: LookbookSlide[] = [
   {
     id: 'lb-01',
     title: 'حجم و فرم',
-    subtitle: 'ادیت بهار / تابستان',
+    subtitle: 'کالکشن بهار / تابستان',
     image: '/images/banners/Group 242.jpg',
     hotspots: [
-      { id: 'hs-01', productId: 'noire-01', x: 45, y: 35, productName: 'کت ارکیتکت', productPrice: 289 },
+      { id: 'hs-01', productId: 'noire-01', x: 45, y: 35, productName: 'کت تک ارکیتکت', productPrice: 289 },
       { id: 'hs-02', productId: 'noire-03', x: 50, y: 70, productName: 'شلوار پشمی مخروطی', productPrice: 159 }
     ]
   },
@@ -463,7 +463,7 @@ export const NOIRE_LOOKBOOK_FA: LookbookSlide[] = [
     subtitle: 'ظرافت تشریفات',
     image: '/images/Men-panets/g-star-bend-loose-jeans-dark-blue.png',
     hotspots: [
-      { id: 'hs-05', productId: 'noire-06', x: 48, y: 45, productName: 'کت و شلوار مدرن', productPrice: 495 }
+      { id: 'hs-05', productId: 'noire-06', x: 48, y: 45, productName: 'کت و شلوار دوخته‌شده مدرن', productPrice: 495 }
     ]
   }
 ];

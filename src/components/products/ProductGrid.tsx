@@ -28,14 +28,32 @@ export default function ProductGrid({
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-[#D7D4CD] pb-6">
         <div>
-          <span className="text-[10px] font-mono tracking-[0.3em] text-[#77746E] uppercase">
+          <span
+            className={
+              isPersian
+                ? 'text-xs font-medium text-[#77746E] font-peyda tracking-normal'
+                : 'text-[10px] font-mono tracking-[0.3em] text-[#77746E] uppercase'
+            }
+          >
             {displaySubtitle}
           </span>
-          <h2 className="text-3xl sm:text-5xl font-light tracking-tight uppercase font-display text-[#111111] mt-1">
+          <h2
+            className={
+              isPersian
+                ? 'text-2xl sm:text-4xl font-bold font-peyda text-[#111111] tracking-normal leading-tight mt-1'
+                : 'text-3xl sm:text-5xl font-light tracking-tight uppercase font-display text-[#111111] mt-1'
+            }
+          >
             {displayTitle}
           </h2>
         </div>
-        <span className="text-xs font-mono text-[#77746E] uppercase mt-4 md:mt-0">
+        <span
+          className={
+            isPersian
+              ? 'text-xs font-normal font-peyda text-[#77746E] mt-4 md:mt-0'
+              : 'text-xs font-mono text-[#77746E] uppercase mt-4 md:mt-0'
+          }
+        >
           {isPersian
             ? `نمایش ${products.length} محصول`
             : `SHOWING ${products.length} PRODUCTS`}

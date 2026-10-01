@@ -67,12 +67,20 @@ export default function MegaMenu({ isOpen, onClose, isPersian = false }: MegaMen
         >
           {/* Top Bar */}
           <div className="flex items-center justify-between px-8 py-6 border-b border-[#181818]">
-            <span className="text-[10px] tracking-[0.3em] text-[#77746E] uppercase">
-              {isPersian ? 'منوی ناوبری نوآر' : 'NOIRÉ NAVIGATION'}
+            <span
+              className={
+                isPersian
+                  ? 'text-xs font-medium tracking-normal text-[#77746E] font-peyda'
+                  : 'text-[10px] tracking-[0.3em] text-[#77746E] uppercase'
+              }
+            >
+              {isPersian ? 'ناوبری و کالکشن‌های نوآر' : 'NOIRÉ NAVIGATION'}
             </span>
             <button
               onClick={onClose}
-              className="group flex items-center space-x-2 space-x-reverse text-[11px] tracking-[0.2em] text-[#D7D4CD] hover:text-white transition-colors"
+              className={`group flex items-center space-x-2 space-x-reverse text-[#D7D4CD] hover:text-white transition-colors ${
+                isPersian ? 'text-xs font-medium font-peyda tracking-normal' : 'text-[11px] tracking-[0.2em]'
+              }`}
             >
               <span>{isPersian ? 'بستن' : 'CLOSE'}</span>
               <div className="p-1.5 rounded-full border border-[#2B2B2B] group-hover:border-white transition-colors">
@@ -85,14 +93,20 @@ export default function MegaMenu({ isOpen, onClose, isPersian = false }: MegaMen
           <div className="max-w-7xl w-full mx-auto px-8 py-12 grid grid-cols-1 lg:grid-cols-12 gap-12 flex-1 items-center">
             {/* Category Navigation Links */}
             <div className="lg:col-span-7 flex flex-col space-y-4">
-              <span className="text-[10px] tracking-[0.3em] text-[#77746E] uppercase mb-2">
-                {isPersian ? 'کالکشن‌ها و دسته‌بندی‌ها' : 'COLLECTIONS & CATEGORIES'}
+              <span
+                className={
+                  isPersian
+                    ? 'text-xs font-medium tracking-normal text-[#77746E] font-peyda mb-2'
+                    : 'text-[10px] tracking-[0.3em] text-[#77746E] uppercase mb-2'
+                }
+              >
+                {isPersian ? 'دسته‌بندی‌های اختصاصی' : 'COLLECTIONS & CATEGORIES'}
               </span>
 
               {CATEGORIES.map((cat, idx) => (
                 <motion.div
                   key={cat.name}
-                  initial={{ opacity: 0, x: -30 }}
+                  initial={{ opacity: 0, x: isPersian ? 30 : -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 + idx * 0.05, duration: 0.5 }}
                   onMouseEnter={() => {
@@ -105,10 +119,22 @@ export default function MegaMenu({ isOpen, onClose, isPersian = false }: MegaMen
                     onClick={onClose}
                     className="group flex items-center justify-between py-2 border-b border-[#181818] hover:border-[#D7D4CD] transition-colors"
                   >
-                    <span className="text-2xl sm:text-3xl md:text-4xl font-light tracking-wider font-display text-[#D7D4CD] group-hover:text-white transition-colors">
+                    <span
+                      className={`text-[#D7D4CD] group-hover:text-white transition-colors ${
+                        isPersian
+                          ? 'text-xl sm:text-2xl md:text-3xl font-medium font-peyda tracking-normal leading-relaxed'
+                          : 'text-2xl sm:text-3xl md:text-4xl font-light tracking-wider font-display'
+                      }`}
+                    >
                       {cat.name}
                     </span>
-                    <ArrowUpRight className="w-6 h-6 text-[#77746E] group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    <ArrowUpRight
+                      className={`w-6 h-6 text-[#77746E] group-hover:text-white transition-transform ${
+                        isPersian
+                          ? 'rotate-[-90deg] group-hover:-translate-x-1 group-hover:-translate-y-1'
+                          : 'group-hover:translate-x-1 group-hover:-translate-y-1'
+                      }`}
+                    />
                   </Link>
                 </motion.div>
               ))}
@@ -137,18 +163,36 @@ export default function MegaMenu({ isOpen, onClose, isPersian = false }: MegaMen
                   </motion.div>
                 </AnimatePresence>
                 <div className="absolute bottom-6 left-6 right-6 text-white space-y-1 z-10">
-                  <p className="text-[11px] tracking-[0.2em] text-[#A58B68] uppercase">
+                  <p
+                    className={
+                      isPersian
+                        ? 'text-xs font-medium text-[#A58B68] font-peyda tracking-normal'
+                        : 'text-[11px] tracking-[0.2em] text-[#A58B68] uppercase'
+                    }
+                  >
                     {isPersian ? 'پیش‌نمایش اختصاصی' : 'EDITORIAL EDIT'}
                   </p>
-                  <p className="text-sm text-[#D7D4CD] font-light leading-relaxed">{activeSubtitle}</p>
+                  <p
+                    className={`text-[#D7D4CD] leading-relaxed ${
+                      isPersian ? 'text-xs md:text-sm font-normal font-peyda' : 'text-sm font-light'
+                    }`}
+                  >
+                    {activeSubtitle}
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Bottom Bar */}
-          <div className="px-8 py-6 border-t border-[#181818] flex flex-col sm:flex-row justify-between items-center text-[11px] text-[#77746E] tracking-[0.2em] gap-4">
-            <div className="flex space-x-6 space-x-reverse uppercase">
+          <div
+            className={`px-8 py-6 border-t border-[#181818] flex flex-col sm:flex-row justify-between items-center text-[#77746E] gap-4 ${
+              isPersian
+                ? 'text-xs font-medium font-peyda tracking-normal'
+                : 'text-[11px] tracking-[0.2em] uppercase'
+            }`}
+          >
+            <div className="flex space-x-6 space-x-reverse">
               <Link href="/shop" onClick={onClose} className="hover:text-white transition-colors">
                 {isPersian ? 'همه محصولات' : 'ALL PRODUCTS'}
               </Link>
@@ -159,7 +203,7 @@ export default function MegaMenu({ isOpen, onClose, isPersian = false }: MegaMen
                 {isPersian ? 'داستان برند' : 'BRAND STORY'}
               </Link>
             </div>
-            <span>© 2026 NOIRÉ PARIS</span>
+            <span className="font-mono text-[11px]">© 2026 NOIRÉ PARIS</span>
           </div>
         </motion.div>
       )}

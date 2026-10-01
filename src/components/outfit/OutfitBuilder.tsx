@@ -65,14 +65,30 @@ export default function OutfitBuilder({
     <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto w-full font-sans">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-[#D7D4CD] pb-8">
         <div>
-          <span className="text-[10px] font-mono tracking-[0.3em] text-[#77746E] uppercase">
-            {isPersian ? 'تنظیم‌کننده استایل' : 'CONFIGURATOR'}
+          <span
+            className={
+              isPersian
+                ? 'text-xs font-medium text-[#77746E] font-peyda tracking-normal'
+                : 'text-[10px] font-mono tracking-[0.3em] text-[#77746E] uppercase'
+            }
+          >
+            {isPersian ? 'تنظیم‌کننده اختصاصی استایل' : 'CONFIGURATOR'}
           </span>
-          <h2 className="text-4xl md:text-6xl font-light tracking-tight uppercase font-display text-[#111111] mt-2">
-            {isPersian ? 'استایل خود را بسازید' : 'BUILD YOUR LOOK'}
+          <h2
+            className={
+              isPersian
+                ? 'text-3xl sm:text-5xl font-bold font-peyda text-[#111111] tracking-normal leading-tight mt-2'
+                : 'text-4xl md:text-6xl font-light tracking-tight uppercase font-display text-[#111111] mt-2'
+            }
+          >
+            {isPersian ? 'استایل شخصی خود را بسازید' : 'BUILD YOUR LOOK'}
           </h2>
         </div>
-        <p className="max-w-sm text-sm text-[#77746E] font-light mt-4 md:mt-0">
+        <p
+          className={`text-[#77746E] mt-4 md:mt-0 ${
+            isPersian ? 'max-w-md text-xs sm:text-sm font-normal font-peyda leading-relaxed' : 'max-w-sm text-sm font-light'
+          }`}
+        >
           {isPersian
             ? 'چینش کامل استایل معاصر با پیش‌نمایش زنده و تناسبات دقیق معماری.'
             : 'Curate a full contemporary wardrobe setup with real-time architectural proportion preview.'}
@@ -103,11 +119,17 @@ export default function OutfitBuilder({
           </AnimatePresence>
 
           <div className="absolute bottom-6 left-6 right-6 text-white space-y-2 z-10">
-            <p className="text-[10px] font-mono tracking-[0.25em] text-[#A58B68] uppercase">
-              {isPersian ? 'استایل انتخاب‌شده' : 'SELECTED OUTFIT'}
+            <p
+              className={
+                isPersian
+                  ? 'text-xs font-medium text-[#A58B68] font-peyda tracking-normal'
+                  : 'text-[10px] font-mono tracking-[0.25em] text-[#A58B68] uppercase'
+              }
+            >
+              {isPersian ? 'ترکیب انتخاب‌شده' : 'SELECTED OUTFIT'}
             </p>
             <div className="flex justify-between items-end">
-              <span className="text-xl font-light font-display">
+              <span className={isPersian ? 'text-lg sm:text-xl font-bold font-peyda' : 'text-xl font-light font-display'}>
                 {isPersian ? 'سیلوئت کامل نوآر' : 'THE COMPLETE NOIRÉ SILHOUETTE'}
               </span>
               <span className="text-2xl font-mono text-white">
@@ -120,7 +142,11 @@ export default function OutfitBuilder({
         {/* Right: Interactive Layer Selector Tabs */}
         <div className="lg:col-span-6 space-y-8">
           {/* Layer Tabs */}
-          <div className="grid grid-cols-4 border-b border-[#D7D4CD] pb-2 text-[10px] font-mono tracking-[0.2em] uppercase">
+          <div
+            className={`grid grid-cols-4 border-b border-[#D7D4CD] pb-2 ${
+              isPersian ? 'text-xs font-peyda tracking-normal' : 'text-[10px] font-mono tracking-[0.2em] uppercase'
+            }`}
+          >
             {[
               { key: 'jacket', label: getStepLabel('jacket'), current: selectedJacket },
               { key: 'shirt', label: getStepLabel('shirt'), current: selectedShirt },
@@ -130,21 +156,27 @@ export default function OutfitBuilder({
               <button
                 key={tab.key}
                 onClick={() => setActiveStep(tab.key as any)}
-                className={`text-right md:text-left pb-3 transition-colors ${
+                className={`text-right pb-3 transition-colors ${
                   activeStep === tab.key
                     ? 'border-b-2 border-[#111111] text-[#111111] font-bold'
                     : 'text-[#77746E] hover:text-[#111111]'
                 }`}
               >
                 <div>{tab.label}</div>
-                <div className="text-[9px] text-[#A58B68] truncate mt-0.5">{tab.current.name}</div>
+                <div className="text-[10px] text-[#A58B68] truncate mt-0.5">{tab.current.name}</div>
               </button>
             ))}
           </div>
 
           {/* Layer Options Selection */}
           <div className="space-y-4">
-            <p className="text-xs font-mono text-[#77746E] uppercase tracking-wider">
+            <p
+              className={
+                isPersian
+                  ? 'text-xs font-bold font-peyda text-[#77746E]'
+                  : 'text-xs font-mono text-[#77746E] uppercase tracking-wider'
+              }
+            >
               {isPersian ? `انتخاب ${getStepLabel(activeStep)}` : `SELECT ${activeStep.toUpperCase()}`}
             </p>
 
@@ -202,10 +234,16 @@ export default function OutfitBuilder({
 
           {/* Outfit Summary Box */}
           <div className="p-6 bg-[#E8E6E1] border border-[#D7D4CD] space-y-3">
-            <span className="text-[10px] font-mono tracking-[0.25em] text-[#77746E] uppercase">
+            <span
+              className={
+                isPersian
+                  ? 'text-xs font-bold font-peyda text-[#77746E]'
+                  : 'text-[10px] font-mono tracking-[0.25em] text-[#77746E] uppercase'
+              }
+            >
               {isPersian ? 'جزئیات اجزای استایل' : 'OUTFIT BREAKDOWN'}
             </span>
-            <div className="space-y-1.5 text-xs text-[#111111]">
+            <div className={`space-y-1.5 text-xs text-[#111111] ${isPersian ? 'font-peyda' : ''}`}>
               <div className="flex justify-between">
                 <span>{selectedJacket.name}</span>
                 <span className="font-mono">{formatPrice(selectedJacket.price, selectedJacket.currency)}</span>
@@ -224,7 +262,11 @@ export default function OutfitBuilder({
               </div>
             </div>
 
-            <div className="pt-3 border-t border-[#D7D4CD] flex justify-between items-center text-sm font-bold">
+            <div
+              className={`pt-3 border-t border-[#D7D4CD] flex justify-between items-center text-sm font-bold ${
+                isPersian ? 'font-peyda' : ''
+              }`}
+            >
               <span>{isPersian ? 'قیمت کل استایل' : 'TOTAL LOOK PRICE'}</span>
               <span className="text-base font-mono">
                 {formatPrice(totalOutfitPrice, selectedJacket.currency)}
@@ -233,7 +275,11 @@ export default function OutfitBuilder({
 
             <button
               onClick={handleAddOutfitToCart}
-              className="w-full bg-[#111111] text-[#F3F2EE] py-4 text-[11px] font-bold tracking-[0.25em] uppercase hover:bg-[#0B0B0B] transition-colors flex items-center justify-center space-x-3 space-x-reverse mt-4"
+              className={`w-full bg-[#111111] text-[#F3F2EE] py-4 font-bold hover:bg-[#0B0B0B] transition-colors flex items-center justify-center space-x-3 space-x-reverse mt-4 ${
+                isPersian
+                  ? 'text-xs md:text-sm font-medium font-peyda tracking-normal'
+                  : 'text-[11px] tracking-[0.25em] uppercase'
+              }`}
             >
               <ShoppingBag className="w-4 h-4 text-[#A58B68]" />
               <span>

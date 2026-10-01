@@ -119,23 +119,47 @@ export default function HeroScrollStorytelling({ isPersian = false }: HeroScroll
             </div>
 
             {/* Top Bar */}
-            <div className="flex justify-between items-center text-[11px] font-mono tracking-[0.3em] text-[#A58B68] uppercase">
+            <div
+              className={`flex justify-between items-center text-[#A58B68] ${
+                isPersian
+                  ? 'text-xs font-medium font-peyda tracking-normal'
+                  : 'text-[11px] font-mono tracking-[0.3em] uppercase'
+              }`}
+            >
               <span>{step.subtitle}</span>
-              <span>{step.step}</span>
+              <span className="font-mono">{step.step}</span>
             </div>
 
             {/* Center Main Story text */}
             <div className="max-w-4xl my-auto space-y-6">
-              <h2 className="text-4xl sm:text-6xl md:text-7xl font-light font-display tracking-tight text-white leading-none">
+              <h2
+                className={
+                  isPersian
+                    ? 'text-3xl sm:text-5xl md:text-6xl font-bold font-peyda text-white leading-[1.25] tracking-normal'
+                    : 'text-4xl sm:text-6xl md:text-7xl font-light font-display tracking-tight text-white leading-none'
+                }
+              >
                 {step.title}
               </h2>
-              <p className="max-w-lg text-sm sm:text-base text-[#D7D4CD] font-light leading-relaxed">
+              <p
+                className={`text-[#D7D4CD] leading-relaxed ${
+                  isPersian
+                    ? 'max-w-xl text-sm sm:text-base font-normal font-peyda tracking-normal'
+                    : 'max-w-lg text-sm sm:text-base font-light'
+                }`}
+              >
                 {step.description}
               </p>
             </div>
 
             {/* Bottom Indicator */}
-            <div className="flex justify-between items-center text-[10px] tracking-[0.2em] text-[#77746E] uppercase border-t border-white/10 pt-4">
+            <div
+              className={`flex justify-between items-center text-[#77746E] border-t border-white/10 pt-4 ${
+                isPersian
+                  ? 'text-xs font-medium font-peyda tracking-normal'
+                  : 'text-[10px] tracking-[0.2em] uppercase font-mono'
+              }`}
+            >
               <span>{isPersian ? 'اسکرول کنید تا داستان ادامه یابد' : 'SCROLL TO CONTINUE STORY'}</span>
               <span>{isPersian ? 'بیانیه نوآر' : 'NOIRÉ MANIFESTO'}</span>
             </div>

@@ -29,7 +29,7 @@ export default function NoirePersianLandingPage() {
           <Preloader />
           <CustomCursor />
 
-          <div className="min-h-screen flex flex-col bg-[#F3F2EE] text-[#111111] relative font-vazir dir-rtl" dir="rtl">
+          <div className="min-h-screen flex flex-col bg-[#F3F2EE] text-[#111111] relative font-peyda dir-rtl" dir="rtl">
             <Header
               onOpenSearch={() => setIsSearchOpen(true)}
               isDarkBackground={true}
@@ -74,8 +74,8 @@ export default function NoirePersianLandingPage() {
             <Footer isPersian={true} />
 
             {/* DRAWERS & OVERLAYS */}
-            <CartDrawer />
-            <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+            <CartDrawer isPersian={true} />
+            <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} isPersian={true} />
           </div>
         </SmoothScrollProvider>
       </WishlistProvider>

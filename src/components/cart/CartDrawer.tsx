@@ -9,7 +9,11 @@ import { useCart } from '@/context/CartContext';
 import { NOIRE_PRODUCTS } from '@/data/noire';
 import { formatPrice } from '@/lib/utils';
 
-export default function CartDrawer() {
+interface CartDrawerProps {
+  isPersian?: boolean;
+}
+
+export default function CartDrawer({ isPersian = false }: CartDrawerProps) {
   const {
     cart,
     isCartOpen,
@@ -51,10 +55,18 @@ export default function CartDrawer() {
           >
             {/* Drawer Header */}
             <div className="p-6 border-b border-[#D7D4CD] flex items-center justify-between bg-white">
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 space-x-reverse">
                 <ShoppingBag className="w-5 h-5 text-[#111111]" />
-                <h3 className="text-sm font-bold tracking-[0.2em] uppercase font-sans">
-                  SHOPPING BAG ({cart.reduce((a, c) => a + c.quantity, 0)})
+                <h3
+                  className={`text-[#111111] ${
+                    isPersian
+                      ? 'text-sm font-bold font-peyda tracking-normal'
+                      : 'text-sm font-bold tracking-[0.2em] uppercase font-sans'
+                  }`}
+                >
+                  {isPersian
+                    ? `سبد خرید (${cart.reduce((a, c) => a + c.quantity, 0)})`
+                    : `SHOPPING BAG (${cart.reduce((a, c) => a + c.quantity, 0)})`}
                 </h3>
               </div>
               <button
@@ -66,12 +78,24 @@ export default function CartDrawer() {
             </div>
 
             {/* Free Shipping Progress Indicator */}
-            <div className="px-6 py-3 bg-[#E8E6E1] border-b border-[#D7D4CD] text-[11px] font-mono space-y-1.5">
+            <div
+              className={`px-6 py-3 bg-[#E8E6E1] border-b border-[#D7D4CD] space-y-1.5 ${
+                isPersian ? 'text-xs font-peyda' : 'text-[11px] font-mono'
+              }`}
+            >
               <div className="flex justify-between text-[#111111]">
                 {amountForFreeShipping > 0 ? (
-                  <span>ADD {formatPrice(amountForFreeShipping)} MORE FOR COMPLIMENTARY EXPRESS SHIPPING</span>
+                  <span>
+                    {isPersian
+                      ? `افزودن ${formatPrice(amountForFreeShipping)} دیگر برای ارسال اکسپرس رایگان`
+                      : `ADD ${formatPrice(amountForFreeShipping)} MORE FOR COMPLIMENTARY EXPRESS SHIPPING`}
+                  </span>
                 ) : (
-                  <span className="text-green-700 font-bold">YOU QUALIFY FOR FREE EXPRESS SHIPPING</span>
+                  <span className="text-green-700 font-bold">
+                    {isPersian
+                      ? 'شما واجد شرایط ارسال اکسپرس رایگان هستید'
+                      : 'YOU QUALIFY FOR FREE EXPRESS SHIPPING'}
+                  </span>
                 )}
               </div>
               <div className="w-full h-1 bg-[#D7D4CD] rounded-full overflow-hidden">
@@ -87,17 +111,27 @@ export default function CartDrawer() {
               {cart.length === 0 ? (
                 <div className="h-full flex flex-col items-center justify-center text-center space-y-4 py-12">
                   <ShoppingBag className="w-12 h-12 text-[#D7D4CD]" />
-                  <p className="text-sm font-light text-[#77746E]">YOUR BAG IS CURRENTLY EMPTY</p>
+                  <p
+                    className={`text-[#77746E] ${
+                      isPersian ? 'text-sm font-normal font-peyda' : 'text-sm font-light'
+                    }`}
+                  >
+                    {isPersian ? 'سبد خرید شما در حال حاضر خالی است' : 'YOUR BAG IS CURRENTLY EMPTY'}
+                  </p>
                   <button
                     onClick={() => setIsCartOpen(false)}
-                    className="bg-[#111111] text-white px-6 py-3 text-[10px] font-bold tracking-[0.2em] uppercase"
+                    className={`bg-[#111111] text-white px-6 py-3 ${
+                      isPersian
+                        ? 'text-xs font-medium font-peyda'
+                        : 'text-[10px] font-bold tracking-[0.2em] uppercase'
+                    }`}
                   >
-                    START SHOPPING
+                    {isPersian ? 'شروع خرید' : 'START SHOPPING'}
                   </button>
                 </div>
               ) : (
                 cart.map((item) => (
-                  <div key={item.id} className="flex space-x-4 p-4 bg-white border border-[#D7D4CD]">
+                  <div key={item.id} className="flex space-x-4 space-x-reverse p-4 bg-white border border-[#D7D4CD]">
                     <div className="relative w-20 h-24 bg-[#E8E6E1] flex-shrink-0">
                       <Image
                         src={item.product.images[0]}
@@ -111,7 +145,13 @@ export default function CartDrawer() {
                     <div className="flex-1 flex flex-col justify-between">
                       <div>
                         <div className="flex justify-between items-start">
-                          <h4 className="text-xs font-bold uppercase text-[#111111] line-clamp-1">
+                          <h4
+                            className={`text-[#111111] line-clamp-1 ${
+                              isPersian
+                                ? 'text-xs font-bold font-peyda tracking-normal'
+                                : 'text-xs font-bold uppercase'
+                            }`}
+                          >
                             {item.product.name}
                           </h4>
                           <button
@@ -121,7 +161,11 @@ export default function CartDrawer() {
                             <Trash2 className="w-3.5 h-3.5" />
                           </button>
                         </div>
-                        <p className="text-[10px] font-mono text-[#77746E] mt-1">
+                        <p
+                          className={`text-[#77746E] mt-1 ${
+                            isPersian ? 'text-xs font-peyda' : 'text-[10px] font-mono'
+                          }`}
+                        >
                           {item.selectedColor.name} / {item.selectedSize}
                         </p>
                       </div>
@@ -155,8 +199,14 @@ export default function CartDrawer() {
               {/* Complete The Look Recommendations */}
               {cart.length > 0 && recommendations.length > 0 && (
                 <div className="pt-6 border-t border-[#D7D4CD] space-y-3">
-                  <span className="text-[10px] font-mono tracking-[0.25em] text-[#77746E] uppercase">
-                    COMPLETE THE LOOK
+                  <span
+                    className={
+                      isPersian
+                        ? 'text-xs font-bold font-peyda text-[#77746E]'
+                        : 'text-[10px] font-mono tracking-[0.25em] text-[#77746E] uppercase'
+                    }
+                  >
+                    {isPersian ? 'تکمیل استایل' : 'COMPLETE THE LOOK'}
                   </span>
                   <div className="space-y-2">
                     {recommendations.map((rec) => (
@@ -164,21 +214,25 @@ export default function CartDrawer() {
                         key={rec.id}
                         className="flex items-center justify-between p-3 bg-[#E8E6E1] border border-[#D7D4CD]"
                       >
-                        <div className="flex items-center space-x-3">
+                        <div className="flex items-center space-x-3 space-x-reverse">
                           <div className="relative w-10 h-12 bg-white flex-shrink-0">
                             <Image src={rec.images[0]} alt="" fill className="object-cover" />
                           </div>
                           <div>
-                            <p className="text-xs font-medium text-[#111111]">{rec.name}</p>
+                            <p className={`text-[#111111] ${isPersian ? 'text-xs font-medium font-peyda' : 'text-xs font-medium'}`}>{rec.name}</p>
                             <p className="text-[10px] font-mono text-[#77746E]">{formatPrice(rec.price)}</p>
                           </div>
                         </div>
                         <Link
                           href={`/product/${rec.slug}`}
                           onClick={() => setIsCartOpen(false)}
-                          className="text-[10px] font-bold tracking-widest text-[#111111] uppercase hover:underline"
+                          className={`text-[#111111] hover:underline ${
+                            isPersian
+                              ? 'text-xs font-bold font-peyda'
+                              : 'text-[10px] font-bold tracking-widest uppercase'
+                          }`}
                         >
-                          VIEW
+                          {isPersian ? 'مشاهده' : 'VIEW'}
                         </Link>
                       </div>
                     ))}
@@ -190,19 +244,27 @@ export default function CartDrawer() {
             {/* Footer Summary & Checkout */}
             {cart.length > 0 && (
               <div className="p-6 bg-white border-t border-[#D7D4CD] space-y-4">
-                <div className="space-y-1.5 text-xs font-mono">
+                <div className={`space-y-1.5 text-xs ${isPersian ? 'font-peyda' : 'font-mono'}`}>
                   <div className="flex justify-between text-[#77746E]">
-                    <span>SUBTOTAL</span>
-                    <span className="text-[#111111] font-bold">{formatPrice(subtotal)}</span>
+                    <span>{isPersian ? 'مجموع جزیی' : 'SUBTOTAL'}</span>
+                    <span className="text-[#111111] font-bold font-mono">{formatPrice(subtotal)}</span>
                   </div>
                   <div className="flex justify-between text-[#77746E]">
-                    <span>SHIPPING</span>
-                    <span>{amountForFreeShipping === 0 ? 'FREE' : 'CALCULATED AT CHECKOUT'}</span>
+                    <span>{isPersian ? 'هزینه ارسال' : 'SHIPPING'}</span>
+                    <span>
+                      {amountForFreeShipping === 0
+                        ? isPersian ? 'رایگان' : 'FREE'
+                        : isPersian ? 'محاسبه در مرحله نهایی' : 'CALCULATED AT CHECKOUT'}
+                    </span>
                   </div>
                 </div>
 
-                <div className="pt-3 border-t border-[#D7D4CD] flex justify-between items-center text-sm font-bold">
-                  <span>ESTIMATED TOTAL</span>
+                <div
+                  className={`pt-3 border-t border-[#D7D4CD] flex justify-between items-center text-sm font-bold ${
+                    isPersian ? 'font-peyda' : ''
+                  }`}
+                >
+                  <span>{isPersian ? 'مجموع برآوردی' : 'ESTIMATED TOTAL'}</span>
                   <span className="text-base font-mono">{formatPrice(subtotal)}</span>
                 </div>
 
@@ -210,17 +272,25 @@ export default function CartDrawer() {
                   <Link
                     href="/cart"
                     onClick={() => setIsCartOpen(false)}
-                    className="w-full text-center border border-[#111111] py-3.5 text-[10px] font-bold tracking-[0.2em] uppercase text-[#111111] hover:bg-[#E8E6E1] transition-colors"
+                    className={`w-full text-center border border-[#111111] py-3.5 text-[#111111] hover:bg-[#E8E6E1] transition-colors ${
+                      isPersian
+                        ? 'text-xs font-medium font-peyda'
+                        : 'text-[10px] font-bold tracking-[0.2em] uppercase'
+                    }`}
                   >
-                    VIEW BAG
+                    {isPersian ? 'مشاهده سبد خرید' : 'VIEW BAG'}
                   </Link>
 
                   <button
-                    onClick={() => alert('Proceeding to checkout prototype!')}
-                    className="w-full bg-[#111111] text-[#F3F2EE] py-3.5 text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-[#0B0B0B] transition-colors flex items-center justify-center space-x-2"
+                    onClick={() => alert(isPersian ? 'ورود به مرحله پرداخت نمونه' : 'Proceeding to checkout prototype!')}
+                    className={`w-full bg-[#111111] text-[#F3F2EE] py-3.5 hover:bg-[#0B0B0B] transition-colors flex items-center justify-center space-x-2 space-x-reverse ${
+                      isPersian
+                        ? 'text-xs font-medium font-peyda'
+                        : 'text-[10px] font-bold tracking-[0.2em] uppercase'
+                    }`}
                   >
-                    <span>CHECKOUT</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <span>{isPersian ? 'تکمیل سفارش' : 'CHECKOUT'}</span>
+                    <ArrowRight className={`w-3.5 h-3.5 ${isPersian ? 'rotate-180' : ''}`} />
                   </button>
                 </div>
               </div>

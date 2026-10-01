@@ -15,16 +15,28 @@ export default function NewEditSection({ isPersian = false }: NewEditSectionProp
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Left Editorial Text */}
         <div className="lg:col-span-5 space-y-6">
-          <span className="text-[10px] font-mono tracking-[0.35em] text-[#A58B68] uppercase">
-            {isPersian ? 'ادیتوریال فصل' : 'SEASONAL EDITORIAL'}
+          <span
+            className={
+              isPersian
+                ? 'text-xs font-medium text-[#A58B68] font-peyda tracking-normal'
+                : 'text-[10px] font-mono tracking-[0.35em] text-[#A58B68] uppercase'
+            }
+          >
+            {isPersian ? 'ادیتوریال اختصاصی فصل' : 'SEASONAL EDITORIAL'}
           </span>
 
-          <h2 className="text-5xl sm:text-6xl md:text-7xl font-light font-display tracking-tight text-white uppercase leading-none">
+          <h2
+            className={
+              isPersian
+                ? 'text-4xl sm:text-5xl md:text-6xl font-bold font-peyda text-white leading-[1.25] tracking-normal'
+                : 'text-5xl sm:text-6xl md:text-7xl font-light font-display tracking-tight text-white uppercase leading-none'
+            }
+          >
             {isPersian ? (
               <>
-                مجموعه <br />
-                جدید <br />
-                فصل.
+                روایتِ <br />
+                فرمِ <br />
+                مدرن.
               </>
             ) : (
               <>
@@ -35,7 +47,13 @@ export default function NewEditSection({ isPersian = false }: NewEditSectionProp
             )}
           </h2>
 
-          <p className="text-sm md:text-base text-[#D7D4CD] font-light leading-relaxed max-w-md">
+          <p
+            className={`text-[#D7D4CD] leading-relaxed max-w-md ${
+              isPersian
+                ? 'text-sm md:text-base font-normal font-peyda tracking-normal'
+                : 'text-sm md:text-base font-light'
+            }`}
+          >
             {isPersian
               ? 'خیاطی مدرن و بی‌نقص طراحی‌شده برای زندگی شهری با تراکم بالا. مشخص‌شده با خطوط تمیز، پارچه‌های ارگانیک سنگین و کاربرد بی‌دردسر.'
               : 'Uncompromising modern tailoring designed for high-density city living. Defined by clean lines, heavy organic textiles, and effortless versatility.'}
@@ -44,11 +62,19 @@ export default function NewEditSection({ isPersian = false }: NewEditSectionProp
           <div className="pt-4">
             <Link
               href="/shop"
-              className="inline-flex items-center space-x-3 space-x-reverse text-[11px] font-bold tracking-[0.25em] uppercase text-white hover:text-[#A58B68] transition-colors border-b border-[#D7D4CD] pb-2"
+              className={`inline-flex items-center space-x-3 space-x-reverse text-white hover:text-[#A58B68] transition-colors border-b border-[#D7D4CD] pb-2 ${
+                isPersian
+                  ? 'text-xs md:text-sm font-medium font-peyda tracking-normal'
+                  : 'text-[11px] font-bold tracking-[0.25em] uppercase'
+              }`}
               data-cursor-text={isPersian ? 'کشف' : 'DISCOVER'}
             >
               <span>{isPersian ? 'کشف جدیدترین کالکشن' : 'DISCOVER THE LATEST COLLECTION'}</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight
+                className={`w-4 h-4 transition-transform ${
+                  isPersian ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'
+                }`}
+              />
             </Link>
           </div>
         </div>
