@@ -22,12 +22,12 @@ export default function Hero({ onOpenSearch, onSelectCategory }: HeroProps) {
   return (
     <section className="pt-28 pb-10 sm:pt-36 sm:pb-16 font-peyda" dir="rtl">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-8 md:px-12">
-        {/* HERO CONTAINER WITH SAGE BACKGROUND & RADIUS */}
-        <div className="relative bg-[#C8D1CE] rounded-[28px] sm:rounded-[36px] overflow-hidden p-6 sm:p-10 md:p-14 lg:p-16 border border-[#111111]/[0.06] shadow-xl shadow-black/5 min-h-[640px] lg:min-h-[700px] flex flex-col justify-between">
+        {/* HERO CONTAINER WITH ELEGANT WARM LUXURY CANVAS */}
+        <div className="relative bg-[#EAE8E3] rounded-[32px] sm:rounded-[40px] overflow-hidden p-6 sm:p-10 md:p-14 lg:p-16 border border-[#111111]/[0.08] shadow-2xl shadow-black/5 min-h-[660px] lg:min-h-[720px] flex flex-col justify-between">
 
-          {/* BACKGROUND SUBTLE NOISE & RADIAL GLOW */}
-          <div className="absolute inset-0 bg-gradient-to-bl from-white/30 via-transparent to-black/10 pointer-events-none" />
-          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-white/20 rounded-full filter blur-3xl pointer-events-none -translate-x-1/2 -translate-y-1/2" />
+          {/* BACKGROUND SUBTLE NOISE & GRADIENT */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-[#D8D4CB]/40 pointer-events-none" />
+          <div className="absolute -top-24 -left-24 w-[550px] h-[550px] bg-white/40 rounded-full filter blur-3xl pointer-events-none" />
 
           {/* TWO-COLUMN GRID CONTENT */}
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center my-auto">
@@ -40,11 +40,11 @@ export default function Hero({ onOpenSearch, onSelectCategory }: HeroProps) {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/70 backdrop-blur-md border border-[#111111]/10 rounded-full text-xs font-bold text-[#111111] shadow-sm"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-md border border-[#111111]/10 rounded-full text-xs font-bold text-[#111111] shadow-sm"
               >
                 <Sparkles className="w-3.5 h-3.5 text-[#A89B84] shrink-0" />
-                <span>کالکشن پاییز ۱۴۰۵ — اصالت نوآوری</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+                <span>کالکشن پاییز ۱۴۰۵ — اصالت لوکس و بی‌همتا</span>
+                <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
               </motion.div>
 
               {/* MAIN OVERSIZED HEADLINE */}
@@ -52,10 +52,10 @@ export default function Hero({ onOpenSearch, onSelectCategory }: HeroProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-4xl sm:text-6xl lg:text-[68px] xl:text-[76px] font-black text-[#111111] leading-[0.98] tracking-tight font-peyda"
+                className="text-4xl sm:text-6xl lg:text-[68px] xl:text-[76px] font-black text-[#111111] leading-[1.05] font-peyda"
               >
                 کفش‌هایی <br />
-                برای <span className="underline decoration-[#A89B84]/40 decoration-wavy underline-offset-8">حرکت.</span> <br />
+                برای <span className="underline decoration-[#A89B84]/50 decoration-wavy underline-offset-8">حرکت.</span> <br />
                 استایل. <span className="text-[#6B6B68] font-extrabold">روزمرگی.</span>
               </motion.h1>
 
@@ -66,7 +66,7 @@ export default function Hero({ onOpenSearch, onSelectCategory }: HeroProps) {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-base sm:text-lg lg:text-xl text-[#3A3A37] font-medium leading-relaxed max-w-xl font-vazir"
               >
-                انتخابی دقیق از اسنیکرهای روز دنیا؛ برای تمرین، خیابان و هر جایی که حرکت ادامه دارد. بالاترین کیفیت، ضمانت ۱۰۰٪ اصالت کالا.
+                مجموعه‌ای بی‌نظیر از لوکس‌ترین و محبوب‌ترین اسنیکرهای اصیل جهان؛ طراحی شده برای ارتقای استایل خیابانی و تجربه راحتی بی‌وقفه.
               </motion.p>
 
               {/* CTA BUTTONS */}
@@ -78,18 +78,18 @@ export default function Hero({ onOpenSearch, onSelectCategory }: HeroProps) {
               >
                 <a
                   href="#products"
-                  className="w-full sm:w-auto px-8 py-4 bg-[#111111] text-white hover:bg-[#252525] font-bold text-sm sm:text-base rounded-full transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-black/15 group"
+                  className="w-full sm:w-auto px-8 py-4 bg-[#111111] text-white hover:bg-[#282828] font-bold text-sm sm:text-base rounded-full transition-all duration-300 flex items-center justify-center gap-3 shadow-xl shadow-black/15 group"
                 >
-                  <span>مشاهده کالکشن</span>
+                  <span>کشف کالکشن جدید</span>
                   <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1.5 transition-transform shrink-0" />
                 </a>
 
                 <a
                   href="#limited-drop"
-                  className="w-full sm:w-auto px-7 py-4 bg-white/60 hover:bg-white text-[#111111] border border-[#111111]/15 font-bold text-sm sm:text-base rounded-full transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-md"
+                  className="w-full sm:w-auto px-7 py-4 bg-white/70 hover:bg-white text-[#111111] border border-[#111111]/15 font-bold text-sm sm:text-base rounded-full transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-md shadow-sm"
                 >
                   <Flame className="w-4 h-4 text-amber-600 shrink-0" />
-                  <span>جدیدترین دراپ‌ها</span>
+                  <span>دراپ‌های محدود</span>
                 </a>
               </motion.div>
 
@@ -122,7 +122,7 @@ export default function Hero({ onOpenSearch, onSelectCategory }: HeroProps) {
                     <button
                       key={cat.id}
                       onClick={() => onSelectCategory && onSelectCategory(cat.id)}
-                      className="px-3 py-1 bg-white/55 hover:bg-[#111111] hover:text-white text-[#111111] border border-[#111111]/10 rounded-full text-xs font-semibold transition-all duration-200"
+                      className="px-3.5 py-1 bg-white/60 hover:bg-[#111111] hover:text-white text-[#111111] border border-[#111111]/10 rounded-full text-xs font-semibold transition-all duration-200"
                     >
                       {cat.label}
                     </button>
@@ -132,26 +132,32 @@ export default function Hero({ onOpenSearch, onSelectCategory }: HeroProps) {
 
             </div>
 
-            {/* LEFT COLUMN (RTL): DOMINANT SNEAKER VISUAL & FLOATING CARDS */}
+            {/* LEFT COLUMN (RTL): HERO MAIN IMAGE & FLOATING CARDS */}
             <div className="lg:col-span-5 relative flex items-center justify-center mt-6 lg:mt-0">
 
-              {/* SNEAKER MAIN IMAGE */}
+              {/* MAIN HERO IMAGE CONTAINER */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative w-full max-w-[480px] lg:max-w-[560px] aspect-[4/3] flex items-center justify-center group"
+                className="relative w-full max-w-[480px] lg:max-w-[560px] aspect-[4/5] rounded-[32px] overflow-hidden border border-[#111111]/10 shadow-2xl group"
               >
-                {/* Visual Backdrop Halo */}
-                <div className="absolute inset-0 bg-white/40 rounded-full filter blur-2xl scale-95 group-hover:scale-105 transition-transform duration-700 pointer-events-none" />
-
                 <Image
-                  src="/images/landings/solea-sneakers/hero-sneaker.svg"
-                  alt="Solea Luxury Sneaker"
+                  src="/images/landings/solea-sneakers/Sporty-Woman-on-Gray-Studio-Block-for-hero-section.png"
+                  alt="Solea Luxury Sneaker Hero"
                   fill
                   priority
-                  className="object-contain drop-shadow-[0_25px_25px_rgba(0,0,0,0.22)] -rotate-6 hover:rotate-0 hover:scale-105 transition-all duration-700 ease-out"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
+
+                {/* Subtle bottom gradient for image tag */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+
+                {/* Floating Image Label */}
+                <div className="absolute bottom-5 right-5 z-10 bg-white/85 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/40 shadow-lg text-right">
+                  <div className="text-xs font-black text-[#111111]">کالکشن استایل لوکس</div>
+                  <div className="text-[10px] text-[#6B6B68] font-vazir">طراحی آینده‌نگرانه و راحت</div>
+                </div>
               </motion.div>
 
               {/* FLOATING CARD 1: FREE SHIPPING */}
@@ -162,7 +168,7 @@ export default function Hero({ onOpenSearch, onSelectCategory }: HeroProps) {
                   opacity: { duration: 0.6, delay: 0.5 },
                   y: { repeat: Infinity, duration: 4, ease: 'easeInOut' },
                 }}
-                className="absolute -bottom-2 -right-2 sm:bottom-4 sm:right-0 bg-white/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border border-[#111111]/10 shadow-xl shadow-black/10 flex items-center gap-3 z-20"
+                className="absolute -bottom-4 -right-2 sm:bottom-6 sm:-right-4 bg-white/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border border-[#111111]/10 shadow-2xl flex items-center gap-3 z-20"
               >
                 <div className="w-10 h-10 rounded-xl bg-[#111111] text-white flex items-center justify-center shrink-0">
                   <Truck className="w-5 h-5" />
@@ -185,7 +191,7 @@ export default function Hero({ onOpenSearch, onSelectCategory }: HeroProps) {
                   opacity: { duration: 0.6, delay: 0.6 },
                   y: { repeat: Infinity, duration: 5, ease: 'easeInOut', delay: 1 },
                 }}
-                className="absolute -top-4 -left-2 sm:top-2 sm:left-0 bg-white/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border border-[#111111]/10 shadow-xl shadow-black/10 flex items-center gap-3 z-20"
+                className="absolute -top-4 -left-2 sm:top-4 sm:-left-4 bg-white/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border border-[#111111]/10 shadow-2xl flex items-center gap-3 z-20"
               >
                 <div className="w-10 h-10 rounded-xl bg-[#A89B84] text-black flex items-center justify-center shrink-0">
                   <ShieldCheck className="w-5 h-5" />

@@ -59,14 +59,14 @@ export default function EditorialStory() {
 
             {/* LEFT COLUMN (RTL): EDITORIAL VISUAL */}
             <div className="lg:col-span-5 relative">
-              <div className="relative aspect-[4/5] w-full rounded-[24px] overflow-hidden border border-white/15 shadow-2xl group">
+              <div className="relative aspect-[4/5] w-full rounded-[24px] overflow-hidden border border-white/15 shadow-2xl group bg-[#222]">
                 <Image
-                  src="/images/landings/solea-sneakers/editorial-story.svg"
+                  src="/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_plp_standard.png"
                   alt="Solea Editorial Heritage"
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="object-contain p-8 group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none" />
                 <div className="absolute bottom-6 right-6 left-6 text-right">
                   <span className="text-[10px] font-mono font-bold tracking-widest text-[#A89B84] uppercase">
                     SOLEA EDITORIAL — VOLUME 04
