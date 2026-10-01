@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Search, ShoppingBag, Heart, Menu, X } from 'lucide-react';
+import { Search, ShoppingBag, Heart, Menu, Globe } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
 import MegaMenu from './MegaMenu';
@@ -11,9 +10,14 @@ import MegaMenu from './MegaMenu';
 interface HeaderProps {
   onOpenSearch?: () => void;
   isDarkBackground?: boolean;
+  isPersian?: boolean;
 }
 
-export default function Header({ onOpenSearch, isDarkBackground = false }: HeaderProps) {
+export default function Header({
+  onOpenSearch,
+  isDarkBackground = false,
+  isPersian = false,
+}: HeaderProps) {
   const { setIsCartOpen, totalItems } = useCart();
   const { wishlistCount } = useWishlist();
 
@@ -62,25 +66,25 @@ export default function Header({ onOpenSearch, isDarkBackground = false }: Heade
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-8 h-20 flex items-center justify-between">
-          {/* LEFT: Nav Links (Desktop) & Menu Toggle (Mobile) */}
-          <div className="flex items-center space-x-8">
+          {/* LEFT / RIGHT (Depending on dir): Nav Links & Menu Toggle */}
+          <div className="flex items-center space-x-6 sm:space-x-8 space-x-reverse">
             <button
               onClick={() => setIsMegaMenuOpen(true)}
-              className="flex items-center space-x-2 text-[11px] font-medium tracking-[0.2em] uppercase hover:opacity-70 transition-opacity"
+              className="flex items-center space-x-2 space-x-reverse text-[11px] font-medium tracking-[0.2em] uppercase hover:opacity-70 transition-opacity"
             >
               <Menu className="w-4 h-4" />
-              <span className="hidden md:inline">MENU</span>
+              <span className="hidden md:inline">{isPersian ? 'منو' : 'MENU'}</span>
             </button>
 
-            <nav className="hidden lg:flex items-center space-x-6 text-[11px] font-medium tracking-[0.2em] uppercase">
+            <nav className="hidden lg:flex items-center space-x-6 space-x-reverse text-[11px] font-medium tracking-[0.2em] uppercase">
               <Link href="/shop" className="hover:opacity-60 transition-opacity">
-                COLLECTIONS
+                {isPersian ? 'کالکشن‌ها' : 'COLLECTIONS'}
               </Link>
               <Link href="/shop/suits" className="hover:opacity-60 transition-opacity">
-                TAILORING
+                {isPersian ? 'تشریفات و کت' : 'TAILORING'}
               </Link>
               <Link href="/lookbook" className="hover:opacity-60 transition-opacity">
-                LOOKBOOK
+                {isPersian ? 'لوک‌بوک' : 'LOOKBOOK'}
               </Link>
             </nav>
           </div>
@@ -97,19 +101,29 @@ export default function Header({ onOpenSearch, isDarkBackground = false }: Heade
             </Link>
           </div>
 
-          {/* RIGHT: Search, Wishlist, Cart */}
-          <div className="flex items-center space-x-6">
+          {/* RIGHT / LEFT: Language Toggle, Search, Wishlist, Cart */}
+          <div className="flex items-center space-x-4 sm:space-x-6 space-x-reverse">
+            {/* Language Switcher Button */}
+            <Link
+              href={isPersian ? '/shop/noire-men-formal' : '/shop/noire-men-formal-fa'}
+              className="flex items-center space-x-1.5 space-x-reverse text-[11px] font-bold tracking-[0.15em] uppercase px-2.5 py-1 border border-current/30 rounded hover:border-current transition-all"
+              title={isPersian ? 'تغییر زبان به انگلیسی' : 'Switch to Persian'}
+            >
+              <Globe className="w-3.5 h-3.5" />
+              <span>{isPersian ? 'EN' : 'FA / فارسی'}</span>
+            </Link>
+
             <button
               onClick={onOpenSearch}
-              className="flex items-center space-x-2 text-[11px] font-medium tracking-[0.2em] uppercase hover:opacity-70 transition-opacity"
+              className="flex items-center space-x-2 space-x-reverse text-[11px] font-medium tracking-[0.2em] uppercase hover:opacity-70 transition-opacity"
             >
               <Search className="w-4 h-4" />
-              <span className="hidden md:inline">SEARCH</span>
+              <span className="hidden md:inline">{isPersian ? 'جستجو' : 'SEARCH'}</span>
             </button>
 
             <Link
               href="/shop"
-              className="hidden sm:flex items-center space-x-1.5 text-[11px] font-medium tracking-[0.2em] uppercase hover:opacity-70 transition-opacity relative"
+              className="hidden sm:flex items-center space-x-1.5 space-x-reverse text-[11px] font-medium tracking-[0.2em] uppercase hover:opacity-70 transition-opacity relative"
             >
               <Heart className="w-4 h-4" />
               {wishlistCount > 0 && (
@@ -121,10 +135,10 @@ export default function Header({ onOpenSearch, isDarkBackground = false }: Heade
 
             <button
               onClick={() => setIsCartOpen(true)}
-              className="flex items-center space-x-2 text-[11px] font-medium tracking-[0.2em] uppercase hover:opacity-70 transition-opacity relative"
+              className="flex items-center space-x-2 space-x-reverse text-[11px] font-medium tracking-[0.2em] uppercase hover:opacity-70 transition-opacity relative"
             >
               <ShoppingBag className="w-4 h-4" />
-              <span className="hidden md:inline">BAG</span>
+              <span className="hidden md:inline">{isPersian ? 'سبد خرید' : 'BAG'}</span>
               {totalItems > 0 && (
                 <span className="ml-1 px-1.5 py-0.5 text-[10px] bg-[#111111] text-[#F3F2EE] font-mono rounded-full">
                   {totalItems}
@@ -136,7 +150,11 @@ export default function Header({ onOpenSearch, isDarkBackground = false }: Heade
       </header>
 
       {/* Fullscreen Mega Menu Modal */}
-      <MegaMenu isOpen={isMegaMenuOpen} onClose={() => setIsMegaMenuOpen(false)} />
+      <MegaMenu
+        isOpen={isMegaMenuOpen}
+        onClose={() => setIsMegaMenuOpen(false)}
+        isPersian={isPersian}
+      />
     </>
   );
 }

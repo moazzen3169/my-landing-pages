@@ -9,19 +9,32 @@ import { Product } from '@/types';
 import { useCart } from '@/context/CartContext';
 import { formatPrice } from '@/lib/utils';
 
-// Filter products for each outfit layer category
-const JACKETS = NOIRE_PRODUCTS.filter((p) => p.category === 'blazers' || p.category === 'jackets' || p.category === 'overshirts');
-const SHIRTS = NOIRE_PRODUCTS.filter((p) => p.category === 'shirts' || p.category === 't-shirts' || p.category === 'knitwear');
-const TROUSERS = NOIRE_PRODUCTS.filter((p) => p.category === 'trousers');
-const ACCESSORIES = NOIRE_PRODUCTS.filter((p) => p.category === 'accessories');
+interface OutfitBuilderProps {
+  productsList?: Product[];
+  isPersian?: boolean;
+}
 
-export default function OutfitBuilder() {
+export default function OutfitBuilder({
+  productsList = NOIRE_PRODUCTS,
+  isPersian = false,
+}: OutfitBuilderProps) {
   const { addToCart } = useCart();
 
-  const [selectedJacket, setSelectedJacket] = useState<Product>(JACKETS[0] || NOIRE_PRODUCTS[0]);
-  const [selectedShirt, setSelectedShirt] = useState<Product>(SHIRTS[0] || NOIRE_PRODUCTS[1]);
-  const [selectedTrouser, setSelectedTrouser] = useState<Product>(TROUSERS[0] || NOIRE_PRODUCTS[2]);
-  const [selectedAccessory, setSelectedAccessory] = useState<Product>(ACCESSORIES[0] || NOIRE_PRODUCTS[11]);
+  const JACKETS = productsList.filter(
+    (p) => p.category === 'blazers' || p.category === 'jackets' || p.category === 'overshirts'
+  );
+  const SHIRTS = productsList.filter(
+    (p) => p.category === 'shirts' || p.category === 't-shirts' || p.category === 'knitwear'
+  );
+  const TROUSERS = productsList.filter((p) => p.category === 'trousers');
+  const ACCESSORIES = productsList.filter((p) => p.category === 'accessories');
+
+  const [selectedJacket, setSelectedJacket] = useState<Product>(JACKETS[0] || productsList[0]);
+  const [selectedShirt, setSelectedShirt] = useState<Product>(SHIRTS[0] || productsList[1]);
+  const [selectedTrouser, setSelectedTrouser] = useState<Product>(TROUSERS[0] || productsList[2]);
+  const [selectedAccessory, setSelectedAccessory] = useState<Product>(
+    ACCESSORIES[0] || productsList[11] || productsList[3]
+  );
 
   const [activeStep, setActiveStep] = useState<'jacket' | 'shirt' | 'trouser' | 'accessory'>('jacket');
 
@@ -35,19 +48,34 @@ export default function OutfitBuilder() {
     addToCart(selectedAccessory);
   };
 
+  const getStepLabel = (key: string) => {
+    if (isPersian) {
+      if (key === 'jacket') return '۰۱ کت';
+      if (key === 'shirt') return '۰۲ پیراهن';
+      if (key === 'trouser') return '۰۳ شلوار';
+      return '۰۴ اکسسوری';
+    }
+    if (key === 'jacket') return '01 JACKET';
+    if (key === 'shirt') return '02 SHIRT';
+    if (key === 'trouser') return '03 TROUSER';
+    return '04 ACCESSORY';
+  };
+
   return (
-    <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
+    <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto w-full font-sans">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-[#D7D4CD] pb-8">
         <div>
           <span className="text-[10px] font-mono tracking-[0.3em] text-[#77746E] uppercase">
-            CONFIGURATOR
+            {isPersian ? 'تنظیم‌کننده استایل' : 'CONFIGURATOR'}
           </span>
           <h2 className="text-4xl md:text-6xl font-light tracking-tight uppercase font-display text-[#111111] mt-2">
-            BUILD YOUR LOOK
+            {isPersian ? 'استایل خود را بسازید' : 'BUILD YOUR LOOK'}
           </h2>
         </div>
         <p className="max-w-sm text-sm text-[#77746E] font-light mt-4 md:mt-0">
-          Curate a full contemporary wardrobe setup with real-time architectural proportion preview.
+          {isPersian
+            ? 'چینش کامل استایل معاصر با پیش‌نمایش زنده و تناسبات دقیق معماری.'
+            : 'Curate a full contemporary wardrobe setup with real-time architectural proportion preview.'}
         </p>
       </div>
 
@@ -76,11 +104,15 @@ export default function OutfitBuilder() {
 
           <div className="absolute bottom-6 left-6 right-6 text-white space-y-2 z-10">
             <p className="text-[10px] font-mono tracking-[0.25em] text-[#A58B68] uppercase">
-              SELECTED OUTFIT
+              {isPersian ? 'استایل انتخاب‌شده' : 'SELECTED OUTFIT'}
             </p>
             <div className="flex justify-between items-end">
-              <span className="text-xl font-light font-display">THE COMPLETE NOIRÉ SILHOUETTE</span>
-              <span className="text-2xl font-mono text-white">{formatPrice(totalOutfitPrice)}</span>
+              <span className="text-xl font-light font-display">
+                {isPersian ? 'سیلوئت کامل نوآر' : 'THE COMPLETE NOIRÉ SILHOUETTE'}
+              </span>
+              <span className="text-2xl font-mono text-white">
+                {formatPrice(totalOutfitPrice, selectedJacket.currency)}
+              </span>
             </div>
           </div>
         </div>
@@ -90,15 +122,15 @@ export default function OutfitBuilder() {
           {/* Layer Tabs */}
           <div className="grid grid-cols-4 border-b border-[#D7D4CD] pb-2 text-[10px] font-mono tracking-[0.2em] uppercase">
             {[
-              { key: 'jacket', label: '01 JACKET', current: selectedJacket },
-              { key: 'shirt', label: '02 SHIRT', current: selectedShirt },
-              { key: 'trouser', label: '03 TROUSER', current: selectedTrouser },
-              { key: 'accessory', label: '04 ACCESSORY', current: selectedAccessory },
+              { key: 'jacket', label: getStepLabel('jacket'), current: selectedJacket },
+              { key: 'shirt', label: getStepLabel('shirt'), current: selectedShirt },
+              { key: 'trouser', label: getStepLabel('trouser'), current: selectedTrouser },
+              { key: 'accessory', label: getStepLabel('accessory'), current: selectedAccessory },
             ].map((tab) => (
               <button
                 key={tab.key}
                 onClick={() => setActiveStep(tab.key as any)}
-                className={`text-left pb-3 transition-colors ${
+                className={`text-right md:text-left pb-3 transition-colors ${
                   activeStep === tab.key
                     ? 'border-b-2 border-[#111111] text-[#111111] font-bold'
                     : 'text-[#77746E] hover:text-[#111111]'
@@ -113,7 +145,7 @@ export default function OutfitBuilder() {
           {/* Layer Options Selection */}
           <div className="space-y-4">
             <p className="text-xs font-mono text-[#77746E] uppercase tracking-wider">
-              SELECT {activeStep.toUpperCase()}
+              {isPersian ? `انتخاب ${getStepLabel(activeStep)}` : `SELECT ${activeStep.toUpperCase()}`}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -140,7 +172,7 @@ export default function OutfitBuilder() {
                       if (activeStep === 'trouser') setSelectedTrouser(product);
                       if (activeStep === 'accessory') setSelectedAccessory(product);
                     }}
-                    className={`flex items-center space-x-4 p-3 border text-left transition-all bg-[#FFFFFF] ${
+                    className={`flex items-center space-x-4 space-x-reverse p-3 border text-right md:text-left transition-all bg-[#FFFFFF] ${
                       isSelected
                         ? 'border-[#111111] shadow-sm ring-1 ring-[#111111]'
                         : 'border-[#D7D4CD] hover:border-[#77746E]'
@@ -157,7 +189,9 @@ export default function OutfitBuilder() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-xs font-medium text-[#111111] truncate">{product.name}</p>
-                      <p className="text-xs font-mono text-[#77746E] mt-1">{formatPrice(product.price)}</p>
+                      <p className="text-xs font-mono text-[#77746E] mt-1">
+                        {formatPrice(product.price, product.currency)}
+                      </p>
                     </div>
                     {isSelected && <Check className="w-4 h-4 text-[#111111]" />}
                   </button>
@@ -169,38 +203,42 @@ export default function OutfitBuilder() {
           {/* Outfit Summary Box */}
           <div className="p-6 bg-[#E8E6E1] border border-[#D7D4CD] space-y-3">
             <span className="text-[10px] font-mono tracking-[0.25em] text-[#77746E] uppercase">
-              OUTFIT BREAKDOWN
+              {isPersian ? 'جزئیات اجزای استایل' : 'OUTFIT BREAKDOWN'}
             </span>
             <div className="space-y-1.5 text-xs text-[#111111]">
               <div className="flex justify-between">
                 <span>{selectedJacket.name}</span>
-                <span className="font-mono">{formatPrice(selectedJacket.price)}</span>
+                <span className="font-mono">{formatPrice(selectedJacket.price, selectedJacket.currency)}</span>
               </div>
               <div className="flex justify-between">
                 <span>{selectedShirt.name}</span>
-                <span className="font-mono">{formatPrice(selectedShirt.price)}</span>
+                <span className="font-mono">{formatPrice(selectedShirt.price, selectedShirt.currency)}</span>
               </div>
               <div className="flex justify-between">
                 <span>{selectedTrouser.name}</span>
-                <span className="font-mono">{formatPrice(selectedTrouser.price)}</span>
+                <span className="font-mono">{formatPrice(selectedTrouser.price, selectedTrouser.currency)}</span>
               </div>
               <div className="flex justify-between">
                 <span>{selectedAccessory.name}</span>
-                <span className="font-mono">{formatPrice(selectedAccessory.price)}</span>
+                <span className="font-mono">{formatPrice(selectedAccessory.price, selectedAccessory.currency)}</span>
               </div>
             </div>
 
             <div className="pt-3 border-t border-[#D7D4CD] flex justify-between items-center text-sm font-bold">
-              <span>TOTAL LOOK PRICE</span>
-              <span className="text-base font-mono">{formatPrice(totalOutfitPrice)}</span>
+              <span>{isPersian ? 'قیمت کل استایل' : 'TOTAL LOOK PRICE'}</span>
+              <span className="text-base font-mono">
+                {formatPrice(totalOutfitPrice, selectedJacket.currency)}
+              </span>
             </div>
 
             <button
               onClick={handleAddOutfitToCart}
-              className="w-full bg-[#111111] text-[#F3F2EE] py-4 text-[11px] font-bold tracking-[0.25em] uppercase hover:bg-[#0B0B0B] transition-colors flex items-center justify-center space-x-3 mt-4"
+              className="w-full bg-[#111111] text-[#F3F2EE] py-4 text-[11px] font-bold tracking-[0.25em] uppercase hover:bg-[#0B0B0B] transition-colors flex items-center justify-center space-x-3 space-x-reverse mt-4"
             >
               <ShoppingBag className="w-4 h-4 text-[#A58B68]" />
-              <span>ADD COMPLETE LOOK TO BAG</span>
+              <span>
+                {isPersian ? 'افزودن کامل استایل به سبد خرید' : 'ADD COMPLETE LOOK TO BAG'}
+              </span>
             </button>
           </div>
         </div>

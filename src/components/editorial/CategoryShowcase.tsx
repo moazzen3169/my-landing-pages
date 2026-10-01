@@ -5,55 +5,61 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 
-const CATEGORIES = [
-  {
-    title: 'FORMAL',
-    subtitle: 'SUITS & EVENING TAILORING',
-    itemCount: '14 PIECES',
-    image: 'https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?q=80&w=1200&auto=format&fit=crop',
-    href: '/shop/suits',
-    span: 'lg:col-span-7'
-  },
-  {
-    title: 'SMART CASUAL',
-    subtitle: 'BLAZERS & OVERSHIRTS',
-    itemCount: '22 PIECES',
-    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop',
-    href: '/shop/blazers',
-    span: 'lg:col-span-5'
-  },
-  {
-    title: 'ESSENTIALS',
-    subtitle: 'TEES, HOODIES & KNITS',
-    itemCount: '18 PIECES',
-    image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop',
-    href: '/shop/t-shirts',
-    span: 'lg:col-span-5'
-  },
-  {
-    title: 'OUTERWEAR',
-    subtitle: 'COATS, MACS & JACKETS',
-    itemCount: '11 PIECES',
-    image: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1200&auto=format&fit=crop',
-    href: '/shop/jackets',
-    span: 'lg:col-span-7'
-  }
-];
+interface CategoryShowcaseProps {
+  isPersian?: boolean;
+}
 
-export default function CategoryShowcase() {
+export default function CategoryShowcase({ isPersian = false }: CategoryShowcaseProps) {
+  const CATEGORIES = [
+    {
+      title: isPersian ? 'رسمی و تشریفات' : 'FORMAL',
+      subtitle: isPersian ? 'کت و شلوار و استایل شب' : 'SUITS & EVENING TAILORING',
+      itemCount: isPersian ? '۱۴ آیتم' : '14 PIECES',
+      image: '/images/banners/Group 242.jpg',
+      href: '/shop/suits',
+      span: 'lg:col-span-7'
+    },
+    {
+      title: isPersian ? 'اسپرت شیک' : 'SMART CASUAL',
+      subtitle: isPersian ? 'بلیزر و اورشرت' : 'BLAZERS & OVERSHIRTS',
+      itemCount: isPersian ? '۲۲ آیتم' : '22 PIECES',
+      image: '/images/men-hoodies/g-star-premium-core-track-jacket-sweater-dark-blue.png',
+      href: '/shop/blazers',
+      span: 'lg:col-span-5'
+    },
+    {
+      title: isPersian ? 'اساسی و بیسیک' : 'ESSENTIALS',
+      subtitle: isPersian ? 'تی‌شرت، هودی و بافت' : 'TEES, HOODIES & KNITS',
+      itemCount: isPersian ? '۱۸ آیتم' : '18 PIECES',
+      image: '/images/Men-shirts/g-star-waffle-henley-relaxed-t-shirt-white.png',
+      href: '/shop/t-shirts',
+      span: 'lg:col-span-5'
+    },
+    {
+      title: isPersian ? 'لباس بیرونی' : 'OUTERWEAR',
+      subtitle: isPersian ? 'پالتو، بارانی و کاپشن' : 'COATS, MACS & JACKETS',
+      itemCount: isPersian ? '۱۱ آیتم' : '11 PIECES',
+      image: '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-brown.png',
+      href: '/shop/jackets',
+      span: 'lg:col-span-7'
+    }
+  ];
+
   return (
     <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-[#D7D4CD] pb-8">
         <div>
           <span className="text-[10px] font-mono tracking-[0.3em] text-[#77746E] uppercase">
-            CATEGORICAL EDIT
+            {isPersian ? 'دسته‌بندی‌های ادیتوریال' : 'CATEGORICAL EDIT'}
           </span>
           <h2 className="text-4xl md:text-6xl font-light tracking-tight uppercase font-display text-[#111111] mt-2">
-            THE ARCHITECTURAL DOMAINS
+            {isPersian ? 'قلمروهای معماری پوشاک' : 'THE ARCHITECTURAL DOMAINS'}
           </h2>
         </div>
         <p className="max-w-sm text-sm text-[#77746E] font-light mt-4 md:mt-0">
-          Distinct menswear categories unified by strict visual restraint and premium material choice.
+          {isPersian
+            ? 'دسته‌بندی‌های متمایز پوشاک مردانه یکپارچه‌شده با ظرافت بصری و پارچه‌های پریمیوم.'
+            : 'Distinct menswear categories unified by strict visual restraint and premium material choice.'}
         </p>
       </div>
 
@@ -63,7 +69,7 @@ export default function CategoryShowcase() {
             key={cat.title}
             href={cat.href}
             className={`group relative aspect-[4/3] lg:aspect-[16/10] overflow-hidden bg-[#E8E6E1] border border-[#D7D4CD] block ${cat.span}`}
-            data-cursor-text="EXPLORE"
+            data-cursor-text={isPersian ? 'مشاهده' : 'EXPLORE'}
           >
             <Image
               src={cat.image}
