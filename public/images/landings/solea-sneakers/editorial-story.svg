@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="catGrad_EDITORIAL" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18191A" />
+      <stop offset="100%" stop-color="#0D0E0F" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#catGrad_EDITORIAL)" />
+  <path d="M-100,400 C200,300 400,500 900,200" fill="none" stroke="#A89B84" stroke-width="3" opacity="0.25" />
+  <text x="50%" y="55%" text-anchor="middle" fill="#FFFFFF" opacity="0.08" font-family="sans-serif" font-weight="900" font-size="110" letter-spacing="16">EDITORIAL</text>
+</svg>
