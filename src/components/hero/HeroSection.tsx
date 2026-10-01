@@ -8,6 +8,7 @@ import { ArrowRight, ShoppingBag } from 'lucide-react';
 import { NOIRE_LOOKS } from '@/data/noire';
 import { Look } from '@/types';
 import { useCart } from '@/context/CartContext';
+import { formatPrice } from '@/lib/utils';
 
 interface HeroSectionProps {
   looks?: Look[];
@@ -157,8 +158,8 @@ export default function HeroSection({
             <ShoppingBag className="w-4 h-4 text-[#A58B68] shrink-0" />
             <span>
               {isPersian
-                ? `افزودن کامل استایل (€${activeLook.price})`
-                : `ADD FULL LOOK (€${activeLook.price})`}
+                ? `افزودن کامل استایل (${formatPrice(activeLook.price, 'TMN', isPersian)})`
+                : `ADD FULL LOOK (${formatPrice(activeLook.price, 'TMN', isPersian)})`}
             </span>
           </button>
         </div>
@@ -186,7 +187,7 @@ export default function HeroSection({
                 }`}
               >
                 <span>{look.number}</span>
-                <span className="font-mono text-[#A58B68]">€{look.price}</span>
+                <span className="font-mono text-[#A58B68]">{formatPrice(look.price, 'TMN', isPersian)}</span>
               </div>
               <h4
                 className={`truncate transition-colors ${

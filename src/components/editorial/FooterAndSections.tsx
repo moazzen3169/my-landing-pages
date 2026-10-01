@@ -48,8 +48,8 @@ export function BrandStory({ isPersian = false }: EditorialSectionProps) {
             }`}
           >
             {isPersian
-              ? 'برند نوآر (NOIRÉ) بر پایه یک اصل معماری بنیادین بنا شده است: پوشاک معاصر مردانه باید وقار بصری مطلوبی را همراه با قدرت لمس پارچه‌های فاخر ارائه دهد.'
-              : 'NOIRÉ was founded on a singular architectural thesis: that contemporary menswear should embody absolute visual restraint while delivering tactile power.'}
+              ? 'فروشگاه چندبرند لوکس نوآر (NOIRÉ) مجموعه‌ای گزینش‌شده از بهترین کالکشن‌های پوشاک مردانه روزمره و مجلسی برندهای مطرح جهانی مانند Tom Ford, Zegna, Loro Piana و Burberry را برای آقایان شیک‌پوش فراهم آورده است.'
+              : 'NOIRÉ is a luxury multi-brand menswear boutique curating finest formal tailoring, smart casual, and luxury essentials from iconic fashion houses like Tom Ford, Zegna, Loro Piana, and Burberry.'}
           </p>
           <div
             className={`grid grid-cols-2 gap-6 pt-6 border-t border-[#2B2B2B] ${
@@ -92,16 +92,16 @@ export function BrandStory({ isPersian = false }: EditorialSectionProps) {
 export function QualitySection({ isPersian = false }: EditorialSectionProps) {
   const SERVICES = isPersian
     ? [
-        { icon: Truck, title: 'ارسال اکسپرس', desc: 'رایگان برای سفارش‌های بالای ۳۰۰ یورو' },
-        { icon: RefreshCw, title: 'بازگشت آسان', desc: 'مهلت ۱۵ روزه تعویض و مرجوعی' },
-        { icon: ShieldCheck, title: 'تضمین اصالت و کیفیت', desc: 'تامین‌شده از کارخانجات ایتالیا و ژاپن' },
-        { icon: Lock, title: 'پرداخت امن', desc: 'درگاه ایمن با رمزنگاری سرتاسری' },
+        { icon: Truck, title: 'ارسال اکسپرس اختصاصی', desc: 'رایگان همراه با پیک ویژه بیمه‌شده' },
+        { icon: RefreshCw, title: 'ضمانت اصالت ۱۰۰٪', desc: 'تامین مستقیم از خانه‌های مد بین‌المللی' },
+        { icon: ShieldCheck, title: 'مشاوره پرو و استایل', desc: 'خدمات شخصی‌سازی استایل مردانه' },
+        { icon: Lock, title: 'پرداخت امن و مطمئن', desc: 'درگاه ایمن با پشتیبانی اختصاصی' },
       ]
     : [
-        { icon: Truck, title: 'EXPRESS DELIVERY', desc: 'Complimentary on orders over €300' },
-        { icon: RefreshCw, title: 'EASY RETURNS', desc: '15-day worldwide return window' },
-        { icon: ShieldCheck, title: 'QUALITY GUARANTEE', desc: 'Sourced from Italian & Japanese mills' },
-        { icon: Lock, title: 'SECURE PAYMENT', desc: 'Encrypted end-to-end checkout' },
+        { icon: Truck, title: 'EXPRESS COURIER', desc: 'Complimentary insured luxury delivery' },
+        { icon: RefreshCw, title: '100% AUTHENTIC GUARANTEE', desc: 'Sourced directly from official luxury houses' },
+        { icon: ShieldCheck, title: 'PERSONAL STYLING', desc: 'Bespoke tailoring and fit consultations' },
+        { icon: Lock, title: 'SECURE CHECKOUT', desc: 'Encrypted multi-currency payment' },
       ];
 
   return (

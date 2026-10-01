@@ -118,6 +118,13 @@ export default function ProductCard({
 
       {/* Product Details */}
       <div className="p-4 sm:p-5 flex flex-col justify-between flex-1 gap-2 bg-white text-start">
+        {/* Brand name badge */}
+        {product.brand && (
+          <span className="text-[10px] font-mono tracking-widest uppercase font-bold text-[#A58B68]">
+            {product.brand}
+          </span>
+        )}
+
         <div className="flex justify-between items-baseline gap-3">
           <Link href={`/product/${product.slug}`} className="group-hover:text-[#A58B68] transition-colors flex-1 min-w-0">
             <h3
@@ -131,7 +138,7 @@ export default function ProductCard({
             </h3>
           </Link>
           <span className="text-xs font-mono font-bold text-[#111111] shrink-0">
-            {formatPrice(product.price, product.currency)}
+            {formatPrice(product.price, product.currency, isPersian)}
           </span>
         </div>
 
