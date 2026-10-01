@@ -67,14 +67,14 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
           </div>
 
           {/* BADGES (TOP RIGHT IN RTL) */}
-          <div className="absolute top-3 right-3 flex flex-col gap-1.5 z-10 items-start">
+          <div className="absolute top-3 right-3 flex  gap-1.5 z-10 items-start">
             {product.badge && (
-              <span className="px-2.5 py-0.5 bg-[#0B1220] text-[#F8FAFC] text-[10px] font-semibold rounded-full uppercase tracking-wider">
+              <span className="px-2.5 py-0.5 bg-[#0B1220] text-[#F8FAFC] text-[12px] font-semibold rounded-full uppercase tracking-wider">
                 {product.badge}
               </span>
             )}
             {product.discountPercentage && (
-              <span className="px-2 py-0.5 bg-[#8FA9C4] text-[#0B1220] text-[10px] font-bold rounded-full">
+              <span className="px-2 py-0.5 bg-[#8ADDFD] text-[#0B1220] text-[12px]  font-bold rounded-full">
                 ٪{product.discountPercentage}-
               </span>
             )}

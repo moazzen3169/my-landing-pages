@@ -62,7 +62,7 @@ export default function EditorialStory() {
             {/* LEFT COLUMN (RTL): EDITORIAL VISUAL SPOTLIGHT */}
             <div className="lg:col-span-5 relative aspect-[4/5] bg-[#16233A] rounded-[24px] overflow-hidden border border-[#CBD5E1]/20 flex items-center justify-center p-6">
               <Image
-                src="/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_plp_standard.png"
+                src="/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_standard.png"
                 alt="Solea Editorial Heritage"
                 fill
                 className="object-contain hover:scale-105 transition-transform duration-700"
