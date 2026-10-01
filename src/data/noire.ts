@@ -474,7 +474,18 @@ export const NOIRE_LOOKBOOK: LookbookSlide[] = [
   }
 ];
 
+import { PERSIAN_LANDING_INFO } from './persian-luxury';
+
 export const LANDING_REGISTRY: LandingPageInfo[] = [
+  {
+    slug: 'persian-luxury-v1',
+    category: 'men-formal',
+    title: 'گارنِت (GARNET) — لندینگ پیج اختصاصی فارسی',
+    description: 'کالکشن لوکس و فاخر پوشاک مردانه با طراحی اختصاصی، تایپوگرافی فارسی، چیدمان RTL و تجربه خرید پریمیوم.',
+    theme: 'persian-lux-dark-gold',
+    dataset: 'PERSIAN_LUXURY_PRODUCTS',
+    previewImage: '/images/banners/Group 242.jpg'
+  },
   {
     slug: 'noire-men-formal',
     category: 'men-formal',
