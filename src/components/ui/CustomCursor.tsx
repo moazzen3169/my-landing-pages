@@ -16,13 +16,30 @@ export default function CustomCursor() {
 
     if (isTouch || isReducedMotion) return;
 
-    setIsVisible(true);
-
     const onMouseMove = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });
 
       const target = e.target as HTMLElement | null;
-      if (!target) return;
+      if (!target) {
+        setIsVisible(false);
+        return;
+      }
+
+      // Restrict custom cursor display ONLY to specific designated sections: Hero and Story Steps
+      const inHeroOrStory = target.closest('section, .story-steps-section, #story-steps-section, [data-enable-custom-cursor]');
+      const isHero = inHeroOrStory && (
+        target.closest('section')?.querySelector('h1') !== null ||
+        target.closest('.story-steps-section') !== null ||
+        target.closest('#story-steps-section') !== null ||
+        target.closest('[data-enable-custom-cursor]') !== null
+      );
+
+      if (!isHero) {
+        setIsVisible(false);
+        return;
+      }
+
+      setIsVisible(true);
 
       const interactive = target.closest('button, a, input, select, [role="button"]');
       const cursorTextAttr = target.closest('[data-cursor-text]')?.getAttribute('data-cursor-text');

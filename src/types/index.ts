@@ -7,6 +7,7 @@ export interface ProductColor {
 export interface Product {
   id: string;
   name: string;
+  brand?: string;
   slug: string;
   category: 'suits' | 'blazers' | 'shirts' | 'trousers' | 't-shirts' | 'hoodies' | 'jackets' | 'overshirts' | 'knitwear' | 'accessories';
   price: number;

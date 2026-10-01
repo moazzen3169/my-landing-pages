@@ -3,11 +3,12 @@ import { Product, Look, LookbookSlide, LandingPageInfo } from '../types';
 export const NOIRE_PRODUCTS: Product[] = [
   {
     id: 'noire-01',
-    name: 'The Architect Blazer',
+    name: 'Architectural Wool Blazer',
+    brand: 'TOM FORD',
     slug: 'the-architect-blazer',
     category: 'blazers',
-    price: 289,
-    currency: 'EUR',
+    price: 18500000,
+    currency: 'TMN',
     colors: [
       { name: 'Charcoal', hex: '#2B2B2B', image: '/images/men-hoodies/g-star-premium-core-track-jacket-sweater-dark-blue.png' },
       { name: 'Black', hex: '#111111', image: '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-black.png' }
@@ -17,24 +18,25 @@ export const NOIRE_PRODUCTS: Product[] = [
       '/images/men-hoodies/g-star-premium-core-track-jacket-sweater-dark-blue.png',
       '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-black.png'
     ],
-    description: 'A structured contemporary blazer cut from a refined wool blend, designed for a clean architectural silhouette from day to evening.',
-    material: '68% Virgin Wool, 28% Polyester, 4% Elastane. Lining: 100% Cupro.',
-    fit: 'Relaxed tailored fit with padded shoulders and unstructured waist.',
+    description: 'Structured contemporary luxury blazer cut from refined Super 130s wool blend, tailored in Italy for clean architectural silhouettes.',
+    material: '80% Virgin Wool, 15% Silk, 5% Elastane. Lining: 100% Cupro.',
+    fit: 'Relaxed tailored fit with structured shoulders.',
     featured: true,
     isNew: true,
-    badge: 'ESSENTIAL',
+    badge: 'LUXURY SELECTION',
     rating: 4.9,
     reviewCount: 38,
-    careInstructions: 'Dry clean only. Warm iron if needed. Store on a structured hanger.',
-    shippingInfo: 'Standard shipping 2-4 business days. Express shipping available.'
+    careInstructions: 'Dry clean only by luxury garment specialists.',
+    shippingInfo: 'Insured complimentary express courier delivery.'
   },
   {
     id: 'noire-02',
-    name: 'The Essential Oxford Shirt',
+    name: 'Egyptian Cotton Oxford Shirt',
+    brand: 'CANALI',
     slug: 'the-essential-oxford-shirt',
     category: 'shirts',
-    price: 129,
-    currency: 'EUR',
+    price: 7800000,
+    currency: 'TMN',
     colors: [
       { name: 'Crisp White', hex: '#FFFFFF', image: '/images/Men-shirts/g-star-waffle-henley-relaxed-t-shirt-white.png' },
       { name: 'Sky Blue', hex: '#B0C4DE', image: '/images/Men-shirts/g-star-lash-t-shirt-light-blue.png' },
@@ -46,9 +48,9 @@ export const NOIRE_PRODUCTS: Product[] = [
       '/images/Men-shirts/g-star-lash-t-shirt-light-blue.png',
       '/images/Men-shirts/g-star-lash-t-shirt-black.png'
     ],
-    description: 'Crafted from long-staple Egyptian cotton twill, offering crisp feel and exceptional breathability.',
-    material: '100% Organic Long-Staple Cotton',
-    fit: 'Contemporary straight fit with French seams and mother-of-pearl buttons.',
+    description: 'Crafted from Giza 87 long-staple Egyptian cotton twill, offering crisp luxury feel and effortless breathability.',
+    material: '100% Giza Egyptian Long-Staple Cotton',
+    fit: 'Contemporary straight fit with mother-of-pearl buttons.',
     featured: true,
     isNew: false,
     rating: 4.8,
@@ -56,11 +58,12 @@ export const NOIRE_PRODUCTS: Product[] = [
   },
   {
     id: 'noire-03',
-    name: 'The Tapered Wool Trouser',
+    name: 'Pleated Tapered Wool Trouser',
+    brand: 'ZEGNA',
     slug: 'the-tapered-wool-trouser',
     category: 'trousers',
-    price: 159,
-    currency: 'EUR',
+    price: 11200000,
+    currency: 'TMN',
     colors: [
       { name: 'Charcoal', hex: '#2B2B2B', image: '/images/Men-panets/g-star-rovic-zip-3d-straight-tapered-pant-grey.png' },
       { name: 'Off White', hex: '#EAE6DF', image: '/images/Men-panets/g-star-clean-regular-cargo-pants-black.png' }
@@ -70,9 +73,9 @@ export const NOIRE_PRODUCTS: Product[] = [
       '/images/Men-panets/g-star-rovic-zip-3d-straight-tapered-pant-grey.png',
       '/images/Men-panets/g-star-clean-regular-cargo-pants-black.png'
     ],
-    description: 'Single-pleat trousers cut from tropical weight wool with a slight stretch for seamless fluid movement.',
-    material: '96% Italian Wool, 4% Elastane',
-    fit: 'High rise, subtle taper down to a clean break.',
+    description: 'Single-pleat formal trousers cut from Italian tropical weight wool with subtle comfort stretch.',
+    material: '96% Zegna Merino Wool, 4% Elastane',
+    fit: 'High rise, subtle taper down to a sharp break.',
     featured: true,
     isNew: true,
     rating: 4.7,
@@ -80,11 +83,12 @@ export const NOIRE_PRODUCTS: Product[] = [
   },
   {
     id: 'noire-04',
-    name: 'The Heavyweight Studio Tee',
+    name: 'Heavyweight Studio Cotton Tee',
+    brand: 'BRUNELLO CUCINELLI',
     slug: 'the-heavyweight-studio-tee',
     category: 't-shirts',
-    price: 69,
-    currency: 'EUR',
+    price: 4900000,
+    currency: 'TMN',
     colors: [
       { name: 'Off-White', hex: '#F0ECE1', image: '/images/Men-shirts/g-star-ductsoon-relaxed-t-shirt-white.png' },
       { name: 'Deep Black', hex: '#111111', image: '/images/Men-shirts/g-star-base-s-t-shirt-black.png' }
@@ -94,8 +98,8 @@ export const NOIRE_PRODUCTS: Product[] = [
       '/images/Men-shirts/g-star-ductsoon-relaxed-t-shirt-white.png',
       '/images/Men-shirts/g-star-base-s-t-shirt-black.png'
     ],
-    description: '300 GSM heavy combed jersey offering an architectural drape that holds its boxy form perfectly.',
-    material: '100% Heavy Organic Combed Cotton',
+    description: '320 GSM heavy combed double-jersey offering architectural drape that maintains its crisp silhouette.',
+    material: '100% Organic Double-Combed Cotton',
     fit: 'Boxy drop-shoulder relaxed cut.',
     featured: false,
     isNew: false,
@@ -104,11 +108,12 @@ export const NOIRE_PRODUCTS: Product[] = [
   },
   {
     id: 'noire-05',
-    name: 'The Structured Wool Overshirt',
+    name: 'Structured Wool Melton Overshirt',
+    brand: 'LORO PIANA',
     slug: 'the-structured-wool-overshirt',
     category: 'overshirts',
-    price: 179,
-    currency: 'EUR',
+    price: 14500000,
+    currency: 'TMN',
     colors: [
       { name: 'Sandstone', hex: '#C2B6A2', image: '/images/Men-shirts/g-star-relaxed-base-t-shirt-beige.png' },
       { name: 'Espresso', hex: '#3B2F2F', image: '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-brown.png' }
@@ -118,9 +123,9 @@ export const NOIRE_PRODUCTS: Product[] = [
       '/images/Men-shirts/g-star-relaxed-base-t-shirt-beige.png',
       '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-brown.png'
     ],
-    description: 'A versatile transitional layer featuring concealed horn buttons and double utility chest pockets.',
-    material: '70% Recycled Melton Wool, 30% Polyamide',
-    fit: 'Relaxed layering piece with straight hem.',
+    description: 'Versatile smart-casual outerwear piece featuring hand-carved buffalo horn buttons and dual utility pockets.',
+    material: '85% Virgin Melton Wool, 15% Cashmere',
+    fit: 'Relaxed layering fit with straight hem.',
     featured: true,
     isNew: true,
     rating: 4.8,
@@ -128,11 +133,12 @@ export const NOIRE_PRODUCTS: Product[] = [
   },
   {
     id: 'noire-06',
-    name: 'The Modern Tailored Suit',
+    name: 'Super 130s Modern Tailored Suit',
+    brand: 'ZEGNA',
     slug: 'the-modern-tailored-suit',
     category: 'suits',
-    price: 495,
-    currency: 'EUR',
+    price: 36800000,
+    currency: 'TMN',
     colors: [
       { name: 'Onyx Black', hex: '#111111', image: '/images/banners/Group-242.jpg' },
       { name: 'Graphite', hex: '#3A3B3C', image: '/images/men-hoodies/g-star-core-crew-sweat-long-sleeve-black.png' }
@@ -142,22 +148,23 @@ export const NOIRE_PRODUCTS: Product[] = [
       '/images/banners/Group-242.jpg',
       '/images/men-hoodies/g-star-core-crew-sweat-long-sleeve-black.png'
     ],
-    description: 'Two-piece modern evening suit tailored from Super 120s Italian merino wool with satin finish lapels.',
-    material: '100% Super 120s Italian Virgin Wool',
-    fit: 'Slim modern cut with natural shoulders.',
+    description: 'Two-piece tailored tuxedo suit masterfully crafted from Italian merino wool with satin silk lapels.',
+    material: '100% Super 130s Italian Virgin Wool',
+    fit: 'Modern tailored fit with soft shoulders.',
     featured: true,
     isNew: true,
-    badge: 'EDITORIAL',
+    badge: 'BOUTIQUE SPECIAL',
     rating: 4.9,
     reviewCount: 15
   },
   {
     id: 'noire-07',
-    name: 'The Minimal Cashmere Knit',
+    name: 'Mongolian Cashmere Crewneck',
+    brand: 'LORO PIANA',
     slug: 'the-minimal-cashmere-knit',
     category: 'knitwear',
-    price: 220,
-    currency: 'EUR',
+    price: 16200000,
+    currency: 'TMN',
     colors: [
       { name: 'Oatmeal', hex: '#DCD4C5', image: '/images/men-hoodies/g-star-logo-sweater-grey.png' },
       { name: 'Charcoal', hex: '#2B2B2B', image: '/images/men-hoodies/g-star-core-crew-sweat-long-sleeve-grey.png' }
@@ -167,7 +174,7 @@ export const NOIRE_PRODUCTS: Product[] = [
       '/images/men-hoodies/g-star-logo-sweater-grey.png',
       '/images/men-hoodies/g-star-core-crew-sweat-long-sleeve-grey.png'
     ],
-    description: 'Ultra-soft 12-gauge grade-A Mongolian cashmere crewneck with seamless seamless rib detailing.',
+    description: 'Ultra-soft 12-gauge grade-A Mongolian cashmere crewneck knit with seamless ribbing.',
     material: '100% Grade-A Mongolian Cashmere',
     fit: 'Classic regular fit.',
     featured: false,
@@ -177,11 +184,12 @@ export const NOIRE_PRODUCTS: Product[] = [
   },
   {
     id: 'noire-08',
-    name: 'The Minimalist Trench Jacket',
+    name: 'Water-Repellent Trench Coat',
+    brand: 'BURBERRY',
     slug: 'the-minimalist-trench-jacket',
     category: 'jackets',
-    price: 349,
-    currency: 'EUR',
+    price: 24500000,
+    currency: 'TMN',
     colors: [
       { name: 'Taupe Stone', hex: '#8F8B82', image: '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-brown.png' },
       { name: 'Midnight Black', hex: '#0B0B0B', image: '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-black.png' }
@@ -191,9 +199,9 @@ export const NOIRE_PRODUCTS: Product[] = [
       '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-brown.png',
       '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-black.png'
     ],
-    description: 'Water-repellent gabardine mac coat with hidden placket and sharp point collar.',
+    description: 'Minimalist double-weave gabardine mac trench coat with concealed front buttons.',
     material: '100% Water-Repellent Cotton Gabardine',
-    fit: 'Oversized clean silhouette.',
+    fit: 'Oversized structured silhouette.',
     featured: true,
     isNew: true,
     rating: 4.8,
@@ -201,11 +209,12 @@ export const NOIRE_PRODUCTS: Product[] = [
   },
   {
     id: 'noire-09',
-    name: 'The Heavy Loopback Hoodie',
+    name: 'Heavy Loopback Cotton Hoodie',
+    brand: 'ACNE STUDIOS',
     slug: 'the-heavy-loopback-hoodie',
     category: 'hoodies',
-    price: 119,
-    currency: 'EUR',
+    price: 8500000,
+    currency: 'TMN',
     colors: [
       { name: 'Cement Grey', hex: '#A3A3A3', image: '/images/men-hoodies/g-star-premium-core-hooded-sweater-grey.png' },
       { name: 'Pitch Black', hex: '#111111', image: '/images/men-hoodies/g-star-core-half-zip-sweat-black.png' }
@@ -215,7 +224,7 @@ export const NOIRE_PRODUCTS: Product[] = [
       '/images/men-hoodies/g-star-premium-core-hooded-sweater-grey.png',
       '/images/men-hoodies/g-star-core-half-zip-sweat-black.png'
     ],
-    description: '480 GSM organic cotton loopback French terry with double-lined hood and seamless pouch pocket.',
+    description: '480 GSM organic cotton loopback French terry with double-lined hood and clean pouch pocket.',
     material: '100% Heavy Organic Loopback Cotton',
     fit: 'Subtly oversized architectural cut.',
     featured: false,
@@ -225,11 +234,12 @@ export const NOIRE_PRODUCTS: Product[] = [
   },
   {
     id: 'noire-10',
-    name: 'The Relaxed Pleated Chino',
+    name: 'Relaxed Double-Pleated Chino',
+    brand: 'RALPH LAUREN PURPLE LABEL',
     slug: 'the-relaxed-pleated-chino',
     category: 'trousers',
-    price: 139,
-    currency: 'EUR',
+    price: 9800000,
+    currency: 'TMN',
     colors: [
       { name: 'Pebble Beige', hex: '#D5CCBB', image: '/images/Men-panets/g-star-rovic-zip-3d-regular-tapered-pants-brown (1).png' },
       { name: 'Washed Olive', hex: '#555D50', image: '/images/Men-panets/g-star-utility-loose-cargo-pants-medium-blue.png' }
@@ -239,7 +249,7 @@ export const NOIRE_PRODUCTS: Product[] = [
       '/images/Men-panets/g-star-rovic-zip-3d-regular-tapered-pants-brown (1).png',
       '/images/Men-panets/g-star-utility-loose-cargo-pants-medium-blue.png'
     ],
-    description: 'High-density cotton twill with garment wash finish and double front pleats.',
+    description: 'High-density Japanese cotton twill with garment wash finish and front pleats.',
     material: '100% Japanese Cotton Twill',
     fit: 'Wide leg with gentle taper at cuffs.',
     featured: false,
@@ -249,11 +259,12 @@ export const NOIRE_PRODUCTS: Product[] = [
   },
   {
     id: 'noire-11',
-    name: 'The Wool Evening Dinner Jacket',
+    name: 'Shawl Collar Dinner Jacket',
+    brand: 'TOM FORD',
     slug: 'the-wool-evening-dinner-jacket',
     category: 'blazers',
-    price: 329,
-    currency: 'EUR',
+    price: 26500000,
+    currency: 'TMN',
     colors: [
       { name: 'Midnight Navy', hex: '#111827', image: '/images/men-hoodies/g-star-old-skool-crew-sweat-long-sleeve-dark-blue.png' },
       { name: 'Jet Black', hex: '#0B0B0B', image: '/images/men-hoodies/g-star-core-crew-sweat-long-sleeve-black.png' }
@@ -263,7 +274,7 @@ export const NOIRE_PRODUCTS: Product[] = [
       '/images/men-hoodies/g-star-old-skool-crew-sweat-long-sleeve-dark-blue.png',
       '/images/men-hoodies/g-star-core-crew-sweat-long-sleeve-black.png'
     ],
-    description: 'Refined shawl collar tuxedo blazer with satin silk trimmings and hand-stitched details.',
+    description: 'Refined shawl collar dinner tuxedo jacket with satin silk facings and pick-stitched edges.',
     material: '92% Virgin Wool, 8% Silk',
     fit: 'Slim structured formal silhouette.',
     featured: true,
@@ -273,11 +284,12 @@ export const NOIRE_PRODUCTS: Product[] = [
   },
   {
     id: 'noire-12',
-    name: 'The Italian Leather Tote Bag',
+    name: 'Tuscan Full-Grain Leather Tote',
+    brand: 'BODHI / BOTTEGA VENETA',
     slug: 'the-italian-leather-tote-bag',
     category: 'accessories',
-    price: 249,
-    currency: 'EUR',
+    price: 18900000,
+    currency: 'TMN',
     colors: [
       { name: 'Matte Black', hex: '#181818', image: '/images/banners/Group-242.jpg' }
     ],
@@ -285,7 +297,7 @@ export const NOIRE_PRODUCTS: Product[] = [
     images: [
       '/images/banners/Group-242.jpg'
     ],
-    description: 'Full-grain vegetable-tanned calfskin leather tote with magnetic top clasp and padded laptop pouch.',
+    description: 'Full-grain vegetable-tanned calfskin leather tote with magnetic closure and laptop compartment.',
     material: '100% Tuscan Full-Grain Calfskin Leather',
     fit: '38cm x 42cm x 12cm capacity.',
     featured: true,
@@ -295,11 +307,12 @@ export const NOIRE_PRODUCTS: Product[] = [
   },
   {
     id: 'noire-13',
-    name: 'The Minimal Silk Dress Shirt',
+    name: 'Sandwashed Silk Formal Shirt',
+    brand: 'GIVENCHY',
     slug: 'the-minimal-silk-dress-shirt',
     category: 'shirts',
-    price: 189,
-    currency: 'EUR',
+    price: 12800000,
+    currency: 'TMN',
     colors: [
       { name: 'Off-White Silk', hex: '#F5F5F0', image: '/images/Men-shirts/g-star-structured-tweeter-grandad-t-shirt-white.png' },
       { name: 'Onyx Silk', hex: '#111111', image: '/images/Men-shirts/g-star-lash-t-shirt-dark-blue.png' }
@@ -309,8 +322,8 @@ export const NOIRE_PRODUCTS: Product[] = [
       '/images/Men-shirts/g-star-structured-tweeter-grandad-t-shirt-white.png',
       '/images/Men-shirts/g-star-lash-t-shirt-dark-blue.png'
     ],
-    description: 'Sandwashed 19mm silk crepe de chine shirt with concealed front placket.',
-    material: '100% Sandwashed Silk',
+    description: 'Sandwashed 19mm pure silk crepe de chine shirt with concealed front placket.',
+    material: '100% Sandwashed Pure Silk',
     fit: 'Fluid relaxed drape.',
     featured: false,
     isNew: true,
@@ -319,11 +332,12 @@ export const NOIRE_PRODUCTS: Product[] = [
   },
   {
     id: 'noire-14',
-    name: 'The Merino Turtleneck Sweater',
+    name: 'Extra Fine Merino Turtleneck',
+    brand: 'CANALI',
     slug: 'the-merino-turtleneck-sweater',
     category: 'knitwear',
-    price: 169,
-    currency: 'EUR',
+    price: 11500000,
+    currency: 'TMN',
     colors: [
       { name: 'Charcoal', hex: '#2B2B2B', image: '/images/men-hoodies/g-star-premium-core-half-zip-sweater-dark-blue.png' },
       { name: 'Warm Cream', hex: '#EBE5D8', image: '/images/men-hoodies/g-star-sunfaded-sweater-dark-blue.png' }
@@ -333,7 +347,7 @@ export const NOIRE_PRODUCTS: Product[] = [
       '/images/men-hoodies/g-star-premium-core-half-zip-sweater-dark-blue.png',
       '/images/men-hoodies/g-star-sunfaded-sweater-dark-blue.png'
     ],
-    description: 'Extra fine 100% Merino wool knit with comfortable roll-neck collar for crisp cold weather layering.',
+    description: 'Extra fine Merino wool knit with tailored roll-neck collar for crisp cold-weather layering.',
     material: '100% Extra Fine Merino Wool',
     fit: 'Tailored sleek fit.',
     featured: false,
@@ -343,11 +357,12 @@ export const NOIRE_PRODUCTS: Product[] = [
   },
   {
     id: 'noire-15',
-    name: 'The Structured Double-Breasted Coat',
+    name: 'Double-Breasted Wool Cashmere Coat',
+    brand: 'BURBERRY',
     slug: 'the-structured-double-breasted-coat',
     category: 'jackets',
-    price: 420,
-    currency: 'EUR',
+    price: 31000000,
+    currency: 'TMN',
     colors: [
       { name: 'Pitch Black', hex: '#111111', image: '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-black.png' },
       { name: 'Camel', hex: '#B8860B', image: '/images/banners/Group-242.jpg' }
@@ -357,7 +372,7 @@ export const NOIRE_PRODUCTS: Product[] = [
       '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-black.png',
       '/images/banners/Group-242.jpg'
     ],
-    description: 'Heavy wool-blend overcoat with peak lapels, deep welt flap pockets and back vent.',
+    description: 'Heavy wool-cashmere blend overcoat with peak lapels and deep welt flap pockets.',
     material: '80% Heavy Virgin Wool, 20% Cashmere',
     fit: 'Tailored longline silhouette.',
     featured: true,
@@ -367,11 +382,12 @@ export const NOIRE_PRODUCTS: Product[] = [
   },
   {
     id: 'noire-16',
-    name: 'The Sculpted Leather Belt',
+    name: 'Sculpted Italian Bridle Belt',
+    brand: 'TOM FORD',
     slug: 'the-sculpted-leather-belt',
     category: 'accessories',
-    price: 89,
-    currency: 'EUR',
+    price: 6200000,
+    currency: 'TMN',
     colors: [
       { name: 'Matte Black / Silver', hex: '#111111', image: '/images/Men-panets/g-star-clean-regular-cargo-pants-black.png' }
     ],
@@ -379,7 +395,7 @@ export const NOIRE_PRODUCTS: Product[] = [
     images: [
       '/images/Men-panets/g-star-clean-regular-cargo-pants-black.png'
     ],
-    description: 'Hand-finished bridle leather with custom brushed steel geometric buckle.',
+    description: 'Hand-finished bridle leather belt with custom brushed steel buckle.',
     material: '100% Italian Bridle Leather',
     fit: 'Width: 3cm.',
     featured: false,
@@ -393,77 +409,77 @@ export const NOIRE_LOOKS: Look[] = [
   {
     id: 'look-01',
     number: 'LOOK 01',
-    title: 'THE MODERN SUIT',
-    subtitle: 'FORMAL ARCHITECTURE',
-    name: 'The Modern Tailored Suit Look',
-    price: 624,
+    title: 'THE EVENING GENTLEMAN',
+    subtitle: 'FORMAL MULTI-BRAND EDIT',
+    name: 'Zegna Suit & Canali Oxford Look',
+    price: 44600000,
     image: '/images/banners/Group-242.jpg',
-    products: [NOIRE_PRODUCTS[5], NOIRE_PRODUCTS[1]], // Suit + Oxford Shirt
-    description: 'Precision tailoring combined with crisp Egyptian cotton for high-powered evening presence.'
+    products: [NOIRE_PRODUCTS[5], NOIRE_PRODUCTS[1]],
+    description: 'Super 130s Italian wool suit paired with long-staple Egyptian cotton shirt for formal perfection.'
   },
   {
     id: 'look-02',
     number: 'LOOK 02',
-    title: 'THE CITY UNIFORM',
-    subtitle: 'URBAN ELEGANCE',
-    name: 'The Architect Blazer & Trouser Look',
-    price: 448,
+    title: 'THE EXECUTIVE UNIFORM',
+    subtitle: 'MODERN SMART CASUAL',
+    name: 'Tom Ford Blazer & Zegna Trouser Look',
+    price: 29700000,
     image: '/images/men-hoodies/g-star-premium-core-track-jacket-sweater-dark-blue.png',
-    products: [NOIRE_PRODUCTS[0], NOIRE_PRODUCTS[2]], // Blazer + Trouser
-    description: 'The foundation of modern contemporary dressing. Sharp geometry meets relaxed luxury.'
+    products: [NOIRE_PRODUCTS[0], NOIRE_PRODUCTS[2]],
+    description: 'Structured wool blazer meets pleated trousers in an elevated daily ensemble.'
   },
   {
     id: 'look-03',
     number: 'LOOK 03',
-    title: 'THE WEEKEND EDIT',
-    subtitle: 'ELEVATED CASUAL',
-    name: 'Structured Overshirt & Heavy Tee Look',
-    price: 248,
+    title: 'THE WEEKEND BOUTIQUE EDIT',
+    subtitle: 'LUXURY ESSENTIALS',
+    name: 'Loro Piana Overshirt & Brunello Cucinelli Tee Look',
+    price: 19400000,
     image: '/images/Men-shirts/g-star-relaxed-base-t-shirt-beige.png',
-    products: [NOIRE_PRODUCTS[4], NOIRE_PRODUCTS[3]], // Overshirt + Heavy Tee
-    description: 'Relaxed proportions and tactile fabrics designed for seamless weekend transit.'
+    products: [NOIRE_PRODUCTS[4], NOIRE_PRODUCTS[3]],
+    description: 'Relaxed wool melton layering over ultra-soft heavy combed cotton tee.'
   },
   {
     id: 'look-04',
     number: 'LOOK 04',
-    title: 'THE EVENING FORM',
-    subtitle: 'NIGHT SILHOUETTE',
-    name: 'Dinner Jacket & Tapered Trouser Look',
-    price: 488,
+    title: 'NIGHT REFINEMENT',
+    subtitle: 'TUXEDO SILHOUETTE',
+    name: 'Tom Ford Dinner Jacket & Zegna Trouser Look',
+    price: 37700000,
     image: '/images/Men-panets/g-star-rovic-zip-3d-straight-tapered-pant-grey.png',
-    products: [NOIRE_PRODUCTS[10], NOIRE_PRODUCTS[2]], // Dinner Jacket + Trouser
-    description: 'Subtle shine and flawless drape crafted for low-light sophistication.'
+    products: [NOIRE_PRODUCTS[10], NOIRE_PRODUCTS[2]],
+    description: 'Subtle silk shawl collar with precision tapered tailored wool trousers.'
   }
 ];
 
 export const NOIRE_LOOKBOOK: LookbookSlide[] = [
   {
     id: 'lb-01',
-    title: 'VOLUME & FORM',
-    subtitle: 'SPRING / SUMMER EDIT',
+    title: 'LUXURY BOUTIQUE SELECTION',
+    subtitle: 'SPRING / SUMMER 2026',
     image: '/images/banners/Group-242.jpg',
     hotspots: [
-      { id: 'hs-01', productId: 'noire-01', x: 45, y: 35, productName: 'The Architect Blazer', productPrice: 289 },
-      { id: 'hs-02', productId: 'noire-03', x: 50, y: 70, productName: 'The Tapered Wool Trouser', productPrice: 159 }
+      { id: 'hs-01', productId: 'noire-01', x: 45, y: 35, productName: 'Architectural Wool Blazer', productPrice: 18500000 },
+      { id: 'hs-02', productId: 'noire-03', x: 50, y: 70, productName: 'Pleated Tapered Wool Trouser', productPrice: 11200000 }
     ]
   },
   {
     id: 'lb-03',
-    title: 'MONOCHROME DISCIPLINE',
-    subtitle: 'ARCHITECTURAL MENSWEAR',
+    title: 'WORLD CLASS TAILORING',
+    subtitle: 'MULTI-BRAND CURATION',
     image: '/images/men-hoodies/g-star-premium-core-track-jacket-sweater-dark-blue.png',
     hotspots: [
-      { id: 'hs-03', productId: 'noire-08', x: 52, y: 40, productName: 'The Minimalist Trench Jacket', productPrice: 349 },
-      { id: 'hs-04', productId: 'noire-12', x: 30, y: 65, productName: 'The Italian Leather Tote Bag', productPrice: 249 }
+      { id: 'hs-03', productId: 'noire-08', x: 52, y: 40, productName: 'Water-Repellent Trench Coat', productPrice: 24500000 },
+      { id: 'hs-04', productId: 'noire-12', x: 30, y: 65, productName: 'Tuscan Full-Grain Leather Tote', productPrice: 18900000 }
     ]
   },
   {
     id: 'lb-02',
-    title: 'THE EVENING TONE',
-    subtitle: 'FORMAL REFINEMENT',
+    title: 'THE EVENING COLLECTION',
+    subtitle: 'FORMAL ELEGANCE',
     image: '/images/Men-panets/g-star-bend-loose-jeans-dark-blue.png',
     hotspots: [
-      { id: 'hs-05', productId: 'noire-06', x: 48, y: 45, productName: 'The Modern Tailored Suit', productPrice: 495 }
+      { id: 'hs-05', productId: 'noire-06', x: 48, y: 45, productName: 'Super 130s Modern Tailored Suit', productPrice: 36800000 }
     ]
   }
 ];
@@ -472,8 +488,8 @@ export const LANDING_REGISTRY: LandingPageInfo[] = [
   {
     slug: 'noire-men-formal',
     category: 'men-formal',
-    title: 'NOIRÉ — Contemporary Menswear (English)',
-    description: 'High-end editorial fashion experience combining everyday essentials, smart casual, and formal menswear.',
+    title: 'NOIRÉ — Multi-Brand Luxury Menswear Store (English)',
+    description: 'Multi-brand luxury menswear store featuring curated everyday, smart casual, and formal collections from top fashion houses.',
     theme: 'minimal-luxury',
     dataset: 'NOIRE_PRODUCTS',
     previewImage: '/images/banners/Group-242.jpg'
@@ -481,8 +497,8 @@ export const LANDING_REGISTRY: LandingPageInfo[] = [
   {
     slug: 'noire-men-formal-fa',
     category: 'men-formal',
-    title: 'نوآر (NOIRÉ) — پوشاک مردانه معاصر (فارسی)',
-    description: 'تجربه استایل و مد لوکس معاصر به زبان فارسی، شامل پوشاک رسمی، کت و شلوار، لباس‌های مینیمال و کالکشن‌های اختصاصی.',
+    title: 'نوآر (NOIRÉ) — بوتیک چندبرند پوشاک لوکس مردانه (فارسی)',
+    description: 'فروشگاه و بوتیک چندبرند پوشاک لوکس مردانه شامل کالکشن‌های روزمره، اسپرت شیک و کت و شلوار رسمی از برترین برندهای بین‌المللی.',
     theme: 'minimal-luxury',
     dataset: 'NOIRE_PRODUCTS_FA',
     previewImage: '/images/men-hoodies/g-star-premium-core-track-jacket-sweater-dark-blue.png'
