@@ -10,7 +10,7 @@ export default function PersianHero() {
       {/* Hero Background Image Banner */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/banners/Group 242.jpg"
+          src="/images/banners/Group-242.jpg"
           alt="کالکشن لوکس فاخر گارنت"
           fill
           priority

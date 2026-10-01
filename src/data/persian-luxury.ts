@@ -263,7 +263,7 @@ export const PERSIAN_LUXURY_LOOKS: Look[] = [
     subtitle: 'شیک، راحتی و وقار',
     name: 'ترکیب کارگو Rovic Zip و سویشرت Premium Core',
     price: 8800000,
-    image: '/images/banners/Group 242.jpg',
+    image: '/images/banners/Group-242.jpg',
     products: [PERSIAN_LUXURY_PRODUCTS[0], PERSIAN_LUXURY_PRODUCTS[1]] as any,
     description: 'ترکیب باوقار خاکستری ذغالی با برش‌های سه‌بعدی مهندسی‌شده. ایده‌آل برای آقایانی که به جزییات استایل خود اهمیت می‌دهند.'
   },
@@ -287,5 +287,5 @@ export const PERSIAN_LANDING_INFO: LandingPageInfo = {
   description: 'کالکشن فاخر و لوکس پوشاک مردانه با طراحی مدرن، پارچه‌های ارگانیک، خطوط دوخت پریمیوم و تجربه خرید تخصصی به زبان فارسی.',
   theme: 'persian-lux-dark-gold',
   dataset: 'PERSIAN_LUXURY_PRODUCTS',
-  previewImage: '/images/banners/Group 242.jpg'
+  previewImage: '/images/banners/Group-242.jpg'
 };

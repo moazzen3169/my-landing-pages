@@ -15,7 +15,7 @@ export default function CategoryShowcase({ isPersian = false }: CategoryShowcase
       title: isPersian ? 'رسمی و تشریفات' : 'FORMAL',
       subtitle: isPersian ? 'کت و شلوار و استایل شب' : 'SUITS & EVENING TAILORING',
       itemCount: isPersian ? '۱۴ آیتم' : '14 PIECES',
-      image: '/images/banners/Group 242.jpg',
+      image: '/images/banners/Group-242.jpg',
       href: '/shop/suits',
       span: 'lg:col-span-7'
     },

@@ -77,7 +77,7 @@ export function BrandStory({ isPersian = false }: EditorialSectionProps) {
 
         <div className="lg:col-span-6 relative aspect-[4/3] w-full bg-[#181818] border border-[#2B2B2B]">
           <Image
-            src="/images/banners/Group 242.jpg"
+            src="/images/banners/Group-242.jpg"
             alt="Brand Story Editorial"
             fill
             className="object-cover"

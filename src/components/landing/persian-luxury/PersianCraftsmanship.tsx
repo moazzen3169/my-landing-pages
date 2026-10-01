@@ -39,7 +39,7 @@ export function PersianCraftsmanship() {
           {/* Visual Banner Right */}
           <div className="relative h-[480px] rounded-3xl overflow-hidden border border-[#252838] shadow-2xl">
             <Image
-              src="/images/banners/Group 242.jpg"
+              src="/images/banners/Group-242.jpg"
               alt="داستان برند گارنت"
               fill
               className="object-cover object-center"

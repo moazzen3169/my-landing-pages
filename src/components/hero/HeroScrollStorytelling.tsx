@@ -22,7 +22,7 @@ export default function HeroScrollStorytelling({ isPersian = false }: HeroScroll
       step: '01 / 04',
       title: isPersian ? 'معماری سیلوئت و ساختار' : 'THE ARCHITECTURE OF SILHOUETTE',
       subtitle: isPersian ? 'خیاطی و دوخت دقیق' : 'PRECISION TAILORING',
-      image: '/images/banners/Group 242.jpg',
+      image: '/images/banners/Group-242.jpg',
       description: isPersian
         ? 'هر لباس با یک مفهوم ساختاری آغاز می‌شود. پدهای شانه تمیز، لایه‌دوزی سینه و یقه تراشیده‌شده مهندسی‌شده برای وقار و ایستایی راحت.'
         : 'Every garment begins with a structural concept. Clean shoulder pads, chest canvassing, and sculpted lapels engineered for effortless posture.'

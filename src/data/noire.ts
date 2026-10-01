@@ -134,12 +134,12 @@ export const NOIRE_PRODUCTS: Product[] = [
     price: 495,
     currency: 'EUR',
     colors: [
-      { name: 'Onyx Black', hex: '#111111', image: '/images/banners/Group 242.jpg' },
+      { name: 'Onyx Black', hex: '#111111', image: '/images/banners/Group-242.jpg' },
       { name: 'Graphite', hex: '#3A3B3C', image: '/images/men-hoodies/g-star-core-crew-sweat-long-sleeve-black.png' }
     ],
     sizes: ['46', '48', '50', '52', '54'],
     images: [
-      '/images/banners/Group 242.jpg',
+      '/images/banners/Group-242.jpg',
       '/images/men-hoodies/g-star-core-crew-sweat-long-sleeve-black.png'
     ],
     description: 'Two-piece modern evening suit tailored from Super 120s Italian merino wool with satin finish lapels.',
@@ -279,11 +279,11 @@ export const NOIRE_PRODUCTS: Product[] = [
     price: 249,
     currency: 'EUR',
     colors: [
-      { name: 'Matte Black', hex: '#181818', image: '/images/banners/Group 242.jpg' }
+      { name: 'Matte Black', hex: '#181818', image: '/images/banners/Group-242.jpg' }
     ],
     sizes: ['One Size'],
     images: [
-      '/images/banners/Group 242.jpg'
+      '/images/banners/Group-242.jpg'
     ],
     description: 'Full-grain vegetable-tanned calfskin leather tote with magnetic top clasp and padded laptop pouch.',
     material: '100% Tuscan Full-Grain Calfskin Leather',
@@ -350,12 +350,12 @@ export const NOIRE_PRODUCTS: Product[] = [
     currency: 'EUR',
     colors: [
       { name: 'Pitch Black', hex: '#111111', image: '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-black.png' },
-      { name: 'Camel', hex: '#B8860B', image: '/images/banners/Group 242.jpg' }
+      { name: 'Camel', hex: '#B8860B', image: '/images/banners/Group-242.jpg' }
     ],
     sizes: ['46', '48', '50', '52'],
     images: [
       '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-black.png',
-      '/images/banners/Group 242.jpg'
+      '/images/banners/Group-242.jpg'
     ],
     description: 'Heavy wool-blend overcoat with peak lapels, deep welt flap pockets and back vent.',
     material: '80% Heavy Virgin Wool, 20% Cashmere',
@@ -397,7 +397,7 @@ export const NOIRE_LOOKS: Look[] = [
     subtitle: 'FORMAL ARCHITECTURE',
     name: 'The Modern Tailored Suit Look',
     price: 624,
-    image: '/images/banners/Group 242.jpg',
+    image: '/images/banners/Group-242.jpg',
     products: [NOIRE_PRODUCTS[5], NOIRE_PRODUCTS[1]], // Suit + Oxford Shirt
     description: 'Precision tailoring combined with crisp Egyptian cotton for high-powered evening presence.'
   },
@@ -441,7 +441,7 @@ export const NOIRE_LOOKBOOK: LookbookSlide[] = [
     id: 'lb-01',
     title: 'VOLUME & FORM',
     subtitle: 'SPRING / SUMMER EDIT',
-    image: '/images/banners/Group 242.jpg',
+    image: '/images/banners/Group-242.jpg',
     hotspots: [
       { id: 'hs-01', productId: 'noire-01', x: 45, y: 35, productName: 'The Architect Blazer', productPrice: 289 },
       { id: 'hs-02', productId: 'noire-03', x: 50, y: 70, productName: 'The Tapered Wool Trouser', productPrice: 159 }
@@ -476,7 +476,7 @@ export const LANDING_REGISTRY: LandingPageInfo[] = [
     description: 'High-end editorial fashion experience combining everyday essentials, smart casual, and formal menswear.',
     theme: 'minimal-luxury',
     dataset: 'NOIRE_PRODUCTS',
-    previewImage: '/images/banners/Group 242.jpg'
+    previewImage: '/images/banners/Group-242.jpg'
   },
   {
     slug: 'noire-men-formal-fa',

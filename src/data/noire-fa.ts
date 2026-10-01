@@ -134,12 +134,12 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
     price: 495,
     currency: 'EUR',
     colors: [
-      { name: 'مشکی انیکس', hex: '#111111', image: '/images/banners/Group 242.jpg' },
+      { name: 'مشکی انیکس', hex: '#111111', image: '/images/banners/Group-242.jpg' },
       { name: 'گرافیت', hex: '#3A3B3C', image: '/images/men-hoodies/g-star-core-crew-sweat-long-sleeve-black.png' }
     ],
     sizes: ['46', '48', '50', '52', '54'],
     images: [
-      '/images/banners/Group 242.jpg',
+      '/images/banners/Group-242.jpg',
       '/images/men-hoodies/g-star-core-crew-sweat-long-sleeve-black.png'
     ],
     description: 'کت و شلوار دو تکه شبانه دوخته‌شده از پشم مرینوس Super 120s ایتالیا با برگردان‌های ساتن ابریشمی.',
@@ -279,11 +279,11 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
     price: 249,
     currency: 'EUR',
     colors: [
-      { name: 'مشکی مات', hex: '#181818', image: '/images/banners/Group 242.jpg' }
+      { name: 'مشکی مات', hex: '#181818', image: '/images/banners/Group-242.jpg' }
     ],
     sizes: ['تک سایز'],
     images: [
-      '/images/banners/Group 242.jpg'
+      '/images/banners/Group-242.jpg'
     ],
     description: 'کیف چرم گاو طبیعی دباغی‌شده گیاهی با قفل مگنتی و محفظه ضربه‌گیر لپ‌تاپ.',
     material: '۱۰۰٪ چرم طبیعی توسكانی ایتالیا',
@@ -350,12 +350,12 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
     currency: 'EUR',
     colors: [
       { name: 'مشکی خالص', hex: '#111111', image: '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-black.png' },
-      { name: 'شتری', hex: '#B8860B', image: '/images/banners/Group 242.jpg' }
+      { name: 'شتری', hex: '#B8860B', image: '/images/banners/Group-242.jpg' }
     ],
     sizes: ['46', '48', '50', '52'],
     images: [
       '/images/men-hoodies/g-star-unit-washed-full-zip-hooded-sweater-black.png',
-      '/images/banners/Group 242.jpg'
+      '/images/banners/Group-242.jpg'
     ],
     description: 'اورکت پشمی سنگین با یقه‌های برگردان بزرگ، جیب‌های پاکتی عمیق و چاک پشت.',
     material: '۸۰٪ پشم خالص سنگین، ۲۰٪ کشمیر',
@@ -397,7 +397,7 @@ export const NOIRE_LOOKS_FA: Look[] = [
     subtitle: 'معماری دوخت رسمی',
     name: 'استایل کت و شلوار دوخته‌شده مدرن',
     price: 624,
-    image: '/images/banners/Group 242.jpg',
+    image: '/images/banners/Group-242.jpg',
     products: [NOIRE_PRODUCTS_FA[5], NOIRE_PRODUCTS_FA[1]],
     description: 'خیاطی دقیق همراه با کتان آهاردار مصری برای حضور شبانه باوقار و مقتدر.'
   },
@@ -441,7 +441,7 @@ export const NOIRE_LOOKBOOK_FA: LookbookSlide[] = [
     id: 'lb-01',
     title: 'حجم و فرم',
     subtitle: 'کالکشن بهار / تابستان',
-    image: '/images/banners/Group 242.jpg',
+    image: '/images/banners/Group-242.jpg',
     hotspots: [
       { id: 'hs-01', productId: 'noire-01', x: 45, y: 35, productName: 'کت تک ارکیتکت', productPrice: 289 },
       { id: 'hs-02', productId: 'noire-03', x: 50, y: 70, productName: 'شلوار پشمی مخروطی', productPrice: 159 }

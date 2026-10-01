@@ -18,7 +18,7 @@ export default function MegaMenu({ isOpen, onClose, isPersian = false }: MegaMen
       name: isPersian ? 'کت و شلوار و تشریفات' : 'SUITS & TAILORING',
       href: '/shop/suits',
       subtitle: isPersian ? 'برش‌های دقیق، پارچه‌های ایتالیایی، وقار و ساختار.' : 'Precision cuts, Italian fabrics, structured elegance.',
-      image: '/images/banners/Group 242.jpg'
+      image: '/images/banners/Group-242.jpg'
     },
     {
       name: isPersian ? 'کت تک و کاپشن' : 'BLAZERS & JACKETS',

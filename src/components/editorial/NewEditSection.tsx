@@ -83,7 +83,7 @@ export default function NewEditSection({ isPersian = false }: NewEditSectionProp
         <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="relative aspect-[3/4] w-full bg-[#181818] border border-[#2B2B2B] overflow-hidden">
             <Image
-              src="/images/banners/Group 242.jpg"
+              src="/images/banners/Group-242.jpg"
               alt="The New Edit Look 1"
               fill
               className="object-cover hover:scale-105 transition-transform duration-700 ease-out"
