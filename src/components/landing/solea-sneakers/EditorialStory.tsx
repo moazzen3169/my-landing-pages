@@ -7,7 +7,7 @@ import { ArrowLeft, Sparkles, Compass } from 'lucide-react';
 export default function EditorialStory() {
   return (
     <section className="py-20 sm:py-28 bg-[#FAFAF7] font-peyda text-right" dir="rtl">
-      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12">
+      <div className="max-w-[1600px] mx-auto px-5 sm:px-8 md:px-12">
 
         <div className="bg-[#111111] text-white rounded-[32px] p-8 sm:p-12 lg:p-16 overflow-hidden relative shadow-2xl">
 

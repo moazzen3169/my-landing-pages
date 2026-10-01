@@ -87,7 +87,7 @@ export default function ProductQuickView({ product, onClose }: ProductQuickViewP
         </button>
 
         {/* LEFT/TOP: PRODUCT GALLERY AREA */}
-        <div className="w-full md:w-1/2 bg-[#F1F1EE] p-8 flex items-center justify-center relative min-h-[300px] md:min-h-[460px]">
+        <div className="w-full md:w-1/2 bg-[#EAEFF0] p-8 flex items-center justify-center relative min-h-[300px] md:min-h-[460px]">
           <div className="relative w-full h-full min-h-[260px] flex items-center justify-center">
             <Image
               src={activeColor?.image || product.images[0]}
