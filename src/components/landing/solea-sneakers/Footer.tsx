@@ -2,9 +2,13 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Send, Globe, MessageCircle } from 'lucide-react';
+import { ArrowLeft, Send, Globe, MessageCircle, Ruler } from 'lucide-react';
 
-export default function Footer() {
+interface FooterProps {
+  onOpenSizeGuide?: () => void;
+}
+
+export default function Footer({ onOpenSizeGuide }: FooterProps) {
   return (
     <footer className="bg-[#0B1220] text-[#F8FAFC] pt-16 sm:pt-20 pb-12 font-peyda text-right border-t border-[#CBD5E1]/20" dir="rtl">
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12">
@@ -76,7 +80,18 @@ export default function Footer() {
                 راهنمای مشتریان
               </h4>
               <ul className="space-y-2.5 text-[#CBD5E1] font-normal">
-                <li><a href="#" className="hover:text-[#F8FAFC] transition-colors">راهنمای سایز اختصاصی</a></li>
+                <li>
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (onOpenSizeGuide) onOpenSizeGuide();
+                    }}
+                    className="hover:text-[#F8FAFC] transition-colors flex items-center gap-1.5 cursor-pointer text-right"
+                  >
+                    <Ruler className="w-3.5 h-3.5 text-[#8FA9C4]" />
+                    <span>راهنمای سایز اختصاصی</span>
+                  </button>
+                </li>
                 <li><a href="#" className="hover:text-[#F8FAFC] transition-colors">شرایط ارسال و تحویل</a></li>
                 <li><a href="#" className="hover:text-[#F8FAFC] transition-colors">قوانین بازگشت ۷ روزه</a></li>
                 <li><a href="#" className="hover:text-[#F8FAFC] transition-colors">سوالات متداول</a></li>
