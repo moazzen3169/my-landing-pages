@@ -62,7 +62,7 @@ export default function LimitedDrop({ onQuickView }: LimitedDropProps) {
   };
 
   return (
-    <section id="limited-drop" className="py-12 sm:py-16 bg-[#070B13] text-[#F8FAFC] font-peyda text-right border-t border-[#CBD5E1]/20 relative" dir="rtl">
+    <section id="limited-drop" className="py-12 sm:py-16 bg-[#8FA9C4] text-[#F8FAFC] font-peyda text-right border-t border-[#CBD5E1]/20 relative" dir="rtl">
 
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12 relative z-10">
 
@@ -129,9 +129,7 @@ export default function LimitedDrop({ onQuickView }: LimitedDropProps) {
                   fill
                   className="object-contain group-hover:scale-105 transition-transform duration-500"
                 />
-                <span className="absolute top-3 right-3 px-2.5 py-0.5 bg-[#8FA9C4] text-[#0B1220] text-[10px] font-semibold rounded-full uppercase">
-                  {drop.tag}
-                </span>
+
               </div>
 
               {/* CONTENT */}
