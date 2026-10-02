@@ -504,6 +504,15 @@ export const LANDING_REGISTRY: LandingPageInfo[] = [
     previewImage: '/images/men-hoodies/g-star-premium-core-track-jacket-sweater-dark-blue.png'
   },
   {
+    slug: 'persian-luxury-v1',
+    category: 'women-luxury',
+    title: 'تبریز بوتیک — فروشگاه چندبرند لوکس کیف و کفش زنانه (فارسی RTL)',
+    description: 'بوتیک لوکس چندبرند کیف و کفش زنانه شامل بیش از ۲۵ برند معتبر از جمله پرادا، گوچی، سنت لوران، دیور و شنل با فروشگاه حضوری در تبریز.',
+    theme: 'quiet-luxury-editorial',
+    dataset: 'LUXURY_PRODUCTS',
+    previewImage: '/images/landings/persian-luxury-v1/hero-banner.svg'
+  },
+  {
     slug: 'solea-sneakers',
     category: 'footwear-sneakers',
     title: 'سولئا (SOLEA) — بوتیک تخصصی اسنیکر لوکس (فارسی RTL)',

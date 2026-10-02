@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <rect width="600" height="600" fill="#F6F4F0"/>
+  <ellipse cx="300" cy="460" rx="170" ry="20" fill="#000" opacity="0.1"/>
+  <!-- Coach Pillow Tabby Shoulder Bag -->
+  <rect x="120" y="220" width="360" height="220" rx="30" fill="#EAE2D5"/>
+  <path d="M 120 220 L 480 220 L 480 340 L 120 340 Z" fill="#DDD0BC"/>
+  <!-- Coach C Logo Buckle -->
+  <circle cx="300" cy="330" r="32" fill="#B29A6A"/>
+  <circle cx="300" cy="330" r="22" fill="#DDD0BC"/>
+  <rect x="300" y="318" width="22" height="24" fill="#DDD0BC"/>
+  <!-- Shoulder Strap -->
+  <path d="M 150 220 C 150 110, 450 110, 450 220" stroke="#DDD0BC" stroke-width="20" fill="none"/>
+</svg>

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F7F5F1"/>
+      <stop offset="50%" stop-color="#EFECE6"/>
+      <stop offset="100%" stop-color="#E5DFD5"/>
+    </linearGradient>
+    <linearGradient id="bagGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#222222"/>
+      <stop offset="100%" stop-color="#111111"/>
+    </linearGradient>
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B29A6A"/>
+      <stop offset="100%" stop-color="#D4C29E"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+
+  <!-- Subtle Background Geometry -->
+  <circle cx="850" cy="350" r="320" fill="#E8E2D8" opacity="0.6"/>
+  <rect x="100" y="80" width="400" height="640" fill="#EAE4DA" opacity="0.4" rx="4"/>
+
+  <!-- Fashion Model Silhouette / Editorial Composition -->
+  <g transform="translate(680, 120)">
+    <!-- Woman Silhouette -->
+    <path d="M120 180 C 130 140, 160 120, 190 120 C 220 120, 240 140, 250 180 C 260 220, 270 290, 280 380 C 290 480, 295 580, 300 680 L 100 680 C 105 580, 110 480, 120 380 Z" fill="#2C2825" opacity="0.15"/>
+    <!-- Coat Outline -->
+    <path d="M140 190 Q 190 170 240 190 L 290 680 L 90 680 Z" fill="#171717"/>
+    <!-- Belt Accent -->
+    <rect x="140" y="380" width="100" height="18" fill="#B29A6A"/>
+    <!-- Head/Hat contour -->
+    <ellipse cx="190" cy="110" rx="45" ry="55" fill="#171717"/>
+    <path d="M110 130 Q 190 80 270 130 C 280 135, 100 135, 110 130 Z" fill="#2C2825"/>
+  </g>
+
+  <!-- Luxury Handbag Hero Object -->
+  <g transform="translate(380, 260)">
+    <!-- Shadow -->
+    <ellipse cx="160" cy="360" rx="180" ry="25" fill="#000000" opacity="0.15"/>
+    <!-- Bag Body -->
+    <path d="M 40 120 L 280 120 L 310 330 C 310 345, 295 355, 275 355 L 45 355 C 25 355, 10 345, 10 330 Z" fill="url(#bagGrad)"/>
+    <path d="M 40 120 L 280 120 L 295 330 L 25 330 Z" fill="#232323"/>
+    <!-- Leather Flap -->
+    <path d="M 35 120 L 285 120 L 260 240 L 60 240 Z" fill="#1A1A1A" stroke="#2C2C2C" stroke-width="2"/>
+    <!-- Gold Clasp -->
+    <rect x="140" y="220" width="40" height="32" rx="4" fill="url(#goldAccent)"/>
+    <circle cx="160" cy="236" r="6" fill="#171717"/>
+    <!-- Handles -->
+    <path d="M 90 120 C 90 30, 230 30, 230 120" stroke="url(#goldAccent)" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <path d="M 100 120 C 100 45, 220 45, 220 120" stroke="#171717" stroke-width="8" fill="none"/>
+    <!-- Brand Tag -->
+    <rect x="135" y="270" width="50" height="12" fill="url(#goldAccent)" rx="2"/>
+    <text x="160" y="279" font-family="serif" font-size="7" fill="#171717" text-anchor="middle" font-weight="bold">PRADA</text>
+  </g>
+
+  <!-- Text Label overlay in graphic -->
+  <text x="100" y="680" font-family="'Times New Roman', serif" font-size="28" fill="#B29A6A" letter-spacing="4">TABRIZ BOUTIQUE</text>
+  <text x="100" y="720" font-family="sans-serif" font-size="14" fill="#77736D" letter-spacing="2">AUTUMN / WINTER 2026 COLLECTION</text>
+</svg>

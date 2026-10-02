@@ -11,7 +11,9 @@ export default function ShowcasePage() {
 
   const categories = [
     { id: 'all', namePersian: 'همه لندینگ‌ها', nameEnglish: 'ALL LANDINGS' },
-    { id: 'men-formal', namePersian: 'پوشاک مردانه معاصر', nameEnglish: 'MENSWEAR' },
+    { id: 'women-luxury', namePersian: 'کیف و کفش لوکس زنانه', nameEnglish: 'WOMEN LUXURY' },
+    { id: 'men-formal', namePersian: 'پوشاک مردانه', nameEnglish: 'MENSWEAR' },
+    { id: 'footwear-sneakers', namePersian: 'اسنیکر لوکس', nameEnglish: 'SNEAKERS' },
   ];
 
   const filteredLandings = activeCategory === 'all'
