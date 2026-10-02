@@ -71,11 +71,10 @@ export default function PhysicalStoreSection() {
           <div className="lg:col-span-6">
             <div className="relative aspect-[16/10] w-full bg-[#171717] border border-[#DDD9D2] overflow-hidden">
               <Image
-                src="/images/landings/persian-luxury-v1/tabriz-store.svg"
+                src="/images/landings/persian-luxury-v1/5633740aa337463f8e14fbceebc3fc3b.png"
                 alt="نمای فروشگاه حضوری تبریز"
                 fill
                 className="object-cover object-center"
-                unoptimized
               />
             </div>
           </div>

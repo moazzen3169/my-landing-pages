@@ -43,7 +43,6 @@ export default function CategoryShowcase() {
                     alt={cat.namePersian}
                     fill
                     className="object-cover object-center group-hover:scale-103 transition-transform duration-700 ease-out p-4"
-                    unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#F7F5F1] via-transparent to-transparent opacity-80" />
                 </div>
