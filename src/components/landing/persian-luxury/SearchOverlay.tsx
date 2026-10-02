@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Search, X, ArrowLeft } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 import { LuxuryProduct } from '@/data/persian-luxury-women';
 
 interface SearchOverlayProps {
@@ -18,119 +18,84 @@ export default function SearchOverlay({
   products,
   onSelectProduct,
 }: SearchOverlayProps) {
-  if (!isOpen) return null;
-
   const [query, setQuery] = useState('');
 
-  const filteredProducts = query.trim()
-    ? products.filter((p) => {
-        const q = query.toLowerCase();
-        return (
-          p.name.toLowerCase().includes(q) ||
-          p.brand.toLowerCase().includes(q) ||
-          p.categoryPersian.toLowerCase().includes(q) ||
-          p.descriptionPersian.toLowerCase().includes(q)
-        );
-      })
+  if (!isOpen) return null;
+
+  const results = query.trim()
+    ? products.filter(
+        (p) =>
+          p.name.includes(query) ||
+          p.brand.toLowerCase().includes(query.toLowerCase()) ||
+          p.category.includes(query)
+      )
     : [];
 
-  const popularSearches = ['پرادا', 'گوچی', 'کیف دوشی', 'کفش پاشنه‌دار', 'DIOR', 'COACH', 'سلین'];
-
   return (
-    <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs font-peyda animate-fadeIn">
-      <div className="bg-[#F7F5F1] border-b border-[#ffffff] p-6 max-h-[85vh] overflow-y-auto">
-        <div className="max-w-[1200px] mx-auto text-start">
+    <div className="fixed inset-0 z-50 bg-[#FFFFFF] font-peyda text-[#111111] p-6 sm:p-12 overflow-y-auto dir-rtl">
+      <div className="max-w-[1200px] mx-auto">
 
-          {/* SEARCH INPUT BAR */}
-          <div className="relative flex items-center mb-6">
-            <Search className="absolute right-4 w-5 h-5 text-[#77736D] stroke-[1.75]" />
-            <input
-              type="text"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="جستجوی برند (مانند PRADA)، نام محصول یا دسته‌بندی..."
-              autoFocus
-              className="w-full py-4 pr-12 pl-12 bg-[#F2EFE9] border border-[#ffffff] text-sm text-[#171717] focus:outline-none focus:border-[#171717] font-peyda"
-            />
-            <button
-              onClick={onClose}
-              className="absolute left-3 p-2 text-[#171717] hover:bg-[#ffffff]"
-              title="بستن"
-            >
-              <X className="w-5 h-5 stroke-[2]" />
-            </button>
-          </div>
-
-          {/* POPULAR SEARCH SUGGESTIONS */}
-          {!query && (
-            <div className="mb-8">
-              <span className="block text-xs font-bold text-[#77736D] mb-3">
-                جستجوهای محبوب:
-              </span>
-              <div className="flex flex-wrap gap-2">
-                {popularSearches.map((s, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setQuery(s)}
-                    className="px-3.5 py-1.5 bg-[#EAE4DA] hover:bg-[#171717] hover:text-[#F7F5F1] text-xs font-medium text-[#171717] border border-[#ffffff] transition-colors"
-                  >
-                    {s}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* RESULTS GRID */}
-          {query && (
-            <div>
-              <div className="text-xs font-bold text-[#77736D] mb-4">
-                نتایج یافت شده برای «{query}»: ({filteredProducts.length} کالا)
-              </div>
-
-              {filteredProducts.length === 0 ? (
-                <div className="py-12 text-center text-xs text-[#77736D]">
-                  هیچ محصولی با این عبارت یافت نشد.
-                </div>
-              ) : (
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                  {filteredProducts.map((p) => (
-                    <div
-                      key={p.id}
-                      onClick={() => {
-                        onSelectProduct(p);
-                        onClose();
-                      }}
-                      className="bg-[#F2EFE9] p-3 border border-[#ffffff] cursor-pointer hover:border-[#171717] transition-all flex flex-col justify-between"
-                    >
-                      <div className="relative aspect-square w-full bg-[#EFECE6] mb-2">
-                        <Image
-                          src={p.images[0]}
-                          alt={p.name}
-                          fill
-                          className="object-cover p-2"
-                          unoptimized
-                        />
-                      </div>
-                      <div>
-                        <span className="block text-[10px] font-mono text-[#77736D] font-bold uppercase">
-                          {p.brand}
-                        </span>
-                        <h4 className="text-xs font-bold text-[#171717] line-clamp-1">
-                          {p.name}
-                        </h4>
-                        <span className="block text-xs font-black text-[#171717] font-vazir mt-1">
-                          {p.priceFormatted}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-
+        {/* HEADER */}
+        <div className="flex items-center justify-between mb-12">
+          <span className="text-xl font-light tracking-widest font-serif">MOR'E</span>
+          <button onClick={onClose} className="p-2 text-[#000000] hover:opacity-60">
+            <X className="w-6 h-6 stroke-[1.25]" />
+          </button>
         </div>
+
+        {/* INPUT */}
+        <div className="relative mb-12 border-b border-[#000000] pb-2">
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="جستجوی محصول، برند یا دسته‌بندی..."
+            autoFocus
+            className="w-full bg-transparent text-lg sm:text-2xl font-light text-[#000000] placeholder-[#999999] focus:outline-none pr-8"
+          />
+          <Search className="absolute left-0 top-1/2 -translate-y-1/2 w-5 h-5 text-[#999999] stroke-[1.25]" />
+        </div>
+
+        {/* RESULTS */}
+        {results.length > 0 ? (
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+            {results.map((product) => (
+              <div
+                key={`search-${product.id}`}
+                onClick={() => {
+                  onSelectProduct(product);
+                  onClose();
+                }}
+                className="cursor-pointer group text-start"
+              >
+                <div className="relative aspect-[3/4] bg-[#F5F5F5] mb-2 overflow-hidden">
+                  <Image src={product.images[0]} alt="" fill className="object-cover" unoptimized />
+                </div>
+                <span className="block text-[10px] font-mono text-[#666666] uppercase" dir="ltr">{product.brand}</span>
+                <h4 className="text-xs font-normal text-[#000000] line-clamp-1">{product.name}</h4>
+                <span className="text-xs text-[#000000] mt-1 block">{product.priceFormatted}</span>
+              </div>
+            ))}
+          </div>
+        ) : query.trim() ? (
+          <p className="text-xs text-[#666666]">هیچ محصولی یافت نشد.</p>
+        ) : (
+          <div className="space-y-4 text-start text-xs text-[#666666]">
+            <span className="block text-[11px] font-mono uppercase text-[#999999]">SUGGESTIONS</span>
+            <div className="flex flex-wrap gap-2">
+              {['کیف چرم', 'کفش پاشنه‌دار', 'Valentino', 'Gucci', 'کفش مجلسی'].map((term) => (
+                <button
+                  key={term}
+                  onClick={() => setQuery(term)}
+                  className="px-3 py-1.5 bg-[#FAFAFA] border border-[#E5E5E5] hover:border-[#000000] text-[#111111]"
+                >
+                  {term}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
       </div>
     </div>
   );

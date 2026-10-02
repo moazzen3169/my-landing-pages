@@ -2,52 +2,32 @@
 
 import React from 'react';
 import { AUTHENTICITY_PILLARS } from '@/data/persian-luxury-women';
-import { ShieldCheck, PackageCheck, Headphones, Award } from 'lucide-react';
 
 export default function AuthenticitySection() {
-  const icons = [Award, PackageCheck, ShieldCheck, Headphones];
-
   return (
-    <section className="py-16 md:py-24 bg-[#F2EFE9] border-y border-[#ffffff] font-peyda">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 md:px-12">
+    <section className="py-20 md:py-28 bg-[#FAFAFA] border-t border-b border-[#E5E5E5] font-peyda text-[#111111]">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-10 md:px-12">
 
-        {/* SECTION HEADER */}
-        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-          <span className="block text-xs font-mono font-bold text-[#B29A6A] uppercase tracking-widest mb-2">
-            GUARANTEE & TRUST
+        <div className="text-center mb-16">
+          <span className="block text-[11px] font-mono font-medium text-[#999999] uppercase tracking-widest mb-2">
+            OUR PROMISE
           </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#171717] tracking-normal mb-3">
-            با خیال راحت انتخاب کنید
+          <h2 className="text-2xl sm:text-3xl font-light text-[#000000]">
+            تضمین اصالت و کیفیت MOR'E
           </h2>
-          <p className="text-sm text-[#77736D] leading-relaxed">
-            اعتماد، بخشی از تجربه خرید شماست. ما امنیت خرید شما را از مرحله انتخاب تا تحویل نهایی تضمین می‌کنیم.
-          </p>
         </div>
 
-        {/* TRUST BLOCKS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {AUTHENTICITY_PILLARS.map((pillar, idx) => {
-            const Icon = icons[idx % icons.length];
-
-            return (
-              <div
-                key={pillar.id}
-                className="bg-[#F7F5F1] p-6 sm:p-8 border border-[#ffffff] text-start flex flex-col justify-between transition-all hover:border-[#171717]"
-              >
-                <div>
-                  <div className="w-12 h-12 bg-[#EAE4DA] border border-[#ffffff] text-[#B29A6A] flex items-center justify-center mb-6">
-                    <Icon className="w-6 h-6 stroke-[1.5]" />
-                  </div>
-                  <h3 className="text-base font-extrabold text-[#171717] mb-2">
-                    {pillar.titlePersian}
-                  </h3>
-                  <p className="text-xs text-[#77736D] leading-relaxed">
-                    {pillar.descriptionPersian}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {AUTHENTICITY_PILLARS.map((pillar) => (
+            <div key={pillar.id} className="text-start space-y-3">
+              <h3 className="text-sm font-medium text-[#000000]">
+                {pillar.titlePersian}
+              </h3>
+              <p className="text-xs text-[#666666] leading-relaxed font-normal">
+                {pillar.descriptionPersian}
+              </p>
+            </div>
+          ))}
         </div>
 
       </div>

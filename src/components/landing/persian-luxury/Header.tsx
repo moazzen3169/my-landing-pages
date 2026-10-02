@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Search, ShoppingBag, Heart, User, Menu, X } from 'lucide-react';
+import { Search, ShoppingBag, Heart, Menu } from 'lucide-react';
 
 interface HeaderProps {
   cartCount: number;
@@ -25,13 +25,12 @@ export default function Header({
 
   useEffect(() => {
     const handleScroll = () => {
-      // Keep background completely transparent while in hero section (until user scrolls past 1400px or hero section end)
       const heroElement = document.getElementById('hero-video-section');
       if (heroElement) {
         const rect = heroElement.getBoundingClientRect();
         setIsScrolledPastHero(rect.bottom <= 120);
       } else {
-        setIsScrolledPastHero(window.scrollY > 800);
+        setIsScrolledPastHero(window.scrollY > 600);
       }
     };
 
@@ -49,37 +48,33 @@ export default function Header({
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 font-peyda ${
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 font-peyda dir-rtl ${
         isScrolledPastHero
-          ? 'bg-white/90 backdrop-blur-md border-b border-black/5 py-3.5 shadow-none'
-          : 'bg-transparent py-5 border-none shadow-none'
+          ? 'bg-[#FFFFFF]/95 backdrop-blur-md border-b border-[#E5E5E5] py-4'
+          : 'bg-transparent py-6 border-none'
       }`}
     >
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 flex items-center justify-between">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-10 md:px-12 flex items-center justify-between">
 
         {/* LOGO */}
         <div className="flex items-center gap-6">
           <Link href="/shop/persian-luxury-v1" className="group text-start flex flex-col">
-            <span className="text-xl sm:text-2xl font-extrabold tracking-widest text-[#171717] font-serif uppercase transition-colors group-hover:text-[#B29A6A]">
-              mor'e
+            <span className="text-2xl sm:text-3xl font-light tracking-widest text-[#000000] font-serif uppercase transition-colors">
+              MOR'E
             </span>
-            <span className="text-[9px] text-[#77736D] tracking-[0.25em] uppercase font-sans -mt-0.5 font-medium">
-              HAUTE COUTURE • LEATHER & SHOES
+            <span className="text-[9px] text-[#666666] tracking-[0.2em] uppercase font-sans font-normal -mt-1">
+              HAUTE COUTURE
             </span>
           </Link>
         </div>
 
         {/* NAV ITEMS */}
-        <nav className="hidden lg:flex items-center gap-8 text-xs font-medium text-[#171717] tracking-wide">
+        <nav className="hidden lg:flex items-center gap-10 text-xs font-normal text-[#111111] tracking-wide">
           {navItems.map((item, idx) => (
             <a
               key={idx}
               href={item.href}
-              className={`transition-all duration-300 relative py-1 hover:text-[#B29A6A] ${
-                item.isHighlight
-                  ? 'text-[#6F1D2A] font-semibold px-3 py-1 bg-[#6F1D2A]/5 hover:bg-[#6F1D2A] hover:text-white transition-all'
-                  : 'after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-[#B29A6A] hover:after:w-full after:transition-all'
-              }`}
+              className="transition-colors duration-200 py-1 hover:text-[#666666]"
             >
               {item.label}
             </a>
@@ -87,24 +82,24 @@ export default function Header({
         </nav>
 
         {/* ACTIONS */}
-        <div className="flex items-center gap-3 sm:gap-4">
+        <div className="flex items-center gap-4 sm:gap-6 text-[#000000]">
           <button
             onClick={onOpenSearch}
-            className="p-2.5 text-[#171717] hover:text-[#B29A6A] transition-colors flex items-center gap-2 text-xs font-medium"
+            className="p-1 hover:opacity-60 transition-opacity flex items-center gap-2 text-xs font-normal"
             title="جستجو"
           >
-            <Search className="w-4 h-4 stroke-[1.5]" />
-            <span className="hidden sm:inline font-normal">جستجو</span>
+            <Search className="w-4 h-4 stroke-[1.25]" />
+            <span className="hidden sm:inline">جستجو</span>
           </button>
 
           <button
             onClick={onOpenWishlist}
-            className="p-2.5 text-[#171717] hover:text-[#B29A6A] transition-colors relative"
+            className="p-1 hover:opacity-60 transition-opacity relative"
             title="علاقه‌مندی‌ها"
           >
-            <Heart className="w-4 h-4 stroke-[1.5]" />
+            <Heart className="w-4 h-4 stroke-[1.25]" />
             {wishlistCount > 0 && (
-              <span className="absolute top-1 right-1 w-3.5 h-3.5 bg-[#B29A6A] text-white text-[9px] font-semibold rounded-full flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-[#000000] text-white text-[9px] font-normal flex items-center justify-center">
                 {wishlistCount}
               </span>
             )}
@@ -112,13 +107,13 @@ export default function Header({
 
           <button
             onClick={onOpenCart}
-            className="p-2.5 text-[#171717] hover:text-[#B29A6A] transition-colors relative flex items-center gap-2 text-xs font-medium"
+            className="p-1 hover:opacity-60 transition-opacity relative flex items-center gap-2 text-xs font-normal"
             title="سبد خرید"
           >
-            <ShoppingBag className="w-4 h-4 stroke-[1.5]" />
-            <span className="hidden sm:inline font-normal">سبد</span>
+            <ShoppingBag className="w-4 h-4 stroke-[1.25]" />
+            <span className="hidden sm:inline">سبد</span>
             {cartCount > 0 && (
-              <span className="w-4 h-4 bg-[#171717] text-white text-[9px] font-semibold rounded-full flex items-center justify-center">
+              <span className="w-4 h-4 bg-[#000000] text-white text-[9px] font-normal flex items-center justify-center">
                 {cartCount}
               </span>
             )}
@@ -126,10 +121,10 @@ export default function Header({
 
           <button
             onClick={onOpenMobileMenu}
-            className="lg:hidden p-2 text-[#171717] hover:text-[#B29A6A]"
+            className="lg:hidden p-1 hover:opacity-60"
             title="منو"
           >
-            <Menu className="w-5 h-5 stroke-[1.5]" />
+            <Menu className="w-5 h-5 stroke-[1.25]" />
           </button>
         </div>
 

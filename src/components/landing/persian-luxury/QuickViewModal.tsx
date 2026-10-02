@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { X, CheckCircle2, Heart, ShoppingBag, ShieldCheck, Truck } from 'lucide-react';
+import { X, Heart, ShoppingBag, Check } from 'lucide-react';
 import { LuxuryProduct } from '@/data/persian-luxury-women';
 
 interface QuickViewModalProps {
@@ -20,11 +20,21 @@ export default function QuickViewModal({
   isWishlisted,
   onToggleWishlist,
 }: QuickViewModalProps) {
-  if (!product) return null;
-
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]?.name || '');
-  const [selectedSize, setSelectedSize] = useState(product.sizes[0] || 'One Size');
+  const [selectedImageIdx, setSelectedImageIdx] = useState(0);
+  const [selectedColor, setSelectedColor] = useState<string>('');
+  const [selectedSize, setSelectedSize] = useState<string>('');
   const [addedSuccess, setAddedSuccess] = useState(false);
+
+  React.useEffect(() => {
+    if (product) {
+      setSelectedImageIdx(0);
+      setSelectedColor(product.colors[0]?.name || '');
+      setSelectedSize(product.sizes[0] || 'One Size');
+      setAddedSuccess(false);
+    }
+  }, [product]);
+
+  if (!product) return null;
 
   const handleAdd = () => {
     onAddToCart(product, selectedColor, selectedSize);
@@ -33,121 +43,109 @@ export default function QuickViewModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs font-peyda animate-fadeIn">
-
-      {/* BACKDROP CLICK */}
-      <div className="absolute inset-0" onClick={onClose} />
-
-      {/* MODAL CONTAINER */}
-      <div className="relative w-full max-w-4xl bg-[#F7F5F1] border border-[#ffffff] overflow-hidden shadow-2xl z-10 max-h-[90vh] overflow-y-auto">
-
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/50 backdrop-blur-xs font-peyda dir-rtl">
+      <div
+        className="relative w-full max-w-4xl bg-[#FFFFFF] border border-[#E5E5E5] overflow-hidden max-h-[90vh] flex flex-col md:flex-row rounded-none"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* CLOSE BUTTON */}
         <button
           onClick={onClose}
-          className="absolute top-4 left-4 p-2 bg-[#F2EFE9] hover:bg-[#171717] hover:text-[#F7F5F1] text-[#171717] transition-all z-20 border border-[#ffffff]"
-          title="بستن"
+          className="absolute top-4 left-4 z-20 p-2 text-[#000000] hover:opacity-60 transition-opacity"
         >
-          <X className="w-5 h-5 stroke-[2]" />
+          <X className="w-5 h-5 stroke-[1.25]" />
         </button>
 
-        {/* TWO-COLUMN RTL LAYOUT */}
-        <div className="grid grid-cols-1 md:grid-cols-12 text-start">
+        {/* LEFT/RIGHT GALLERY */}
+        <div className="w-full md:w-1/2 bg-[#F5F5F5] relative aspect-[3/4] max-h-[50vh] md:max-h-[90vh]">
+          <Image
+            src={product.images[selectedImageIdx] || product.images[0]}
+            alt={product.name}
+            fill
+            className="object-cover object-center"
+            unoptimized
+          />
 
-          {/* IMAGE COLUMN (55% ON DESKTOP) */}
-          <div className="md:col-span-6 lg:col-span-7 bg-[#EFECE6] p-6 flex flex-col justify-between relative border-b md:border-b-0 md:border-l border-[#ffffff]">
-            <div className="relative aspect-square w-full">
-              <Image
-                src={product.images[0]}
-                alt={product.name}
-                fill
-                className="object-cover object-center p-4"
-                unoptimized
-              />
+          {/* THUMBNAILS */}
+          {product.images.length > 1 && (
+            <div className="absolute bottom-4 inset-x-4 flex gap-2 justify-center z-10">
+              {product.images.map((img, i) => (
+                <button
+                  key={i}
+                  onClick={() => setSelectedImageIdx(i)}
+                  className={`w-12 h-16 relative border ${
+                    selectedImageIdx === i ? 'border-[#000000]' : 'border-transparent opacity-60'
+                  }`}
+                >
+                  <Image src={img} alt="" fill className="object-cover" unoptimized />
+                </button>
+              ))}
             </div>
+          )}
+        </div>
 
-            {/* AUTHENTICITY FLOATING BADGE */}
-            <div className="mt-4 p-3 bg-[#F7F5F1] border border-[#ffffff] flex items-center gap-2 text-xs text-[#171717]">
-              <ShieldCheck className="w-4 h-4 text-[#B29A6A] shrink-0" />
-              <span>ضمانت اصالت ۱۰۰٪ و سلامت چرم با شناسنامه معتبر</span>
-            </div>
-          </div>
+        {/* DETAILS */}
+        <div className="w-full md:w-1/2 p-6 sm:p-8 overflow-y-auto flex flex-col justify-between text-start space-y-6">
+          <div>
+            <span className="block text-[11px] font-mono text-[#666666] uppercase tracking-wider mb-1" dir="ltr">
+              {product.brand}
+            </span>
+            <h2 className="text-xl font-normal text-[#000000] leading-snug">
+              {product.name}
+            </h2>
 
-          {/* PRODUCT DETAILS COLUMN (45% ON DESKTOP) */}
-          <div className="md:col-span-6 lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between bg-[#F7F5F1]">
-            <div>
-              {/* BRAND */}
-              <div className="flex items-center justify-between text-xs font-mono font-bold text-[#77736D] uppercase tracking-wider mb-2">
-                <span>{product.brand}</span>
-                <span className="flex items-center gap-1 text-[11px] text-[#B29A6A]">
-                  <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
-                  اصالت کالا ✓
+            <div className="mt-3 flex items-baseline gap-3">
+              <span className="text-base font-normal text-[#000000]">
+                {product.priceFormatted}
+              </span>
+              {product.originalPriceFormatted && (
+                <span className="text-xs text-[#999999] line-through">
+                  {product.originalPriceFormatted}
                 </span>
-              </div>
-
-              {/* TITLE */}
-              <h2 className="text-xl sm:text-2xl font-extrabold text-[#171717] mb-3 leading-snug">
-                {product.name}
-              </h2>
-
-              {/* PRICING */}
-              <div className="mb-6 pb-4 border-b border-[#ffffff] flex items-baseline gap-3">
-                <span className="text-xl sm:text-2xl font-black text-[#171717] font-vazir">
-                  {product.priceFormatted}
-                </span>
-                {product.originalPriceFormatted && (
-                  <span className="text-xs text-[#77736D] line-through font-vazir">
-                    {product.originalPriceFormatted}
-                  </span>
-                )}
-              </div>
-
-              {/* DESCRIPTION */}
-              <p className="text-xs text-[#77736D] leading-relaxed mb-6">
-                {product.descriptionPersian}
-              </p>
-
-              {/* COLOR SELECTOR */}
-              {product.colors.length > 0 && (
-                <div className="mb-6">
-                  <span className="block text-xs font-bold text-[#171717] mb-2">
-                    انتخاب رنگ: <span className="text-[#B29A6A] font-normal">{selectedColor}</span>
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {product.colors.map((c, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => setSelectedColor(c.name)}
-                        className={`px-3 py-1.5 text-xs font-medium border flex items-center gap-2 transition-all ${
-                          selectedColor === c.name
-                            ? 'border-[#171717] bg-[#171717] text-[#F7F5F1]'
-                            : 'border-[#ffffff] bg-[#F2EFE9] text-[#171717] hover:border-[#171717]'
-                        }`}
-                      >
-                        <span
-                          className="w-3 h-3 rounded-full border border-black/20"
-                          style={{ backgroundColor: c.hex }}
-                        />
-                        <span>{c.name}</span>
-                      </button>
-                    ))}
-                  </div>
-                </div>
               )}
+            </div>
 
-              {/* SIZE / DIMENSION SELECTOR */}
-              <div className="mb-6">
-                <span className="block text-xs font-bold text-[#171717] mb-2">
-                  سایز / ابعاد:
+            <p className="mt-4 text-xs text-[#333333] leading-relaxed font-normal">
+              {product.descriptionPersian}
+            </p>
+
+            {/* COLORS */}
+            {product.colors && product.colors.length > 0 && (
+              <div className="mt-6 space-y-2">
+                <span className="block text-xs font-normal text-[#666666]">
+                  رنگ: <span className="text-[#000000]">{selectedColor}</span>
                 </span>
-                <div className="flex flex-wrap gap-2">
-                  {product.sizes.map((s, idx) => (
+                <div className="flex gap-2">
+                  {product.colors.map((c) => (
                     <button
-                      key={idx}
+                      key={c.name}
+                      onClick={() => setSelectedColor(c.name)}
+                      className={`px-3 py-1.5 text-xs border transition-colors ${
+                        selectedColor === c.name
+                          ? 'border-[#000000] bg-[#000000] text-white'
+                          : 'border-[#E5E5E5] bg-[#FAFAFA] text-[#111111] hover:border-[#000000]'
+                      }`}
+                    >
+                      {c.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* SIZES */}
+            {product.sizes && product.sizes.length > 0 && (
+              <div className="mt-6 space-y-2">
+                <span className="block text-xs font-normal text-[#666666]">سایز</span>
+                <div className="flex flex-wrap gap-2">
+                  {product.sizes.map((s) => (
+                    <button
+                      key={s}
                       onClick={() => setSelectedSize(s)}
-                      className={`px-3 py-1.5 text-xs font-medium border transition-all ${
+                      className={`w-10 h-10 text-xs border flex items-center justify-center transition-colors ${
                         selectedSize === s
-                          ? 'border-[#171717] bg-[#171717] text-[#F7F5F1]'
-                          : 'border-[#ffffff] bg-[#F2EFE9] text-[#171717] hover:border-[#171717]'
+                          ? 'border-[#000000] bg-[#000000] text-white'
+                          : 'border-[#E5E5E5] bg-[#FAFAFA] text-[#111111] hover:border-[#000000]'
                       }`}
                     >
                       {s}
@@ -155,52 +153,36 @@ export default function QuickViewModal({
                   ))}
                 </div>
               </div>
-
-            </div>
-
-            {/* ACTIONS */}
-            <div className="space-y-3 pt-4 border-t border-[#ffffff]">
-
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={handleAdd}
-                  className={`flex-grow py-3.5 px-6 font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-xs ${
-                    addedSuccess
-                      ? 'bg-[#2E4032] text-white'
-                      : 'bg-[#171717] hover:bg-[#2C2926] text-[#F7F5F1]'
-                  }`}
-                >
-                  <ShoppingBag className="w-4 h-4 stroke-[2]" />
-                  <span>{addedSuccess ? '✓ به سبد اضافه شد' : 'افزودن به سبد خرید'}</span>
-                </button>
-
-                <button
-                  onClick={() => onToggleWishlist(product.id)}
-                  className={`p-3.5 border transition-all ${
-                    isWishlisted
-                      ? 'bg-[#6F1D2A] text-white border-[#6F1D2A]'
-                      : 'border-[#ffffff] bg-[#F2EFE9] text-[#171717] hover:border-[#171717]'
-                  }`}
-                  title="علاقه‌مندی"
-                >
-                  <Heart className={`w-4 h-4 stroke-[2] ${isWishlisted ? 'fill-current' : ''}`} />
-                </button>
-              </div>
-
-              <div className="flex items-center justify-between text-[11px] text-[#77736D] pt-2">
-                <span className="flex items-center gap-1">
-                  <Truck className="w-3.5 h-3.5 text-[#B29A6A]" />
-                  ارسال اکسپرس به سراسر ایران
-                </span>
-                <span>موجودی: {product.stock} عدد</span>
-              </div>
-
-            </div>
-
+            )}
           </div>
 
-        </div>
+          {/* ACTIONS */}
+          <div className="pt-4 border-t border-[#E5E5E5] flex gap-3">
+            <button
+              onClick={handleAdd}
+              className="flex-1 py-3.5 bg-[#000000] hover:bg-[#111111] text-white text-xs font-normal tracking-wider transition-colors flex items-center justify-center gap-2 rounded-none"
+            >
+              {addedSuccess ? (
+                <>
+                  <Check className="w-4 h-4 stroke-[1.5]" />
+                  <span>افزوده شد</span>
+                </>
+              ) : (
+                <>
+                  <ShoppingBag className="w-4 h-4 stroke-[1.25]" />
+                  <span>افزودن به سبد خرید</span>
+                </>
+              )}
+            </button>
 
+            <button
+              onClick={() => onToggleWishlist(product.id)}
+              className="p-3.5 border border-[#000000] text-[#000000] hover:bg-[#FAFAFA] transition-colors"
+            >
+              <Heart className={`w-4 h-4 stroke-[1.25] ${isWishlisted ? 'fill-[#000000]' : ''}`} />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

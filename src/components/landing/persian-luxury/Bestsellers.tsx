@@ -17,44 +17,38 @@ export default function Bestsellers({
   onToggleWishlist,
   onQuickView,
 }: BestsellersProps) {
-  const bestSellers = products.filter((p) => p.isBestSeller).slice(0, 4);
+  const bestsellersList = products.slice(2, 6);
 
   return (
-    <section className="py-16 md:py-24 bg-[#FDFDFD] font-peyda">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 md:px-12">
+    <section className="py-20 md:py-28 bg-[#FAFAFA] font-peyda text-[#111111]">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-10 md:px-12">
 
-        {/* SECTION HEADER */}
-        <div className="text-start mb-10 md:mb-14 border-b border-[#ffffff] pb-6 flex flex-col md:flex-row md:items-end justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 border-b border-[#E5E5E5] pb-6">
           <div>
-            <span className="block text-xs font-mono font-bold text-[#B29A6A] uppercase tracking-widest mb-1">
+            <span className="block text-[11px] font-mono font-medium text-[#999999] uppercase tracking-widest mb-2">
               BESTSELLERS
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#171717] tracking-normal">
-              پرفروش‌ترین‌ها
+            <h2 className="text-2xl sm:text-3xl font-light text-[#000000] tracking-normal">
+              محبوب‌ترین طراحی‌ها
             </h2>
-            <p className="text-sm text-[#77736D] mt-2">
-              محبوب‌ترین و مورد اعتمادترین انتخاب‌های بانوان شیک‌پوش.
-            </p>
           </div>
 
           <a
             href="#catalog"
-            className="mt-4 md:mt-0 text-xs font-bold text-[#171717] hover:text-[#B29A6A] underline underline-offset-8 transition-colors self-start"
+            className="mt-4 sm:mt-0 text-xs text-[#000000] hover:text-[#666666] transition-colors border-b border-[#000000] pb-0.5 font-normal"
           >
-            مشاهده تمام پرفروش‌ها ←
+            مشاهده تمام پرفروش‌ها
           </a>
         </div>
 
-        {/* PRODUCTS GRID */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-          {bestSellers.map((product) => (
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          {bestsellersList.map((product) => (
             <ProductCard
-              key={product.id}
+              key={`bestseller-${product.id}`}
               product={product}
               isWishlisted={wishlistIds.includes(product.id)}
               onToggleWishlist={onToggleWishlist}
               onQuickView={onQuickView}
-              badgeLabel="پرفروش"
             />
           ))}
         </div>

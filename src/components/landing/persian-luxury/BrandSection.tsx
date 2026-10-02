@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { LUXURY_BRANDS } from '@/data/persian-luxury-women';
 
 interface BrandSectionProps {
@@ -8,81 +8,93 @@ interface BrandSectionProps {
 }
 
 export default function BrandSection({ onSelectBrand }: BrandSectionProps) {
-  const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
+  // Split brands into two equal rows
+  const halfLength = Math.ceil(LUXURY_BRANDS.length / 2);
+  const row1Brands = LUXURY_BRANDS.slice(0, halfLength);
+  const row2Brands = LUXURY_BRANDS.slice(halfLength);
 
-  const handleBrandClick = (brandName: string) => {
-    setSelectedBrand(selectedBrand === brandName ? null : brandName);
-    onSelectBrand?.(brandName);
-  };
+  // Repeat arrays to ensure smooth infinite seamless marquee scrolling
+  const row1Items = [...row1Brands, ...row1Brands, ...row1Brands, ...row1Brands];
+  const row2Items = [...row2Brands, ...row2Brands, ...row2Brands, ...row2Brands];
 
   return (
-    <section id="brands" className="py-16 md:py-24 bg-[#FDFDFD] font-peyda">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 md:px-12">
+    <section id="brands" className="py-20 md:py-28 bg-[#FFFFFF] border-t border-b border-[#E5E5E5] font-peyda overflow-hidden">
+      {/* SECTION HEADER */}
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-10 md:px-12 mb-12 text-center">
+        <span className="block text-[11px] font-mono font-medium text-[#999999] uppercase tracking-widest mb-2">
+          CURATED HOUSES
+        </span>
+        <h2 className="text-2xl sm:text-3xl font-light text-[#000000] tracking-normal">
+          برندهای منتخب
+        </h2>
+      </div>
 
-        {/* SECTION HEADER */}
-        <div className="text-start mb-10 md:mb-14 border-b border-[#ffffff] pb-6 flex flex-col md:flex-row md:items-end justify-between">
-          <div>
-            <span className="block text-xs font-mono font-bold text-[#B29A6A] uppercase tracking-widest mb-1">
-              OUR LUXURY PORTFOLIO
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#171717] tracking-normal">
-              برندهای منتخب
-            </h2>
-            <p className="text-sm text-[#77736D] mt-2 max-w-xl">
-              برندهایی که با وسواس و دقت بالا برای انتخاب و آسودگی خاطر شما گردآوری کرده‌ایم.
-            </p>
-          </div>
+      {/* 2-ROW INFINITE CAROUSEL */}
+      <div className="space-y-4 w-full overflow-hidden select-none">
 
-          <div className="mt-4 md:mt-0 text-xs font-mono text-[#77736D] bg-[#EAE4DA] px-3.5 py-1.5 border border-[#ffffff]">
-            ۲۵+ برند معتبر بین‌المللی
+        {/* ROW 1 - MARQUEE RIGHT TO LEFT */}
+        <div className="relative w-full flex overflow-hidden py-1">
+          <div className="flex shrink-0 gap-4 animate-brand-marquee-left">
+            {row1Items.map((brand, idx) => (
+              <button
+                key={`r1-${brand.id}-${idx}`}
+                onClick={() => onSelectBrand?.(brand.name)}
+                className="w-48 sm:w-60 h-20 sm:h-24 bg-[#FAFAFA] border border-[#E5E5E5] hover:border-[#000000] hover:bg-[#FFFFFF] transition-all duration-300 flex items-center justify-center px-4 shrink-0 group cursor-pointer rounded-none"
+              >
+                <span className="text-sm sm:text-base font-normal tracking-widest text-[#111111] group-hover:text-[#000000] uppercase font-sans text-center transition-colors">
+                  {brand.name}
+                </span>
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* BRANDS GRID / MONOCHROME SHOWCASE */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
-          {LUXURY_BRANDS.map((brand) => {
-            const isSelected = selectedBrand === brand.name;
-
-            return (
+        {/* ROW 2 - MARQUEE LEFT TO RIGHT */}
+        <div className="relative w-full flex overflow-hidden py-1">
+          <div className="flex shrink-0 gap-4 animate-brand-marquee-right">
+            {row2Items.map((brand, idx) => (
               <button
-                key={brand.id}
-                onClick={() => handleBrandClick(brand.name)}
-                className={`p-4 sm:p-5 text-start transition-all border ${
-                  isSelected
-                    ? 'bg-[#171717] text-[#F7F5F1] border-[#171717] shadow-md'
-                    : 'bg-[#F2EFE9] hover:bg-[#EAE4DA] text-[#171717] border-[#ffffff]'
-                }`}
+                key={`r2-${brand.id}-${idx}`}
+                onClick={() => onSelectBrand?.(brand.name)}
+                className="w-48 sm:w-60 h-20 sm:h-24 bg-[#FAFAFA] border border-[#E5E5E5] hover:border-[#000000] hover:bg-[#FFFFFF] transition-all duration-300 flex items-center justify-center px-4 shrink-0 group cursor-pointer rounded-none"
               >
-                <div className="flex items-center justify-between mb-2">
-                  <span className={`text-base sm:text-lg font-extrabold font-serif tracking-widest uppercase ${
-                    isSelected ? 'text-[#B29A6A]' : 'text-[#171717]'
-                  }`}>
-                    {brand.name}
-                  </span>
-                  <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-xs ${
-                    isSelected ? 'bg-[#333] text-[#B29A6A]' : 'bg-[#ffffff] text-[#77736D]'
-                  }`}>
-                    {brand.country}
-                  </span>
-                </div>
-
-                <div className={`text-xs font-medium mb-1 ${
-                  isSelected ? 'text-[#F7F5F1]' : 'text-[#171717]'
-                }`}>
-                  {brand.persianName}
-                </div>
-
-                <p className={`text-[11px] line-clamp-1 ${
-                  isSelected ? 'text-[#ffffff]' : 'text-[#77736D]'
-                }`}>
-                  {brand.description}
-                </p>
+                <span className="text-sm sm:text-base font-normal tracking-widest text-[#111111] group-hover:text-[#000000] uppercase font-sans text-center transition-colors">
+                  {brand.name}
+                </span>
               </button>
-            );
-          })}
+            ))}
+          </div>
         </div>
 
       </div>
+
+      {/* INLINE CSS KEYFRAMES FOR NON-STOP MARQUEE */}
+      <style jsx>{`
+        @keyframes brandMarqueeLeft {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        @keyframes brandMarqueeRight {
+          0% {
+            transform: translateX(-50%);
+          }
+          100% {
+            transform: translateX(0%);
+          }
+        }
+        .animate-brand-marquee-left {
+          display: flex;
+          animation: brandMarqueeLeft 35s linear infinite;
+        }
+        .animate-brand-marquee-right {
+          display: flex;
+          animation: brandMarqueeRight 35s linear infinite;
+        }
+      `}</style>
     </section>
   );
 }
