@@ -58,7 +58,7 @@ export default function MobileDrawer({
             className="fixed inset-y-0 right-0 max-w-full w-80 bg-[#F8FAFC] flex flex-col z-10 text-right border-l border-[#CBD5E1]/80"
           >
             {/* HEADER */}
-            <div className="p-5 bg-[#FFFFFF] border-b border-[#CBD5E1]/60 flex items-center justify-between">
+            <div className="p-5 bg-[#ffffffffffff] border-b border-[#CBD5E1]/60 flex items-center justify-between">
               <div>
                 <span className="text-xl font-bold font-peyda tracking-[0.2em] text-[#0B1220]">
                   SOLEA
@@ -93,7 +93,7 @@ export default function MobileDrawer({
             </div>
 
             {/* FOOTER ACTIONS */}
-            <div className="p-5 bg-[#FFFFFF] border-t border-[#CBD5E1]/60 space-y-3">
+            <div className="p-5 bg-[#ffffffffffff] border-t border-[#CBD5E1]/60 space-y-3">
               <button
                 onClick={() => {
                   onClose();

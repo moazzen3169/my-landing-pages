@@ -77,7 +77,7 @@ export default function HeroSection() {
       <div className="sticky top-0 h-screen w-full bg-white overflow-hidden flex items-center justify-center">
 
         {/* BACKGROUND SUBTLE LUXURY ACCENTS */}
-        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(247,245,241,0.8)_0%,rgba(255,255,255,1)_70%)]" />
+        <div className="absolute inset-0 pointer-events-none bg-[#FDFDFD]" />
 
         {/* HERO CONTAINER */}
         <div className="relative w-full max-w-[1440px] mx-auto px-6 sm:px-10 h-full flex items-center justify-between">
@@ -121,27 +121,27 @@ export default function HeroSection() {
             <div className="lg:col-span-4 flex items-center justify-center z-10 order-1 lg:order-2 my-4 lg:my-0">
               <motion.div
                 style={{ scale: videoScale }}
-                className="relative w-full aspect-square max-w-[360px] sm:max-w-[420px] lg:max-w-[460px] bg-white flex items-center justify-center overflow-hidden pointer-events-none select-none border-0 shadow-none outline-none"
+                className="relative w-full aspect-[3/4] max-w-[360px] bg-amber-0 sm:max-w-[420px] lg:max-w-[460px] flex items-center justify-center overflow-hidden pointer-events-none select-none border-0 shadow-none outline-none"
               >
                 {/* HTML5 VIDEO DRIVEN ENTIRELY BY SCROLL */}
                 <video
                   ref={videoRef}
-                  src="/images/landings/persian-luxury-v1/bag-390.mp4"
+                  src="/images/landings/persian-luxury-v1/bag-3901.mp4"
                   muted
                   playsInline
                   preload="auto"
                   onLoadedMetadata={handleLoadedMetadata}
-                  className="w-full h-full object-contain bg-white border-0 shadow-none outline-none pointer-events-none select-none"
+                  className="w-full h-full object-contain border-0 shadow-none outline-none pointer-events-none select-none"
                   style={{
                     border: 'none',
                     boxShadow: 'none',
-                    backgroundColor: '#ffffff',
+                    backgroundColor: '#ffffffffffff',
                   }}
                 />
 
                 {/* SUBTLE LOADING STATE UNTIL METADATA LOADS */}
                 {!isVideoReady && (
-                  <div className="absolute inset-0 bg-white flex items-center justify-center">
+                  <div className="absolute inset-0  flex items-center justify-center">
                     <span className="text-xs text-[#999] font-mono animate-pulse">در حال بارگذاری مدل...</span>
                   </div>
                 )}
@@ -190,7 +190,7 @@ export default function HeroSection() {
 
         {/* BOTTOM PROGRESS BAR */}
         <div className="absolute bottom-6 inset-x-0 max-w-[1440px] mx-auto px-6 sm:px-10 flex items-center justify-between text-[10px] text-[#888] font-mono">
-          <span>TABRIZ BOUTIQUE • 2026</span>
+          <span>mor'e • 2026</span>
           <div className="w-32 sm:w-48 h-[2px] bg-[#eee] overflow-hidden rounded-full">
             <motion.div
               style={{ scaleX: scrollYProgress }}

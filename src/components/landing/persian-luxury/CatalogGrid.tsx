@@ -36,11 +36,11 @@ export default function CatalogGrid({
   });
 
   return (
-    <section id="catalog" className="py-16 md:py-24 bg-[#F7F5F1] font-peyda border-t border-[#DDD9D2]">
+    <section id="catalog" className="py-16 md:py-24 bg-[#FDFDFD] font-peyda border-t border-[#ffffff]">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 md:px-12">
 
         {/* SECTION HEADER & FILTER TABS */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-14 border-b border-[#DDD9D2] pb-6 gap-6 text-start">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-14 border-b border-[#ffffff] pb-6 gap-6 text-start">
           <div>
             <span className="block text-xs font-mono font-bold text-[#B29A6A] uppercase tracking-widest mb-1">
               FULL STORE CATALOG
@@ -64,7 +64,7 @@ export default function CatalogGrid({
                 className={`px-4 py-2 text-xs font-bold transition-all shrink-0 border ${
                   activeCategory === cat.id
                     ? 'bg-[#171717] text-[#F7F5F1] border-[#171717]'
-                    : 'bg-[#F2EFE9] text-[#171717] border-[#DDD9D2] hover:border-[#171717]'
+                    : 'bg-[#F2EFE9] text-[#171717] border-[#ffffff] hover:border-[#171717]'
                 }`}
               >
                 {cat.namePersian}

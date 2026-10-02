@@ -38,7 +38,7 @@ export default function SearchOverlay({
 
   return (
     <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs font-peyda animate-fadeIn">
-      <div className="bg-[#F7F5F1] border-b border-[#DDD9D2] p-6 max-h-[85vh] overflow-y-auto">
+      <div className="bg-[#F7F5F1] border-b border-[#ffffff] p-6 max-h-[85vh] overflow-y-auto">
         <div className="max-w-[1200px] mx-auto text-start">
 
           {/* SEARCH INPUT BAR */}
@@ -50,11 +50,11 @@ export default function SearchOverlay({
               onChange={(e) => setQuery(e.target.value)}
               placeholder="جستجوی برند (مانند PRADA)، نام محصول یا دسته‌بندی..."
               autoFocus
-              className="w-full py-4 pr-12 pl-12 bg-[#F2EFE9] border border-[#DDD9D2] text-sm text-[#171717] focus:outline-none focus:border-[#171717] font-peyda"
+              className="w-full py-4 pr-12 pl-12 bg-[#F2EFE9] border border-[#ffffff] text-sm text-[#171717] focus:outline-none focus:border-[#171717] font-peyda"
             />
             <button
               onClick={onClose}
-              className="absolute left-3 p-2 text-[#171717] hover:bg-[#DDD9D2]"
+              className="absolute left-3 p-2 text-[#171717] hover:bg-[#ffffff]"
               title="بستن"
             >
               <X className="w-5 h-5 stroke-[2]" />
@@ -72,7 +72,7 @@ export default function SearchOverlay({
                   <button
                     key={idx}
                     onClick={() => setQuery(s)}
-                    className="px-3.5 py-1.5 bg-[#EAE4DA] hover:bg-[#171717] hover:text-[#F7F5F1] text-xs font-medium text-[#171717] border border-[#DDD9D2] transition-colors"
+                    className="px-3.5 py-1.5 bg-[#EAE4DA] hover:bg-[#171717] hover:text-[#F7F5F1] text-xs font-medium text-[#171717] border border-[#ffffff] transition-colors"
                   >
                     {s}
                   </button>
@@ -101,7 +101,7 @@ export default function SearchOverlay({
                         onSelectProduct(p);
                         onClose();
                       }}
-                      className="bg-[#F2EFE9] p-3 border border-[#DDD9D2] cursor-pointer hover:border-[#171717] transition-all flex flex-col justify-between"
+                      className="bg-[#F2EFE9] p-3 border border-[#ffffff] cursor-pointer hover:border-[#171717] transition-all flex flex-col justify-between"
                     >
                       <div className="relative aspect-square w-full bg-[#EFECE6] mb-2">
                         <Image

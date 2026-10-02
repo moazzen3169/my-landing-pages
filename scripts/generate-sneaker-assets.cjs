@@ -94,7 +94,7 @@ function createCategorySVG(title, bgGradient, accentColor) {
   </defs>
   <rect width="800" height="500" fill="url(#catGrad_${title})" />
   <path d="M-100,400 C200,300 400,500 900,200" fill="none" stroke="${accentColor}" stroke-width="3" opacity="0.25" />
-  <text x="50%" y="55%" text-anchor="middle" fill="#FFFFFF" opacity="0.08" font-family="sans-serif" font-weight="900" font-size="110" letter-spacing="16">${title}</text>
+  <text x="50%" y="55%" text-anchor="middle" fill="#ffffffffffff" opacity="0.08" font-family="sans-serif" font-weight="900" font-size="110" letter-spacing="16">${title}</text>
 </svg>`;
 }
 

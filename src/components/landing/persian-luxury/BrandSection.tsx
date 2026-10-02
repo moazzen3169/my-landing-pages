@@ -16,11 +16,11 @@ export default function BrandSection({ onSelectBrand }: BrandSectionProps) {
   };
 
   return (
-    <section id="brands" className="py-16 md:py-24 bg-[#F7F5F1] font-peyda">
+    <section id="brands" className="py-16 md:py-24 bg-[#FDFDFD] font-peyda">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 md:px-12">
 
         {/* SECTION HEADER */}
-        <div className="text-start mb-10 md:mb-14 border-b border-[#DDD9D2] pb-6 flex flex-col md:flex-row md:items-end justify-between">
+        <div className="text-start mb-10 md:mb-14 border-b border-[#ffffff] pb-6 flex flex-col md:flex-row md:items-end justify-between">
           <div>
             <span className="block text-xs font-mono font-bold text-[#B29A6A] uppercase tracking-widest mb-1">
               OUR LUXURY PORTFOLIO
@@ -33,7 +33,7 @@ export default function BrandSection({ onSelectBrand }: BrandSectionProps) {
             </p>
           </div>
 
-          <div className="mt-4 md:mt-0 text-xs font-mono text-[#77736D] bg-[#EAE4DA] px-3.5 py-1.5 border border-[#DDD9D2]">
+          <div className="mt-4 md:mt-0 text-xs font-mono text-[#77736D] bg-[#EAE4DA] px-3.5 py-1.5 border border-[#ffffff]">
             ۲۵+ برند معتبر بین‌المللی
           </div>
         </div>
@@ -50,7 +50,7 @@ export default function BrandSection({ onSelectBrand }: BrandSectionProps) {
                 className={`p-4 sm:p-5 text-start transition-all border ${
                   isSelected
                     ? 'bg-[#171717] text-[#F7F5F1] border-[#171717] shadow-md'
-                    : 'bg-[#F2EFE9] hover:bg-[#EAE4DA] text-[#171717] border-[#DDD9D2]'
+                    : 'bg-[#F2EFE9] hover:bg-[#EAE4DA] text-[#171717] border-[#ffffff]'
                 }`}
               >
                 <div className="flex items-center justify-between mb-2">
@@ -60,7 +60,7 @@ export default function BrandSection({ onSelectBrand }: BrandSectionProps) {
                     {brand.name}
                   </span>
                   <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-xs ${
-                    isSelected ? 'bg-[#333] text-[#B29A6A]' : 'bg-[#DDD9D2] text-[#77736D]'
+                    isSelected ? 'bg-[#333] text-[#B29A6A]' : 'bg-[#ffffff] text-[#77736D]'
                   }`}>
                     {brand.country}
                   </span>
@@ -73,7 +73,7 @@ export default function BrandSection({ onSelectBrand }: BrandSectionProps) {
                 </div>
 
                 <p className={`text-[11px] line-clamp-1 ${
-                  isSelected ? 'text-[#DDD9D2]' : 'text-[#77736D]'
+                  isSelected ? 'text-[#ffffff]' : 'text-[#77736D]'
                 }`}>
                   {brand.description}
                 </p>

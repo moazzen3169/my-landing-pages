@@ -43,7 +43,7 @@ export default function TrustBar() {
                 key={index}
                 className="flex items-center gap-3.5 group transition-colors"
               >
-                <div className="w-10 h-10 rounded-xl bg-[#FFFFFF] border border-[#CBD5E1]/50 flex items-center justify-center text-[#0B1220] group-hover:bg-[#0B1220] group-hover:text-[#F8FAFC] transition-colors shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-[#ffffffffffff] border border-[#CBD5E1]/50 flex items-center justify-center text-[#0B1220] group-hover:bg-[#0B1220] group-hover:text-[#F8FAFC] transition-colors shrink-0">
                   <Icon className="w-4 h-4 shrink-0" />
                 </div>
                 <div>

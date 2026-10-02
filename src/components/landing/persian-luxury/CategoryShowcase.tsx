@@ -7,7 +7,7 @@ import { LUXURY_CATEGORIES } from '@/data/persian-luxury-women';
 
 export default function CategoryShowcase() {
   return (
-    <section id="categories" className="py-16 md:py-24 bg-[#EFECE6] font-peyda border-y border-[#DDD9D2]">
+    <section id="categories" className="py-16 md:py-24 bg-[#EFECE6] font-peyda border-y border-[#ffffff]">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 md:px-12">
 
         {/* SECTION HEADER */}
@@ -32,7 +32,7 @@ export default function CategoryShowcase() {
               <a
                 key={cat.id}
                 href="#catalog"
-                className={`group relative bg-[#F7F5F1] border border-[#DDD9D2] overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-[#171717] ${
+                className={`group relative bg-[#F7F5F1] border border-[#ffffff] overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-[#171717] ${
                   isDominant ? 'lg:col-span-1 min-h-[380px]' : 'min-h-[320px]'
                 }`}
               >
@@ -48,7 +48,7 @@ export default function CategoryShowcase() {
                 </div>
 
                 {/* CONTENT AREA */}
-                <div className="p-6 text-start relative z-10 bg-[#F7F5F1] border-t border-[#DDD9D2]/60 flex items-end justify-between">
+                <div className="p-6 text-start relative z-10 bg-[#F7F5F1] border-t border-[#ffffff]/60 flex items-end justify-between">
                   <div>
                     <span className="block text-[10px] font-mono font-bold text-[#77736D] uppercase tracking-wider mb-1">
                       {cat.nameEnglish} — {cat.productCount} کالا

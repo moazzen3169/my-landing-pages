@@ -94,7 +94,7 @@ export default function SizeGuideModal({ isOpen, onClose, initialCategory = 'uni
         </div>
 
         {/* NAVIGATION TABS */}
-        <div className="bg-[#FFFFFF] border-b border-[#CBD5E1]/60 px-4 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-2">
+        <div className="bg-[#ffffffffffff] border-b border-[#CBD5E1]/60 px-4 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto py-1 scrollbar-none">
             <button
               onClick={() => setActiveTab('chart')}
@@ -184,7 +184,7 @@ export default function SizeGuideModal({ isOpen, onClose, initialCategory = 'uni
                       className={`px-3 py-1 text-xs font-semibold rounded-lg border transition-colors ${
                         genderFilter === 'unisex'
                           ? 'bg-[#0B1220] text-[#F8FAFC] border-[#0B1220]'
-                          : 'bg-[#FFFFFF] text-[#475569] border-[#CBD5E1]'
+                          : 'bg-[#ffffffffffff] text-[#475569] border-[#CBD5E1]'
                       }`}
                     >
                       یونیسکس
@@ -194,7 +194,7 @@ export default function SizeGuideModal({ isOpen, onClose, initialCategory = 'uni
                       className={`px-3 py-1 text-xs font-semibold rounded-lg border transition-colors ${
                         genderFilter === 'men'
                           ? 'bg-[#0B1220] text-[#F8FAFC] border-[#0B1220]'
-                          : 'bg-[#FFFFFF] text-[#475569] border-[#CBD5E1]'
+                          : 'bg-[#ffffffffffff] text-[#475569] border-[#CBD5E1]'
                       }`}
                     >
                       مردانه
@@ -204,7 +204,7 @@ export default function SizeGuideModal({ isOpen, onClose, initialCategory = 'uni
                       className={`px-3 py-1 text-xs font-semibold rounded-lg border transition-colors ${
                         genderFilter === 'women'
                           ? 'bg-[#0B1220] text-[#F8FAFC] border-[#0B1220]'
-                          : 'bg-[#FFFFFF] text-[#475569] border-[#CBD5E1]'
+                          : 'bg-[#ffffffffffff] text-[#475569] border-[#CBD5E1]'
                       }`}
                     >
                       زنانه
@@ -219,7 +219,7 @@ export default function SizeGuideModal({ isOpen, onClose, initialCategory = 'uni
               </div>
 
               {/* TABLE */}
-              <div className="overflow-x-auto border border-[#CBD5E1] rounded-2xl bg-[#FFFFFF]">
+              <div className="overflow-x-auto border border-[#CBD5E1] rounded-2xl bg-[#ffffffffffff]">
                 <table className="w-full text-center text-xs font-peyda border-collapse">
                   <thead>
                     <tr className="bg-[#0B1220] text-[#F8FAFC] border-b border-[#1E293B] font-mono">
@@ -258,7 +258,7 @@ export default function SizeGuideModal({ isOpen, onClose, initialCategory = 'uni
           {/* TAB 2: FOOT SIZE FINDER */}
           {activeTab === 'finder' && (
             <div className="space-y-6">
-              <div className="bg-[#FFFFFF] border border-[#CBD5E1] p-6 rounded-2xl space-y-5">
+              <div className="bg-[#ffffffffffff] border border-[#CBD5E1] p-6 rounded-2xl space-y-5">
                 <div>
                   <h3 className="text-base font-bold text-[#0B1220] mb-1">
                     محاسبه‌گر هوشمند سایز اسنیکر
@@ -340,7 +340,7 @@ export default function SizeGuideModal({ isOpen, onClose, initialCategory = 'uni
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* STEP 1 */}
-                <div className="bg-[#FFFFFF] border border-[#CBD5E1] p-5 rounded-2xl flex items-start gap-4">
+                <div className="bg-[#ffffffffffff] border border-[#CBD5E1] p-5 rounded-2xl flex items-start gap-4">
                   <div className="w-8 h-8 rounded-full bg-[#0B1220] text-[#F8FAFC] font-mono font-bold flex items-center justify-center shrink-0 text-sm">
                     ۱
                   </div>
@@ -353,7 +353,7 @@ export default function SizeGuideModal({ isOpen, onClose, initialCategory = 'uni
                 </div>
 
                 {/* STEP 2 */}
-                <div className="bg-[#FFFFFF] border border-[#CBD5E1] p-5 rounded-2xl flex items-start gap-4">
+                <div className="bg-[#ffffffffffff] border border-[#CBD5E1] p-5 rounded-2xl flex items-start gap-4">
                   <div className="w-8 h-8 rounded-full bg-[#0B1220] text-[#F8FAFC] font-mono font-bold flex items-center justify-center shrink-0 text-sm">
                     ۲
                   </div>
@@ -366,7 +366,7 @@ export default function SizeGuideModal({ isOpen, onClose, initialCategory = 'uni
                 </div>
 
                 {/* STEP 3 */}
-                <div className="bg-[#FFFFFF] border border-[#CBD5E1] p-5 rounded-2xl flex items-start gap-4">
+                <div className="bg-[#ffffffffffff] border border-[#CBD5E1] p-5 rounded-2xl flex items-start gap-4">
                   <div className="w-8 h-8 rounded-full bg-[#0B1220] text-[#F8FAFC] font-mono font-bold flex items-center justify-center shrink-0 text-sm">
                     ۳
                   </div>
@@ -379,7 +379,7 @@ export default function SizeGuideModal({ isOpen, onClose, initialCategory = 'uni
                 </div>
 
                 {/* STEP 4 */}
-                <div className="bg-[#FFFFFF] border border-[#CBD5E1] p-5 rounded-2xl flex items-start gap-4">
+                <div className="bg-[#ffffffffffff] border border-[#CBD5E1] p-5 rounded-2xl flex items-start gap-4">
                   <div className="w-8 h-8 rounded-full bg-[#0B1220] text-[#F8FAFC] font-mono font-bold flex items-center justify-center shrink-0 text-sm">
                     ۴
                   </div>
@@ -397,7 +397,7 @@ export default function SizeGuideModal({ isOpen, onClose, initialCategory = 'uni
           {/* TAB 4: SNEAKER FIT TIPS */}
           {activeTab === 'tips' && (
             <div className="space-y-4">
-              <div className="bg-[#FFFFFF] border border-[#CBD5E1] p-5 rounded-2xl space-y-3">
+              <div className="bg-[#ffffffffffff] border border-[#CBD5E1] p-5 rounded-2xl space-y-3">
                 <h4 className="text-sm font-bold text-[#0B1220] flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#0B1220]"></span>
                   <span>توصیه برای اسنیکرهای رانینگ و تخصصی</span>
@@ -407,7 +407,7 @@ export default function SizeGuideModal({ isOpen, onClose, initialCategory = 'uni
                 </p>
               </div>
 
-              <div className="bg-[#FFFFFF] border border-[#CBD5E1] p-5 rounded-2xl space-y-3">
+              <div className="bg-[#ffffffffffff] border border-[#CBD5E1] p-5 rounded-2xl space-y-3">
                 <h4 className="text-sm font-bold text-[#0B1220] flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#0B1220]"></span>
                   <span>کفش‌های چرم طبیعی و لایف‌استایل</span>
@@ -417,7 +417,7 @@ export default function SizeGuideModal({ isOpen, onClose, initialCategory = 'uni
                 </p>
               </div>
 
-              <div className="bg-[#FFFFFF] border border-[#CBD5E1] p-5 rounded-2xl space-y-3">
+              <div className="bg-[#ffffffffffff] border border-[#CBD5E1] p-5 rounded-2xl space-y-3">
                 <h4 className="text-sm font-bold text-[#0B1220] flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#0B1220]"></span>
                   <span>تفاوت اندازه دو پا</span>

@@ -21,11 +21,11 @@ export default function NewArrivals({
   const newArrivals = products.filter((p) => p.isNew).slice(0, 4);
 
   return (
-    <section id="new-arrivals" className="py-16 md:py-24 bg-[#F7F5F1] font-peyda">
+    <section id="new-arrivals" className="py-16 md:py-24 bg-[#FDFDFD] font-peyda">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 md:px-12">
 
         {/* SECTION HEADER */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-14 text-start border-b border-[#DDD9D2] pb-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-14 text-start border-b border-[#ffffff] pb-6">
           <div>
             <span className="block text-xs font-mono font-bold text-[#B29A6A] uppercase tracking-widest mb-1">
               NEW ARRIVALS

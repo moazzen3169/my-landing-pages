@@ -7,13 +7,13 @@ import { TABRIZ_STORE_INFO } from '@/data/persian-luxury-women';
 
 export default function PhysicalStoreSection() {
   return (
-    <section className="py-16 md:py-24 bg-[#F7F5F1] font-peyda">
+    <section className="py-16 md:py-24 bg-[#FDFDFD] font-peyda">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 md:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-[#EFECE6] border border-[#DDD9D2] p-6 sm:p-10 md:p-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-[#EFECE6] border border-[#ffffff] p-6 sm:p-10 md:p-12">
 
           {/* STORE INFO CONTENT (RIGHT IN RTL) */}
           <div className="lg:col-span-6 text-start">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F7F5F1] border border-[#DDD9D2] text-xs font-bold text-[#B29A6A] mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F7F5F1] border border-[#ffffff] text-xs font-bold text-[#B29A6A] mb-4">
               <Store className="w-3.5 h-3.5 shrink-0" />
               <span>{TABRIZ_STORE_INFO.titlePersian}</span>
             </div>
@@ -27,7 +27,7 @@ export default function PhysicalStoreSection() {
             </p>
 
             {/* DETAILS LIST */}
-            <div className="space-y-4 text-xs text-[#171717] border-t border-[#DDD9D2] pt-6">
+            <div className="space-y-4 text-xs text-[#171717] border-t border-[#ffffff] pt-6">
 
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-[#B29A6A] shrink-0 mt-0.5 stroke-[1.75]" />
@@ -69,7 +69,7 @@ export default function PhysicalStoreSection() {
 
           {/* STORE PHOTO GRAPHIC (LEFT IN RTL) */}
           <div className="lg:col-span-6">
-            <div className="relative aspect-[16/10] w-full bg-[#171717] border border-[#DDD9D2] overflow-hidden">
+            <div className="relative aspect-[16/10] w-full bg-[#171717] border border-[#ffffff] overflow-hidden">
               <Image
                 src="/images/landings/persian-luxury-v1/5633740aa337463f8e14fbceebc3fc3b.png"
                 alt="نمای فروشگاه حضوری تبریز"

@@ -101,7 +101,7 @@ export default function SearchOverlay({ isOpen, onClose, onSelectProduct }: Sear
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="نام مدل، برند (نایکی، آدیداس...) یا دسته‌بندی را وارد کنید..."
-                className="w-full bg-[#FFFFFF] border border-[#CBD5E1]/80 focus:border-[#0B1220] rounded-2xl py-4 pr-12 pl-10 text-sm font-semibold text-[#0B1220] placeholder:text-[#64748B] outline-none transition-colors"
+                className="w-full bg-[#ffffffffffff] border border-[#CBD5E1]/80 focus:border-[#0B1220] rounded-2xl py-4 pr-12 pl-10 text-sm font-semibold text-[#0B1220] placeholder:text-[#64748B] outline-none transition-colors"
               />
               <Search className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
               {query && (
@@ -126,7 +126,7 @@ export default function SearchOverlay({ isOpen, onClose, onSelectProduct }: Sear
                     <button
                       key={i}
                       onClick={() => setQuery(term)}
-                      className="px-4 py-2 rounded-xl bg-[#FFFFFF] hover:bg-[#0B1220] hover:text-[#F8FAFC] border border-[#CBD5E1]/60 text-xs text-[#0B1220] transition-colors font-medium"
+                      className="px-4 py-2 rounded-xl bg-[#ffffffffffff] hover:bg-[#0B1220] hover:text-[#F8FAFC] border border-[#CBD5E1]/60 text-xs text-[#0B1220] transition-colors font-medium"
                     >
                       {term}
                     </button>
@@ -155,7 +155,7 @@ export default function SearchOverlay({ isOpen, onClose, onSelectProduct }: Sear
                           onSelectProduct(product);
                           onClose();
                         }}
-                        className="flex items-center justify-between p-3 rounded-2xl bg-[#FFFFFF] hover:bg-[#F1F5F9] border border-[#CBD5E1]/60 cursor-pointer transition-colors group"
+                        className="flex items-center justify-between p-3 rounded-2xl bg-[#ffffffffffff] hover:bg-[#F1F5F9] border border-[#CBD5E1]/60 cursor-pointer transition-colors group"
                       >
                         <div className="flex items-center gap-4">
                           <div className="relative w-16 h-16 rounded-xl bg-[#F1F5F9] overflow-hidden shrink-0 border border-[#CBD5E1]/40">

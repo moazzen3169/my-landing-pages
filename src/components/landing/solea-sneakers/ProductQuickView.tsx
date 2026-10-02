@@ -93,7 +93,7 @@ export default function ProductQuickView({ product, onClose, onOpenSizeGuide }: 
           {/* CLOSE BUTTON */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-[#FFFFFF] hover:bg-[#0B1220] hover:text-[#F8FAFC] border border-[#CBD5E1]/60 flex items-center justify-center transition-colors text-[#0B1220]"
+            className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-[#ffffffffffff] hover:bg-[#0B1220] hover:text-[#F8FAFC] border border-[#CBD5E1]/60 flex items-center justify-center transition-colors text-[#0B1220]"
             aria-label="بستن"
           >
             <X className="w-4 h-4 shrink-0" />
@@ -147,7 +147,7 @@ export default function ProductQuickView({ product, onClose, onOpenSizeGuide }: 
               </div>
 
               {/* VISUAL TECHNICAL METRICS */}
-              <div className="bg-[#FFFFFF] border border-[#CBD5E1]/60 p-3.5 rounded-xl text-xs font-peyda space-y-2 mb-5">
+              <div className="bg-[#ffffffffffff] border border-[#CBD5E1]/60 p-3.5 rounded-xl text-xs font-peyda space-y-2 mb-5">
                 <div className="flex items-center justify-between">
                   <span className="text-[#0B1220] font-semibold">کوشنینگ / نرمی:</span>
                   <span className="text-[#0B1220] font-mono tracking-widest font-bold">● ● ● ● ○</span>
@@ -179,7 +179,7 @@ export default function ProductQuickView({ product, onClose, onOpenSizeGuide }: 
                       title={c.name}
                     >
                       {selectedColorIndex === idx && (
-                        <Check className={`w-4 h-4 ${c.hex === '#F8FAFC' || c.hex === '#FFFFFF' ? 'text-black' : 'text-white'}`} />
+                        <Check className={`w-4 h-4 ${c.hex === '#F8FAFC' || c.hex === '#ffffffffffff' ? 'text-black' : 'text-white'}`} />
                       )}
                     </button>
                   ))}
@@ -210,7 +210,7 @@ export default function ProductQuickView({ product, onClose, onOpenSizeGuide }: 
                       className={`py-2 text-xs font-mono font-bold rounded-xl border transition-colors ${
                         selectedSize === sz
                           ? 'bg-[#0B1220] text-[#F8FAFC] border-[#0B1220]'
-                          : 'bg-[#FFFFFF] text-[#0B1220] border-[#CBD5E1]/60 hover:border-[#0B1220]'
+                          : 'bg-[#ffffffffffff] text-[#0B1220] border-[#CBD5E1]/60 hover:border-[#0B1220]'
                       }`}
                     >
                       {sz}

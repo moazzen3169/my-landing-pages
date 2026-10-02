@@ -8,7 +8,7 @@ export default function AuthenticitySection() {
   const icons = [Award, PackageCheck, ShieldCheck, Headphones];
 
   return (
-    <section className="py-16 md:py-24 bg-[#F2EFE9] border-y border-[#DDD9D2] font-peyda">
+    <section className="py-16 md:py-24 bg-[#F2EFE9] border-y border-[#ffffff] font-peyda">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 md:px-12">
 
         {/* SECTION HEADER */}
@@ -32,10 +32,10 @@ export default function AuthenticitySection() {
             return (
               <div
                 key={pillar.id}
-                className="bg-[#F7F5F1] p-6 sm:p-8 border border-[#DDD9D2] text-start flex flex-col justify-between transition-all hover:border-[#171717]"
+                className="bg-[#F7F5F1] p-6 sm:p-8 border border-[#ffffff] text-start flex flex-col justify-between transition-all hover:border-[#171717]"
               >
                 <div>
-                  <div className="w-12 h-12 bg-[#EAE4DA] border border-[#DDD9D2] text-[#B29A6A] flex items-center justify-center mb-6">
+                  <div className="w-12 h-12 bg-[#EAE4DA] border border-[#ffffff] text-[#B29A6A] flex items-center justify-center mb-6">
                     <Icon className="w-6 h-6 stroke-[1.5]" />
                   </div>
                   <h3 className="text-base font-extrabold text-[#171717] mb-2">

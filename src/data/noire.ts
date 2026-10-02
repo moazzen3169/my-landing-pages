@@ -38,7 +38,7 @@ export const NOIRE_PRODUCTS: Product[] = [
     price: 7800000,
     currency: 'TMN',
     colors: [
-      { name: 'Crisp White', hex: '#FFFFFF', image: '/images/Men-shirts/g-star-waffle-henley-relaxed-t-shirt-white.png' },
+      { name: 'Crisp White', hex: '#ffffffffffff', image: '/images/Men-shirts/g-star-waffle-henley-relaxed-t-shirt-white.png' },
       { name: 'Sky Blue', hex: '#B0C4DE', image: '/images/Men-shirts/g-star-lash-t-shirt-light-blue.png' },
       { name: 'Onyx Black', hex: '#181818', image: '/images/Men-shirts/g-star-lash-t-shirt-black.png' }
     ],

@@ -35,7 +35,7 @@ export default function ProductCard({
 
   return (
     <div
-      className="group relative flex flex-col w-full bg-[#FFFFFF] border border-[#D7D4CD] overflow-hidden transition-all duration-300 hover:shadow-lg"
+      className="group relative flex flex-col w-full bg-[#ffffffffffff] border border-[#D7D4CD] overflow-hidden transition-all duration-300 hover:shadow-lg"
       onMouseEnter={() => {
         if (product.images.length > 1) setActiveImageIndex(1);
       }}

@@ -39,12 +39,12 @@ export default function QuickViewModal({
       <div className="absolute inset-0" onClick={onClose} />
 
       {/* MODAL CONTAINER */}
-      <div className="relative w-full max-w-4xl bg-[#F7F5F1] border border-[#DDD9D2] overflow-hidden shadow-2xl z-10 max-h-[90vh] overflow-y-auto">
+      <div className="relative w-full max-w-4xl bg-[#F7F5F1] border border-[#ffffff] overflow-hidden shadow-2xl z-10 max-h-[90vh] overflow-y-auto">
 
         {/* CLOSE BUTTON */}
         <button
           onClick={onClose}
-          className="absolute top-4 left-4 p-2 bg-[#F2EFE9] hover:bg-[#171717] hover:text-[#F7F5F1] text-[#171717] transition-all z-20 border border-[#DDD9D2]"
+          className="absolute top-4 left-4 p-2 bg-[#F2EFE9] hover:bg-[#171717] hover:text-[#F7F5F1] text-[#171717] transition-all z-20 border border-[#ffffff]"
           title="بستن"
         >
           <X className="w-5 h-5 stroke-[2]" />
@@ -54,7 +54,7 @@ export default function QuickViewModal({
         <div className="grid grid-cols-1 md:grid-cols-12 text-start">
 
           {/* IMAGE COLUMN (55% ON DESKTOP) */}
-          <div className="md:col-span-6 lg:col-span-7 bg-[#EFECE6] p-6 flex flex-col justify-between relative border-b md:border-b-0 md:border-l border-[#DDD9D2]">
+          <div className="md:col-span-6 lg:col-span-7 bg-[#EFECE6] p-6 flex flex-col justify-between relative border-b md:border-b-0 md:border-l border-[#ffffff]">
             <div className="relative aspect-square w-full">
               <Image
                 src={product.images[0]}
@@ -66,7 +66,7 @@ export default function QuickViewModal({
             </div>
 
             {/* AUTHENTICITY FLOATING BADGE */}
-            <div className="mt-4 p-3 bg-[#F7F5F1] border border-[#DDD9D2] flex items-center gap-2 text-xs text-[#171717]">
+            <div className="mt-4 p-3 bg-[#F7F5F1] border border-[#ffffff] flex items-center gap-2 text-xs text-[#171717]">
               <ShieldCheck className="w-4 h-4 text-[#B29A6A] shrink-0" />
               <span>ضمانت اصالت ۱۰۰٪ و سلامت چرم با شناسنامه معتبر</span>
             </div>
@@ -90,7 +90,7 @@ export default function QuickViewModal({
               </h2>
 
               {/* PRICING */}
-              <div className="mb-6 pb-4 border-b border-[#DDD9D2] flex items-baseline gap-3">
+              <div className="mb-6 pb-4 border-b border-[#ffffff] flex items-baseline gap-3">
                 <span className="text-xl sm:text-2xl font-black text-[#171717] font-vazir">
                   {product.priceFormatted}
                 </span>
@@ -120,7 +120,7 @@ export default function QuickViewModal({
                         className={`px-3 py-1.5 text-xs font-medium border flex items-center gap-2 transition-all ${
                           selectedColor === c.name
                             ? 'border-[#171717] bg-[#171717] text-[#F7F5F1]'
-                            : 'border-[#DDD9D2] bg-[#F2EFE9] text-[#171717] hover:border-[#171717]'
+                            : 'border-[#ffffff] bg-[#F2EFE9] text-[#171717] hover:border-[#171717]'
                         }`}
                       >
                         <span
@@ -147,7 +147,7 @@ export default function QuickViewModal({
                       className={`px-3 py-1.5 text-xs font-medium border transition-all ${
                         selectedSize === s
                           ? 'border-[#171717] bg-[#171717] text-[#F7F5F1]'
-                          : 'border-[#DDD9D2] bg-[#F2EFE9] text-[#171717] hover:border-[#171717]'
+                          : 'border-[#ffffff] bg-[#F2EFE9] text-[#171717] hover:border-[#171717]'
                       }`}
                     >
                       {s}
@@ -159,7 +159,7 @@ export default function QuickViewModal({
             </div>
 
             {/* ACTIONS */}
-            <div className="space-y-3 pt-4 border-t border-[#DDD9D2]">
+            <div className="space-y-3 pt-4 border-t border-[#ffffff]">
 
               <div className="flex items-center gap-3">
                 <button
@@ -179,7 +179,7 @@ export default function QuickViewModal({
                   className={`p-3.5 border transition-all ${
                     isWishlisted
                       ? 'bg-[#6F1D2A] text-white border-[#6F1D2A]'
-                      : 'border-[#DDD9D2] bg-[#F2EFE9] text-[#171717] hover:border-[#171717]'
+                      : 'border-[#ffffff] bg-[#F2EFE9] text-[#171717] hover:border-[#171717]'
                   }`}
                   title="علاقه‌مندی"
                 >

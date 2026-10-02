@@ -21,17 +21,17 @@ export default function ProductCard({
   badgeLabel,
 }: ProductCardProps) {
   return (
-    <div className="group relative bg-[#F7F5F1] border border-[#DDD9D2] overflow-hidden transition-all duration-300 flex flex-col justify-between text-start hover:border-[#171717]/40">
+    <div className="group relative bg-white/0  overflow-hidden transition-all duration-300 flex flex-col justify-between text-start hover:border-[#171717]/40">
 
       {/* IMAGE AREA */}
-      <div className="relative aspect-square w-full bg-[#EFECE6] overflow-hidden">
+      <div className="relative aspect-4/5 w-full bg-[#EFECE6] overflow-hidden">
 
         {/* PRODUCT IMAGE */}
         <Image
           src={product.images[0]}
           alt={product.name}
           fill
-          className="object-cover object-center group-hover:scale-102 transition-transform duration-500 ease-out p-4"
+          className="object-cover object-center group-hover:scale-102 transition-transform duration-500 ease-out "
           unoptimized
         />
 
@@ -63,7 +63,7 @@ export default function ProductCard({
           className={`absolute top-3 left-3 p-2 rounded-full transition-all z-10 ${
             isWishlisted
               ? 'bg-[#6F1D2A] text-white shadow-md'
-              : 'bg-[#F7F5F1]/80 hover:bg-[#F7F5F1] text-[#171717] border border-[#DDD9D2]'
+              : 'bg-[#F7F5F1]/80 hover:bg-[#F7F5F1] text-[#171717] border border-[#ffffff]'
           }`}
           title="افزودن به علاقه‌مندی‌ها"
         >
@@ -105,7 +105,7 @@ export default function ProductCard({
         </div>
 
         {/* PRICE & DISCOUNT */}
-        <div className="mt-3 pt-3 border-t border-[#DDD9D2]/50 flex items-baseline justify-between">
+        <div className="mt-3 pt-3 border-t border-[#ffffff]/50 flex items-baseline justify-between">
           <div>
             {product.originalPriceFormatted && (
               <span className="block text-[11px] text-[#77736D] line-through font-vazir -mb-0.5">

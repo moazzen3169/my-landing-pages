@@ -19,7 +19,7 @@ export default function MobileBottomNav({
   onOpenWishlist,
 }: MobileBottomNavProps) {
   return (
-    <div className="fixed bottom-0 inset-x-0 bg-[#F7F5F1]/95 backdrop-blur-md border-t border-[#DDD9D2] z-40 lg:hidden py-2 px-3 font-peyda shadow-lg">
+    <div className="fixed bottom-0 inset-x-0 bg-[#F7F5F1]/95 backdrop-blur-md border-t border-[#ffffff] z-40 lg:hidden py-2 px-3 font-peyda shadow-lg">
       <div className="flex items-center justify-around">
 
         {/* HOME */}

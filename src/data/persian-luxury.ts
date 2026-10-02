@@ -178,7 +178,7 @@ export const PERSIAN_LUXURY_PRODUCTS: PersianProduct[] = [
     priceFormatted: '۲,۶۰۰,۰۰۰ تومان',
     currency: 'تومان',
     colors: [
-      { name: 'سفید خالص', hex: '#FFFFFF', image: '/images/Men-shirts/g-star-structured-tweeter-grandad-t-shirt-white.png' },
+      { name: 'سفید خالص', hex: '#ffffffffffff', image: '/images/Men-shirts/g-star-structured-tweeter-grandad-t-shirt-white.png' },
       { name: 'کرم نسکافه‌ای', hex: '#C2B49A', image: '/images/Men-shirts/g-star-relaxed-base-t-shirt-beige.png' }
     ],
     sizes: ['S', 'M', 'L', 'XL'],

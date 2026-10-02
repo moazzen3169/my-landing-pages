@@ -45,7 +45,6 @@ export default function Header({
     { label: 'کفش و اکسسوری', href: '#categories' },
     { label: 'برندها', href: '#brands' },
     { label: 'منتخب کلکسیون', href: '#the-edit' },
-    { label: 'فروش خصوصی', href: '#campaign', isHighlight: true },
   ];
 
   return (
@@ -62,7 +61,7 @@ export default function Header({
         <div className="flex items-center gap-6">
           <Link href="/shop/persian-luxury-v1" className="group text-start flex flex-col">
             <span className="text-xl sm:text-2xl font-extrabold tracking-widest text-[#171717] font-serif uppercase transition-colors group-hover:text-[#B29A6A]">
-              TABRIZ BOUTIQUE
+              mor'e
             </span>
             <span className="text-[9px] text-[#77736D] tracking-[0.25em] uppercase font-sans -mt-0.5 font-medium">
               HAUTE COUTURE • LEATHER & SHOES

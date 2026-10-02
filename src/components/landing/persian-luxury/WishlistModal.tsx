@@ -29,10 +29,10 @@ export default function WishlistModal({
       <div className="absolute inset-0" onClick={onClose} />
 
       {/* CONTAINER */}
-      <div className="relative w-full max-w-2xl bg-[#F7F5F1] border border-[#DDD9D2] p-6 shadow-2xl z-10 max-h-[85vh] overflow-y-auto text-start">
+      <div className="relative w-full max-w-2xl bg-[#F7F5F1] border border-[#ffffff] p-6 shadow-2xl z-10 max-h-[85vh] overflow-y-auto text-start">
 
         {/* HEADER */}
-        <div className="flex items-center justify-between pb-4 border-b border-[#DDD9D2] mb-6">
+        <div className="flex items-center justify-between pb-4 border-b border-[#ffffff] mb-6">
           <div className="flex items-center gap-2">
             <Heart className="w-5 h-5 text-[#6F1D2A] fill-current" />
             <h3 className="text-lg font-extrabold text-[#171717]">
@@ -42,7 +42,7 @@ export default function WishlistModal({
 
           <button
             onClick={onClose}
-            className="p-1.5 text-[#171717] hover:bg-[#DDD9D2]"
+            className="p-1.5 text-[#171717] hover:bg-[#ffffff]"
             title="بستن"
           >
             <X className="w-5 h-5 stroke-[2]" />
@@ -60,7 +60,7 @@ export default function WishlistModal({
             {wishlistedProducts.map((p) => (
               <div
                 key={p.id}
-                className="bg-[#F2EFE9] p-3 border border-[#DDD9D2] flex gap-3 relative"
+                className="bg-[#F2EFE9] p-3 border border-[#ffffff] flex gap-3 relative"
               >
                 <div className="relative w-20 h-20 bg-[#EFECE6] shrink-0">
                   <Image

@@ -36,7 +36,7 @@ export default function CustomerTrustSection() {
             return (
               <div
                 key={idx}
-                className="bg-[#FFFFFF] border border-[#CBD5E1]/60 p-6 rounded-[20px] transition-colors duration-300 hover:border-[#0B1220] flex flex-col justify-between"
+                className="bg-[#ffffffffffff] border border-[#CBD5E1]/60 p-6 rounded-[20px] transition-colors duration-300 hover:border-[#0B1220] flex flex-col justify-between"
               >
                 <div>
                   <div className="w-11 h-11 rounded-xl bg-[#0B1220] text-[#F8FAFC] flex items-center justify-center mb-4">

@@ -46,10 +46,10 @@ export default function CartDrawer({
       <div className="absolute inset-0" onClick={onClose} />
 
       {/* DRAWER CONTENT */}
-      <div className="relative w-full max-w-md bg-[#F7F5F1] h-full shadow-2xl z-10 flex flex-col justify-between border-r border-[#DDD9D2] text-start">
+      <div className="relative w-full max-w-md bg-[#F7F5F1] h-full shadow-2xl z-10 flex flex-col justify-between border-r border-[#ffffff] text-start">
 
         {/* DRAWER HEADER */}
-        <div className="p-5 border-b border-[#DDD9D2] flex items-center justify-between bg-[#F2EFE9]">
+        <div className="p-5 border-b border-[#ffffff] flex items-center justify-between bg-[#F2EFE9]">
           <div className="flex items-center gap-2">
             <ShoppingBag className="w-5 h-5 text-[#171717] stroke-[1.75]" />
             <span className="text-base font-extrabold text-[#171717]">
@@ -59,7 +59,7 @@ export default function CartDrawer({
 
           <button
             onClick={onClose}
-            className="p-1.5 text-[#171717] hover:bg-[#DDD9D2] transition-colors"
+            className="p-1.5 text-[#171717] hover:bg-[#ffffff] transition-colors"
             title="بستن"
           >
             <X className="w-5 h-5 stroke-[2]" />
@@ -78,7 +78,7 @@ export default function CartDrawer({
             items.map((item, idx) => (
               <div
                 key={idx}
-                className="p-3 bg-[#F2EFE9] border border-[#DDD9D2] flex gap-3 text-start relative"
+                className="p-3 bg-[#F2EFE9] border border-[#ffffff] flex gap-3 text-start relative"
               >
                 {/* IMAGE */}
                 <div className="relative w-20 h-20 bg-[#EFECE6] shrink-0">
@@ -106,15 +106,15 @@ export default function CartDrawer({
                   </div>
 
                   {/* PRICE & QUANTITY */}
-                  <div className="flex items-center justify-between mt-2 pt-2 border-t border-[#DDD9D2]/60">
+                  <div className="flex items-center justify-between mt-2 pt-2 border-t border-[#ffffff]/60">
                     <span className="text-xs font-black text-[#171717] font-vazir">
                       {formatToman(item.product.price * item.quantity)}
                     </span>
 
-                    <div className="flex items-center border border-[#DDD9D2] bg-[#F7F5F1]">
+                    <div className="flex items-center border border-[#ffffff] bg-[#F7F5F1]">
                       <button
                         onClick={() => onUpdateQuantity(idx, -1)}
-                        className="p-1 text-[#171717] hover:bg-[#DDD9D2]"
+                        className="p-1 text-[#171717] hover:bg-[#ffffff]"
                       >
                         <Minus className="w-3 h-3" />
                       </button>
@@ -123,7 +123,7 @@ export default function CartDrawer({
                       </span>
                       <button
                         onClick={() => onUpdateQuantity(idx, 1)}
-                        className="p-1 text-[#171717] hover:bg-[#DDD9D2]"
+                        className="p-1 text-[#171717] hover:bg-[#ffffff]"
                       >
                         <Plus className="w-3 h-3" />
                       </button>
@@ -146,7 +146,7 @@ export default function CartDrawer({
 
         {/* DRAWER FOOTER */}
         {items.length > 0 && (
-          <div className="p-5 bg-[#F2EFE9] border-t border-[#DDD9D2] space-y-4">
+          <div className="p-5 bg-[#F2EFE9] border-t border-[#ffffff] space-y-4">
 
             {/* FREE SHIPPING GUARANTEE */}
             <div className="flex items-center gap-2 text-xs text-[#2E4032] font-semibold bg-[#2E4032]/10 p-2.5 border border-[#2E4032]/20">

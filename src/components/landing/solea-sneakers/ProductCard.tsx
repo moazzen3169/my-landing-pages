@@ -49,7 +49,7 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
   return (
     <div
       onClick={() => onQuickView(product)}
-      className="group relative bg-[#FFFFFF] border border-[#CBD5E1]/60 rounded-[20px] overflow-hidden hover:border-[#0B1220] transition-colors duration-300 flex flex-col justify-between cursor-pointer font-peyda text-right"
+      className="group relative bg-[#ffffffffffff] border border-[#CBD5E1]/60 rounded-[20px] overflow-hidden hover:border-[#0B1220] transition-colors duration-300 flex flex-col justify-between cursor-pointer font-peyda text-right"
       dir="rtl"
     >
       <div>

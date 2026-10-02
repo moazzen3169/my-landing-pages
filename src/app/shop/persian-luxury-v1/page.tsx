@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Header from '@/components/landing/persian-luxury/Header';
 import HeroSection from '@/components/landing/persian-luxury/HeroSection';
-import TrustStrip from '@/components/landing/persian-luxury/TrustStrip';
 import NewArrivals from '@/components/landing/persian-luxury/NewArrivals';
 import CategoryShowcase from '@/components/landing/persian-luxury/CategoryShowcase';
 import BrandSection from '@/components/landing/persian-luxury/BrandSection';
@@ -122,8 +121,6 @@ export default function PersianLuxuryWomenPage() {
         {/* 02 HERO SECTION */}
         <HeroSection />
 
-        {/* 03 TRUST STRIP */}
-        <TrustStrip />
 
         {/* 04 NEW ARRIVALS */}
         <NewArrivals

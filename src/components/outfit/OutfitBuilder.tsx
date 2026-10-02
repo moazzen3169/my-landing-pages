@@ -204,7 +204,7 @@ export default function OutfitBuilder({
                       if (activeStep === 'trouser') setSelectedTrouser(product);
                       if (activeStep === 'accessory') setSelectedAccessory(product);
                     }}
-                    className={`flex items-center gap-3.5 p-3 border text-start transition-all bg-[#FFFFFF] ${
+                    className={`flex items-center gap-3.5 p-3 border text-start transition-all bg-[#ffffffffffff] ${
                       isSelected
                         ? 'border-[#111111] shadow-sm ring-1 ring-[#111111]'
                         : 'border-[#D7D4CD] hover:border-[#77746E]'

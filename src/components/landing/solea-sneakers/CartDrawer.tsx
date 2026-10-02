@@ -47,7 +47,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
             className="fixed inset-y-0 left-0 max-w-full w-full sm:w-[440px] bg-[#F8FAFC] flex flex-col z-10 text-right border-r border-[#CBD5E1]/80"
           >
             {/* HEADER */}
-            <div className="p-5 sm:p-6 bg-[#FFFFFF] border-b border-[#CBD5E1]/60 flex items-center justify-between">
+            <div className="p-5 sm:p-6 bg-[#ffffffffffff] border-b border-[#CBD5E1]/60 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-[#F1F5F9] border border-[#CBD5E1]/50 flex items-center justify-center">
                   <ShoppingBag className="w-5 h-5 text-[#0B1220]" />
@@ -111,7 +111,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                 cart.map((item) => (
                   <div
                     key={item.id}
-                    className="p-4 rounded-2xl bg-[#FFFFFF] border border-[#CBD5E1]/60 flex gap-4 items-center justify-between"
+                    className="p-4 rounded-2xl bg-[#ffffffffffff] border border-[#CBD5E1]/60 flex gap-4 items-center justify-between"
                   >
                     <div className="relative w-20 h-20 bg-[#F1F5F9] rounded-xl overflow-hidden shrink-0 border border-[#CBD5E1]/40">
                       <Image
@@ -188,7 +188,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
             {/* FOOTER & CHECKOUT */}
             {cart.length > 0 && (
-              <div className="p-5 sm:p-6 bg-[#FFFFFF] border-t border-[#CBD5E1]/60 space-y-4">
+              <div className="p-5 sm:p-6 bg-[#ffffffffffff] border-t border-[#CBD5E1]/60 space-y-4">
                 <div className="space-y-2 text-xs text-[#475569]">
                   <div className="flex justify-between">
                     <span>جمع جزء محصولات:</span>

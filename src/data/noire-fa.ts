@@ -38,7 +38,7 @@ export const NOIRE_PRODUCTS_FA: Product[] = [
     price: 7800000,
     currency: 'TMN',
     colors: [
-      { name: 'سفید عاجی', hex: '#FFFFFF', image: '/images/Men-shirts/g-star-waffle-henley-relaxed-t-shirt-white.png' },
+      { name: 'سفید عاجی', hex: '#ffffffffffff', image: '/images/Men-shirts/g-star-waffle-henley-relaxed-t-shirt-white.png' },
       { name: 'آبی آسمانی', hex: '#B0C4DE', image: '/images/Men-shirts/g-star-lash-t-shirt-light-blue.png' },
       { name: 'مشکی انیکس', hex: '#181818', image: '/images/Men-shirts/g-star-lash-t-shirt-black.png' }
     ],

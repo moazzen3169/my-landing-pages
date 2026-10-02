@@ -12,7 +12,7 @@ export default function Footer() {
           {/* COL 1: ABOUT BOUTIQUE */}
           <div>
             <span className="block text-xl font-bold font-serif text-[#F7F5F1] mb-2 uppercase tracking-wide">
-              TABRIZ BOUTIQUE
+              mor'e
             </span>
             <p className="text-xs text-[#A09C96] leading-relaxed mb-4">
               مرجع تخصصی عرضه کیف و کفش‌های زنانه فاخر و بااصالت از برندهای برتر جهان در ایران.
@@ -28,7 +28,7 @@ export default function Footer() {
             <h4 className="text-xs font-mono font-bold text-[#B29A6A] uppercase tracking-wider mb-4">
               فروشگاه
             </h4>
-            <ul className="space-y-2.5 text-xs text-[#DDD9D2]">
+            <ul className="space-y-2.5 text-xs text-[#ffffff]">
               <li><a href="#categories" className="hover:text-[#B29A6A] transition-colors">کیف زنانه</a></li>
               <li><a href="#categories" className="hover:text-[#B29A6A] transition-colors">کفش زنانه</a></li>
               <li><a href="#categories" className="hover:text-[#B29A6A] transition-colors">کیف پول و کلچ</a></li>
@@ -43,7 +43,7 @@ export default function Footer() {
             <h4 className="text-xs font-mono font-bold text-[#B29A6A] uppercase tracking-wider mb-4">
               خدمات مشتریان
             </h4>
-            <ul className="space-y-2.5 text-xs text-[#DDD9D2]">
+            <ul className="space-y-2.5 text-xs text-[#ffffff]">
               <li><a href="#store-info" className="hover:text-[#B29A6A] transition-colors">تماس با ما</a></li>
               <li><a href="#authenticity" className="hover:text-[#B29A6A] transition-colors">راهنمای خرید و انتخاب</a></li>
               <li><a href="#authenticity" className="hover:text-[#B29A6A] transition-colors">ارسال و تحویل اکسپرس</a></li>
@@ -56,7 +56,7 @@ export default function Footer() {
             <h4 className="text-xs font-mono font-bold text-[#B29A6A] uppercase tracking-wider mb-4">
               درباره فروشگاه
             </h4>
-            <ul className="space-y-2.5 text-xs text-[#DDD9D2]">
+            <ul className="space-y-2.5 text-xs text-[#ffffff]">
               <li><a href="#store-info" className="hover:text-[#B29A6A] transition-colors">فروشگاه حضوری تبریز</a></li>
               <li><a href="#authenticity" className="hover:text-[#B29A6A] transition-colors">اصالت و ضمانت محصولات</a></li>
               <li><a href="#the-edit" className="hover:text-[#B29A6A] transition-colors">استایل و کالکشن‌ها</a></li>

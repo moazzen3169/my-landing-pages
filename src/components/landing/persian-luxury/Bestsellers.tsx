@@ -20,11 +20,11 @@ export default function Bestsellers({
   const bestSellers = products.filter((p) => p.isBestSeller).slice(0, 4);
 
   return (
-    <section className="py-16 md:py-24 bg-[#F7F5F1] font-peyda">
+    <section className="py-16 md:py-24 bg-[#FDFDFD] font-peyda">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 md:px-12">
 
         {/* SECTION HEADER */}
-        <div className="text-start mb-10 md:mb-14 border-b border-[#DDD9D2] pb-6 flex flex-col md:flex-row md:items-end justify-between">
+        <div className="text-start mb-10 md:mb-14 border-b border-[#ffffff] pb-6 flex flex-col md:flex-row md:items-end justify-between">
           <div>
             <span className="block text-xs font-mono font-bold text-[#B29A6A] uppercase tracking-widest mb-1">
               BESTSELLERS

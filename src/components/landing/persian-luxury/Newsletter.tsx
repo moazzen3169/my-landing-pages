@@ -15,7 +15,7 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="py-14 bg-[#F7F5F1] font-peyda border-b border-[#DDD9D2]">
+    <section className="py-14 bg-[#F7F5F1] font-peyda border-b border-[#ffffff]">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 md:px-12 text-center max-w-xl">
         <h3 className="text-xl font-bold text-[#171717] mb-2">
           از انتخاب‌های تازه باخبر شوید
@@ -25,7 +25,7 @@ export default function Newsletter() {
         </p>
 
         {submitted ? (
-          <div className="p-3 bg-[#EAE4DA] border border-[#DDD9D2] text-xs font-semibold text-[#171717]">
+          <div className="p-3 bg-[#EAE4DA] border border-[#ffffff] text-xs font-semibold text-[#171717]">
             ✓ ایمیل شما با موفقیت ثبت گردید.
           </div>
         ) : (
@@ -36,7 +36,7 @@ export default function Newsletter() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="ایمیل شما..."
               required
-              className="flex-grow px-4 py-3 bg-[#F2EFE9] border border-[#DDD9D2] text-xs text-[#171717] focus:outline-none focus:border-[#171717]"
+              className="flex-grow px-4 py-3 bg-[#F2EFE9] border border-[#ffffff] text-xs text-[#171717] focus:outline-none focus:border-[#171717]"
             />
             <button
               type="submit"

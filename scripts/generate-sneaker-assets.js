@@ -109,7 +109,7 @@ function createCategorySVG(title: string, bgGradient: string[], accentColor: str
   <path d="M-50,450 C250,350 450,550 950,250" fill="none" stroke="${accentColor}" stroke-width="1.5" opacity="0.15" />
 
   <!-- Editorial Watermark -->
-  <text x="50%" y="55%" text-anchor="middle" fill="#FFFFFF" opacity="0.06" font-family="sans-serif" font-weight="900" font-size="120" letter-spacing="16">${title}</text>
+  <text x="50%" y="55%" text-anchor="middle" fill="#ffffffffffff" opacity="0.06" font-family="sans-serif" font-weight="900" font-size="120" letter-spacing="16">${title}</text>
 </svg>`;
 }
 

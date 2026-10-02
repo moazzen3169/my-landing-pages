@@ -22,11 +22,11 @@ export default function CuratedEditSection({
   const curatedProducts = products.filter((p) => p.isCurated).slice(0, 3);
 
   return (
-    <section id="the-edit" className="py-16 md:py-24 bg-[#EFECE6] border-y border-[#DDD9D2] font-peyda">
+    <section id="the-edit" className="py-16 md:py-24 bg-[#EFECE6] border-y border-[#ffffff] font-peyda">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 md:px-12">
 
         {/* SECTION HEADER */}
-        <div className="text-start mb-10 md:mb-14 border-b border-[#DDD9D2] pb-6 max-w-2xl">
+        <div className="text-start mb-10 md:mb-14 border-b border-[#ffffff] pb-6 max-w-2xl">
           <span className="block text-xs font-mono font-bold text-[#B29A6A] uppercase tracking-widest mb-1">
             THE EDIT
           </span>
@@ -50,7 +50,7 @@ export default function CuratedEditSection({
               <h3 className="text-2xl sm:text-3xl font-extrabold mb-4 font-serif leading-snug">
                 راز جذابیت، در انتخاب جزئیات نهفته است
               </h3>
-              <p className="text-xs sm:text-sm text-[#DDD9D2] leading-relaxed mb-6 font-light">
+              <p className="text-xs sm:text-sm text-[#ffffff] leading-relaxed mb-6 font-light">
                 تأثیرگذاری با کیف‌های چرمی اصیل و کفش‌های دست‌ساز ایتالیایی و فرانسوی.
               </p>
             </div>
