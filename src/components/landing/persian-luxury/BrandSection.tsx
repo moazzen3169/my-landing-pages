@@ -13,7 +13,7 @@ export default function BrandSection({ onSelectBrand }: BrandSectionProps) {
   const row1Brands = LUXURY_BRANDS.slice(0, halfLength);
   const row2Brands = LUXURY_BRANDS.slice(halfLength);
 
-  // Repeat arrays to ensure smooth infinite seamless marquee scrolling
+  // 4x duplication to guarantee full width coverage on all screens and seamless looping
   const row1Items = [...row1Brands, ...row1Brands, ...row1Brands, ...row1Brands];
   const row2Items = [...row2Brands, ...row2Brands, ...row2Brands, ...row2Brands];
 
@@ -29,37 +29,46 @@ export default function BrandSection({ onSelectBrand }: BrandSectionProps) {
         </h2>
       </div>
 
-      {/* 2-ROW INFINITE CAROUSEL */}
-      <div className="space-y-4 w-full overflow-hidden select-none">
+      {/* 2-ROW INFINITE CAROUSEL CONTAINER */}
+      <div className="relative w-full overflow-hidden select-none space-y-4">
+        {/* GRADIENT FADE EDGES */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-white to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-white to-transparent z-10" />
 
-        {/* ROW 1 - MARQUEE RIGHT TO LEFT */}
-        <div className="relative w-full flex overflow-hidden py-1">
-          <div className="flex shrink-0 gap-4 animate-brand-marquee-left">
+        {/* ROW 1 - MARQUEE SLOWLY TO RIGHT */}
+        <div className="relative w-full flex overflow-hidden py-1" dir="ltr">
+          <div className="flex shrink-0 gap-4 animate-brand-marquee-right hover:[animation-play-state:paused]">
             {row1Items.map((brand, idx) => (
               <button
                 key={`r1-${brand.id}-${idx}`}
                 onClick={() => onSelectBrand?.(brand.name)}
-                className="w-48 sm:w-60 h-20 sm:h-24 bg-[#FAFAFA] border border-[#E5E5E5] hover:border-[#000000] hover:bg-[#FFFFFF] transition-all duration-300 flex items-center justify-center px-4 shrink-0 group cursor-pointer rounded-none"
+                className="w-48 sm:w-60 h-20 sm:h-24 bg-[#FAFAFA] border border-[#E5E5E5] hover:border-[#000000] hover:bg-[#FFFFFF] transition-all duration-300 flex flex-col items-center justify-center px-4 shrink-0 group/card cursor-pointer rounded-none"
               >
-                <span className="text-sm sm:text-base font-normal tracking-widest text-[#111111] group-hover:text-[#000000] uppercase font-sans text-center transition-colors">
+                <span className="text-sm sm:text-base font-normal tracking-widest text-[#111111] group-hover/card:text-[#000000] uppercase font-sans text-center transition-colors">
                   {brand.name}
+                </span>
+                <span className="text-[10px] text-[#888888] font-peyda mt-1">
+                  {brand.persianName}
                 </span>
               </button>
             ))}
           </div>
         </div>
 
-        {/* ROW 2 - MARQUEE LEFT TO RIGHT */}
-        <div className="relative w-full flex overflow-hidden py-1">
-          <div className="flex shrink-0 gap-4 animate-brand-marquee-right">
+        {/* ROW 2 - MARQUEE SLOWLY TO LEFT */}
+        <div className="relative w-full flex overflow-hidden py-1" dir="ltr">
+          <div className="flex shrink-0 gap-4 animate-brand-marquee-left hover:[animation-play-state:paused]">
             {row2Items.map((brand, idx) => (
               <button
                 key={`r2-${brand.id}-${idx}`}
                 onClick={() => onSelectBrand?.(brand.name)}
-                className="w-48 sm:w-60 h-20 sm:h-24 bg-[#FAFAFA] border border-[#E5E5E5] hover:border-[#000000] hover:bg-[#FFFFFF] transition-all duration-300 flex items-center justify-center px-4 shrink-0 group cursor-pointer rounded-none"
+                className="w-48 sm:w-60 h-20 sm:h-24 bg-[#FAFAFA] border border-[#E5E5E5] hover:border-[#000000] hover:bg-[#FFFFFF] transition-all duration-300 flex flex-col items-center justify-center px-4 shrink-0 group/card cursor-pointer rounded-none"
               >
-                <span className="text-sm sm:text-base font-normal tracking-widest text-[#111111] group-hover:text-[#000000] uppercase font-sans text-center transition-colors">
+                <span className="text-sm sm:text-base font-normal tracking-widest text-[#111111] group-hover/card:text-[#000000] uppercase font-sans text-center transition-colors">
                   {brand.name}
+                </span>
+                <span className="text-[10px] text-[#888888] font-peyda mt-1">
+                  {brand.persianName}
                 </span>
               </button>
             ))}
@@ -68,16 +77,8 @@ export default function BrandSection({ onSelectBrand }: BrandSectionProps) {
 
       </div>
 
-      {/* INLINE CSS KEYFRAMES FOR NON-STOP MARQUEE */}
+      {/* INLINE CSS KEYFRAMES FOR NON-STOP SMOOTH MARQUEE */}
       <style jsx>{`
-        @keyframes brandMarqueeLeft {
-          0% {
-            transform: translateX(0%);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
         @keyframes brandMarqueeRight {
           0% {
             transform: translateX(-50%);
@@ -86,13 +87,23 @@ export default function BrandSection({ onSelectBrand }: BrandSectionProps) {
             transform: translateX(0%);
           }
         }
-        .animate-brand-marquee-left {
-          display: flex;
-          animation: brandMarqueeLeft 35s linear infinite;
+        @keyframes brandMarqueeLeft {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
         }
         .animate-brand-marquee-right {
           display: flex;
-          animation: brandMarqueeRight 35s linear infinite;
+          animation: brandMarqueeRight 45s linear infinite;
+          will-change: transform;
+        }
+        .animate-brand-marquee-left {
+          display: flex;
+          animation: brandMarqueeLeft 45s linear infinite;
+          will-change: transform;
         }
       `}</style>
     </section>

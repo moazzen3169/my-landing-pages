@@ -94,12 +94,13 @@ export default function Header({
 
           <button
             onClick={onOpenWishlist}
-            className="p-1 hover:opacity-60 transition-opacity relative"
+            className="p-1 hover:opacity-60 transition-opacity relative flex items-center gap-2 text-xs font-normal"
             title="علاقه‌مندی‌ها"
           >
             <Heart className="w-4 h-4 stroke-[1.25]" />
+            <span className="hidden sm:inline">علاقه‌مندی‌ها</span>
             {wishlistCount > 0 && (
-              <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-[#000000] text-white text-[9px] font-normal flex items-center justify-center">
+              <span className="w-4 h-4 bg-[#000000] text-white text-[9px] font-normal flex items-center justify-center">
                 {wishlistCount}
               </span>
             )}
