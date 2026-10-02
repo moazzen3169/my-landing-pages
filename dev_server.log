@@ -2,9 +2,9 @@ $ next dev
 ▲ Next.js 16.3.8 (Turbopack)
 - Local:         http://localhost:3000
 - Network:       http://192.168.0.2:3000
-✓ Ready in 526ms
-✓ Running next.config.ts took 44ms
+✓ Ready in 547ms
+✓ Running next.config.ts took 47ms
 
 ○ Compiling /shop/persian-luxury-v1 ...
- GET /shop/persian-luxury-v1 200 in 5.0s (next.js: 4.4s, application-code: 627ms)
- GET /shop/persian-luxury-v1 200 in 187ms (next.js: 10ms, application-code: 177ms)
+ HEAD /shop/persian-luxury-v1 200 in 4.6s (next.js: 4.1s, application-code: 500ms)
+ GET /shop/persian-luxury-v1 200 in 197ms (next.js: 11ms, application-code: 186ms)

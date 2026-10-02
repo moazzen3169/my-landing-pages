@@ -4,48 +4,46 @@ import React, { useState } from 'react';
 
 export default function Newsletter() {
   const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
-      setSubmitted(true);
+      alert('ایمیل شما با موفقیت ثبت شد.');
       setEmail('');
     }
   };
 
   return (
-    <section className="py-14 bg-[#F7F5F1] font-peyda border-b border-[#ffffff]">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 md:px-12 text-center max-w-xl">
-        <h3 className="text-xl font-bold text-[#171717] mb-2">
-          از انتخاب‌های تازه باخبر شوید
-        </h3>
-        <p className="text-xs text-[#77736D] mb-6">
-          با ثبت ایمیل خود، از ورودی جدیدترین کیف و کفش‌های لوکس و کمپین‌های خصوصی مطلع گردید.
+    <section className="py-20 md:py-28 bg-[#FFFFFF] border-t border-[#E5E5E5] font-peyda text-[#111111]">
+      <div className="max-w-[600px] mx-auto px-6 text-center">
+
+        <span className="block text-[11px] font-mono font-medium text-[#999999] uppercase tracking-widest mb-2">
+          NEWSLETTER
+        </span>
+        <h2 className="text-2xl sm:text-3xl font-light text-[#000000] mb-4">
+          عضویت در خبرنامه MOR'E
+        </h2>
+        <p className="text-xs text-[#666666] mb-8 font-normal leading-relaxed">
+          برای اطلاع از کالکشن‌های جدید، دعوت‌نامه‌های خصوصی و پیشنهادات ویژه، ایمیل خود را وارد نمایید.
         </p>
 
-        {submitted ? (
-          <div className="p-3 bg-[#EAE4DA] border border-[#ffffff] text-xs font-semibold text-[#171717]">
-            ✓ ایمیل شما با موفقیت ثبت گردید.
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="flex items-center gap-2 max-w-md mx-auto">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="ایمیل شما..."
-              required
-              className="flex-grow px-4 py-3 bg-[#F2EFE9] border border-[#ffffff] text-xs text-[#171717] focus:outline-none focus:border-[#171717]"
-            />
-            <button
-              type="submit"
-              className="px-6 py-3 bg-[#171717] hover:bg-[#2C2926] text-[#F7F5F1] text-xs font-semibold transition-all shrink-0"
-            >
-              عضویت
-            </button>
-          </form>
-        )}
+        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="آدرس ایمیل شما"
+            required
+            className="flex-1 px-4 py-3 bg-[#FAFAFA] border border-[#E5E5E5] text-xs text-[#000000] focus:outline-none focus:border-[#000000] rounded-none dir-ltr text-start font-sans"
+          />
+          <button
+            type="submit"
+            className="px-8 py-3 bg-[#000000] hover:bg-[#111111] text-white text-xs font-normal tracking-wider transition-colors rounded-none"
+          >
+            عضویت
+          </button>
+        </form>
+
       </div>
     </section>
   );

@@ -102,7 +102,7 @@ export default function PersianLuxuryWomenPage() {
 
   return (
     <div
-      className="min-h-screen bg-[#F7F5F1] text-[#171717] font-peyda selection:bg-[#B29A6A] selection:text-white dir-rtl"
+      className="min-h-screen bg-[#FFFFFF] text-[#111111] font-peyda selection:bg-[#000000] selection:text-white dir-rtl"
       dir="rtl"
       lang="fa"
     >
@@ -120,7 +120,6 @@ export default function PersianLuxuryWomenPage() {
       <main className="space-y-0">
         {/* 02 HERO SECTION */}
         <HeroSection />
-
 
         {/* 04 NEW ARRIVALS */}
         <NewArrivals
@@ -174,7 +173,7 @@ export default function PersianLuxuryWomenPage() {
         {/* 11 AUTHENTICITY SECTION */}
         <AuthenticitySection />
 
-        {/* 12 PHYSICAL STORE CONNECTION (TABRIZ) */}
+        {/* 12 PHYSICAL STORE CONNECTION */}
         <PhysicalStoreSection />
 
         {/* 13 CUSTOMER SUPPORT */}

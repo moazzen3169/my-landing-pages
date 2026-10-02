@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Heart, Eye, CheckCircle2 } from 'lucide-react';
+import { Heart, Eye } from 'lucide-react';
 import { LuxuryProduct } from '@/data/persian-luxury-women';
 
 interface ProductCardProps {
@@ -20,113 +20,104 @@ export default function ProductCard({
   onQuickView,
   badgeLabel,
 }: ProductCardProps) {
+  const secondImage = product.images[1] || product.images[0];
+
   return (
-    <div className="group relative bg-white/0  overflow-hidden transition-all duration-300 flex flex-col justify-between text-start hover:border-[#171717]/40">
+    <div className="group relative bg-[#FFFFFF] border-none overflow-hidden flex flex-col justify-between text-start cursor-pointer">
 
-      {/* IMAGE AREA */}
-      <div className="relative aspect-4/5 w-full bg-[#EFECE6] overflow-hidden">
-
-        {/* PRODUCT IMAGE */}
+      {/* IMAGE CONTAINER (3:4 aspect ratio) */}
+      <div
+        onClick={() => onQuickView?.(product)}
+        className="relative aspect-[3/4] w-full bg-[#F5F5F5] overflow-hidden"
+      >
+        {/* PRIMARY IMAGE */}
         <Image
           src={product.images[0]}
           alt={product.name}
           fill
-          className="object-cover object-center group-hover:scale-102 transition-transform duration-500 ease-out "
+          className="object-cover object-center group-hover:opacity-0 transition-opacity duration-300 ease-out"
           unoptimized
         />
 
-        {/* BADGES */}
-        <div className="absolute top-3 right-3 flex flex-col gap-1.5 z-10">
+        {/* SECONDARY IMAGE ON HOVER */}
+        <Image
+          src={secondImage}
+          alt={product.name}
+          fill
+          className="object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"
+          unoptimized
+        />
+
+        {/* MINIMALIST BADGE */}
+        <div className="absolute top-3 right-3 flex flex-col gap-1 z-10">
           {product.discountPercent && (
-            <span className="px-2.5 py-1 bg-[#6F1D2A] text-[#F7F5F1] text-[10px] font-bold tracking-wider rounded-xs shadow-xs">
-              {product.discountPercent}٪ تخفیف
+            <span className="px-2 py-0.5 bg-[#000000] text-[#FFFFFF] text-[10px] font-mono font-normal">
+              -{product.discountPercent}%
             </span>
           )}
           {badgeLabel && !product.discountPercent && (
-            <span className="px-2.5 py-1 bg-[#171717] text-[#F7F5F1] text-[10px] font-bold tracking-wider rounded-xs">
+            <span className="px-2 py-0.5 bg-[#000000] text-[#FFFFFF] text-[10px] font-mono font-normal">
               {badgeLabel}
-            </span>
-          )}
-          {product.isNew && !product.discountPercent && !badgeLabel && (
-            <span className="px-2.5 py-1 bg-[#B29A6A] text-[#171717] text-[10px] font-bold tracking-wider rounded-xs">
-              جدید
             </span>
           )}
         </div>
 
-        {/* WISHLIST BUTTON */}
+        {/* WISHLIST ICON BUTTON */}
         <button
           onClick={(e) => {
             e.stopPropagation();
             onToggleWishlist?.(product.id);
           }}
-          className={`absolute top-3 left-3 p-2 rounded-full transition-all z-10 ${
-            isWishlisted
-              ? 'bg-[#6F1D2A] text-white shadow-md'
-              : 'bg-[#F7F5F1]/80 hover:bg-[#F7F5F1] text-[#171717] border border-[#ffffff]'
-          }`}
-          title="افزودن به علاقه‌مندی‌ها"
+          className="absolute top-3 left-3 p-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10 text-[#000000] hover:scale-110"
+          title="علاقه‌مندی‌ها"
         >
-          <Heart className={`w-4 h-4 stroke-[2] ${isWishlisted ? 'fill-current' : ''}`} />
+          <Heart className={`w-4 h-4 stroke-[1.25] ${isWishlisted ? 'fill-[#000000] text-[#000000]' : 'text-[#000000]'}`} />
         </button>
 
-        {/* QUICK VIEW HOVER OVERLAY BUTTON */}
-        <div className="absolute inset-x-3 bottom-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block z-10">
+        {/* QUICK VIEW HOVER BUTTON */}
+        <div className="absolute inset-x-4 bottom-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200 hidden sm:block z-10">
           <button
-            onClick={() => onQuickView?.(product)}
-            className="w-full py-2.5 bg-[#171717]/90 hover:bg-[#171717] text-[#F7F5F1] text-xs font-semibold transition-all flex items-center justify-center gap-2 backdrop-blur-xs"
+            onClick={(e) => {
+              e.stopPropagation();
+              onQuickView?.(product);
+            }}
+            className="w-full py-2.5 bg-[#000000] hover:bg-[#111111] text-[#FFFFFF] text-xs font-normal tracking-wider transition-colors flex items-center justify-center gap-2 rounded-none"
           >
-            <Eye className="w-3.5 h-3.5 stroke-[2]" />
+            <Eye className="w-3.5 h-3.5 stroke-[1.25]" />
             <span>مشاهده سریع</span>
           </button>
         </div>
 
       </div>
 
-      {/* METADATA AREA */}
-      <div className="p-4 sm:p-5 flex flex-col justify-between flex-grow">
+      {/* METADATA AREA UNDER IMAGE */}
+      <div className="pt-4 pb-2 px-1 flex flex-col justify-between flex-grow text-start">
         <div>
-          {/* BRAND NAME IN LATIN */}
-          <div className="flex items-center justify-between text-[11px] font-mono font-bold text-[#77736D] uppercase tracking-wider mb-1">
-            <span dir="ltr">{product.brand}</span>
-            <span className="flex items-center gap-1 text-[10px] text-[#B29A6A] font-semibold">
-              <CheckCircle2 className="w-3 h-3 shrink-0" />
-              اصالت
-            </span>
-          </div>
+          {/* LATIN BRAND NAME */}
+          <span className="block text-[10px] font-mono font-medium text-[#666666] uppercase tracking-wider mb-0.5" dir="ltr">
+            {product.brand}
+          </span>
 
           {/* PERSIAN PRODUCT NAME */}
           <h3
             onClick={() => onQuickView?.(product)}
-            className="text-sm font-semibold text-[#171717] mb-2 line-clamp-1 cursor-pointer hover:text-[#B29A6A] transition-colors leading-snug"
+            className="text-xs font-normal text-[#111111] line-clamp-1 hover:text-[#666666] transition-colors leading-relaxed"
           >
             {product.name}
           </h3>
         </div>
 
-        {/* PRICE & DISCOUNT */}
-        <div className="mt-3 pt-3 border-t border-[#ffffff]/50 flex items-baseline justify-between">
-          <div>
-            {product.originalPriceFormatted && (
-              <span className="block text-[11px] text-[#77736D] line-through font-vazir -mb-0.5">
-                {product.originalPriceFormatted}
-              </span>
-            )}
-            <span className="text-sm sm:text-base font-bold text-[#171717] font-vazir">
-              {product.priceFormatted}
+        {/* PRICES */}
+        <div className="mt-2 flex items-baseline gap-2">
+          <span className="text-xs font-normal text-[#000000]">
+            {product.priceFormatted}
+          </span>
+          {product.originalPriceFormatted && (
+            <span className="text-[11px] text-[#999999] line-through font-normal">
+              {product.originalPriceFormatted}
             </span>
-          </div>
-
-          {/* MOBILE QUICK VIEW AFFORDANCE */}
-          <button
-            onClick={() => onQuickView?.(product)}
-            className="sm:hidden p-1.5 text-[#171717] hover:text-[#B29A6A]"
-            title="مشاهده جزئیات"
-          >
-            <Eye className="w-4 h-4 stroke-[1.75]" />
-          </button>
+          )}
         </div>
-
       </div>
 
     </div>
