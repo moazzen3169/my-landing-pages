@@ -58,11 +58,10 @@ export default function CuratedEditSection({
             {/* EDITORIAL IMAGE */}
             <div className="relative aspect-[4/3] w-full bg-[#23211F] overflow-hidden border border-[#333]">
               <Image
-                src="/images/landings/persian-luxury-v1/editorial-curated.svg"
+                src="/images/landings/persian-luxury-v1/eb999d2da3544527afa3f403b2f88acd.png"
                 alt="منتخب لوکس کیف و کفش"
                 fill
                 className="object-cover object-center"
-                unoptimized
               />
             </div>
           </div>

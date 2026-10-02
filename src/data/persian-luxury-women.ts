@@ -109,7 +109,7 @@ export const LUXURY_CATEGORIES: CategoryInfo[] = [
     slug: 'handbags',
     namePersian: 'کیف زنانه',
     nameEnglish: 'HANDBAGS',
-    image: '/images/landings/persian-luxury-v1/category-handbags.svg',
+    image: '/images/landings/persian-luxury-v1/164ecee416c045cbaf64a689ec1deccc.png',
     productCount: 140,
     description: 'مجموعه‌ای فاخر از کیف‌های دوشی، توت‌بگ و کراس‌بادی برندهای برتر'
   },
@@ -118,7 +118,7 @@ export const LUXURY_CATEGORIES: CategoryInfo[] = [
     slug: 'shoes',
     namePersian: 'کفش زنانه',
     nameEnglish: 'FOOTWEAR',
-    image: '/images/landings/persian-luxury-v1/category-shoes.svg',
+    image: '/images/landings/persian-luxury-v1/3a28804b7a8a4efda8600ddc555107ea.png',
     productCount: 95,
     description: 'کفش‌های پاشنه‌دار مجلسی، لوفر و صندل‌های دست‌ساز فاخر'
   },
@@ -127,7 +127,7 @@ export const LUXURY_CATEGORIES: CategoryInfo[] = [
     slug: 'wallets',
     namePersian: 'کیف پول و کلچ',
     nameEnglish: 'WALLETS & CLUTCHES',
-    image: '/images/landings/persian-luxury-v1/category-wallets.svg',
+    image: '/images/landings/persian-luxury-v1/40d50d271cc443b5b8926a728089c031.png',
     productCount: 48,
     description: 'کیف‌‌پول‌های چرمی ساختاریافته و کلچ‌های شبانه برندهای معتبر'
   },
@@ -136,7 +136,7 @@ export const LUXURY_CATEGORIES: CategoryInfo[] = [
     slug: 'accessories',
     namePersian: 'اکسسوری لوکس',
     nameEnglish: 'ACCESSORIES',
-    image: '/images/landings/persian-luxury-v1/category-accessories.svg',
+    image: '/images/landings/persian-luxury-v1/5633740aa337463f8e14fbceebc3fc3b.png',
     productCount: 36,
     description: 'عینک‌های آفتابی، روسری‌های ابریشمی و اکسسوری‌های خاص'
   }
@@ -153,11 +153,11 @@ export const LUXURY_PRODUCTS: LuxuryProduct[] = [
     price: 285000000,
     priceFormatted: '۲۸۵,۰۰۰,۰۰۰ تومان',
     colors: [
-      { name: 'مشکی مات', hex: '#1A1A1A', image: '/images/landings/persian-luxury-v1/prada-galleria-bag.svg' },
-      { name: 'کرم عاجی', hex: '#EBE5D8', image: '/images/landings/persian-luxury-v1/prada-galleria-bag.svg' }
+      { name: 'مشکی مات', hex: '#1A1A1A', image: '/images/landings/persian-luxury-v1/164ecee416c045cbaf64a689ec1deccc.png' },
+      { name: 'کرم عاجی', hex: '#EBE5D8', image: '/images/landings/persian-luxury-v1/819bb24f1fca4c3c8453d4b54960093c.png' }
     ],
     sizes: ['One Size'],
-    images: ['/images/landings/persian-luxury-v1/prada-galleria-bag.svg'],
+    images: ['/images/landings/persian-luxury-v1/164ecee416c045cbaf64a689ec1deccc.png', '/images/landings/persian-luxury-v1/819bb24f1fca4c3c8453d4b54960093c.png'],
     descriptionPersian: 'کیف چرمی گالریا پرادا ساخته شده از چرم صافیانو ضدخش با قفل و لوگوی مثلثی چرمی و قطعات فلزی طلایی آبکاری‌شده.',
     detailsPersian: 'دارای دو محفظه زیپ‌دار مجزا، بند دوشی چرمی قابل تنظیم و آستر پارچه‌ای با لوگوی برجسته پرادا. ابعاد: ۲۸×۲۰×۱۲ سانتی‌متر.',
     materialPersian: '۱۰۰٪ چرم گوساله Saffiano ایتالیا',
@@ -181,10 +181,10 @@ export const LUXURY_PRODUCTS: LuxuryProduct[] = [
     price: 215000000,
     priceFormatted: '۲۱۵,۰۰۰,۰۰۰ تومان',
     colors: [
-      { name: 'بژ مونوگرام و قهوه‌ای', hex: '#A89275', image: '/images/landings/persian-luxury-v1/gucci-dionysus-bag.svg' }
+      { name: 'بژ مونوگرام و قهوه‌ای', hex: '#A89275', image: '/images/landings/persian-luxury-v1/8ccd31b146ea4bd19f9a83f172ea29d7.png' }
     ],
     sizes: ['One Size'],
-    images: ['/images/landings/persian-luxury-v1/gucci-dionysus-bag.svg'],
+    images: ['/images/landings/persian-luxury-v1/8ccd31b146ea4bd19f9a83f172ea29d7.png'],
     descriptionPersian: 'کیف آیکونیک دیونیسوس گوچی با پارچه کرباس GG Supreme و سگک نعل اسبی با سرهای ببر که نماد افسانه‌ای گوچی است.',
     detailsPersian: 'زنجیر شانه متغیر برای استفاده دوشی و کراس‌بادی، لبه‌های دست‌دوز و آستر جیر نرم فاخر. ابعاد: ۲۵×۱۴×۸ سانتی‌متر.',
     materialPersian: 'کرباس GG Supreme با لبه‌دوزی چرم طبیعی',
@@ -211,10 +211,10 @@ export const LUXURY_PRODUCTS: LuxuryProduct[] = [
     priceFormatted: '۲۴۰,۰۰۰,۰۰۰ تومان',
     originalPriceFormatted: '۲۷۵,۰۰۰,۰۰۰ تومان',
     colors: [
-      { name: 'مشکی کلاغی', hex: '#111111', image: '/images/landings/persian-luxury-v1/saint-laurent-loulou.svg' }
+      { name: 'مشکی کلاغی', hex: '#111111', image: '/images/landings/persian-luxury-v1/916909c204ed45bbbcaac75d7249e761.png' }
     ],
     sizes: ['One Size'],
-    images: ['/images/landings/persian-luxury-v1/saint-laurent-loulou.svg'],
+    images: ['/images/landings/persian-luxury-v1/916909c204ed45bbbcaac75d7249e761.png'],
     descriptionPersian: 'کیف دوشی لولو سنت لوران با دوخت‌های لوزی پف‌دار و لوگوی فلزی YSL طلایی. طراحی جاودانه و فوق‌العاده شیک.',
     detailsPersian: 'دو محفظه داخلی بزرگ با جیب زیپ‌دار میانی، بند زنجیری با پد چرمی شانه. ابعاد: ۳۲×۲۲×۱۲ سانتی‌متر.',
     materialPersian: '۱۰۰٪ چرم بره نرم فرانسوی با دوخت برجسته',
@@ -238,11 +238,11 @@ export const LUXURY_PRODUCTS: LuxuryProduct[] = [
     price: 195000000,
     priceFormatted: '۱۹۵,۰۰۰,۰۰۰ تومان',
     colors: [
-      { name: 'سبز بوتگا', hex: '#2E4032', image: '/images/landings/persian-luxury-v1/bottega-veneta-jodie.svg' },
-      { name: 'کرم نود', hex: '#E2DDD3', image: '/images/landings/persian-luxury-v1/bottega-veneta-jodie.svg' }
+      { name: 'سبز بوتگا', hex: '#2E4032', image: '/images/landings/persian-luxury-v1/9331b45139d44dd08f094a12032ace19.png' },
+      { name: 'کرم نود', hex: '#E2DDD3', image: '/images/landings/persian-luxury-v1/c0635df1e35d486489c82a3cb280a76e.png' }
     ],
     sizes: ['One Size'],
-    images: ['/images/landings/persian-luxury-v1/bottega-veneta-jodie.svg'],
+    images: ['/images/landings/persian-luxury-v1/9331b45139d44dd08f094a12032ace19.png', '/images/landings/persian-luxury-v1/c0635df1e35d486489c82a3cb280a76e.png'],
     descriptionPersian: 'کیف مینی جودی بوتگا ونتا با بافت چرمی دست‌ساز انترچاتو و گره معروف روی دسته. شاهکار هنر چرم‌دوزی ایتالیا.',
     detailsPersian: 'بسته شدن با زیپ طلایی مخفی، آستر چرم بره نپا بسیار نرم. ابعاد: ۲۸×۲۳×۸ سانتی‌متر.',
     materialPersian: '۱۰۰٪ چرم بره Nappa با بافت دست‌ساز',
@@ -269,10 +269,10 @@ export const LUXURY_PRODUCTS: LuxuryProduct[] = [
     priceFormatted: '۳۱۰,۰۰۰,۰۰۰ تومان',
     originalPriceFormatted: '۳۵۰,۰۰۰,۰۰۰ تومان',
     colors: [
-      { name: 'شرابی عمیق', hex: '#6F1D2A', image: '/images/landings/persian-luxury-v1/fendi-peekaboo.svg' }
+      { name: 'شرابی عمیق', hex: '#6F1D2A', image: '/images/landings/persian-luxury-v1/ce8aec7aa41345cc8d1bdaa4018beecb.png' }
     ],
     sizes: ['One Size'],
-    images: ['/images/landings/persian-luxury-v1/fendi-peekaboo.svg'],
+    images: ['/images/landings/persian-luxury-v1/ce8aec7aa41345cc8d1bdaa4018beecb.png'],
     descriptionPersian: 'کیف پيکابو فندی با چرم فاخر رومانو و قفل چرخشی دوطرفه آیکونیک فندی. مجلل، اصیل و کم‌نظیر.',
     detailsPersian: 'دیواره سخت میانی با دو محفظه مجزا، دسته کوتاه چرمی و بند دوشی بلند قابل جدا شدن. ابعاد: ۲۷×۲۱×۱۱ سانتی‌متر.',
     materialPersian: '۱۰۰٪ چرم گوساله Cuoio Romano دست‌دوز',
@@ -296,10 +296,10 @@ export const LUXURY_PRODUCTS: LuxuryProduct[] = [
     price: 88000000,
     priceFormatted: '۸۸,۰۰۰,۰۰۰ تومان',
     colors: [
-      { name: 'مشکی ورنی با زیره قرمز', hex: '#111111', image: '/images/landings/persian-luxury-v1/christian-louboutin-so-kate.svg' }
+      { name: 'مشکی ورنی با زیره قرمز', hex: '#111111', image: '/images/landings/persian-luxury-v1/db894d0562154b5c8fd4b785407a6d5e.png' }
     ],
     sizes: ['36', '37', '38', '39', '40'],
-    images: ['/images/landings/persian-luxury-v1/christian-louboutin-so-kate.svg'],
+    images: ['/images/landings/persian-luxury-v1/db894d0562154b5c8fd4b785407a6d5e.png'],
     descriptionPersian: 'کفش پاشنه‌دار آیکونیک سو کیت کریستین لوبوتن با پاشنه باریک ۱۲ سانتی‌متری و زیره چرمی قرمز معروف جهانی.',
     detailsPersian: 'پنجه نوک‌تیز کشیده با شیب جذاب و ارگونومیک، آستر چرم طبیعی ایتالیایی.',
     materialPersian: '۱۰۰٪ چرم ورنی گوساله با زیره قرمز امضا شده',
@@ -323,10 +323,10 @@ export const LUXURY_PRODUCTS: LuxuryProduct[] = [
     price: 95000000,
     priceFormatted: '۹۵,۰۰۰,۰۰۰ تومان',
     colors: [
-      { name: 'شمپاینی ساتن', hex: '#D4C29E', image: '/images/landings/persian-luxury-v1/jimmy-choo-pumps.svg' }
+      { name: 'شمپاینی ساتن', hex: '#D4C29E', image: '/images/landings/persian-luxury-v1/dbc4719eab2940af8862d43cfd8245a7.png' }
     ],
     sizes: ['36.5', '37', '37.5', '38', '38.5'],
-    images: ['/images/landings/persian-luxury-v1/jimmy-choo-pumps.svg'],
+    images: ['/images/landings/persian-luxury-v1/dbc4719eab2940af8862d43cfd8245a7.png'],
     descriptionPersian: 'کفش مجلسی جیمی چو با ربان‌های بزرگ ملموس ساتن غیرمتقارن روی پاشنه و مچ پا. شاهکار طراحی برای مراسم لوکس.',
     detailsPersian: 'پاشنه باریک ۸.۵ سانتی‌متری بسیار راحت، پارچه ساتن ابریشمی با آستر چرمی.',
     materialPersian: 'ساتن ابریشمی ایتالیایی با آستر چرم گوساله',
@@ -350,10 +350,10 @@ export const LUXURY_PRODUCTS: LuxuryProduct[] = [
     price: 78000000,
     priceFormatted: '۷۸,۰۰۰,۰۰۰ تومان',
     colors: [
-      { name: 'مشکی براق', hex: '#1C1C1C', image: '/images/landings/persian-luxury-v1/prada-monolith-loafers.svg' }
+      { name: 'مشکی براق', hex: '#1C1C1C', image: '/images/landings/persian-luxury-v1/e577c707c2d2469f838b12f0a51ec13a.png' }
     ],
     sizes: [ '37', '38', '39', '40'],
-    images: ['/images/landings/persian-luxury-v1/prada-monolith-loafers.svg'],
+    images: ['/images/landings/persian-luxury-v1/e577c707c2d2469f838b12f0a51ec13a.png'],
     descriptionPersian: 'لوفر لژدار مونالیت پرادا با زیره لاستیکی عاج‌دار مدرن و لوگوی فلزی مثلثی پرادا روی زبانه چرمی.',
     detailsPersian: 'ارتفاع لژ ۵.۵ سانتی‌متر، چرم برس خورده با درخشش ملایم لوکس.',
     materialPersian: 'چرم گوساله Spazzolato برس‌خورده',
@@ -380,10 +380,10 @@ export const LUXURY_PRODUCTS: LuxuryProduct[] = [
     priceFormatted: '۴۵,۰۰۰,۰۰۰ تومان',
     originalPriceFormatted: '۵۲,۰۰۰,۰۰۰ تومان',
     colors: [
-      { name: 'کرم نود پفکی', hex: '#DDD0BC', image: '/images/landings/persian-luxury-v1/coach-tabby-bag.svg' }
+      { name: 'کرم نود پفکی', hex: '#DDD0BC', image: '/images/landings/persian-luxury-v1/eb999d2da3544527afa3f403b2f88acd.png' }
     ],
     sizes: ['One Size'],
-    images: ['/images/landings/persian-luxury-v1/coach-tabby-bag.svg'],
+    images: ['/images/landings/persian-luxury-v1/eb999d2da3544527afa3f403b2f88acd.png'],
     descriptionPersian: 'کیف پیلو تابای کوچ با چرم نرم بالشتکی و سگک روکش‌شده با چرم هم‌رنگ. مدرن، جوان‌پسند و فوق‌العاده راحت.',
     detailsPersian: 'دارای دو بند قابل تعویض برای حمل کوتاه‌تر و کراس‌بادی بلند. ابعاد: ۲۶×۱۵×۸ سانتی‌متر.',
     materialPersian: '۱۰۰٪ چرم نپا طبیعی بسیار نرم',
@@ -407,10 +407,10 @@ export const LUXURY_PRODUCTS: LuxuryProduct[] = [
     price: 32000000,
     priceFormatted: '۳۲,۰۰۰,۰۰۰ تومان',
     colors: [
-      { name: 'قهوه‌ای شکلاتی', hex: '#2E241E', image: '/images/landings/persian-luxury-v1/michael-kors-tote.svg' }
+      { name: 'قهوه‌ای شکلاتی', hex: '#2E241E', image: '/images/landings/persian-luxury-v1/fe86159b38cb4f148da0213d3c850c07.png' }
     ],
     sizes: ['One Size'],
-    images: ['/images/landings/persian-luxury-v1/michael-kors-tote.svg'],
+    images: ['/images/landings/persian-luxury-v1/fe86159b38cb4f148da0213d3c850c07.png'],
     descriptionPersian: 'کیف توت بزرگ مریلین مایکل کورس با چرم دانه‌دار مقاوم و مدالیون طلایی لوگوی MK. انتخابی عالی برای استفاده روزمره و محیط کاری.',
     detailsPersian: 'محفظه زیپ‌دار ایمن با جیب‌های متعدد داخلی و جا لپ‌تاپ. ابعاد: ۳۸×۲۶×۱۳ سانتی‌متر.',
     materialPersian: 'چرم طبیعی Saffiano دانه‌دار',
@@ -434,10 +434,10 @@ export const LUXURY_PRODUCTS: LuxuryProduct[] = [
     price: 225000000,
     priceFormatted: '۲۲۵,۰۰۰,۰۰۰ تومان',
     colors: [
-      { name: 'عسلی اسپانیایی', hex: '#C28D5E', image: '/images/landings/persian-luxury-v1/loewe-puzzle-bag.svg' }
+      { name: 'عسلی اسپانیایی', hex: '#C28D5E', image: '/images/landings/persian-luxury-v1/164ecee416c045cbaf64a689ec1deccc.png' }
     ],
     sizes: ['One Size'],
-    images: ['/images/landings/persian-luxury-v1/loewe-puzzle-bag.svg'],
+    images: ['/images/landings/persian-luxury-v1/164ecee416c045cbaf64a689ec1deccc.png'],
     descriptionPersian: 'کیف پازل لوئوِه با تکه‌دوزی‌های هندسی چرمی دقیق. قابلیت تا شدن تخت و استفاده به ۵ روش مختلف.',
     detailsPersian: 'حک لوگوی آناگرام روی درب چرمی، بند دوشی قابل تنظیم. ابعاد: ۲۴×۱۶.۵×۱۰.۵ سانتی‌متر.',
     materialPersian: '۱۰۰٪ چرم گوساله بومی اسپانیا',
@@ -461,10 +461,10 @@ export const LUXURY_PRODUCTS: LuxuryProduct[] = [
     price: 340000000,
     priceFormatted: '۳۴۰,۰۰۰,۰۰۰ تومان',
     colors: [
-      { name: 'مشکی کلاسیک', hex: '#171717', image: '/images/landings/persian-luxury-v1/dior-lady-dior.svg' }
+      { name: 'مشکی کلاسیک', hex: '#171717', image: '/images/landings/persian-luxury-v1/3a28804b7a8a4efda8600ddc555107ea.png' }
     ],
     sizes: ['One Size'],
-    images: ['/images/landings/persian-luxury-v1/dior-lady-dior.svg'],
+    images: ['/images/landings/persian-luxury-v1/3a28804b7a8a4efda8600ddc555107ea.png'],
     descriptionPersian: 'کیف لیدی دیور آیکونیک با دوخت برجسته کاناژ و آویزهای فلزی حروف D.I.O.R آبکاری شده با طلا.',
     detailsPersian: 'دسته‌های محکم و منحنی، بند دوشی چرمی نازک. ابعاد: ۲۴×۲۰×۱۱ سانتی‌متر.',
     materialPersian: '۱۰۰٪ چرم بره Cannage فرانسوی',
@@ -488,10 +488,10 @@ export const LUXURY_PRODUCTS: LuxuryProduct[] = [
     price: 490000000,
     priceFormatted: '۴۹۰,۰۰۰,۰۰۰ تومان',
     colors: [
-      { name: 'مشکی با قفل طلایی', hex: '#141414', image: '/images/landings/persian-luxury-v1/chanel-classic-flap.svg' }
+      { name: 'مشکی با قفل طلایی', hex: '#141414', image: '/images/landings/persian-luxury-v1/40d50d271cc443b5b8926a728089c031.png' }
     ],
     sizes: ['One Size'],
-    images: ['/images/landings/persian-luxury-v1/chanel-classic-flap.svg'],
+    images: ['/images/landings/persian-luxury-v1/40d50d271cc443b5b8926a728089c031.png'],
     descriptionPersian: 'کیف کلاسیک فلپ شنل با دوخت لوزی، قفل متقاطع CC و زنجیر بافته‌شده با چرم. ارزشمندترین سرمایه‌گذاری مد جهان.',
     detailsPersian: 'درب دو لایه داخلی با جیب آینه‌ای، آستر چرم عنابی تیره شنل. ابعاد: ۲۵.۵×۱۵.۵×۶.۵ سانتی‌متر.',
     materialPersian: 'چرم گوساله Caviar ضدخش بسیار مقاوم',
@@ -515,10 +515,10 @@ export const LUXURY_PRODUCTS: LuxuryProduct[] = [
     price: 68000000,
     priceFormatted: '۶۸,۰۰۰,۰۰۰ تومان',
     colors: [
-      { name: 'مشکی با سگک طلایی', hex: '#171717', image: '/images/landings/persian-luxury-v1/gucci-mule-loafers.svg' }
+      { name: 'مشکی با سگک طلایی', hex: '#171717', image: '/images/landings/persian-luxury-v1/5633740aa337463f8e14fbceebc3fc3b.png' }
     ],
     sizes: ['36', '37', '38', '39'],
-    images: ['/images/landings/persian-luxury-v1/gucci-mule-loafers.svg'],
+    images: ['/images/landings/persian-luxury-v1/5633740aa337463f8e14fbceebc3fc3b.png'],
     descriptionPersian: 'مول چرمی پرینستون گوچی با سگک اسبی فلزی طلایی نعل‌مانند. ترکیبی راحت و فوق‌العاده شیک برای استایل روزمره فاخر.',
     detailsPersian: 'پاشنه مسطح ۱.۵ سانتی‌متری، کفی چرمی دست‌دوز فوق‌العاده نرم.',
     materialPersian: '۱۰۰٪ چرم گوساله صاف ایتالیایی',
@@ -542,10 +542,10 @@ export const LUXURY_PRODUCTS: LuxuryProduct[] = [
     price: 42000000,
     priceFormatted: '۴۲,۰۰۰,۰۰۰ تومان',
     colors: [
-      { name: 'مشکی تریومف', hex: '#1C1A18', image: '/images/landings/persian-luxury-v1/celine-triomphe-wallet.svg' }
+      { name: 'مشکی تریومف', hex: '#1C1A18', image: '/images/landings/persian-luxury-v1/819bb24f1fca4c3c8453d4b54960093c.png' }
     ],
     sizes: ['One Size'],
-    images: ['/images/landings/persian-luxury-v1/celine-triomphe-wallet.svg'],
+    images: ['/images/landings/persian-luxury-v1/819bb24f1fca4c3c8453d4b54960093c.png'],
     descriptionPersian: 'کیف پول کوچک سلین با لوگوی برجسته برنجی تریومف. جمع‌وجور، مدرن و بسیار کاربردی.',
     detailsPersian: 'دارای ۵ جای کارت اعتبار، جیب سکه زیپ‌دار و جای اسکناس. ابعاد: ۱۰.۵×۹ سانتی‌متر.',
     materialPersian: 'چرم طبیعی گوساله با قطعات برنجی طلایی',
@@ -569,10 +569,10 @@ export const LUXURY_PRODUCTS: LuxuryProduct[] = [
     price: 185000000,
     priceFormatted: '۱۸۵,۰۰۰,۰۰۰ تومان',
     colors: [
-      { name: 'مشکی ساختاری', hex: '#171717', image: '/images/landings/persian-luxury-v1/balenciaga-hourglass-bag.svg' }
+      { name: 'مشکی ساختاری', hex: '#171717', image: '/images/landings/persian-luxury-v1/8ccd31b146ea4bd19f9a83f172ea29d7.png' }
     ],
     sizes: ['One Size'],
-    images: ['/images/landings/persian-luxury-v1/balenciaga-hourglass-bag.svg'],
+    images: ['/images/landings/persian-luxury-v1/8ccd31b146ea4bd19f9a83f172ea29d7.png'],
     descriptionPersian: 'کیف هورگلس بالنسیاگا با پایه منحصربه‌فرد منحنی و آویز B فلزی طلایی. فرمی جسورانه که استایل شما را متمایز می‌کند.',
     detailsPersian: 'درب مگنتی، جیب پشتی دکمه‌دار و بند دوشی چرمی قابل جدا شدن. ابعاد: ۲۳×۱۵×۱۰ سانتی‌متر.',
     materialPersian: '۱۰۰٪ چرم طبیعی گوساله ایتالیایی',
@@ -594,7 +594,7 @@ export const PRIVATE_SALE_CAMPAIGN: CampaignInfo = {
   subtitlePersian: 'PRIVATE SALE',
   descriptionPersian: 'فرصتی منحصربه‌فرد برای تهیه محصولات منتخب از برترین برندهای بین‌المللی با تخفیف‌های محدود زمانی.',
   durationHours: 24,
-  bannerImage: '/images/landings/persian-luxury-v1/editorial-curated.svg',
+  bannerImage: '/images/landings/persian-luxury-v1/eb999d2da3544527afa3f403b2f88acd.png',
   productIds: ['pl-w-03', 'pl-w-05', 'pl-w-09']
 };
 
