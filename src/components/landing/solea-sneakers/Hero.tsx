@@ -27,7 +27,7 @@ export default function Hero({ onOpenSearch, onSelectCategory }: HeroProps) {
 
   return (
     <section className="  p-0 font-peyda" dir="rtl">
-      <div className="relative w-full h-[600px] sm:h-[700px] md:h-[800px] lg:h-[900px] xl:h-[1000px] 2xl:h-[1100px] overflow-hidden">
+      <div className="relative w-full ">
         <img
           className="mx-auto w-full "
           src="/images/landings/solea-sneakers/banner.jpg"
