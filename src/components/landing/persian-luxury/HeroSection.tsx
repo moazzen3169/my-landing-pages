@@ -76,12 +76,14 @@ export default function HeroSection() {
   }, []);
 
   // Transforms for Title 1 (Right Side - RTL Start)
-  const title1Opacity = useTransform(scrollYProgress, [0, 0.15, 0.3], [1, 0.5, 0]);
-  const title1Y = useTransform(scrollYProgress, [0, 0.3], [0, -20]);
+  const title1Opacity = useTransform(scrollYProgress, [0, 0.12], [1, 0], { clamp: true });
+  const title1Y = useTransform(scrollYProgress, [0, 0.12], [0, -20], { clamp: true });
+  const title1Visibility = useTransform(scrollYProgress, (v) => (v >= 0.12 ? 'hidden' : 'visible'));
 
   // Transforms for Title 2 (Left Side - RTL End)
-  const title2Opacity = useTransform(scrollYProgress, [0.15, 0.35, 0.85, 1], [0, 1, 1, 0]);
-  const title2Y = useTransform(scrollYProgress, [0.15, 0.35], [20, 0]);
+  const title2Opacity = useTransform(scrollYProgress, [0.08, 0.20], [0, 1], { clamp: true });
+  const title2Y = useTransform(scrollYProgress, [0.08, 0.20], [20, 0], { clamp: true });
+  const title2Visibility = useTransform(scrollYProgress, (v) => (v < 0.08 ? 'hidden' : 'visible'));
 
   return (
     <section
@@ -102,6 +104,7 @@ export default function HeroSection() {
                 style={{
                   opacity: title1Opacity,
                   y: title1Y,
+                  visibility: title1Visibility,
                 }}
                 className="space-y-4"
               >
@@ -157,6 +160,7 @@ export default function HeroSection() {
                 style={{
                   opacity: title2Opacity,
                   y: title2Y,
+                  visibility: title2Visibility,
                 }}
                 className="space-y-4"
               >
