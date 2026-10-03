@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Header from '@/components/landing/woman-lux/Header';
 import HeroSection from '@/components/landing/woman-lux/HeroSection';
-import CategorySection from '@/components/landing/woman-lux/CategorySection';
 import ProductCollection from '@/components/landing/woman-lux/ProductCollection';
 import ScrollInteractiveSection from '@/components/landing/woman-lux/ScrollInteractiveSection';
 import EditorialBrandSection from '@/components/landing/woman-lux/EditorialBrandSection';
@@ -125,9 +124,7 @@ export default function WomanLuxuryEditorialPage() {
           }}
         />
 
-
-
-        {/* 04 NEW COLLECTION PRODUCT ROW */}
+        {/* 03 NEW COLLECTION PRODUCT ROW */}
         <ProductCollection
           products={WOMAN_LUX_PRODUCTS}
           wishlistIds={wishlistIds}
@@ -139,12 +136,12 @@ export default function WomanLuxuryEditorialPage() {
           }}
         />
 
-        {/* 05 SCROLL-DRIVEN INTERACTIVE COLLECTION */}
+        {/* 04 SCROLL-DRIVEN INTERACTIVE COLLECTION */}
         <ScrollInteractiveSection
           onOpenProductDetail={(prod) => setSelectedProductDetail(prod)}
         />
 
-        {/* 06 EDITORIAL BRAND STORY */}
+        {/* 05 EDITORIAL BRAND STORY */}
         <EditorialBrandSection
           onExploreClick={() => {
             const el = document.getElementById('catalog');
@@ -152,7 +149,7 @@ export default function WomanLuxuryEditorialPage() {
           }}
         />
 
-        {/* 07 PRODUCT GRID */}
+        {/* 06 PRODUCT GRID */}
         <ProductGridSection
           products={WOMAN_LUX_PRODUCTS}
           wishlistIds={wishlistIds}
@@ -163,7 +160,7 @@ export default function WomanLuxuryEditorialPage() {
         />
       </main>
 
-      {/* 08 FOOTER */}
+      {/* 07 FOOTER */}
       <Footer />
 
       {/* MODALS & OVERLAYS */}
