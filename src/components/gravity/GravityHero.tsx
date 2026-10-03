@@ -106,7 +106,7 @@ export default function GravityHero() {
             <div className="flex flex-col sm:flex-row items-center gap-3.5 w-full sm:w-auto">
               <a
                 href="#new-arrivals"
-                className="w-full sm:w-auto px-7 py-3.5 bg-[#111111] text-white hover:bg-[#2563EB] transition-all duration-300 rounded-xs font-semibold text-sm flex items-center justify-center gap-2 group"
+                className="w-full sm:w-auto px-7 py-3.5 bg-[#111111] text-white hover:bg-[#333333] transition-all duration-300 rounded-xs font-semibold text-sm flex items-center justify-center gap-2 group"
               >
                 <span>مشاهده محصولات</span>
                 <ArrowDownLeft size={16} className="group-hover:-translate-x-0.5 group-hover:translate-y-0.5 transition-transform" />

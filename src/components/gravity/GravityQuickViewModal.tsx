@@ -55,7 +55,7 @@ export default function GravityQuickViewModal({
           {/* Details (Desktop: 7 cols) */}
           <div className="md:col-span-7 flex flex-col justify-between space-y-5">
             <div>
-              <span className="text-xs font-bold text-[#2563EB] uppercase tracking-wider block mb-1">
+              <span className="text-xs font-bold text-[#666666] uppercase tracking-wider block mb-1">
                 {product.brand}
               </span>
 
@@ -125,7 +125,7 @@ export default function GravityQuickViewModal({
                     onAddToCart(product, selectedSize);
                     onClose();
                   }}
-                  className="flex-grow py-3.5 bg-[#111111] hover:bg-[#2563EB] text-white font-extrabold text-sm rounded-xs transition-colors flex items-center justify-center gap-2"
+                  className="flex-grow py-3.5 bg-[#111111] hover:bg-[#333333] text-white font-extrabold text-sm rounded-xs transition-colors flex items-center justify-center gap-2"
                 >
                   <ShoppingBag size={18} />
                   <span>افزودن به سبد خرید</span>
@@ -135,8 +135,8 @@ export default function GravityQuickViewModal({
                   onClick={() => onToggleWishlist(product.id)}
                   className={`p-3.5 rounded-xs border transition-colors ${
                     isWishlisted
-                      ? 'bg-[#2563EB] text-white border-[#2563EB]'
-                      : 'bg-white text-[#111111] border-[#D7D4CD] hover:border-[#2563EB] hover:text-[#2563EB]'
+                      ? 'bg-[#111111] text-white border-[#111111]'
+                      : 'bg-white text-[#111111] border-[#D7D4CD] hover:border-[#111111] hover:text-[#111111]'
                   }`}
                   aria-label="علاقه‌مندی"
                 >
@@ -146,11 +146,11 @@ export default function GravityQuickViewModal({
 
               <div className="flex items-center justify-between text-[11px] text-[#777777] pt-2">
                 <span className="flex items-center gap-1">
-                  <Truck size={14} className="text-[#2563EB]" />
+                  <Truck size={14} className="text-[#111111]" />
                   ارسال سریع به سراسر ایران
                 </span>
                 <span className="flex items-center gap-1">
-                  <ShieldCheck size={14} className="text-[#2563EB]" />
+                  <ShieldCheck size={14} className="text-[#111111]" />
                   ۷ روز ضمانت تعویض
                 </span>
               </div>

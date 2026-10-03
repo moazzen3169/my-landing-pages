@@ -38,7 +38,7 @@ export default function GravityTrustSection() {
                 key={idx}
                 className="flex items-start gap-4 p-5 bg-white border border-[#E5E5E5] rounded-xs"
               >
-                <div className="p-3 bg-[#F3F2EE] text-[#2563EB] rounded-xs shrink-0">
+                <div className="p-3 bg-[#F3F2EE] text-[#111111] rounded-xs shrink-0">
                   <Icon size={22} className="stroke-[1.75]" />
                 </div>
                 <div>

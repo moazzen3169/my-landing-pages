@@ -31,7 +31,7 @@ export default function GravityStoreSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Text Content & Store Details (Desktop: 6 cols) */}
           <div className="lg:col-span-6 space-y-6">
-            <span className="text-xs font-bold text-[#3B82F6] tracking-wider uppercase block bg-[#2563EB]/20 w-fit px-3 py-1 rounded-full border border-[#2563EB]/40">
+            <span className="text-xs font-bold text-white tracking-wider uppercase block bg-white/10 w-fit px-3 py-1 rounded-full border border-white/20">
               فروشگاه حضوری تبریز
             </span>
 
@@ -45,22 +45,22 @@ export default function GravityStoreSection() {
 
             <div className="space-y-4 pt-4 border-t border-[#333333] text-xs sm:text-sm text-[#DDDDDD]">
               <div className="flex items-start gap-3">
-                <MapPin size={18} className="text-[#3B82F6] shrink-0 mt-0.5" />
+                <MapPin size={18} className="text-white shrink-0 mt-0.5" />
                 <span>[تبریز، مرکز شهر، خیابان امام، برج تجاری / فروشگاه گراویتی]</span>
               </div>
 
               <div className="flex items-center gap-3">
-                <Clock size={18} className="text-[#3B82F6] shrink-0" />
+                <Clock size={18} className="text-white shrink-0" />
                 <span>ساعات کاری: همه روزه از ۱۰:۰۰ الی ۲۱:۳۰</span>
               </div>
 
               <div className="flex items-center gap-3">
-                <Phone size={18} className="text-[#3B82F6] shrink-0" />
+                <Phone size={18} className="text-white shrink-0" />
                 <span>[شماره تماس فروشگاه: ۰۴۱-XXXXXXXX]</span>
               </div>
 
               <div className="flex items-center gap-3">
-                <InstagramIcon size={18} className="text-[#3B82F6] shrink-0" />
+                <InstagramIcon size={18} className="text-white shrink-0" />
                 <span>صفحه اینستاگرام: @gravity.menswear</span>
               </div>
             </div>
@@ -68,7 +68,7 @@ export default function GravityStoreSection() {
             <div className="flex flex-col sm:flex-row items-center gap-3.5 pt-4">
               <a
                 href="#footer"
-                className="w-full sm:w-auto px-6 py-3 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold text-xs sm:text-sm rounded-xs transition-colors flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-6 py-3 bg-white hover:bg-[#DDDDDD] text-[#111111] font-bold text-xs sm:text-sm rounded-xs transition-colors flex items-center justify-center gap-2"
               >
                 <Navigation size={15} />
                 <span>مسیر فروشگاه در نقشه</span>
@@ -96,7 +96,7 @@ export default function GravityStoreSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
               <div className="absolute bottom-6 right-6 left-6 p-4 bg-black/70 backdrop-blur-md rounded-xs border border-white/10">
-                <span className="text-xs font-bold text-[#3B82F6] block mb-1">
+                <span className="text-xs font-bold text-white block mb-1">
                   مرکز فروشگاه‌های حضوری گراویتی
                 </span>
                 <p className="text-xs text-[#CCCCCC]">

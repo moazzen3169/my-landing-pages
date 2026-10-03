@@ -12,7 +12,7 @@ export default function GravityShopByStyle() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#D7D4CD]/80 gap-4">
           <div>
-            <span className="text-xs font-bold text-[#2563EB] tracking-wider uppercase block mb-1">
+            <span className="text-xs font-bold text-[#666666] tracking-wider uppercase block mb-1">
               خرید بر اساس موقعیت
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#111111]">
@@ -50,7 +50,7 @@ export default function GravityShopByStyle() {
               {/* Text Area */}
               <div className="p-5 flex flex-col justify-between flex-grow">
                 <div>
-                  <h3 className="text-lg font-bold text-[#111111] group-hover:text-[#2563EB] transition-colors mb-2">
+                  <h3 className="text-lg font-bold text-[#111111] group-hover:text-[#666666] transition-colors mb-2">
                     {style.titleFa}
                   </h3>
                   <p className="text-xs text-[#666666] font-medium leading-relaxed mb-4">
@@ -60,7 +60,7 @@ export default function GravityShopByStyle() {
 
                 <a
                   href="#new-arrivals"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#111111] group-hover:text-[#2563EB] transition-colors pt-2 border-t border-[#F0EEEC]"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#111111] group-hover:text-[#666666] transition-colors pt-2 border-t border-[#F0EEEC]"
                 >
                   <span>مشاهده محصولات این استایل</span>
                   <ArrowUpLeft size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

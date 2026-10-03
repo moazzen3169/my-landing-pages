@@ -34,7 +34,7 @@ export default function GravityShopTheLook({ onAddToCart }: GravityShopTheLookPr
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-12 text-center max-w-2xl mx-auto">
-          <span className="text-xs font-bold text-[#2563EB] tracking-wider uppercase block mb-1">
+          <span className="text-xs font-bold text-[#666666] tracking-wider uppercase block mb-1">
             خرید مجموعه‌ای
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-[#111111] mb-3">
@@ -77,7 +77,7 @@ export default function GravityShopTheLook({ onAddToCart }: GravityShopTheLookPr
                 {look.items.map((item) => (
                   <div
                     key={item.id}
-                    className="flex items-center justify-between p-3.5 bg-[#F8F9FA] border border-[#E5E5E5] rounded-xs hover:border-[#2563EB] transition-colors"
+                    className="flex items-center justify-between p-3.5 bg-[#F8F9FA] border border-[#E5E5E5] rounded-xs hover:border-[#111111] transition-colors"
                   >
                     <div className="flex items-center gap-3">
                       <div className="relative w-12 h-14 bg-white rounded-xs overflow-hidden shrink-0 border border-[#E5E5E5]">
@@ -89,7 +89,7 @@ export default function GravityShopTheLook({ onAddToCart }: GravityShopTheLookPr
                         />
                       </div>
                       <div>
-                        <span className="text-[10px] text-[#2563EB] font-bold block">
+                        <span className="text-[10px] text-[#666666] font-bold block">
                           {item.category}
                         </span>
                         <h4 className="text-xs font-bold text-[#111111]">
@@ -110,7 +110,7 @@ export default function GravityShopTheLook({ onAddToCart }: GravityShopTheLookPr
                           image: item.image,
                         })
                       }
-                      className="p-2 bg-white text-[#111111] border border-[#D7D4CD] hover:bg-[#2563EB] hover:text-white hover:border-[#2563EB] rounded-xs transition-colors flex items-center gap-1 text-xs font-medium"
+                      className="p-2 bg-white text-[#111111] border border-[#D7D4CD] hover:bg-[#111111] hover:text-white hover:border-[#111111] rounded-xs transition-colors flex items-center gap-1 text-xs font-medium"
                       aria-label="افزودن آیتم"
                     >
                       <ShoppingBag size={14} />
@@ -134,7 +134,7 @@ export default function GravityShopTheLook({ onAddToCart }: GravityShopTheLookPr
 
               <button
                 onClick={handleAddAllToCart}
-                className="w-full sm:w-auto px-7 py-3.5 bg-[#111111] hover:bg-[#2563EB] text-white font-bold text-sm rounded-xs transition-colors flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-7 py-3.5 bg-[#111111] hover:bg-[#333333] text-white font-bold text-sm rounded-xs transition-colors flex items-center justify-center gap-2"
               >
                 <Check size={16} />
                 <span>افزودن کل استایل به سبد</span>

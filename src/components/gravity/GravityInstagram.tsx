@@ -30,7 +30,7 @@ export default function GravityInstagram() {
     <section className="py-20 md:py-24 bg-[#F8F9FA] border-b border-[#D7D4CD] font-peyda">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Header */}
-        <div className="inline-flex items-center gap-2 text-[#2563EB] mb-2 font-bold text-xs uppercase tracking-wider">
+        <div className="inline-flex items-center gap-2 text-[#666666] mb-2 font-bold text-xs uppercase tracking-wider">
           <InstagramIcon size={18} />
           <span>شبکه‌های اجتماعی</span>
         </div>
@@ -77,7 +77,7 @@ export default function GravityInstagram() {
           href="https://instagram.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-8 py-3 bg-[#111111] hover:bg-[#2563EB] text-white font-bold text-xs sm:text-sm rounded-xs transition-colors"
+          className="inline-flex items-center gap-2 px-8 py-3 bg-[#111111] hover:bg-[#333333] text-white font-bold text-xs sm:text-sm rounded-xs transition-colors"
         >
           <InstagramIcon size={16} />
           <span>مشاهده صفحه اینستاگرام (@gravity.menswear)</span>
