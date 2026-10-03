@@ -51,7 +51,7 @@ export default function QuickViewModal({
         {/* CLOSE BUTTON */}
         <button
           onClick={onClose}
-          className="absolute top-4 left-4 z-20 p-2 text-[#000000] hover:opacity-60 transition-opacity"
+          className="absolute top-4 right-4 z-20 p-2 text-[#000000] hover:opacity-60 transition-opacity"
         >
           <X className="w-5 h-5 stroke-[1.25]" />
         </button>
