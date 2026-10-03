@@ -520,5 +520,14 @@ export const LANDING_REGISTRY: LandingPageInfo[] = [
     theme: 'luxury-sports-editorial',
     dataset: 'SOLEA_PRODUCTS',
     previewImage: '/images/landings/solea-sneakers/nike-air-max-dn.svg'
+  },
+  {
+    slug: 'woman-luxury-editorial',
+    category: 'women-fashion',
+    title: 'نوآر زنانه (NOIRÉ Woman) — مانیفست مد و پوشاک لوکس زنانه (فارسی RTL)',
+    description: 'صفحه لندینگ مینیمال لوکس پوشاک زنانه شامل مانتو، کت، شلوار، پیراهن و پالتو با تجربه تعاملی استوری‌تلینگ، ویدیوی همه‌جانبه هیرو و خرید آنلاین.',
+    theme: 'minimal-luxury-editorial',
+    dataset: 'WOMAN_LUX_PRODUCTS',
+    previewImage: '/images/woman-lux/for-scrol-section-(1).webp'
   }
 ];
