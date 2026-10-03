@@ -56,13 +56,13 @@ export default function ScrollInteractiveSection({
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-[#111111] text-white min-h-[300vh] lg:min-h-[400vh]"
+      className="relative w-full bg-[#ffffff] text-white min-h-[300vh] lg:min-h-[400vh]"
     >
       {/* STICKY VIEWPORT CONTAINER */}
-      <div className="sticky top-0 w-full h-screen flex flex-col justify-between p-4 sm:p-8 lg:p-12 overflow-hidden">
+      <div className="sticky top-0 w-full h-screen flex flex-col justify-between  overflow-hidden">
 
         {/* EDITORIAL TOP BAR */}
-        <div className="relative z-20 flex items-center justify-between border-b border-white/10 pb-4">
+        <div className="relative z-20 flex items-center justify-between b">
           <div className="text-right">
             <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-white/50">
               EDITORIAL CAMPAIGN 2026
@@ -93,20 +93,12 @@ export default function ScrollInteractiveSection({
         </div>
 
         {/* CENTER IMAGE DISPLAY WITH IMMERSIVE TRANSITIONS */}
-        <div className="relative flex-1 my-4 flex items-center justify-center">
+        <div className="relative flex-1 my-1 flex items-center justify-center">
 
-          {/* BACKGROUND BLUR LAYER */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none blur-3xl">
-            <Image
-              src={activeProduct.image}
-              alt=""
-              fill
-              className="object-cover transition-all duration-700"
-            />
-          </div>
+
 
           {/* MAIN CENTERED EDITORIAL FRAME */}
-          <div className="relative w-full max-w-md sm:max-w-lg lg:max-w-xl aspect-[3/4] max-h-[60vh] sm:max-h-[65vh] overflow-hidden border border-white/10 bg-black/40 shadow-2xl transition-all duration-700">
+          <div className="relative w-full max-w-md  aspect-[1/6] max-h-[100vh]  overflow-hidden  transition-all duration-700">
             {SCROLL_SECTION_PRODUCTS.map((prod, idx) => {
               const isActive = idx === activeIndex;
               return (
@@ -130,7 +122,7 @@ export default function ScrollInteractiveSection({
                   />
 
                   {/* SUBTLE INNER VIGNETTE */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />
+                  <div className="absolute inset-0  pointer-events-none" />
                 </div>
               );
             })}

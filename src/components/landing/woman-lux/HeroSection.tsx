@@ -45,22 +45,22 @@ export default function HeroSection({
       </video>
 
       {/* SUBTLE DARK OVERLAY FOR TEXT LEGIBILITY */}
-      <div className="absolute inset-0 bg-black/35 backdrop-brightness-95" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40" />
+      <div className="absolute inset-0 bg-black/16 backdrop-brightness-95" />
+      <div className="absolute inset-0 backdrop-blur-sm" />
 
       {/* HERO CONTENT OVERLAY */}
       <div className="relative z-10 w-full h-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 flex flex-col justify-end pb-16 sm:pb-24">
-        <div className="max-w-2xl space-y-4 sm:space-y-6 text-right animate-fade-in-up">
+        <div className="max-w-2xl mx-auto sm:space-y-6 text-center animate-fade-in-up">
 
           {/* SMALL LABEL */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[11px] font-medium tracking-widest uppercase">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 text-[white] text-[11px] font-medium tracking-widest uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
             COLLECTION 2026
           </div>
 
           {/* LARGE HEADLINE */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight font-peyda tracking-normal">
-            «زیبایی در جزئیات است»
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight font-peyda tracking-normal">
+            زیبایی در جزئیات است
           </h1>
 
           {/* SUPPORTING LINE */}
@@ -69,7 +69,7 @@ export default function HeroSection({
           </p>
 
           {/* DUAL CTA BUTTONS */}
-          <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
+          <div className="pt-2 flex justify-center flex-wrap items-center gap-3 sm:gap-4">
             <button
               onClick={onExploreClick || handleScrollDown}
               className="px-6 sm:px-8 py-3.5 bg-[#111111] text-white text-xs sm:text-sm font-semibold border border-[#111111] hover:bg-white hover:text-[#111111] hover:border-white transition-all duration-300 min-w-[160px] text-center"

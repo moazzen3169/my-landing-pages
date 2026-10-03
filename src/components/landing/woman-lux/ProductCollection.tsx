@@ -24,7 +24,7 @@ export default function ProductCollection({
   const featuredProducts = products.filter((p) => p.featured).slice(0, 8);
 
   return (
-    <section id="new-arrivals" className="w-full bg-white section-padding border-b border-[#E5E5E5]">
+    <section id="new-arrivals" className="w-full bg-white py-8 border-b border-[#E5E5E5]">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
 
         {/* HEADER SECTION */}

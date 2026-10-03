@@ -86,11 +86,7 @@ export default function Header({
               <span className="font-serif tracking-widest text-xl sm:text-2xl font-bold uppercase">
                 NOIRÉ
               </span>
-              <span className={`text-[10px] tracking-normal font-medium px-2 py-0.5 border ${
-                isScrolled ? 'border-[#111111]/20 text-[#111111]' : 'border-white/30 text-white'
-              }`}>
-                زنانه
-              </span>
+
             </a>
           </div>
 

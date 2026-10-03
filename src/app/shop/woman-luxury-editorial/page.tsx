@@ -125,15 +125,7 @@ export default function WomanLuxuryEditorialPage() {
           }}
         />
 
-        {/* 03 CATEGORY NAVIGATION */}
-        <CategorySection
-          selectedCategory={selectedCategory}
-          onSelectCategory={(catId) => {
-            setSelectedCategory(catId);
-            const el = document.getElementById('catalog');
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
-          }}
-        />
+
 
         {/* 04 NEW COLLECTION PRODUCT ROW */}
         <ProductCollection
