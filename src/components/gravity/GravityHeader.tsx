@@ -35,35 +35,19 @@ export default function GravityHeader({
 
   return (
     <>
-      {/* Top Utility Announcement Bar */}
-      <div className="bg-[#111111] text-[#E5E5E5] text-[12px] py-2 px-4 text-center tracking-normal font-peyda border-b border-[#222222] transition-all">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <span className="hidden md:inline text-[#999999]">
-            ارسال سریع و رایگان برای خریدهای بالای ۲ میلیون تومان
-          </span>
-          <p className="mx-auto md:mx-0 font-medium">
-            فروشگاه گراویتی | عرضه منتخب پوشاک مردانه برتر ایران و جهان
-          </p>
-          <a
-            href="#store-section"
-            className="hidden md:inline text-[#3B82F6] hover:underline font-medium"
-          >
-            فروشگاه حضوری تبریز
-          </a>
-        </div>
-      </div>
+
 
       {/* Main Sticky Header */}
       <header
-        className={`sticky top-0 z-40 transition-all duration-300 font-peyda ${
+        className={`fixed w-full top-0 z-40 transition-all duration-300 font-peyda ${
           isScrolled
-            ? 'bg-[#F8F9FA]/95 backdrop-blur-md border-b border-[#E5E5E5] py-3.5 shadow-xs'
-            : 'bg-[#F3F2EE] border-b border-[#D7D4CD]/60 py-5'
+            ? 'bg-[#F3F2EE]   border-[#D7D4CD]/60 py-5'
+            : 'bg-[#F3F2EE] border-[#D7D4CD]/60 py-5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6  lg:px-8 flex items-center justify-between">
           {/* Right Section (RTL Navigation Items) */}
-          <nav className="hidden lg:flex items-center space-x-8 space-x-reverse text-sm font-medium text-[#111111]">
+          <nav className="hidden lg:flex items-center gap-9 text-sm font-medium text-[#111111]">
             <a
               href="#new-arrivals"
               className="hover:text-[#2563EB] transition-colors py-1 relative group"
@@ -79,26 +63,13 @@ export default function GravityHeader({
               <span className="absolute bottom-0 right-0 w-0 h-[1.5px] bg-[#2563EB] transition-all duration-200 group-hover:w-full"></span>
             </a>
             <a
-              href="#styles"
-              className="hover:text-[#2563EB] transition-colors py-1 relative group"
-            >
-              استایل‌ها
-              <span className="absolute bottom-0 right-0 w-0 h-[1.5px] bg-[#2563EB] transition-all duration-200 group-hover:w-full"></span>
-            </a>
-            <a
               href="#brands"
               className="hover:text-[#2563EB] transition-colors py-1 relative group"
             >
               برندها
               <span className="absolute bottom-0 right-0 w-0 h-[1.5px] bg-[#2563EB] transition-all duration-200 group-hover:w-full"></span>
             </a>
-            <a
-              href="#store-section"
-              className="hover:text-[#2563EB] transition-colors py-1 relative group"
-            >
-              فروشگاه تبریز
-              <span className="absolute bottom-0 right-0 w-0 h-[1.5px] bg-[#2563EB] transition-all duration-200 group-hover:w-full"></span>
-            </a>
+
           </nav>
 
           {/* Mobile Menu Toggle Button */}

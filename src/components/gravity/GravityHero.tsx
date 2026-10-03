@@ -51,15 +51,15 @@ export default function GravityHero() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full bg-[#F3F2EE] border-b border-[#D7D4CD] font-peyda"
-      style={{ height: '260vh' }}
+      className="relative w-full  font-peyda"
+      style={{ height: '250vh' }}
     >
       {/* Sticky Hero Viewport Container */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-between py-6 md:py-8 px-4 sm:px-6 lg:px-12">
+      <div className="sticky top-0 h-screen w-full  overflow-hidden flex flex-col justify-between ">
         {/* Main Desktop 3-Column Layout */}
-        <div className="flex-grow grid grid-cols-1 md:grid-cols-12 gap-6 items-center h-full max-w-7xl mx-auto w-full">
+        <div className="flex gap-6 items-end h-full w-full mx-auto w-full">
           {/* LEFT COLUMN (Desktop: 3 cols, Tablet: 3 cols) */}
-          <div className="hidden md:block md:col-span-3 h-[68vh] lg:h-[75vh] relative rounded-xs overflow-hidden bg-[#E8E6E1]/60 border border-[#D7D4CD]">
+          <div className="hidden md:block  h-[68vh] lg:h-[90vh] w-[450px] relative rounded-xs overflow-hidden ">
             {HERO_LEFT_IMAGES.map((img, idx) => (
               <motion.div
                 key={img.id}
@@ -77,7 +77,7 @@ export default function GravityHero() {
                   className="object-cover object-top"
                   sizes="(max-width: 1024px) 25vw, 20vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t  pointer-events-none" />
                 <div className="absolute bottom-3 right-3 bg-[#111111]/80 text-white text-[10px] px-2 py-0.5 rounded-xs backdrop-blur-xs font-medium">
                   کالکشن گراویتی {idx + 1}
                 </div>
@@ -86,11 +86,8 @@ export default function GravityHero() {
           </div>
 
           {/* CENTER COLUMN (Desktop: 6 cols, Mobile: 12 cols) - VISUALLY DOMINANT & STICKY ANCHOR */}
-          <div className="col-span-1 md:col-span-6 flex flex-col items-center justify-center text-center px-2 sm:px-6 lg:px-8 z-10 my-auto">
-            {/* Eyebrow */}
-            <span className="inline-block text-[#2563EB] text-xs sm:text-sm font-semibold tracking-wide uppercase mb-3 bg-[#2563EB]/10 px-3.5 py-1 rounded-full">
-              استایل مردانه، انتخاب‌شده برای شما
-            </span>
+          <div className="col-span-1  flex flex-col items-center justify-center text-center px-2 sm:px-6 lg:px-8 z-10 my-auto">
+
 
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#111111] leading-[1.15] tracking-normal mb-5">
@@ -145,7 +142,7 @@ export default function GravityHero() {
           </div>
 
           {/* RIGHT COLUMN (Desktop: 3 cols, Tablet: 3 cols) */}
-          <div className="hidden md:block md:col-span-3 h-[68vh] lg:h-[75vh] relative rounded-xs overflow-hidden bg-[#E8E6E1]/60 border border-[#D7D4CD]">
+          <div className="hidden md:block  h-[68vh] lg:h-[90vh] w-[450px] relative rounded-xs overflow-hidden ">
             {HERO_RIGHT_IMAGES.map((img, idx) => (
               <motion.div
                 key={img.id}
@@ -163,7 +160,7 @@ export default function GravityHero() {
                   className="object-cover object-top"
                   sizes="(max-width: 1024px) 25vw, 20vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t  pointer-events-none" />
                 <div className="absolute bottom-3 left-3 bg-[#111111]/80 text-white text-[10px] px-2 py-0.5 rounded-xs backdrop-blur-xs font-medium">
                   گراویتی استایل {idx + 1}
                 </div>
@@ -173,7 +170,7 @@ export default function GravityHero() {
         </div>
 
         {/* Scroll Indicator Prompt */}
-        <div className="flex flex-col items-center justify-center pt-2 text-[#777777] text-xs font-medium gap-1 animate-pulse">
+        <div className="flex flex-col absolute bottom-4 left-1/2 transform -translate-x-1/2 items-center justify-center pt-2 text-[#777777] text-xs font-medium gap-1 animate-pulse">
           <span>برای مرور کاتالوگ گشت‌وگذار کنید</span>
           <ChevronDown size={16} />
         </div>

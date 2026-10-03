@@ -26,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${manrope.variable} ${dmSans.variable} antialiased selection:bg-[#111111] selection:text-[#F3F2EE]`}>
-      <body className="min-h-screen bg-[#F3F2EE] text-[#111111] font-sans flex flex-col">
+      <body className=" min-h-screen bg-[#F3F2EE] text-[#111111] font-sans flex flex-col">
         {children}
       </body>
     </html>
