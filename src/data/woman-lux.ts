@@ -127,7 +127,7 @@ export const WOMAN_LUX_PRODUCTS: WomanLuxProduct[] = [
     description: 'پالتو فوتر سنگین با فرم کلاسیک مد روز. یقه‌های برگردان پهن و جیب‌های فیلتابی ظاهری باشکوه و در عین حال شیک ایجاد می‌کنند.',
     material: '۹۰٪ پشم فوتر سنگین، ۱۰٪ نایلون تقویت‌کننده.',
     fit: 'برش آزاد و کشیده.',
-    featured: false,
+    featured: true,
     isNew: true,
     careInstructions: 'خشکشویی تخصصی.',
     shippingInfo: 'ارسال رایگان به سراسر ایران.'
@@ -348,6 +348,8 @@ export interface ScrollSectionProduct {
   stepNumber: string;
   categoryTitle: string;
   name: string;
+  scrollTitle?: string;
+  scrollSummary?: string;
   price: number;
   formattedPrice: string;
   image: string;
@@ -364,6 +366,8 @@ export const SCROLL_SECTION_PRODUCTS: ScrollSectionProduct[] = [
     stepNumber: '۰۱ / ۰۴',
     categoryTitle: 'مانتو مجلسی — Evening Collection',
     name: 'مانتو ابریشم ساتی نوآر',
+    scrollTitle: 'وقار و خیاطی فاخر',
+    scrollSummary: 'تلفیقی هوشمندانه از پارچه ابریشم سنگین و برش‌های هندسی آوانگارد برای شب‌های ماندگار.',
     price: 9800000,
     formattedPrice: '۹,۸۰۰,۰۰۰ تومان',
     image: '/images/woman-lux/for-scrol-section-(1).webp',
@@ -382,6 +386,8 @@ export const SCROLL_SECTION_PRODUCTS: ScrollSectionProduct[] = [
     stepNumber: '۰۲ / ۰۴',
     categoryTitle: 'پالتو زمستانه — Atelier Tailoring',
     name: 'پالتو پشم و کشمیر معماری',
+    scrollTitle: 'معماری خطوط و فرم',
+    scrollSummary: 'ساختار محکم سرشانه‌ها و ترکیب پشم ایتالیایی با کشمیر برای ایجاد سیلوئتی مقتدر.',
     price: 15400000,
     formattedPrice: '۱۵,۴۰۰,۰۰۰ تومان',
     image: '/images/woman-lux/for-scrol-section-(2).webp',
@@ -400,6 +406,8 @@ export const SCROLL_SECTION_PRODUCTS: ScrollSectionProduct[] = [
     stepNumber: '۰۳ / ۰۴',
     categoryTitle: 'پیراهن و شومیز — Modern Fluidity',
     name: 'پیراهن فرمال ساتن مشکی',
+    scrollTitle: 'سیالیت و درخشش ملایم',
+    scrollSummary: 'حرکت روان ساتن ابریشمی روی بدن با ظرافت بی‌نظیر در دوخت و فرم مینیمال.',
     price: 7600000,
     formattedPrice: '۷,۶۰۰,۰۰۰ تومان',
     image: '/images/woman-lux/for-scrol-section-(3).webp',
@@ -418,6 +426,8 @@ export const SCROLL_SECTION_PRODUCTS: ScrollSectionProduct[] = [
     stepNumber: '۰۴ / ۰۴',
     categoryTitle: 'کت روزمره — Essential Outerwear',
     name: 'کت ساختاریافته معاصر',
+    scrollTitle: 'ظرافت روزمره معاصر',
+    scrollSummary: 'پوششی همه‌کاره با خطوط تمیز و دوخت سفارشی برای لایه‌بندی مدرن استایل‌های شهری.',
     price: 8900000,
     formattedPrice: '۸,۹۰۰,۰۰۰ تومان',
     image: '/images/woman-lux/for-scrol-section-(4).webp',

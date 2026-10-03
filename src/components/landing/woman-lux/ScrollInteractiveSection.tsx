@@ -15,7 +15,7 @@ export default function ScrollInteractiveSection({
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Scroll Progress listener for pinned section on desktop
+  // Scroll Progress listener for pinned section on desktop/mobile
   useEffect(() => {
     const handleScroll = () => {
       if (!containerRef.current) return;
@@ -56,18 +56,18 @@ export default function ScrollInteractiveSection({
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-[#ffffff] text-white min-h-[300vh] lg:min-h-[400vh]"
+      className="relative w-full bg-[#0B0B0B] text-white min-h-[300vh] lg:min-h-[400vh]"
     >
       {/* STICKY VIEWPORT CONTAINER */}
-      <div className="sticky top-0 w-full h-screen flex flex-col justify-between  overflow-hidden">
+      <div className="sticky top-0 w-full h-screen flex flex-col justify-between p-4 sm:p-6 lg:p-10 overflow-hidden">
 
         {/* EDITORIAL TOP BAR */}
-        <div className="relative z-20 flex items-center justify-between b">
-          <div className="text-right">
-            <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-white/50">
+        <div className="relative z-20 flex items-center justify-between border-b border-white/10 pb-4">
+          <div className="text-right space-y-0.5">
+            <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-white/50 block">
               EDITORIAL CAMPAIGN 2026
             </span>
-            <p className="text-sm sm:text-base font-semibold font-peyda text-white">
+            <p className="text-xs sm:text-sm lg:text-base font-semibold font-peyda text-white">
               روایت تعاملی — {activeProduct.categoryTitle}
             </p>
           </div>
@@ -77,13 +77,15 @@ export default function ScrollInteractiveSection({
             <span className="text-xs sm:text-sm font-mono text-white/80 tracking-widest">
               {activeProduct.stepNumber}
             </span>
-            <div className="hidden sm:flex items-center gap-1">
+            <div className="hidden sm:flex items-center gap-1.5">
               {SCROLL_SECTION_PRODUCTS.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveIndex(idx)}
-                  className={`h-1 rounded-full transition-all duration-300 ${
-                    idx === activeIndex ? 'w-8 bg-white' : 'w-2 bg-white/30 hover:bg-white/60'
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    idx === activeIndex
+                      ? 'w-8 bg-white'
+                      : 'w-2 bg-white/30 hover:bg-white/60'
                   }`}
                   aria-label={`Go to step ${idx + 1}`}
                 />
@@ -92,26 +94,28 @@ export default function ScrollInteractiveSection({
           </div>
         </div>
 
-        {/* CENTER IMAGE DISPLAY WITH IMMERSIVE TRANSITIONS */}
-        <div className="relative flex-1 my-1 flex items-center justify-center">
+        {/* CENTER DISPLAY WITH IMAGE FRAME & ALTERNATING TEXT PANEL */}
+        <div className="relative flex-1 my-2 flex items-center justify-center px-2 sm:px-6">
 
+          {/* SCROLL SECTION PRODUCTS STACK */}
+          {SCROLL_SECTION_PRODUCTS.map((prod, idx) => {
+            const isActive = idx === activeIndex;
+            // Alternating side: Even indices (0, 2) => RIGHT, Odd indices (1, 3) => LEFT
+            const isRight = idx % 2 === 0;
 
-
-          {/* MAIN CENTERED EDITORIAL FRAME */}
-          <div className="relative w-full max-w-md  aspect-[1/6] max-h-[100vh]  overflow-hidden  transition-all duration-700">
-            {SCROLL_SECTION_PRODUCTS.map((prod, idx) => {
-              const isActive = idx === activeIndex;
-              return (
-                <div
-                  key={prod.id}
-                  className={`absolute inset-0 transition-all duration-700 ease-out ${
-                    isActive
-                      ? 'opacity-100 scale-100 rotate-0 z-10 pointer-events-auto'
-                      : idx < activeIndex
-                      ? 'opacity-0 scale-95 -rotate-2 z-0 pointer-events-none'
-                      : 'opacity-0 scale-105 rotate-2 z-0 pointer-events-none'
-                  }`}
-                >
+            return (
+              <div
+                key={prod.id}
+                className={`absolute inset-0 flex items-center justify-center transition-all duration-700 ease-out ${
+                  isActive
+                    ? 'opacity-100 scale-100 rotate-0 z-10 pointer-events-auto'
+                    : idx < activeIndex
+                    ? 'opacity-0 scale-95 -rotate-1 z-0 pointer-events-none'
+                    : 'opacity-0 scale-105 rotate-1 z-0 pointer-events-none'
+                }`}
+              >
+                {/* CENTERED EDITORIAL IMAGE FRAME */}
+                <div className="relative w-[280px] sm:w-[340px] md:w-[380px] lg:w-[420px] aspect-[3/4] max-h-[58vh] sm:max-h-[62vh] rounded-2xl overflow-hidden shadow-2xl border border-white/10 transition-all duration-700">
                   <Image
                     src={prod.image}
                     alt={prod.name}
@@ -120,26 +124,48 @@ export default function ScrollInteractiveSection({
                     className="object-cover object-center"
                     priority={idx === 0}
                   />
-
-                  {/* SUBTLE INNER VIGNETTE */}
-                  <div className="absolute inset-0  pointer-events-none" />
+                  {/* Subtle inner vignette */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />
                 </div>
-              );
-            })}
-          </div>
 
-          {/* MANUAL PREV/NEXT CONTROLS FOR DIRECT NAVIGATION */}
-          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex items-center justify-between px-2 sm:px-6 z-20 pointer-events-none">
+                {/* DYNAMIC TITLE & SUMMARY TEXT BOX (ALTERNATING RIGHT / LEFT) */}
+                <div
+                  className={`absolute top-1/2 -translate-y-1/2 z-30 w-[85%] max-w-[260px] sm:max-w-[290px] md:max-w-[340px] p-4 sm:p-6 bg-black/75 backdrop-blur-md rounded-2xl border border-white/15 shadow-2xl transition-all duration-700 ease-out text-right ${
+                    isRight
+                      ? 'right-2 sm:right-6 md:right-10 lg:right-16 xl:right-28'
+                      : 'left-2 sm:left-6 md:left-10 lg:left-16 xl:left-28'
+                  }`}
+                >
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-white/60 bg-white/10 px-2.5 py-0.5 rounded-full border border-white/10">
+                      {prod.stepNumber}
+                    </span>
+                  </div>
+
+                  <h3 className="text-base sm:text-lg lg:text-xl font-bold font-peyda text-white mb-2 leading-snug">
+                    {prod.scrollTitle || prod.name}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm font-normal font-peyda text-white/85 leading-relaxed">
+                    {prod.scrollSummary || prod.description}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+
+          {/* MANUAL NAVIGATION PREV / NEXT BUTTONS */}
+          <div className="absolute inset-x-2 sm:inset-x-6 top-1/2 -translate-y-1/2 flex items-center justify-between z-40 pointer-events-none">
             <button
               onClick={handlePrev}
-              className="p-3 bg-black/50 hover:bg-white hover:text-black text-white backdrop-blur-md rounded-full transition-all pointer-events-auto"
+              className="p-3 bg-black/60 hover:bg-white hover:text-black text-white backdrop-blur-md rounded-full transition-all border border-white/10 pointer-events-auto"
               aria-label="Previous Frame"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
             <button
               onClick={handleNext}
-              className="p-3 bg-black/50 hover:bg-white hover:text-black text-white backdrop-blur-md rounded-full transition-all pointer-events-auto"
+              className="p-3 bg-black/60 hover:bg-white hover:text-black text-white backdrop-blur-md rounded-full transition-all border border-white/10 pointer-events-auto"
               aria-label="Next Frame"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -149,8 +175,8 @@ export default function ScrollInteractiveSection({
 
         {/* EDITORIAL BOTTOM INFO BAR & CTA */}
         <div className="relative z-20 border-t border-white/10 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="text-center sm:text-right space-y-1">
-            <h3 className="text-lg sm:text-xl font-bold font-peyda text-white">
+          <div className="text-center sm:text-right space-y-0.5">
+            <h3 className="text-base sm:text-lg lg:text-xl font-bold font-peyda text-white">
               {activeProduct.name}
             </h3>
             <p className="text-xs sm:text-sm font-medium text-white/70">
@@ -161,7 +187,7 @@ export default function ScrollInteractiveSection({
           <div className="flex items-center gap-4">
             <button
               onClick={() => onOpenProductDetail(activeProduct)}
-              className="px-6 py-3 bg-white text-[#111111] hover:bg-neutral-200 text-xs font-semibold flex items-center gap-2 transition-all duration-300"
+              className="px-6 py-3 bg-white text-[#111111] hover:bg-neutral-200 text-xs font-semibold rounded-lg flex items-center gap-2 transition-all duration-300 shadow-md"
             >
               <span>مشاهده جزئیات محصول</span>
               <ArrowLeft className="w-4 h-4" />
