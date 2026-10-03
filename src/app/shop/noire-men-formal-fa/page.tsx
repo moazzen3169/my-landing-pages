@@ -1,84 +1,159 @@
 'use client';
 
 import React, { useState } from 'react';
-import Header from '@/components/navigation/Header';
-import Preloader from '@/components/ui/Preloader';
-import HeroSection from '@/components/hero/HeroSection';
-import HeroScrollStorytelling from '@/components/hero/HeroScrollStorytelling';
-import CategoryShowcase from '@/components/editorial/CategoryShowcase';
-import NewEditSection from '@/components/editorial/NewEditSection';
-import OutfitBuilder from '@/components/outfit/OutfitBuilder';
-import ProductGrid from '@/components/products/ProductGrid';
-import { BrandStory, QualitySection, Newsletter, Footer } from '@/components/editorial/FooterAndSections';
-import CartDrawer from '@/components/cart/CartDrawer';
-import SearchOverlay from '@/components/search/SearchOverlay';
-import CustomCursor from '@/components/ui/CustomCursor';
+import GravityHeader from '@/components/gravity/GravityHeader';
+import GravityHero from '@/components/gravity/GravityHero';
+import GravityCategories from '@/components/gravity/GravityCategories';
+import GravityNewArrivals from '@/components/gravity/GravityNewArrivals';
+import GravityEditorial from '@/components/gravity/GravityEditorial';
+import GravityShopByStyle from '@/components/gravity/GravityShopByStyle';
+import GravityShopTheLook from '@/components/gravity/GravityShopTheLook';
+import GravityBrands from '@/components/gravity/GravityBrands';
+import GravityTrustSection from '@/components/gravity/GravityTrustSection';
+import GravityStoreSection from '@/components/gravity/GravityStoreSection';
+import GravityInstagram from '@/components/gravity/GravityInstagram';
+import GravityFooter from '@/components/gravity/GravityFooter';
 
-import { CartProvider } from '@/context/CartContext';
-import { WishlistProvider } from '@/context/WishlistContext';
-import SmoothScrollProvider from '@/components/ui/SmoothScrollProvider';
-import { NOIRE_PRODUCTS_FA, NOIRE_LOOKS_FA } from '@/data/noire-fa';
+import GravityCartDrawer, { CartItem } from '@/components/gravity/GravityCartDrawer';
+import GravitySearchOverlay from '@/components/gravity/GravitySearchOverlay';
+import GravityQuickViewModal from '@/components/gravity/GravityQuickViewModal';
+import { GravityProduct } from '@/data/gravity-data';
 
-export default function NoirePersianLandingPage() {
+export default function GravityLandingPage() {
+  // State management
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [quickViewProduct, setQuickViewProduct] = useState<GravityProduct | null>(null);
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [wishlistIds, setWishlistIds] = useState<string[]>([]);
+
+  // Cart actions
+  const handleAddToCart = (product: GravityProduct | { id: string; name: string; price: number; image: string }, size?: string) => {
+    setCartItems((prev) => {
+      const existing = prev.find((item) => item.id === product.id);
+      if (existing) {
+        return prev.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      }
+      return [
+        ...prev,
+        {
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          image: product.image,
+          quantity: 1,
+        },
+      ];
+    });
+    setIsCartOpen(true);
+  };
+
+  const handleUpdateQuantity = (id: string, delta: number) => {
+    setCartItems((prev) =>
+      prev
+        .map((item) => {
+          if (item.id === id) {
+            const newQty = item.quantity + delta;
+            return newQty > 0 ? { ...item, quantity: newQty } : null;
+          }
+          return item;
+        })
+        .filter(Boolean) as CartItem[]
+    );
+  };
+
+  const handleRemoveItem = (id: string) => {
+    setCartItems((prev) => prev.filter((item) => item.id !== id));
+  };
+
+  // Wishlist actions
+  const handleToggleWishlist = (productId: string) => {
+    setWishlistIds((prev) =>
+      prev.includes(productId)
+        ? prev.filter((id) => id !== productId)
+        : [...prev, productId]
+    );
+  };
+
+  const totalCartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <CartProvider>
-      <WishlistProvider>
-        <SmoothScrollProvider>
-          <Preloader />
-          <CustomCursor />
+    <div className="min-h-screen flex flex-col bg-[#F3F2EE] text-[#111111] font-peyda dir-rtl selection:bg-[#2563EB] selection:text-white" dir="rtl">
+      {/* 01 HEADER */}
+      <GravityHeader
+        onOpenSearch={() => setIsSearchOpen(true)}
+        onOpenCart={() => setIsCartOpen(true)}
+        onOpenWishlist={() => alert(`تعداد کالاها در لیست علاقه‌مندی‌ها: ${wishlistIds.length}`)}
+        cartCount={totalCartCount}
+        wishlistCount={wishlistIds.length}
+      />
 
-          <div className="min-h-screen flex flex-col bg-[#F3F2EE] text-[#111111] relative font-peyda dir-rtl" dir="rtl">
-            <Header
-              onOpenSearch={() => setIsSearchOpen(true)}
-              isDarkBackground={true}
-              isPersian={true}
-            />
+      <main className="flex-grow">
+        {/* 02 HERO SECTION WITH 3-COLUMN STICKY SCROLL STORYTELLING */}
+        <GravityHero />
 
-            <main className="flex-grow">
-              {/* 01 HERO SECTION WITH LOOK SELECTOR */}
-              <HeroSection looks={NOIRE_LOOKS_FA} isPersian={true} />
+        {/* 03 CATEGORY DISCOVERY */}
+        <GravityCategories />
 
-              {/* 02 CATEGORY SHOWCASE */}
-              <CategoryShowcase isPersian={true} />
+        {/* 04 NEW ARRIVALS */}
+        <GravityNewArrivals
+          onQuickView={(p) => setQuickViewProduct(p)}
+          onAddToCart={(p) => handleAddToCart(p)}
+          onToggleWishlist={handleToggleWishlist}
+          wishlistIds={wishlistIds}
+        />
 
-              {/* 03 THE NEW EDIT EDITORIAL SECTION */}
-              <NewEditSection isPersian={true} />
+        {/* 05 EDITORIAL SECTION */}
+        <GravityEditorial />
 
-              {/* 04 SCROLL STORYTELLING */}
-              <HeroScrollStorytelling isPersian={true} />
+        {/* 06 SHOP BY STYLE */}
+        <GravityShopByStyle />
 
-              {/* 05 ESSENTIALS PRODUCT GRID */}
-              <ProductGrid
-                products={NOIRE_PRODUCTS_FA.slice(0, 8)}
-                title="ضروریات نوآر ۲۰۲۶"
-                subtitle="کالکشن معاصر"
-                isPersian={true}
-              />
+        {/* 07 SHOP THE LOOK */}
+        <GravityShopTheLook onAddToCart={(item) => handleAddToCart(item)} />
 
-              {/* 06 OUTFIT BUILDER CONFIGURATOR */}
-              <OutfitBuilder productsList={NOIRE_PRODUCTS_FA} isPersian={true} />
+        {/* 08 SELECTED BRANDS */}
+        <GravityBrands />
 
-              {/* 07 BRAND STORY */}
-              <BrandStory isPersian={true} />
+        {/* 09 TRUST SECTION */}
+        <GravityTrustSection />
 
-              {/* 08 QUALITY & SERVICES */}
-              <QualitySection isPersian={true} />
+        {/* 10 PHYSICAL STORE SECTION */}
+        <GravityStoreSection />
 
-              {/* 09 NEWSLETTER */}
-              <Newsletter isPersian={true} />
-            </main>
+        {/* 11 INSTAGRAM SECTION */}
+        <GravityInstagram />
+      </main>
 
-            {/* 10 FOOTER */}
-            <Footer isPersian={true} />
+      {/* 12 FOOTER */}
+      <GravityFooter />
 
-            {/* DRAWERS & OVERLAYS */}
-            <CartDrawer isPersian={true} />
-            <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} isPersian={true} />
-          </div>
-        </SmoothScrollProvider>
-      </WishlistProvider>
-    </CartProvider>
+      {/* DRAWERS & OVERLAYS */}
+      <GravityCartDrawer
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+        cartItems={cartItems}
+        onUpdateQuantity={handleUpdateQuantity}
+        onRemoveItem={handleRemoveItem}
+      />
+
+      <GravitySearchOverlay
+        isOpen={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
+        onQuickView={(p) => setQuickViewProduct(p)}
+      />
+
+      <GravityQuickViewModal
+        product={quickViewProduct}
+        onClose={() => setQuickViewProduct(null)}
+        onAddToCart={(p, size) => handleAddToCart(p, size)}
+        onToggleWishlist={handleToggleWishlist}
+        isWishlisted={quickViewProduct ? wishlistIds.includes(quickViewProduct.id) : false}
+      />
+    </div>
   );
 }

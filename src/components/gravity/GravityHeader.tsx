@@ -1,0 +1,211 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { Search, ShoppingBag, Heart, Menu, X } from 'lucide-react';
+
+interface GravityHeaderProps {
+  onOpenSearch: () => void;
+  onOpenCart: () => void;
+  onOpenWishlist: () => void;
+  cartCount: number;
+  wishlistCount: number;
+}
+
+export default function GravityHeader({
+  onOpenSearch,
+  onOpenCart,
+  onOpenWishlist,
+  cartCount,
+  wishlistCount,
+}: GravityHeaderProps) {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 40) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <>
+      {/* Top Utility Announcement Bar */}
+      <div className="bg-[#111111] text-[#E5E5E5] text-[12px] py-2 px-4 text-center tracking-normal font-peyda border-b border-[#222222] transition-all">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <span className="hidden md:inline text-[#999999]">
+            ارسال سریع و رایگان برای خریدهای بالای ۲ میلیون تومان
+          </span>
+          <p className="mx-auto md:mx-0 font-medium">
+            فروشگاه گراویتی | عرضه منتخب پوشاک مردانه برتر ایران و جهان
+          </p>
+          <a
+            href="#store-section"
+            className="hidden md:inline text-[#3B82F6] hover:underline font-medium"
+          >
+            فروشگاه حضوری تبریز
+          </a>
+        </div>
+      </div>
+
+      {/* Main Sticky Header */}
+      <header
+        className={`sticky top-0 z-40 transition-all duration-300 font-peyda ${
+          isScrolled
+            ? 'bg-[#F8F9FA]/95 backdrop-blur-md border-b border-[#E5E5E5] py-3.5 shadow-xs'
+            : 'bg-[#F3F2EE] border-b border-[#D7D4CD]/60 py-5'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          {/* Right Section (RTL Navigation Items) */}
+          <nav className="hidden lg:flex items-center space-x-8 space-x-reverse text-sm font-medium text-[#111111]">
+            <a
+              href="#new-arrivals"
+              className="hover:text-[#2563EB] transition-colors py-1 relative group"
+            >
+              جدیدها
+              <span className="absolute bottom-0 right-0 w-0 h-[1.5px] bg-[#2563EB] transition-all duration-200 group-hover:w-full"></span>
+            </a>
+            <a
+              href="#categories"
+              className="hover:text-[#2563EB] transition-colors py-1 relative group"
+            >
+              دسته‌بندی‌ها
+              <span className="absolute bottom-0 right-0 w-0 h-[1.5px] bg-[#2563EB] transition-all duration-200 group-hover:w-full"></span>
+            </a>
+            <a
+              href="#styles"
+              className="hover:text-[#2563EB] transition-colors py-1 relative group"
+            >
+              استایل‌ها
+              <span className="absolute bottom-0 right-0 w-0 h-[1.5px] bg-[#2563EB] transition-all duration-200 group-hover:w-full"></span>
+            </a>
+            <a
+              href="#brands"
+              className="hover:text-[#2563EB] transition-colors py-1 relative group"
+            >
+              برندها
+              <span className="absolute bottom-0 right-0 w-0 h-[1.5px] bg-[#2563EB] transition-all duration-200 group-hover:w-full"></span>
+            </a>
+            <a
+              href="#store-section"
+              className="hover:text-[#2563EB] transition-colors py-1 relative group"
+            >
+              فروشگاه تبریز
+              <span className="absolute bottom-0 right-0 w-0 h-[1.5px] bg-[#2563EB] transition-all duration-200 group-hover:w-full"></span>
+            </a>
+          </nav>
+
+          {/* Mobile Menu Toggle Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden p-2 text-[#111111] hover:text-[#2563EB] transition-colors focus:outline-none"
+            aria-label="منو"
+          >
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+
+          {/* Center Section: GRAVITY Logo */}
+          <div className="text-center">
+            <a href="#" className="inline-block group">
+              <span className="text-2xl sm:text-3xl font-black tracking-widest text-[#111111] font-sans uppercase block leading-none">
+                GRAVITY
+              </span>
+              <span className="text-[10px] text-[#666666] tracking-widest font-medium font-peyda block mt-0.5">
+                گراویتی • پوشاک مردانه
+              </span>
+            </a>
+          </div>
+
+          {/* Left Section (RTL Left): Actions */}
+          <div className="flex items-center space-x-4 sm:space-x-5 space-x-reverse">
+            {/* Search Trigger */}
+            <button
+              onClick={onOpenSearch}
+              className="p-2 text-[#111111] hover:text-[#2563EB] transition-colors relative flex items-center gap-1.5 text-xs font-medium"
+              aria-label="جستجو"
+            >
+              <Search size={19} className="stroke-[1.75]" />
+              <span className="hidden sm:inline">جستجو</span>
+            </button>
+
+            {/* Wishlist Trigger */}
+            <button
+              onClick={onOpenWishlist}
+              className="p-2 text-[#111111] hover:text-[#2563EB] transition-colors relative"
+              aria-label="علاقه‌مندی‌ها"
+            >
+              <Heart size={19} className="stroke-[1.75]" />
+              {wishlistCount > 0 && (
+                <span className="absolute top-1 right-1 bg-[#2563EB] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
+                  {wishlistCount}
+                </span>
+              )}
+            </button>
+
+            {/* Cart Trigger */}
+            <button
+              onClick={onOpenCart}
+              className="p-2 bg-[#111111] text-white hover:bg-[#2563EB] transition-all px-3 py-1.5 rounded-sm flex items-center gap-2 text-xs font-medium"
+              aria-label="سبد خرید"
+            >
+              <ShoppingBag size={17} className="stroke-[1.75]" />
+              <span>سبد خرید</span>
+              {cartCount > 0 && (
+                <span className="bg-white text-[#111111] text-[10px] px-1.5 py-0.2 font-bold rounded-xs">
+                  {cartCount}
+                </span>
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Slide-down Navigation Menu */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden bg-[#F8F9FA] border-t border-[#E5E5E5] px-6 py-6 space-y-4 font-peyda animate-fadeIn">
+            <a
+              href="#new-arrivals"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-base font-medium text-[#111111] hover:text-[#2563EB]"
+            >
+              جدیدها
+            </a>
+            <a
+              href="#categories"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-base font-medium text-[#111111] hover:text-[#2563EB]"
+            >
+              دسته‌بندی‌ها
+            </a>
+            <a
+              href="#styles"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-base font-medium text-[#111111] hover:text-[#2563EB]"
+            >
+              استایل‌ها
+            </a>
+            <a
+              href="#brands"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-base font-medium text-[#111111] hover:text-[#2563EB]"
+            >
+              برندها
+            </a>
+            <a
+              href="#store-section"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-base font-medium text-[#111111] hover:text-[#2563EB]"
+            >
+              فروشگاه حضوری تبریز
+            </a>
+          </div>
+        )}
+      </header>
+    </>
+  );
+}
