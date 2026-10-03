@@ -6,11 +6,11 @@ import { ArrowDownLeft, CheckCircle2 } from 'lucide-react';
 
 export default function GravityEditorial() {
   return (
-    <section className="py-20 md:py-28 bg-[#111111] text-white font-peyda overflow-hidden relative">
+    <section className="p-2  bg-[#111111] text-white font-peyda overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Editorial Text Content (Desktop: 6 cols) */}
-          <div className="lg:col-span-6 space-y-6 order-2 lg:order-1">
+          <div className="lg:col-span-5 sticky top-8 space-y-2 order-2 lg:order-1">
             <span className="text-xs font-bold text-white tracking-widest uppercase block bg-white/10 w-fit px-3 py-1 rounded-full border border-white/20">
               انتخاب گراویتی / GRAVITY SELECT
             </span>
@@ -52,16 +52,16 @@ export default function GravityEditorial() {
           </div>
 
           {/* Large Lifestyle Image (Desktop: 6 cols) */}
-          <div className="lg:col-span-6 relative order-1 lg:order-2">
-            <div className="relative aspect-[4/5] sm:aspect-[3/4] w-full rounded-xs overflow-hidden border border-[#333333] shadow-2xl">
+          <div className="lg:col-span-7 relative order-1 lg:order-2">
+            <div className="relative aspect-[3/4] max-h-[800px] sm:aspect-[4/5] w-full rounded-xs overflow-hidden ">
               <Image
-                src="/images/gravity/for-hero-section-3.png"
+                src="/images/gravity/for-hero-section-2.png"
                 alt="Gravity Editorial Selection"
                 fill
-                className="object-cover object-top hover:scale-102 transition-transform duration-700"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-contain object-top hover:scale-102 transition-transform duration-700"
+                sizes="(max-width: 1024px) 100vw, 100vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0  pointer-events-none" />
 
               <div className="absolute bottom-6 right-6 left-6 p-4 bg-black/60 backdrop-blur-md rounded-xs border border-white/10">
                 <span className="text-[10px] text-[#CCCCCC] font-bold block mb-0.5">

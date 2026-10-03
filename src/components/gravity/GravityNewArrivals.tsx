@@ -35,7 +35,7 @@ export default function GravityNewArrivals({
       : GRAVITY_PRODUCTS.filter((p) => p.category === activeTab);
 
   return (
-    <section id="new-arrivals" className="py-20 md:py-28 bg-[#F8F9FA] border-b border-[#D7D4CD] font-peyda">
+    <section id="new-arrivals" className="py-0 md:py-0 bg-[#F8F9FA] border-b border-[#D7D4CD] font-peyda">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-[#E5E5E5] gap-4">

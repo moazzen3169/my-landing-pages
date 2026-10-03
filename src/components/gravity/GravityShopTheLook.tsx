@@ -30,7 +30,7 @@ export default function GravityShopTheLook({ onAddToCart }: GravityShopTheLookPr
   };
 
   return (
-    <section className="py-20 md:py-28 bg-[#F8F9FA] border-b border-[#D7D4CD] font-peyda">
+    <section className="p-4 bg-[#F8F9FA] border-b border-[#D7D4CD] font-peyda">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-12 text-center max-w-2xl mx-auto">
@@ -46,9 +46,9 @@ export default function GravityShopTheLook({ onAddToCart }: GravityShopTheLookPr
         </div>
 
         {/* Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white border border-[#E5E5E5] rounded-xs p-6 sm:p-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Main Outfit Showcase Image (Desktop: 6 cols) */}
-          <div className="lg:col-span-6 relative aspect-[3/4] rounded-xs overflow-hidden bg-[#E8E6E1]">
+          <div className="lg:col-span-5 relative aspect-[4/5] max-h-[750px] rounded-xs overflow-hidden ">
             <Image
               src={look.mainImage}
               alt={look.titleFa}
@@ -56,14 +56,14 @@ export default function GravityShopTheLook({ onAddToCart }: GravityShopTheLookPr
               className="object-cover object-top"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            <div className="absolute inset-0 " />
             <div className="absolute bottom-4 right-4 bg-[#111111]/90 text-white text-xs px-3 py-1.5 rounded-xs font-bold">
               {look.titleFa}
             </div>
           </div>
 
           {/* Outfit Products Breakdown (Desktop: 6 cols) */}
-          <div className="lg:col-span-6 flex flex-col justify-between h-full space-y-6">
+          <div className="lg:col-span-7 flex flex-col justify-between h-full space-y-6">
             <div>
               <h3 className="text-xl font-extrabold text-[#111111] mb-2">
                 اجزای تشکیل‌دهنده استایل
@@ -77,7 +77,7 @@ export default function GravityShopTheLook({ onAddToCart }: GravityShopTheLookPr
                 {look.items.map((item) => (
                   <div
                     key={item.id}
-                    className="flex items-center justify-between p-3.5 bg-[#F8F9FA] border border-[#E5E5E5] rounded-xs hover:border-[#111111] transition-colors"
+                    className="flex items-center justify-between p-3.5 bg-[#ffffff] border border-[#E5E5E5] rounded-xs hover:border-[#111111] transition-colors"
                   >
                     <div className="flex items-center gap-3">
                       <div className="relative w-12 h-14 bg-white rounded-xs overflow-hidden shrink-0 border border-[#E5E5E5]">
@@ -110,7 +110,7 @@ export default function GravityShopTheLook({ onAddToCart }: GravityShopTheLookPr
                           image: item.image,
                         })
                       }
-                      className="p-2 bg-white text-[#111111] border border-[#D7D4CD] hover:bg-[#111111] hover:text-white hover:border-[#111111] rounded-xs transition-colors flex items-center gap-1 text-xs font-medium"
+                      className="px-4 py-2 cursor-pointer bg-[#111111] text-[#ffffff] border border-[#111111] hover:bg-[#ffffff] hover:text-[#111111] hover:border-[#111111] rounded-xs transition-colors flex items-center gap-1 text-xs font-medium"
                       aria-label="افزودن آیتم"
                     >
                       <ShoppingBag size={14} />

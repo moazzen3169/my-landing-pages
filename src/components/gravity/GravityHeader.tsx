@@ -39,7 +39,7 @@ export default function GravityHeader({
 
       {/* Main Sticky Header */}
       <header
-        className={`fixed w-full top-0 z-40 transition-all duration-300 font-peyda ${
+        className={` w-full top-0 z-40 transition-all duration-300 font-peyda ${
           isScrolled
             ? 'bg-[#F3F2EE]   border-[#D7D4CD]/60 py-5'
             : 'bg-[#F3F2EE] border-[#D7D4CD]/60 py-5'

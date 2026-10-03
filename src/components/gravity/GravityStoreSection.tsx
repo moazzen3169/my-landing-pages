@@ -26,9 +26,33 @@ function InstagramIcon({ size = 18, className = "" }: { size?: number; className
 
 export default function GravityStoreSection() {
   return (
-    <section id="store-section" className="py-20 md:py-28 bg-[#111111] text-white font-peyda relative overflow-hidden">
+    <section id="store-section" className="p-4 bg-[#111111] text-white font-peyda relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+          {/* Store Image / Presentation (Desktop: 6 cols) */}
+          <div className="lg:col-span-6 relative">
+            <div className="relative aspect-[3/4] w-full rounded-xs overflow-hidden ">
+              <Image
+                src="/images/gravity/for-hero-section-1.png"
+                alt="Gravity Physical Store Tabriz"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0  pointer-events-none" />
+
+              <div className="absolute bottom-6 right-6 left-6 p-4 bg-black/70 backdrop-blur-md rounded-xs border border-white/10">
+                <span className="text-xs font-bold text-white block mb-1">
+                  مرکز فروشگاه‌های حضوری گراویتی
+                </span>
+                <p className="text-xs text-[#CCCCCC]">
+                  میزبان شما برای انتخاب و تست انواع کت، پیراهن و استایل‌های رسمی مردانه.
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Text Content & Store Details (Desktop: 6 cols) */}
           <div className="lg:col-span-6 space-y-6">
             <span className="text-xs font-bold text-white tracking-wider uppercase block bg-white/10 w-fit px-3 py-1 rounded-full border border-white/20">
@@ -83,28 +107,7 @@ export default function GravityStoreSection() {
             </div>
           </div>
 
-          {/* Store Image / Presentation (Desktop: 6 cols) */}
-          <div className="lg:col-span-6 relative">
-            <div className="relative aspect-[4/3] w-full rounded-xs overflow-hidden border border-[#333333] shadow-2xl">
-              <Image
-                src="/images/gravity/for-hero-section-2.png"
-                alt="Gravity Physical Store Tabriz"
-                fill
-                className="object-cover object-center"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-              <div className="absolute bottom-6 right-6 left-6 p-4 bg-black/70 backdrop-blur-md rounded-xs border border-white/10">
-                <span className="text-xs font-bold text-white block mb-1">
-                  مرکز فروشگاه‌های حضوری گراویتی
-                </span>
-                <p className="text-xs text-[#CCCCCC]">
-                  میزبان شما برای انتخاب و تست انواع کت، پیراهن و استایل‌های رسمی مردانه.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
