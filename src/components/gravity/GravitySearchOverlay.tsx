@@ -40,7 +40,7 @@ export default function GravitySearchOverlay({
         {/* Search Header Input */}
         <div className="flex items-center justify-between gap-4 border-b border-[#E5E5E5] pb-4">
           <div className="flex items-center gap-3 flex-grow">
-            <Search size={22} className="text-[#2563EB] shrink-0" />
+            <Search size={22} className="text-[#111111] shrink-0" />
             <input
               type="text"
               value={query}
@@ -71,7 +71,7 @@ export default function GravitySearchOverlay({
                   <button
                     key={tag}
                     onClick={() => setQuery(tag)}
-                    className="px-3 py-1.5 bg-[#F3F2EE] hover:bg-[#2563EB] hover:text-white text-xs font-medium rounded-xs text-[#111111] transition-colors"
+                    className="px-3 py-1.5 bg-[#F3F2EE] hover:bg-[#111111] hover:text-white text-xs font-medium rounded-xs text-[#111111] transition-colors"
                   >
                     {tag}
                   </button>
@@ -101,7 +101,7 @@ export default function GravitySearchOverlay({
                       onQuickView(product);
                       onClose();
                     }}
-                    className="flex items-center gap-3 p-2.5 bg-[#F8F9FA] border border-[#E5E5E5] rounded-xs hover:border-[#2563EB] cursor-pointer transition-colors"
+                    className="flex items-center gap-3 p-2.5 bg-[#F8F9FA] border border-[#E5E5E5] rounded-xs hover:border-[#111111] cursor-pointer transition-colors"
                   >
                     <div className="relative w-12 h-16 bg-[#E8E6E1] rounded-xs overflow-hidden shrink-0">
                       <Image
@@ -112,7 +112,7 @@ export default function GravitySearchOverlay({
                       />
                     </div>
                     <div>
-                      <span className="text-[10px] font-bold text-[#2563EB] uppercase block">
+                      <span className="text-[10px] font-bold text-[#666666] uppercase block">
                         {product.brand}
                       </span>
                       <h4 className="text-xs font-bold text-[#111111] line-clamp-1">

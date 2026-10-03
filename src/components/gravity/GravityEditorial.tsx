@@ -11,7 +11,7 @@ export default function GravityEditorial() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Editorial Text Content (Desktop: 6 cols) */}
           <div className="lg:col-span-6 space-y-6 order-2 lg:order-1">
-            <span className="text-xs font-bold text-[#3B82F6] tracking-widest uppercase block bg-[#2563EB]/20 w-fit px-3 py-1 rounded-full border border-[#2563EB]/40">
+            <span className="text-xs font-bold text-white tracking-widest uppercase block bg-white/10 w-fit px-3 py-1 rounded-full border border-white/20">
               انتخاب گراویتی / GRAVITY SELECT
             </span>
 
@@ -27,15 +27,15 @@ export default function GravityEditorial() {
 
             <div className="space-y-3 pt-2 text-xs sm:text-sm text-[#CCCCCC]">
               <div className="flex items-center gap-3">
-                <CheckCircle2 size={18} className="text-[#3B82F6] shrink-0" />
+                <CheckCircle2 size={18} className="text-white shrink-0" />
                 <span>پارچه‌های مرینو، کشمیر و لینن وارداتی با استاندارد اروپایی</span>
               </div>
               <div className="flex items-center gap-3">
-                <CheckCircle2 size={18} className="text-[#3B82F6] shrink-0" />
+                <CheckCircle2 size={18} className="text-white shrink-0" />
                 <span>الگوهای تن‌خور کاستوم فیت و تیلورد فیت دقیق</span>
               </div>
               <div className="flex items-center gap-3">
-                <CheckCircle2 size={18} className="text-[#3B82F6] shrink-0" />
+                <CheckCircle2 size={18} className="text-white shrink-0" />
                 <span>برگزیده‌شده از میان بیش از ۲۰ برند مطرح پوشاک مردانه</span>
               </div>
             </div>
@@ -43,7 +43,7 @@ export default function GravityEditorial() {
             <div className="pt-4">
               <a
                 href="#styles"
-                className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold text-sm rounded-xs transition-colors"
+                className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-white hover:bg-[#DDDDDD] text-[#111111] font-bold text-sm rounded-xs transition-colors"
               >
                 <span>مشاهده استایل‌ها</span>
                 <ArrowDownLeft size={16} />
@@ -64,7 +64,7 @@ export default function GravityEditorial() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
 
               <div className="absolute bottom-6 right-6 left-6 p-4 bg-black/60 backdrop-blur-md rounded-xs border border-white/10">
-                <span className="text-[10px] text-[#2563EB] font-bold block mb-0.5">
+                <span className="text-[10px] text-[#CCCCCC] font-bold block mb-0.5">
                   GRAVITY EDITORIAL 2026
                 </span>
                 <p className="text-xs text-white font-medium">

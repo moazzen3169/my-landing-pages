@@ -40,7 +40,7 @@ export default function GravityNewArrivals({
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-[#E5E5E5] gap-4">
           <div>
-            <span className="text-xs font-bold text-[#2563EB] tracking-wider uppercase block mb-1">
+            <span className="text-xs font-bold text-[#666666] tracking-wider uppercase block mb-1">
               کالکشن جدید
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#111111] mb-1">
@@ -87,7 +87,7 @@ export default function GravityNewArrivals({
         <div className="mt-14 text-center">
           <a
             href="#categories"
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#111111] text-white hover:bg-[#2563EB] transition-colors rounded-xs font-bold text-sm"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#111111] text-white hover:bg-[#333333] transition-colors rounded-xs font-bold text-sm"
           >
             <span>مشاهده همه محصولات فروشگاه</span>
             <ArrowLeft size={16} />

@@ -12,7 +12,7 @@ export default function GravityCategories() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#D7D4CD]/80 gap-4">
           <div>
-            <span className="text-xs font-bold text-[#2563EB] tracking-wider uppercase block mb-1">
+            <span className="text-xs font-bold text-[#666666] tracking-wider uppercase block mb-1">
               دسته‌بندی‌های اصلی
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#111111]">
@@ -52,12 +52,12 @@ export default function GravityCategories() {
                   <span className="text-[11px] font-medium text-white/70 block mb-1 tracking-wider">
                     {cat.titleEn} • {cat.count}
                   </span>
-                  <h3 className="text-lg sm:text-xl font-bold tracking-normal group-hover:text-[#93C5FD] transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold tracking-normal group-hover:text-[#DDDDDD] transition-colors">
                     {cat.titleFa}
                   </h3>
                 </div>
 
-                <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm group-hover:bg-[#2563EB] text-white flex items-center justify-center transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm group-hover:bg-[#111111] text-white flex items-center justify-center transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                   <ArrowUpLeft size={16} />
                 </div>
               </div>

@@ -82,7 +82,7 @@ export default function GravityLandingPage() {
   const totalCartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F3F2EE] text-[#111111] font-peyda dir-rtl selection:bg-[#2563EB] selection:text-white" dir="rtl">
+    <div className="min-h-screen flex flex-col bg-[#F3F2EE] text-[#111111] font-peyda dir-rtl selection:bg-[#111111] selection:text-white" dir="rtl">
       {/* 01 HEADER */}
       <GravityHeader
         onOpenSearch={() => setIsSearchOpen(true)}

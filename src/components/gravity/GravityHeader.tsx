@@ -50,24 +50,24 @@ export default function GravityHeader({
           <nav className="hidden lg:flex items-center gap-9 text-sm font-medium text-[#111111]">
             <a
               href="#new-arrivals"
-              className="hover:text-[#2563EB] transition-colors py-1 relative group"
+              className="hover:text-[#666666] transition-colors py-1 relative group"
             >
               جدیدها
-              <span className="absolute bottom-0 right-0 w-0 h-[1.5px] bg-[#2563EB] transition-all duration-200 group-hover:w-full"></span>
+              <span className="absolute bottom-0 right-0 w-0 h-[1.5px] bg-[#111111] transition-all duration-200 group-hover:w-full"></span>
             </a>
             <a
               href="#categories"
-              className="hover:text-[#2563EB] transition-colors py-1 relative group"
+              className="hover:text-[#666666] transition-colors py-1 relative group"
             >
               دسته‌بندی‌ها
-              <span className="absolute bottom-0 right-0 w-0 h-[1.5px] bg-[#2563EB] transition-all duration-200 group-hover:w-full"></span>
+              <span className="absolute bottom-0 right-0 w-0 h-[1.5px] bg-[#111111] transition-all duration-200 group-hover:w-full"></span>
             </a>
             <a
               href="#brands"
-              className="hover:text-[#2563EB] transition-colors py-1 relative group"
+              className="hover:text-[#666666] transition-colors py-1 relative group"
             >
               برندها
-              <span className="absolute bottom-0 right-0 w-0 h-[1.5px] bg-[#2563EB] transition-all duration-200 group-hover:w-full"></span>
+              <span className="absolute bottom-0 right-0 w-0 h-[1.5px] bg-[#111111] transition-all duration-200 group-hover:w-full"></span>
             </a>
 
           </nav>
@@ -75,7 +75,7 @@ export default function GravityHeader({
           {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-[#111111] hover:text-[#2563EB] transition-colors focus:outline-none"
+            className="lg:hidden p-2 text-[#111111] hover:text-[#666666] transition-colors focus:outline-none"
             aria-label="منو"
           >
             {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -98,7 +98,7 @@ export default function GravityHeader({
             {/* Search Trigger */}
             <button
               onClick={onOpenSearch}
-              className="p-2 text-[#111111] hover:text-[#2563EB] transition-colors relative flex items-center gap-1.5 text-xs font-medium"
+              className="p-2 text-[#111111] hover:text-[#666666] transition-colors relative flex items-center gap-1.5 text-xs font-medium"
               aria-label="جستجو"
             >
               <Search size={19} className="stroke-[1.75]" />
@@ -108,12 +108,12 @@ export default function GravityHeader({
             {/* Wishlist Trigger */}
             <button
               onClick={onOpenWishlist}
-              className="p-2 text-[#111111] hover:text-[#2563EB] transition-colors relative"
+              className="p-2 text-[#111111] hover:text-[#666666] transition-colors relative"
               aria-label="علاقه‌مندی‌ها"
             >
               <Heart size={19} className="stroke-[1.75]" />
               {wishlistCount > 0 && (
-                <span className="absolute top-1 right-1 bg-[#2563EB] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
+                <span className="absolute top-1 right-1 bg-[#111111] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
                   {wishlistCount}
                 </span>
               )}
@@ -122,7 +122,7 @@ export default function GravityHeader({
             {/* Cart Trigger */}
             <button
               onClick={onOpenCart}
-              className="p-2 bg-[#111111] text-white hover:bg-[#2563EB] transition-all px-3 py-1.5 rounded-sm flex items-center gap-2 text-xs font-medium"
+              className="p-2 bg-[#111111] text-white hover:bg-[#333333] transition-all px-3 py-1.5 rounded-sm flex items-center gap-2 text-xs font-medium"
               aria-label="سبد خرید"
             >
               <ShoppingBag size={17} className="stroke-[1.75]" />
@@ -142,35 +142,35 @@ export default function GravityHeader({
             <a
               href="#new-arrivals"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-base font-medium text-[#111111] hover:text-[#2563EB]"
+              className="block text-base font-medium text-[#111111] hover:text-[#666666]"
             >
               جدیدها
             </a>
             <a
               href="#categories"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-base font-medium text-[#111111] hover:text-[#2563EB]"
+              className="block text-base font-medium text-[#111111] hover:text-[#666666]"
             >
               دسته‌بندی‌ها
             </a>
             <a
               href="#styles"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-base font-medium text-[#111111] hover:text-[#2563EB]"
+              className="block text-base font-medium text-[#111111] hover:text-[#666666]"
             >
               استایل‌ها
             </a>
             <a
               href="#brands"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-base font-medium text-[#111111] hover:text-[#2563EB]"
+              className="block text-base font-medium text-[#111111] hover:text-[#666666]"
             >
               برندها
             </a>
             <a
               href="#store-section"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-base font-medium text-[#111111] hover:text-[#2563EB]"
+              className="block text-base font-medium text-[#111111] hover:text-[#666666]"
             >
               فروشگاه حضوری تبریز
             </a>

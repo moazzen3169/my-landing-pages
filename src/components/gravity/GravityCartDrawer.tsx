@@ -51,7 +51,7 @@ export default function GravityCartDrawer({
         {/* Header */}
         <div className="p-5 bg-white border-b border-[#E5E5E5] flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <ShoppingBag size={20} className="text-[#2563EB]" />
+            <ShoppingBag size={20} className="text-[#111111]" />
             <h2 className="text-base font-extrabold text-[#111111]">
               سبد خرید شما ({cartItems.length})
             </h2>
@@ -78,7 +78,7 @@ export default function GravityCartDrawer({
               </p>
               <button
                 onClick={onClose}
-                className="px-6 py-2.5 bg-[#111111] text-white text-xs font-bold rounded-xs hover:bg-[#2563EB] transition-colors"
+                className="px-6 py-2.5 bg-[#111111] text-white text-xs font-bold rounded-xs hover:bg-[#333333] transition-colors"
               >
                 شروع خرید
               </button>
@@ -102,7 +102,7 @@ export default function GravityCartDrawer({
                   <h3 className="text-xs font-bold text-[#111111] truncate mb-1">
                     {item.name}
                   </h3>
-                  <span className="text-xs font-black text-[#2563EB] block mb-2">
+                  <span className="text-xs font-black text-[#111111] block mb-2">
                     {formatPersianPrice(item.price)}
                   </span>
 
@@ -145,7 +145,7 @@ export default function GravityCartDrawer({
           <div className="p-5 bg-white border-t border-[#E5E5E5] space-y-4">
             <div className="flex items-center justify-between text-sm font-bold text-[#111111]">
               <span>مبلغ قابل پرداخت:</span>
-              <span className="text-lg font-black text-[#2563EB]">
+              <span className="text-lg font-black text-[#111111]">
                 {formatPersianPrice(totalPrice)}
               </span>
             </div>
@@ -156,7 +156,7 @@ export default function GravityCartDrawer({
 
             <button
               onClick={() => alert('جهت تکمیل سفارش به درگاه پرداخت منتقل می‌شوید.')}
-              className="w-full py-3.5 bg-[#111111] hover:bg-[#2563EB] text-white font-extrabold text-sm rounded-xs transition-colors flex items-center justify-center gap-2"
+              className="w-full py-3.5 bg-[#111111] hover:bg-[#333333] text-white font-extrabold text-sm rounded-xs transition-colors flex items-center justify-center gap-2"
             >
               <span>ادامه فرایند خرید</span>
               <ArrowLeft size={16} />

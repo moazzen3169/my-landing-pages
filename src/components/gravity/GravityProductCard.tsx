@@ -51,7 +51,7 @@ export default function GravityProductCard({
             </span>
           )}
           {product.originalPrice && (
-            <span className="bg-[#2563EB] text-white text-[10px] font-semibold px-2 py-0.5 rounded-xs tracking-normal">
+            <span className="bg-[#111111] text-white text-[10px] font-semibold px-2 py-0.5 rounded-xs tracking-normal">
               پیشنهاد ویژه
             </span>
           )}
@@ -65,8 +65,8 @@ export default function GravityProductCard({
           }}
           className={`absolute top-2.5 left-2.5 z-10 p-2 rounded-full backdrop-blur-md transition-all ${
             isWishlisted
-              ? 'bg-[#2563EB] text-white'
-              : 'bg-white/80 text-[#111111] hover:bg-white hover:text-[#2563EB]'
+              ? 'bg-[#111111] text-white'
+              : 'bg-white/80 text-[#111111] hover:bg-white hover:text-[#666666]'
           }`}
           aria-label="افزودن به علاقه‌مندی‌ها"
         >
@@ -84,7 +84,7 @@ export default function GravityProductCard({
           </button>
           <button
             onClick={() => onAddToCart(product)}
-            className="bg-[#2563EB] text-white hover:bg-[#1D4ED8] p-2.5 rounded-xs flex items-center justify-center transition-colors"
+            className="bg-[#111111] text-white hover:bg-[#333333] p-2.5 rounded-xs flex items-center justify-center transition-colors"
             aria-label="افزودن سریع به سبد"
           >
             <ShoppingBag size={15} />
@@ -96,12 +96,12 @@ export default function GravityProductCard({
       <div className="p-4 flex flex-col flex-grow justify-between bg-white">
         <div>
           {/* Brand */}
-          <span className="text-[11px] font-bold text-[#2563EB] uppercase tracking-wider block mb-1">
+          <span className="text-[11px] font-bold text-[#666666] uppercase tracking-wider block mb-1">
             {product.brand}
           </span>
 
           {/* Title */}
-          <h3 className="text-sm font-bold text-[#111111] leading-snug line-clamp-1 group-hover:text-[#2563EB] transition-colors mb-2">
+          <h3 className="text-sm font-bold text-[#111111] leading-snug line-clamp-1 group-hover:text-[#666666] transition-colors mb-2">
             {product.name}
           </h3>
         </div>

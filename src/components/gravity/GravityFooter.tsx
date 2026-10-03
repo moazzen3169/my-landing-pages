@@ -13,7 +13,7 @@ export default function GravityFooter() {
               <span className="text-2xl font-black text-white tracking-widest uppercase font-sans block">
                 GRAVITY
               </span>
-              <span className="text-xs text-[#3B82F6] font-bold block mt-0.5">
+              <span className="text-xs text-[#888888] font-bold block mt-0.5">
                 گراویتی • فروشگاه منتخب پوشاک مردانه
               </span>
             </a>
