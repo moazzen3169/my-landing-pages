@@ -56,7 +56,7 @@ export default function ScrollInteractiveSection({
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-[#0B0B0B] text-white min-h-[300vh] lg:min-h-[400vh]"
+      className="relative w-full bg-[#ffffff] text-white min-h-[300vh] lg:min-h-[400vh]"
     >
       {/* STICKY VIEWPORT CONTAINER */}
       <div className="sticky top-0 w-full h-screen flex flex-col justify-between p-4 sm:p-6 lg:p-10 overflow-hidden">
@@ -115,7 +115,7 @@ export default function ScrollInteractiveSection({
                 }`}
               >
                 {/* CENTERED EDITORIAL IMAGE FRAME */}
-                <div className="relative w-[280px] sm:w-[340px] md:w-[380px] lg:w-[420px] aspect-[3/4] max-h-[58vh] sm:max-h-[62vh] rounded-2xl overflow-hidden shadow-2xl border border-white/10 transition-all duration-700">
+                <div className="relative w-[380px] h-[600px] rounded-2xl overflow-hidden  transition-all duration-700">
                   <Image
                     src={prod.image}
                     alt={prod.name}
@@ -125,28 +125,28 @@ export default function ScrollInteractiveSection({
                     priority={idx === 0}
                   />
                   {/* Subtle inner vignette */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />
+                  <div className="absolute inset-0  pointer-events-none" />
                 </div>
 
                 {/* DYNAMIC TITLE & SUMMARY TEXT BOX (ALTERNATING RIGHT / LEFT) */}
                 <div
-                  className={`absolute top-1/2 -translate-y-1/2 z-30 w-[85%] max-w-[260px] sm:max-w-[290px] md:max-w-[340px] p-4 sm:p-6 bg-black/75 backdrop-blur-md rounded-2xl border border-white/15 shadow-2xl transition-all duration-700 ease-out text-right ${
+                  className={`absolute top-1/2 -translate-y-1/2 z-30 w-[85%] max-w-[260px] sm:max-w-[290px] md:max-w-[340px] p-4 sm:p-6  transition-all duration-700 ease-out text-right ${
                     isRight
                       ? 'right-2 sm:right-6 md:right-10 lg:right-16 xl:right-28'
                       : 'left-2 sm:left-6 md:left-10 lg:left-16 xl:left-28'
                   }`}
                 >
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-white/60 bg-white/10 px-2.5 py-0.5 rounded-full border border-white/10">
+                    <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-[#313131] px-2.5 py-0.5 rounded-full border border-[#313131]">
                       {prod.stepNumber}
                     </span>
                   </div>
 
-                  <h3 className="text-base sm:text-lg lg:text-xl font-bold font-peyda text-white mb-2 leading-snug">
+                  <h3 className="text-base sm:text-lg lg:text-xl font-bold font-peyda text-[#313131] mb-2 leading-snug">
                     {prod.scrollTitle || prod.name}
                   </h3>
 
-                  <p className="text-xs sm:text-sm font-normal font-peyda text-white/85 leading-relaxed">
+                  <p className="text-xs sm:text-sm font-normal font-peyda text-[#313131] leading-relaxed">
                     {prod.scrollSummary || prod.description}
                   </p>
                 </div>
