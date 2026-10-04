@@ -40,10 +40,10 @@ export interface StyleCategory {
 export const MAN_SPORT_CATEGORIES = [
   { id: 'all', label: 'همه محصولات', icon: 'Sparkles' },
   { id: 't-shirt', label: 'تی‌شرت', icon: 'Shirt', image: '/images/man-sport/T-shirt-1.webp' },
-  { id: 'hoodie', label: 'هودی', icon: 'Layers', image: '/images/man-sport/1975203_BLAC_1.webp' },
-  { id: 'sweatshirt', label: 'سویشرت', icon: 'Zap', image: '/images/man-sport/118621_BLAC_1.webp' },
+  { id: 'hoodie', label: 'هودی', icon: 'Layers', image: '/images/man-sport/1785334254-1751982752-basically-a-hood-black_927d5103-f4b9-4415-9200-b636a4060a33.webp' },
+  { id: 'sweatshirt', label: 'سویشرت', icon: 'Zap', image: '/images/man-sport/1785427587-p3-stitch-crew-black-2_374632b4-265e-489b-a8fb-374b9e3ca111.webp' },
   { id: 'jacket', label: 'کاپشن و کاپشن ورزشی', icon: 'Shield', image: '/images/man-sport/118624_BLAC_1.webp' },
-  { id: 'pants', label: 'شلوار و اسلش', icon: 'Activity', image: '/images/man-sport/116812_BLAC_1.webp' },
+  { id: 'pants', label: 'شلوار و اسلش', icon: 'Activity', image: '/images/man-sport/1790349702-basically-a-jogger-black-1.webp' },
 ];
 
 export const MAN_SPORT_PRODUCTS: ManSportProduct[] = [
@@ -329,7 +329,7 @@ export const MAN_SPORT_STYLES: StyleCategory[] = [
     englishTitle: 'STREETWEAR',
     tagline: 'جسور، پرانرژی و متناسب با فرهنگ خیابانی مدرن',
     image: '/images/man-sport/T-shirt-1.webp',
-    accentColor: '#B7FF00', // Acid Lime
+    accentColor: '#E04A24', // Acid Lime
   },
   {
     id: 'casual',
@@ -353,7 +353,7 @@ export const MAN_SPORT_STYLES: StyleCategory[] = [
     englishTitle: 'OVERSIZED',
     tagline: 'سلوئت‌های آزاد با تناسب اندام دقیق و مدرن',
     image: '/images/man-sport/1975203_BLAC_1.webp',
-    accentColor: '#B7FF00', // Acid Lime
+    accentColor: '#E04A24', // Acid Lime
   },
   {
     id: 'minimal',
@@ -385,7 +385,7 @@ export const BUILD_YOUR_FIT_STEPS = [
     brand: 'NIKE SPORTSWEAR',
     price: '۲٬۸۹۰٬۰۰۰ تومان',
     image: '/images/man-sport/T-shirt-1.webp',
-    accent: '#B7FF00',
+    accent: '#E04A24',
     description: 'یک پایه تمیز و سنگین ۳۲۰ گرمی که فرم سرشانه‌ها را فوق‌العاده نشان می‌دهد.',
   },
   {
@@ -418,7 +418,7 @@ export const BUILD_YOUR_FIT_STEPS = [
     brand: 'MULTI-BRAND COMBO',
     price: '۱۰٬۰۴۰٬۰۰۰ تومان',
     image: '/images/man-sport/118624_BLAC_1.webp',
-    accent: '#B7FF00',
+    accent: '#E04A24',
     description: 'ترکیب کامل ۳ تکه شامل تی‌شرت، هودی و شلوار اسلش با تخفیف ست ویژه.',
   },
 ];

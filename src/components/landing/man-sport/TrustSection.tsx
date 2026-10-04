@@ -14,7 +14,7 @@ export default function TrustSection() {
       title: 'اصالت کالا',
     },
     {
-      icon: <RefreshCw className="w-5 h-5 text-[#B7FF00]" />,
+      icon: <RefreshCw className="w-5 h-5 text-[#E04A24]" />,
       title: 'تعویض آسان',
     },
     {

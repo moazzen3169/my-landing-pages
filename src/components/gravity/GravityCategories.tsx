@@ -43,7 +43,7 @@ export default function GravityCategories() {
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent transition-opacity duration-300" />
               </div>
 
               {/* Content Overlay */}

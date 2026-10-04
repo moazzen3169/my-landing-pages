@@ -24,7 +24,7 @@ const FIT_STEPS = [
     brand: 'ADIDAS ORIGINALS',
     productName: 'هودی Heavy Fleece',
     price: '۳٬۹۵۰٬۰۰۰ تومان',
-    image: '/images/man-sport/1975203_BLAC_1.webp',
+    image: '/images/man-sport/1785334254-1751982752-basically-a-hood-black_927d5103-f4b9-4415-9200-b636a4060a33.webp',
   },
   {
     step: 3,
@@ -33,7 +33,7 @@ const FIT_STEPS = [
     brand: 'NEW BALANCE',
     productName: 'شلوار اسلش Cargo',
     price: '۳٬۲۰۰٬۰۰۰ تومان',
-    image: '/images/man-sport/116812_BLAC_1.webp',
+    image: '/images/man-sport/1790349702-basically-a-jogger-black-1.webp',
   },
   {
     step: 4,
@@ -42,7 +42,7 @@ const FIT_STEPS = [
     brand: 'COMPLETE LOOK',
     productName: 'پک استایل کامل Street Energy',
     price: '۱۰٬۰۴۰٬۰۰۰ تومان',
-    image: '/images/man-sport/118624_BLAC_1.webp',
+    image: '/images/man-sport/1785427587-p3-stitch-crew-black-2_374632b4-265e-489b-a8fb-374b9e3ca111.webp',
   },
 ];
 
@@ -78,15 +78,15 @@ export default function BuildYourFit({ onAddToCart }: BuildYourFitProps) {
     <section
       id="build-your-fit"
       ref={containerRef}
-      className="relative bg-[#111111] text-[#F5F3EE] min-h-[250vh]"
+      className="relative bg-[#E04A24] text-[#F5F3EE] min-h-[250vh]"
     >
       {/* STICKY CONTAINER FOR PINNED EXPERIENCE */}
       <div className="sticky top-0 h-screen flex flex-col justify-between py-10 px-4 sm:px-8 max-w-7xl mx-auto overflow-hidden">
 
         {/* TOP HEADER & STEP INDICATORS */}
-        <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-4 z-10">
+        <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-8 z-10">
           <div>
-            <span className="text-[10px] font-mono font-bold tracking-widest text-[#B7FF00] uppercase block">
+            <span className="text-[10px] font-mono font-bold tracking-widest text-[#E04A24] uppercase block">
               BUILD YOUR FIT
             </span>
             <h2 className="text-xl sm:text-3xl font-black font-peyda text-white">
@@ -102,7 +102,7 @@ export default function BuildYourFit({ onAddToCart }: BuildYourFitProps) {
                 onClick={() => setActiveStep(idx)}
                 className={`px-3 py-1.5 rounded-full text-xs font-mono font-bold transition-colors ${
                   idx === activeStep
-                    ? 'bg-[#B7FF00] text-black'
+                    ? 'bg-[#ffffff] text-black'
                     : idx < activeStep
                     ? 'bg-white/20 text-white'
                     : 'bg-white/5 text-slate-500'
@@ -119,7 +119,7 @@ export default function BuildYourFit({ onAddToCart }: BuildYourFitProps) {
 
           {/* LEFT/CENTER: VISUAL OUTFIT BUILDER IMAGES */}
           <div className="lg:col-span-7 flex items-center justify-center relative">
-            <div className="relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 bg-black">
+            <div className="relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden ">
 
               {/* LAYER 1: TEE */}
               <img
@@ -128,7 +128,7 @@ export default function BuildYourFit({ onAddToCart }: BuildYourFitProps) {
                 className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-500 ${
                   activeStep === 0
                     ? 'opacity-100 scale-100'
-                    : 'opacity-30 blur-[1px]'
+                    : 'opacity-1 blur-[1px]'
                 }`}
               />
 
@@ -140,7 +140,7 @@ export default function BuildYourFit({ onAddToCart }: BuildYourFitProps) {
                   className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-500 ${
                     activeStep === 1
                       ? 'opacity-100 scale-100'
-                      : 'opacity-40 blur-[1px]'
+                      : 'opacity-1 blur-[1px]'
                   }`}
                 />
               )}
@@ -153,7 +153,7 @@ export default function BuildYourFit({ onAddToCart }: BuildYourFitProps) {
                   className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-500 ${
                     activeStep === 2
                       ? 'opacity-100 scale-100'
-                      : 'opacity-40 blur-[1px]'
+                      : 'opacity-1 blur-[1px]'
                   }`}
                 />
               )}
@@ -168,16 +168,16 @@ export default function BuildYourFit({ onAddToCart }: BuildYourFitProps) {
               )}
 
               {/* STEP NUMBER WATERMARK OVERLAY */}
-              <div className="absolute top-4 left-4 text-4xl sm:text-6xl font-black font-mono text-[#B7FF00]/80">
+              <div className="absolute top-4 left-4 text-4xl sm:text-6xl font-black font-mono text-[#ffffff]/80">
                 {currentFit.number}
               </div>
 
               {/* OVERLAY HEADING */}
-              <div className="absolute bottom-4 right-4 left-4 bg-black/60 backdrop-blur-md p-4 rounded-xl border border-white/10 text-right">
-                <span className="text-[10px] font-mono text-[#B7FF00] uppercase block">
+              <div className="absolute bottom-4 right-0 left-0 bg-black/20 backdrop-blur-md p-4   text-right">
+                <span className="text-[10px] font-mono text-[#ffffff] uppercase block">
                   STEP 0{currentFit.step}
                 </span>
-                <h3 className="text-lg font-bold font-peyda text-white">
+                <h3 className="text-lg font-bold font-peyda text-[#ffffff]">
                   {currentFit.heading}
                 </h3>
               </div>
@@ -187,7 +187,7 @@ export default function BuildYourFit({ onAddToCart }: BuildYourFitProps) {
           {/* RIGHT: MINIMAL PRODUCT INFORMATION & CTA */}
           <div className="lg:col-span-5 text-right space-y-6">
             <div className="space-y-2">
-              <span className="text-xs font-mono font-bold text-[#B7FF00] uppercase tracking-wider block">
+              <span className="text-xs font-mono font-bold text-[#313131] uppercase tracking-wider block">
                 {currentFit.brand}
               </span>
               <h3 className="text-2xl sm:text-4xl font-extrabold font-peyda text-white leading-tight">
@@ -202,7 +202,7 @@ export default function BuildYourFit({ onAddToCart }: BuildYourFitProps) {
               {activeStep < 3 ? (
                 <button
                   onClick={() => setActiveStep((prev) => Math.min(prev + 1, 3))}
-                  className="w-full py-4 rounded-xl bg-[#B7FF00] hover:bg-white text-black font-extrabold font-peyda text-sm flex items-center justify-center gap-2 transition-colors"
+                  className="w-full py-4 rounded-xl bg-[#fff] hover:bg-white text-black font-extrabold font-peyda text-sm flex items-center justify-center gap-2 transition-colors"
                 >
                   <span>لایه بعدی</span>
                   <ArrowLeft className="w-4 h-4" />
@@ -210,7 +210,7 @@ export default function BuildYourFit({ onAddToCart }: BuildYourFitProps) {
               ) : (
                 <button
                   onClick={() => onAddToCart && onAddToCart(currentFit)}
-                  className="w-full py-4 rounded-xl bg-[#B7FF00] hover:bg-white text-black font-extrabold font-peyda text-sm flex items-center justify-center gap-2 transition-colors"
+                  className="w-full py-4 rounded-xl bg-[#ffffff] hover:bg-white text-black font-extrabold font-peyda text-sm flex items-center justify-center gap-2 transition-colors"
                 >
                   <ShoppingBag className="w-4 h-4" />
                   <span>خرید این استایل</span>

@@ -31,11 +31,11 @@ export default function ShopByStyle() {
               />
 
               {/* GRADIENT OVERLAY */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
 
               {/* MINIMAL STYLE NAME */}
               <div className="relative z-10 text-right">
-                <span className="text-[10px] font-mono text-[#B7FF00] font-bold block uppercase tracking-wider mb-0.5">
+                <span className="text-[10px] font-mono text-[#E04A24] font-bold block uppercase tracking-wider mb-0.5">
                   {style.englishTitle}
                 </span>
                 <h3 className="text-base sm:text-lg font-extrabold font-peyda text-white">

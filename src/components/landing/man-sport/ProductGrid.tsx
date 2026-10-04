@@ -31,7 +31,7 @@ export default function ProductGrid({
   }
 
   return (
-    <section id="products-section" className="py-12 sm:py-16 bg-[#F5F3EE] text-[#111111]">
+    <section id="products-section" className="py-12 sm:py-16 bg-[#ffffff] text-[#111111]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* SECTION TITLE & FILTER BAR */}
@@ -42,20 +42,7 @@ export default function ProductGrid({
             </h2>
           </div>
 
-          {/* SORTING CONTROLS */}
-          <div className="flex items-center gap-2 font-peyda text-xs font-semibold shrink-0">
-            <SlidersHorizontal className="w-4 h-4 text-slate-500" />
-            <span className="text-slate-600">مرتب‌سازی:</span>
-            <select
-              value={sortBy}
-              onChange={(e: any) => setSortBy(e.target.value)}
-              className="bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs font-peyda font-semibold text-[#111111] focus:outline-none focus:border-[#111111]"
-            >
-              <option value="featured">پیش‌فرض</option>
-              <option value="price-asc">ارزان‌ترین</option>
-              <option value="price-desc">گران‌ترین</option>
-            </select>
-          </div>
+
         </div>
 
         {/* CATEGORY FILTER TABS */}
@@ -74,7 +61,7 @@ export default function ProductGrid({
               onClick={() => setActiveCategory(tab.id)}
               className={`px-4 py-2 rounded-xl text-xs font-semibold font-peyda transition-colors ${
                 activeCategory === tab.id
-                  ? 'bg-[#111111] text-[#B7FF00]'
+                  ? 'bg-[#111111] text-[#fff]'
                   : 'bg-white border border-slate-200 text-slate-700 hover:border-slate-400'
               }`}
             >

@@ -37,11 +37,11 @@ export default function MobileDrawer({
               onClick={onClose}
               className="flex items-center gap-2"
             >
-              <span className="w-8 h-8 rounded-full bg-[#B7FF00] text-black flex items-center justify-center font-bold text-xs">
+              <span className="w-8 h-8 rounded-full bg-[#E04A24] text-black flex items-center justify-center font-bold text-xs">
                 MS
               </span>
               <span className="font-bold text-base font-peyda text-white">
-                MAN<span className="text-[#B7FF00]">SPORT</span>
+                MAN<span className="text-[#E04A24]">SPORT</span>
               </span>
             </Link>
 
@@ -62,7 +62,7 @@ export default function MobileDrawer({
               }}
               className="w-full flex items-center gap-2 px-4 py-3 rounded-2xl bg-white/5 border border-white/10 text-slate-300 text-xs font-peyda font-medium"
             >
-              <Search className="w-4 h-4 text-[#B7FF00]" />
+              <Search className="w-4 h-4 text-[#E04A24]" />
               <span>جستجو...</span>
             </button>
           </div>
@@ -73,21 +73,21 @@ export default function MobileDrawer({
               <a
                 href="#products-section"
                 onClick={onClose}
-                className="block p-2 text-sm font-bold font-peyda text-slate-200 hover:text-[#B7FF00]"
+                className="block p-2 text-sm font-bold font-peyda text-slate-200 hover:text-[#E04A24]"
               >
                 محصولات
               </a>
               <a
                 href="#styles-section"
                 onClick={onClose}
-                className="block p-2 text-sm font-bold font-peyda text-slate-200 hover:text-[#B7FF00]"
+                className="block p-2 text-sm font-bold font-peyda text-slate-200 hover:text-[#E04A24]"
               >
                 استایل‌ها
               </a>
               <a
                 href="#brands-section"
                 onClick={onClose}
-                className="block p-2 text-sm font-bold font-peyda text-slate-200 hover:text-[#B7FF00]"
+                className="block p-2 text-sm font-bold font-peyda text-slate-200 hover:text-[#E04A24]"
               >
                 برندها
               </a>

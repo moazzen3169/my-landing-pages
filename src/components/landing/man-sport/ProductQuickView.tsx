@@ -64,7 +64,7 @@ export default function ProductQuickView({
                 key={idx}
                 onClick={() => setSelectedImageIndex(idx)}
                 className={`w-16 h-20 rounded-xl overflow-hidden border-2 transition-all ${
-                  idx === selectedImageIndex ? 'border-[#B7FF00]' : 'border-white/10 opacity-60 hover:opacity-100'
+                  idx === selectedImageIndex ? 'border-[#E04A24]' : 'border-white/10 opacity-60 hover:opacity-100'
                 }`}
               >
                 <img src={img} alt="" className="w-full h-full object-cover" />
@@ -76,7 +76,7 @@ export default function ProductQuickView({
         {/* DETAILS AREA */}
         <div className="md:col-span-6 flex flex-col justify-between space-y-4">
           <div>
-            <span className="text-xs font-mono font-bold text-[#B7FF00] uppercase tracking-widest block mb-2">
+            <span className="text-xs font-mono font-bold text-[#E04A24] uppercase tracking-widest block mb-2">
               {product.brand}
             </span>
 
@@ -95,7 +95,7 @@ export default function ProductQuickView({
                   onClick={() => setSelectedSize(size)}
                   className={`px-3.5 py-1.5 rounded-xl font-mono text-xs font-bold border transition-all ${
                     selectedSize === size
-                      ? 'bg-[#B7FF00] text-black border-[#B7FF00]'
+                      ? 'bg-[#E04A24] text-black border-[#E04A24]'
                       : 'bg-white/5 text-white border-white/10 hover:border-white/30'
                   }`}
                 >
@@ -109,7 +109,7 @@ export default function ProductQuickView({
           <div className="pt-4 border-t border-white/10 space-y-4">
             <div className="flex items-center justify-between">
               <span className="text-xs text-slate-400 font-peyda">قیمت کل:</span>
-              <span className="text-2xl font-black font-mono text-[#B7FF00]">
+              <span className="text-2xl font-black font-mono text-[#E04A24]">
                 {formatPrice(product.price)}
               </span>
             </div>
@@ -119,7 +119,7 @@ export default function ProductQuickView({
               className={`w-full py-4 rounded-2xl font-extrabold font-peyda text-sm flex items-center justify-center gap-2 transition-colors ${
                 isAdded
                   ? 'bg-[#2455FF] text-white'
-                  : 'bg-[#B7FF00] hover:bg-white text-black'
+                  : 'bg-[#E04A24] hover:bg-white text-black'
               }`}
             >
               {isAdded ? (

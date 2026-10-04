@@ -68,7 +68,7 @@ export default function ManSportLandingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F3EE] text-[#111111] font-peyda antialiased selection:bg-[#111111] selection:text-[#B7FF00]" dir="rtl">
+    <div className="min-h-screen bg-[#F5F3EE] text-[#111111] font-peyda antialiased selection:bg-[#111111] selection:text-[#E04A24]" dir="rtl">
 
       {/* FLOATING GLASS HEADER */}
       <Header

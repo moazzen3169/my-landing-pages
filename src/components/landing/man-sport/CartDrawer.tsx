@@ -49,9 +49,9 @@ export default function CartDrawer({
           {/* HEADER */}
           <div className="flex items-center justify-between pb-4 border-b border-white/10">
             <div className="flex items-center gap-2">
-              <ShoppingBag className="w-5 h-5 text-[#B7FF00]" />
+              <ShoppingBag className="w-5 h-5 text-[#E04A24]" />
               <h2 className="text-lg font-black font-peyda text-white">سبد خرید</h2>
-              <span className="text-xs font-mono font-bold bg-white/10 text-[#B7FF00] px-2 py-0.5 rounded-full">
+              <span className="text-xs font-mono font-bold bg-white/10 text-[#E04A24] px-2 py-0.5 rounded-full">
                 {cartItems.length}
               </span>
             </div>
@@ -70,7 +70,7 @@ export default function CartDrawer({
                 <p className="text-sm font-bold font-peyda text-slate-400">سبد خرید شما خالی است.</p>
                 <button
                   onClick={onClose}
-                  className="px-5 py-2 rounded-xl bg-[#B7FF00] text-black font-peyda text-xs font-bold"
+                  className="px-5 py-2 rounded-xl bg-[#E04A24] text-black font-peyda text-xs font-bold"
                 >
                   مشاهده محصولات
                 </button>
@@ -87,7 +87,7 @@ export default function CartDrawer({
                     className="w-16 h-20 object-cover rounded-xl bg-black shrink-0"
                   />
                   <div className="flex-1 overflow-hidden space-y-1">
-                    <span className="text-[10px] font-mono text-[#B7FF00] uppercase font-bold block">
+                    <span className="text-[10px] font-mono text-[#E04A24] uppercase font-bold block">
                       {product.brand}
                     </span>
                     <h4 className="text-xs font-bold font-peyda text-white truncate">
@@ -102,14 +102,14 @@ export default function CartDrawer({
                       <div className="flex items-center gap-2 bg-white/10 rounded-lg px-2 py-1">
                         <button
                           onClick={() => onUpdateQuantity(product.id, -1)}
-                          className="hover:text-[#B7FF00]"
+                          className="hover:text-[#E04A24]"
                         >
                           <Minus className="w-3 h-3" />
                         </button>
                         <span className="text-xs font-mono font-bold">{quantity}</span>
                         <button
                           onClick={() => onUpdateQuantity(product.id, 1)}
-                          className="hover:text-[#B7FF00]"
+                          className="hover:text-[#E04A24]"
                         >
                           <Plus className="w-3 h-3" />
                         </button>
@@ -134,14 +134,14 @@ export default function CartDrawer({
             <div className="pt-4 border-t border-white/10 space-y-4">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-peyda text-slate-400">جمع کل:</span>
-                <span className="text-xl font-black font-mono text-[#B7FF00]">
+                <span className="text-xl font-black font-mono text-[#E04A24]">
                   {formatPrice(totalPrice)}
                 </span>
               </div>
 
               <button
                 onClick={() => alert('انتقال به درگاه پرداخت...')}
-                className="w-full py-4 rounded-2xl bg-[#B7FF00] hover:bg-white text-black font-extrabold font-peyda text-sm flex items-center justify-center gap-2 transition-colors"
+                className="w-full py-4 rounded-2xl bg-[#E04A24] hover:bg-white text-black font-extrabold font-peyda text-sm flex items-center justify-center gap-2 transition-colors"
               >
                 <span>تکمیل خرید</span>
                 <ArrowLeft className="w-4 h-4" />

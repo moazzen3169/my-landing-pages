@@ -7,22 +7,22 @@ export default function CommunitySection() {
     {
       id: 1,
       user: '@ali.streetfit',
-      image: '/images/man-sport/T-shirt-1.webp',
+      image: '/images/man-sport/customers-1.webp',
     },
     {
       id: 2,
       user: '@reza_kicks',
-      image: '/images/man-sport/1975203_BLAC_1.webp',
+      image: '/images/man-sport/customers-2.webp',
     },
     {
       id: 3,
       user: '@kian.urban',
-      image: '/images/man-sport/118624_BLAC_1.webp',
+      image: '/images/man-sport/customers-3.webp',
     },
     {
       id: 4,
       user: '@saman_casual',
-      image: '/images/man-sport/1925216_BONE_2.webp',
+      image: '/images/man-sport/customers-4.webp',
     },
   ];
 
@@ -42,17 +42,17 @@ export default function CommunitySection() {
           {communityPosts.map((post) => (
             <div
               key={post.id}
-              className="group relative rounded-2xl overflow-hidden aspect-[4/5] bg-slate-900 border border-slate-200"
+              className="group relative rounded-2xl overflow-hidden aspect-[3/5] bg-slate-900 border border-slate-200"
             >
               <img
                 src={post.image}
                 alt={post.user}
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
               <div className="absolute bottom-3 right-3 left-3 text-right">
-                <span className="text-xs font-mono font-bold text-[#B7FF00] block">{post.user}</span>
+                <span className="text-xs font-mono font-bold text-[#fff] block">{post.user}</span>
               </div>
             </div>
           ))}

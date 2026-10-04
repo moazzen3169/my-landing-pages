@@ -64,7 +64,7 @@ export default function ProductCard({ product, onQuickView, onAddToCart }: Produ
         {/* MAXIMUM 1 MINIMAL BADGE */}
         {(product.badge || product.isNew) && (
           <div className="absolute top-3 right-3 z-10">
-            <span className="px-2.5 py-1 rounded-md bg-[#111111] text-[#B7FF00] font-peyda text-[10px] font-semibold tracking-wide">
+            <span className="px-2.5 py-1 rounded-md bg-[#E04A24] text-[#fff] font-peyda text-[10px] font-semibold tracking-wide">
               {product.badge || 'جدید'}
             </span>
           </div>
@@ -163,7 +163,7 @@ export default function ProductCard({ product, onQuickView, onAddToCart }: Produ
             className={`px-3 py-1.5 rounded-lg font-peyda text-xs font-semibold flex items-center gap-1.5 transition-colors ${
               isAdded
                 ? 'bg-[#2455FF] text-white'
-                : 'bg-[#111111] hover:bg-[#B7FF00] text-white hover:text-black'
+                : 'bg-[#111111] hover:bg-[#E04A24] text-white hover:text-white'
             }`}
           >
             {isAdded ? (

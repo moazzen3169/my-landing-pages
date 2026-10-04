@@ -22,10 +22,10 @@ export default function BrandSection() {
                 alt={brand.name}
                 className="absolute inset-0 w-full h-full object-cover object-center opacity-30 group-hover:opacity-40 transition-opacity"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
 
               <div className="relative z-10 text-right">
-                <h3 className="text-lg font-black font-mono tracking-tight text-white group-hover:text-[#B7FF00] transition-colors">
+                <h3 className="text-lg font-black font-mono tracking-tight text-white group-hover:text-[#E04A24] transition-colors">
                   {brand.logoText}
                 </h3>
                 <span className="text-xs font-peyda text-slate-300 font-medium">

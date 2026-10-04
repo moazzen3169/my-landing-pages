@@ -55,7 +55,7 @@ export default function SearchOverlay({
               onChange={(e) => setQuery(e.target.value)}
               placeholder="چی می‌خوای بپوشی؟ (نام برند، هودی، تیشرت...)"
               autoFocus
-              className="w-full bg-white/5 border border-white/20 rounded-2xl py-4 pr-12 pl-4 text-sm font-peyda font-bold text-white placeholder-slate-400 focus:outline-none focus:border-[#B7FF00] transition-colors"
+              className="w-full bg-white/5 border border-white/20 rounded-2xl py-4 pr-12 pl-4 text-sm font-peyda font-bold text-white placeholder-slate-400 focus:outline-none focus:border-[#E04A24] transition-colors"
             />
           </div>
         </div>
@@ -69,7 +69,7 @@ export default function SearchOverlay({
                 <button
                   key={idx}
                   onClick={() => setQuery(term)}
-                  className="px-3.5 py-1.5 rounded-xl bg-white/5 hover:bg-[#B7FF00] hover:text-black text-xs font-peyda font-medium text-slate-200 border border-white/10 transition-colors"
+                  className="px-3.5 py-1.5 rounded-xl bg-white/5 hover:bg-[#E04A24] hover:text-black text-xs font-peyda font-medium text-slate-200 border border-white/10 transition-colors"
                 >
                   {term}
                 </button>
@@ -100,10 +100,10 @@ export default function SearchOverlay({
                     <span className="text-[10px] font-mono text-slate-400 block font-bold uppercase">
                       {p.brand}
                     </span>
-                    <h4 className="text-xs font-bold font-peyda text-white truncate group-hover:text-[#B7FF00] transition-colors">
+                    <h4 className="text-xs font-bold font-peyda text-white truncate group-hover:text-[#E04A24] transition-colors">
                       {p.name}
                     </h4>
-                    <span className="text-xs font-mono font-bold text-[#B7FF00] block mt-1">
+                    <span className="text-xs font-mono font-bold text-[#E04A24] block mt-1">
                       {new Intl.NumberFormat('fa-IR').format(p.price)} تومان
                     </span>
                   </div>
