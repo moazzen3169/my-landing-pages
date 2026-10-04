@@ -53,6 +53,9 @@ export default function WomanSportLandingPage() {
   const [activeStyle, setActiveStyle] = useState<string>('all');
   const [hoveredBrand, setHoveredBrand] = useState<string | null>(BRAND_ITEMS[0].id);
 
+  // Detail Modal State
+  const [selectedProductForDetail, setSelectedProductForDetail] = useState<WomanSportProduct | null>(null);
+
   // Toast Notification State
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
@@ -62,7 +65,7 @@ export default function WomanSportLandingPage() {
   };
 
   // Cart operations
-  const addToCart = (product: WomanSportProduct, colorName?: string, sizeName?: string) => {
+  const addToCart = (product: WomanSportProduct, colorName?: string, sizeName?: string, quantity: number = 1) => {
     const chosenColor = colorName || product.colors[0].name;
     const chosenSize = sizeName || product.sizes[0] || 'M';
 
@@ -72,10 +75,10 @@ export default function WomanSportLandingPage() {
       );
       if (existingIndex > -1) {
         const updated = [...prev];
-        updated[existingIndex].quantity += 1;
+        updated[existingIndex].quantity += quantity;
         return updated;
       }
-      return [...prev, { product, color: chosenColor, size: chosenSize, quantity: 1 }];
+      return [...prev, { product, color: chosenColor, size: chosenSize, quantity: quantity }];
     });
     showToast(`«${product.name}» به سبد خرید اضافه شد ♡`);
   };
@@ -381,7 +384,7 @@ export default function WomanSportLandingPage() {
         </div>
       </section>
 
-      {/* SIGNATURE FEATURE 01: PICK YOUR MOOD */}
+      {/* REDESIGNED SIGNATURE FEATURE 01: MOOD & OUTFIT STYLIST ASSISTANT */}
       <section
         id="mood-section"
         className="py-16 md:py-24 transition-colors duration-500 relative"
@@ -389,80 +392,195 @@ export default function WomanSportLandingPage() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
 
-          {/* HEADER */}
-          <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
-            <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-[#291A2D] text-white text-xs font-bold font-estedad">
-              <Sparkles className="w-3.5 h-3.5 text-[#FF6FAE]" />
-              <span>SIGNATURE FEATURE</span>
+          {/* SECTION HEADER & INTRO */}
+          <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#291A2D] text-white text-xs font-bold font-estedad">
+              <Sparkles className="w-4 h-4 text-[#FF6FAE] animate-pulse" />
+              <span>دستیار هوشمند انتخاب استایل & مود</span>
             </div>
-            <h2 className="font-estedad font-black text-3xl sm:text-5xl text-[#291A2D]">
-              مود امروزت چیه؟ {activeMood.emoji}
+            <h2 className="font-estedad font-black text-3xl sm:text-5xl text-[#291A2D] leading-tight">
+              امروز چی بپوشم؟ مودت رو انتخاب کن {activeMood.emoji}
             </h2>
-            <p className="text-sm sm:text-base text-[#291A2D]/70 font-medium">
-              با انتخاب مود مورد علاقه‌ت، رنگ‌ها، تصاویر و پیشنهاد محصولات تغییر می‌کنن!
+            <p className="text-sm sm:text-base text-[#291A2D]/80 font-medium leading-relaxed max-w-2xl mx-auto">
+              دیگه وقتت رو برای ست کردن هدر نده! مود یا برنامه‌ی امروزت رو انتخاب کن تا تحلیل استایلیست، ترکیب رنگی و **ست کامل پیشنهادی** رو برات آماده کنیم.
             </p>
           </div>
 
-          {/* MOOD TABS / SELECTOR */}
-          <div className="flex items-center justify-start md:justify-center gap-3 overflow-x-auto pb-4 scrollbar-none mb-12">
+          {/* MOOD SELECTOR TABS */}
+          <div className="flex items-center justify-start md:justify-center gap-3 overflow-x-auto pb-4 scrollbar-none mb-10">
             {MOOD_OPTIONS.map(mood => {
               const isActive = activeMood.id === mood.id;
               return (
                 <button
                   key={mood.id}
                   onClick={() => setActiveMood(mood)}
-                  className={`shrink-0 px-6 py-3.5 rounded-2xl font-estedad font-bold text-sm sm:text-base transition-all duration-300 flex items-center gap-2 border ${
+                  className={`shrink-0 px-5 py-3 rounded-2xl font-estedad font-bold text-sm transition-all duration-300 flex items-center gap-2 border shadow-xs ${
                     isActive
-                      ? 'bg-[#291A2D] text-white border-[#291A2D] scale-105'
-                      : 'bg-white/80 text-[#291A2D] border-[#291A2D]/10 hover:border-[#291A2D]/30'
+                      ? 'bg-[#291A2D] text-white border-[#291A2D] scale-105 shadow-md'
+                      : 'bg-white/90 text-[#291A2D] border-[#291A2D]/10 hover:border-[#291A2D]/30'
                   }`}
                 >
                   <span className="text-lg">{mood.emoji}</span>
-                  <span>{mood.labelEn}</span>
-                  <span className="text-xs opacity-70">({mood.labelFa})</span>
+                  <span>{mood.labelFa}</span>
+                  <span className="text-[10px] font-mono opacity-60">({mood.labelEn})</span>
                 </button>
               );
             })}
           </div>
 
-          {/* ACTIVE MOOD SHOWCASE BANNER & PRODUCTS */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white/90 rounded-[32px] p-6 sm:p-10 border border-[#291A2D]/10">
+          {/* MAIN STYLIST DASHBOARD CONTAINER */}
+          <div className="bg-white/90 backdrop-blur-md rounded-[36px] p-6 sm:p-10 border border-[#291A2D]/10 shadow-xl space-y-10">
 
-            {/* MOOD HERO & DETAILS */}
-            <div className="lg:col-span-5 space-y-5 text-right">
-              <span
-                className="inline-block px-3.5 py-1.5 rounded-full text-xs font-bold font-estedad text-white"
-                style={{ backgroundColor: activeMood.accentColor }}
-              >
-                {activeMood.sticker}
-              </span>
+            {/* TOP BAR: VIBE ANALYSIS & STYLIST RECOMMENDATION */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-[#291A2D]/10 pb-8">
 
-              <h3 className="font-estedad font-extrabold text-2xl sm:text-4xl text-[#291A2D]">
-                استایل پیشنهادی مود {activeMood.labelEn}
-              </h3>
+              {/* VIBE ANALYSIS & ENERGY BAR */}
+              <div className="lg:col-span-6 space-y-4 text-right">
+                <div className="flex items-center justify-between">
+                  <span
+                    className="inline-block px-3.5 py-1.5 rounded-full text-xs font-bold font-estedad text-white shadow-xs"
+                    style={{ backgroundColor: activeMood.accentColor }}
+                  >
+                    {activeMood.sticker}
+                  </span>
 
-              <p className="text-sm sm:text-base text-[#291A2D]/80 leading-relaxed font-normal">
-                {activeMood.description}
-              </p>
+                  <div className="flex items-center gap-2 text-xs font-bold text-[#291A2D]">
+                    <span>سطح انرژی استایل:</span>
+                    <span className="font-mono text-sm text-[#FF6FAE]">{activeMood.energyLevel}%</span>
+                  </div>
+                </div>
 
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-[#291A2D]/10 relative group">
-                <img
-                  src={activeMood.heroImage}
-                  alt={activeMood.labelEn}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
+                {/* PROGRESS BAR */}
+                <div className="w-full h-2.5 bg-[#291A2D]/10 rounded-full overflow-hidden">
+                  <div
+                    className="h-full transition-all duration-700 rounded-full"
+                    style={{
+                      width: `${activeMood.energyLevel}%`,
+                      backgroundColor: activeMood.accentColor
+                    }}
+                  />
+                </div>
+
+                <h3 className="font-estedad font-black text-2xl sm:text-3xl text-[#291A2D]">
+                  مود امروز: {activeMood.labelFa}
+                </h3>
+
+                <p className="text-sm text-[#291A2D]/80 leading-relaxed font-normal">
+                  {activeMood.description}
+                </p>
+
+                {/* OCCASION BADGE */}
+                <div className="p-4 bg-[#FFF8F0] rounded-2xl border border-[#291A2D]/5 space-y-1">
+                  <span className="text-[11px] font-bold text-[#FF6FAE] block font-estedad">
+                    📍 موقعیت مناسب:
+                  </span>
+                  <p className="text-xs font-bold text-[#291A2D]">
+                    {activeMood.occasion}
+                  </p>
+                </div>
               </div>
+
+              {/* STYLIST EXPERT TIP BOX */}
+              <div className="lg:col-span-6 bg-[#291A2D] text-[#FFFDFC] rounded-3xl p-6 relative overflow-hidden space-y-3">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF6FAE] rounded-full blur-2xl opacity-20 pointer-events-none" />
+
+                <div className="flex items-center gap-2 text-[#FF6FAE] text-xs font-bold font-estedad">
+                  <Sparkles className="w-4 h-4" />
+                  <span>توصیه استایلیست GIRLY SPORT</span>
+                </div>
+
+                <p className="text-xs sm:text-sm text-[#FFFDFC]/90 leading-relaxed font-light">
+                  «{activeMood.stylistTip}»
+                </p>
+
+                <div className="pt-2 flex items-center justify-between text-[11px] text-[#FFFDFC]/60 border-t border-white/10 font-mono">
+                  <span>CURATED OUTFIT VIBE</span>
+                  <span>100% MATCH GUARANTEED</span>
+                </div>
+              </div>
+
             </div>
 
-            {/* MOOD PRODUCTS GRID */}
-            <div className="lg:col-span-7">
-              <div className="flex items-center justify-between mb-4">
-                <h4 className="font-estedad font-bold text-lg text-[#291A2D]">
-                  محصولات متناسب با مود ({moodFilteredProducts.length})
-                </h4>
-              </div>
+            {/* CURATED OUTFIT BUNDLE SECTION ("پیشنهاد ست کامل با تخفیف") */}
+            {(() => {
+              const mainProd = WOMAN_SPORT_PRODUCTS.find(p => p.id === activeMood.mainProductId) || WOMAN_SPORT_PRODUCTS[0];
+              const matchProd = WOMAN_SPORT_PRODUCTS.find(p => p.id === activeMood.matchingProductId) || WOMAN_SPORT_PRODUCTS[1];
+              const totalRaw = mainProd.price + matchProd.price;
+              const totalDiscounted = Math.round(totalRaw * (1 - activeMood.bundleDiscountPercent / 100));
 
-              <div className="grid grid-cols-2 sm:grid-cols-2 gap-4">
+              return (
+                <div className="space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-right">
+                    <div>
+                      <span className="text-xs font-bold font-estedad text-[#FF6FAE] uppercase tracking-wider">
+                        RECOMMENDED OUTFIT BUNDLE
+                      </span>
+                      <h4 className="font-estedad font-black text-2xl text-[#291A2D] flex items-center gap-2">
+                        <span>{activeMood.bundleTitle}</span>
+                        <span className="text-xs font-bold bg-[#FF6FAE] text-white px-2.5 py-0.5 rounded-full">
+                          {activeMood.bundleDiscountPercent}% تخفیف ست
+                        </span>
+                      </h4>
+                    </div>
+
+                    <button
+                      onClick={() => {
+                        addToCart(mainProd);
+                        addToCart(matchProd);
+                        showToast(`ست کامل «${activeMood.bundleTitle}» به سبد خرید اضافه شد ♡`);
+                      }}
+                      className="px-6 py-3.5 bg-[#291A2D] hover:bg-[#FF6FAE] text-white font-estedad font-bold text-xs sm:text-sm rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shrink-0"
+                    >
+                      <ShoppingBag className="w-4 h-4 text-[#FF6FAE]" />
+                      <span>افزودن کامل ست به سبد ({formatPrice(totalDiscounted)} تومان)</span>
+                    </button>
+                  </div>
+
+                  {/* BUNDLE VISUAL CARDS */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {/* ITEM 1 */}
+                    <div
+                      onClick={() => setSelectedProductForDetail(mainProd)}
+                      className="flex items-center gap-4 p-4 rounded-2xl bg-[#FFEBF3]/30 border border-[#291A2D]/10 hover:border-[#FF6FAE]/50 cursor-pointer transition-all group"
+                    >
+                      <div className="w-20 h-24 rounded-xl overflow-hidden shrink-0 bg-[#F3F2EE]">
+                        <img src={mainProd.images[0]} alt={mainProd.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                      </div>
+                      <div className="flex-1 text-right space-y-1">
+                        <span className="text-[10px] font-bold text-[#FF6FAE] uppercase font-mono">{mainProd.brand} • آیتم اصلی</span>
+                        <h5 className="font-bold text-xs sm:text-sm text-[#291A2D] line-clamp-1 group-hover:text-[#FF6FAE] transition-colors">{mainProd.name}</h5>
+                        <p className="text-xs font-bold text-[#291A2D]">{formatPrice(mainProd.price)} تومان</p>
+                      </div>
+                      <span className="text-xs font-bold text-[#FF6FAE] underline shrink-0">جزییات</span>
+                    </div>
+
+                    {/* ITEM 2 */}
+                    <div
+                      onClick={() => setSelectedProductForDetail(matchProd)}
+                      className="flex items-center gap-4 p-4 rounded-2xl bg-[#FFEBF3]/30 border border-[#291A2D]/10 hover:border-[#FF6FAE]/50 cursor-pointer transition-all group"
+                    >
+                      <div className="w-20 h-24 rounded-xl overflow-hidden shrink-0 bg-[#F3F2EE]">
+                        <img src={matchProd.images[0]} alt={matchProd.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                      </div>
+                      <div className="flex-1 text-right space-y-1">
+                        <span className="text-[10px] font-bold text-[#A98CFF] uppercase font-mono">{matchProd.brand} • آیتم مکمل</span>
+                        <h5 className="font-bold text-xs sm:text-sm text-[#291A2D] line-clamp-1 group-hover:text-[#FF6FAE] transition-colors">{matchProd.name}</h5>
+                        <p className="text-xs font-bold text-[#291A2D]">{formatPrice(matchProd.price)} تومان</p>
+                      </div>
+                      <span className="text-xs font-bold text-[#FF6FAE] underline shrink-0">جزییات</span>
+                    </div>
+                  </div>
+                </div>
+              );
+            })()}
+
+            {/* MORE PRODUCTS MATCHING THIS MOOD */}
+            <div className="space-y-4 pt-4 border-t border-[#291A2D]/10">
+              <h4 className="font-estedad font-bold text-base text-[#291A2D] text-right">
+                سایر آیتم‌های پیشنهادی متناسب با مود {activeMood.labelFa}
+              </h4>
+
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
                 {moodFilteredProducts.slice(0, 4).map(product => (
                   <ProductCard
                     key={product.id}
@@ -470,11 +588,13 @@ export default function WomanSportLandingPage() {
                     isWishlisted={wishlistIds.includes(product.id)}
                     onToggleWishlist={toggleWishlist}
                     onAddToCart={addToCart}
+                    onOpenDetail={setSelectedProductForDetail}
                     formatPrice={formatPrice}
                   />
                 ))}
               </div>
             </div>
+
           </div>
 
         </div>
@@ -525,6 +645,7 @@ export default function WomanSportLandingPage() {
               isWishlisted={wishlistIds.includes(product.id)}
               onToggleWishlist={toggleWishlist}
               onAddToCart={addToCart}
+              onOpenDetail={setSelectedProductForDetail}
               formatPrice={formatPrice}
             />
           ))}
@@ -590,6 +711,7 @@ export default function WomanSportLandingPage() {
                 isWishlisted={wishlistIds.includes(product.id)}
                 onToggleWishlist={toggleWishlist}
                 onAddToCart={addToCart}
+                onOpenDetail={setSelectedProductForDetail}
                 formatPrice={formatPrice}
               />
             ))}
@@ -667,6 +789,7 @@ export default function WomanSportLandingPage() {
               isWishlisted={wishlistIds.includes(product.id)}
               onToggleWishlist={toggleWishlist}
               onAddToCart={addToCart}
+              onOpenDetail={setSelectedProductForDetail}
               formatPrice={formatPrice}
             />
           ))}
@@ -1126,7 +1249,7 @@ export default function WomanSportLandingPage() {
                 <div
                   key={product.id}
                   onClick={() => {
-                    addToCart(product);
+                    setSelectedProductForDetail(product);
                     setIsSearchOpen(false);
                   }}
                   className="flex items-center gap-4 p-3 hover:bg-[#FFEBF3]/50 rounded-2xl cursor-pointer transition-colors"
@@ -1148,6 +1271,18 @@ export default function WomanSportLandingPage() {
         </div>
       )}
 
+      {/* PRODUCT DETAIL MODAL */}
+      {selectedProductForDetail && (
+        <ProductDetailModal
+          product={selectedProductForDetail}
+          isWishlisted={wishlistIds.includes(selectedProductForDetail.id)}
+          onClose={() => setSelectedProductForDetail(null)}
+          onToggleWishlist={toggleWishlist}
+          onAddToCart={addToCart}
+          formatPrice={formatPrice}
+        />
+      )}
+
     </div>
   );
 }
@@ -1162,6 +1297,7 @@ interface ProductCardProps {
   isWishlisted: boolean;
   onToggleWishlist: (id: string, e?: React.MouseEvent) => void;
   onAddToCart: (p: WomanSportProduct, colorName?: string) => void;
+  onOpenDetail: (p: WomanSportProduct) => void;
   formatPrice: (price: number) => string;
 }
 
@@ -1170,6 +1306,7 @@ function ProductCard({
   isWishlisted,
   onToggleWishlist,
   onAddToCart,
+  onOpenDetail,
   formatPrice
 }: ProductCardProps) {
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
@@ -1190,7 +1327,7 @@ function ProductCard({
 
       {/* BADGE OVERLAY */}
       {product.badge && (
-        <span className="absolute top-3 right-3 z-20 bg-[#291A2D] text-[#FFFDFC] text-[10px] font-bold font-estedad px-2.5 py-1 rounded-full border border-[#FF6FAE]/30">
+        <span className="absolute top-3 right-3 z-20 bg-[#291A2D] text-[#FFFDFC] text-[10px] font-bold font-estedad px-2.5 py-1 rounded-full border border-[#FF6FAE]/30 pointer-events-none">
           {product.badge}
         </span>
       )}
@@ -1209,7 +1346,10 @@ function ProductCard({
       </button>
 
       {/* 3-IMAGE CAROUSEL CONTAINER (4:5 Ratio, Full Bleed Edge-To-Edge) */}
-      <div className="w-full aspect-[4/5] relative overflow-hidden bg-[#F3F2EE] group/img">
+      <div
+        onClick={() => onOpenDetail(product)}
+        className="w-full aspect-[4/5] relative overflow-hidden bg-[#F3F2EE] group/img cursor-pointer"
+      >
         <img
           src={product.images[currentImgIndex]}
           alt={product.name}
@@ -1240,20 +1380,26 @@ function ProductCard({
 
         {/* QUICK ADD BUTTON ON HOVER */}
         <button
-          onClick={() => onAddToCart(product, product.colors[activeColorIndex]?.name)}
+          onClick={(e) => {
+            e.stopPropagation();
+            onAddToCart(product, product.colors[activeColorIndex]?.name);
+          }}
           className="absolute inset-x-3 bottom-3 z-20 py-2.5 bg-[#291A2D] hover:bg-[#FF6FAE] text-white text-xs font-bold font-estedad rounded-xl opacity-0 group-hover/img:opacity-100 transition-all duration-300 transform translate-y-2 group-hover/img:translate-y-0"
         >
-          افزودن به سبد
+          افزودن سریع به سبد
         </button>
       </div>
 
       {/* PRODUCT INFORMATION */}
       <div className="p-4 flex flex-col justify-between flex-1 space-y-2">
-        <div className="space-y-1">
+        <div
+          onClick={() => onOpenDetail(product)}
+          className="space-y-1 cursor-pointer group/title"
+        >
           <span className="text-[10px] font-bold font-mono uppercase text-[#291A2D]/50 tracking-wider">
             {product.brand}
           </span>
-          <h3 className="font-bold text-xs sm:text-sm text-[#291A2D] line-clamp-1">
+          <h3 className="font-bold text-xs sm:text-sm text-[#291A2D] line-clamp-1 group-hover/title:text-[#FF6FAE] transition-colors">
             {product.name}
           </h3>
         </div>
@@ -1263,7 +1409,8 @@ function ProductCard({
           {product.colors.map((c, i) => (
             <button
               key={i}
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 setActiveColorIndex(i);
                 if (product.images[i]) setCurrentImgIndex(i);
               }}
@@ -1276,20 +1423,260 @@ function ProductCard({
           ))}
         </div>
 
-        {/* PRICE */}
+        {/* PRICE & DETAIL TRIGGER */}
         <div className="flex items-center justify-between pt-1 border-t border-[#291A2D]/5">
           <span className="font-bold text-xs sm:text-sm text-[#291A2D]">
             {formatPrice(product.price)} <span className="text-[10px] font-normal text-[#291A2D]/60">تومان</span>
           </span>
 
-          {product.originalPrice && (
-            <span className="text-[11px] text-[#291A2D]/40 line-through">
-              {formatPrice(product.originalPrice)}
-            </span>
-          )}
+          <button
+            onClick={() => onOpenDetail(product)}
+            className="text-[11px] font-bold text-[#FF6FAE] hover:underline"
+          >
+            جزییات بیشتر
+          </button>
         </div>
       </div>
 
+    </div>
+  );
+}
+
+// ----------------------------------------------------------------------
+// PRODUCT DETAIL MODAL COMPONENT
+// ----------------------------------------------------------------------
+interface ProductDetailModalProps {
+  product: WomanSportProduct;
+  isWishlisted: boolean;
+  onClose: () => void;
+  onToggleWishlist: (id: string, e?: React.MouseEvent) => void;
+  onAddToCart: (p: WomanSportProduct, colorName?: string, sizeName?: string, quantity?: number) => void;
+  formatPrice: (price: number) => string;
+}
+
+function ProductDetailModal({
+  product,
+  isWishlisted,
+  onClose,
+  onToggleWishlist,
+  onAddToCart,
+  formatPrice
+}: ProductDetailModalProps) {
+  const [selectedImgIndex, setSelectedImgIndex] = useState(0);
+  const [selectedColorIndex, setSelectedColorIndex] = useState(0);
+  const [selectedSize, setSelectedSize] = useState(product.sizes[0] || 'M');
+  const [quantity, setQuantity] = useState(1);
+
+  const activeColor = product.colors[selectedColorIndex] || product.colors[0];
+
+  const handleColorChange = (index: number) => {
+    setSelectedColorIndex(index);
+    if (product.images[index]) {
+      setSelectedImgIndex(index);
+    }
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/60 backdrop-blur-md animate-in fade-in duration-200"
+      onClick={onClose}
+    >
+      <div
+        className="bg-[#FFFDFC] text-[#291A2D] w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-[32px] p-5 sm:p-8 shadow-2xl relative border border-[#291A2D]/10 text-right space-y-6"
+        onClick={e => e.stopPropagation()}
+      >
+        {/* CLOSE BUTTON */}
+        <button
+          onClick={onClose}
+          className="absolute top-5 left-5 z-30 p-2.5 rounded-full bg-[#291A2D]/5 hover:bg-[#291A2D] hover:text-white transition-colors"
+          aria-label="بستن"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start pt-2">
+
+          {/* LEFT/TOP: IMAGE GALLERY (7 COLS) */}
+          <div className="md:col-span-7 space-y-3">
+            {/* MAIN DISPLAY IMAGE */}
+            <div className="w-full aspect-[4/5] rounded-3xl overflow-hidden bg-[#F3F2EE] relative border border-[#291A2D]/10">
+              <img
+                src={product.images[selectedImgIndex] || product.images[0]}
+                alt={product.name}
+                className="w-full h-full object-cover"
+              />
+
+              {product.badge && (
+                <span className="absolute top-4 right-4 bg-[#291A2D] text-[#FFFDFC] text-xs font-bold font-estedad px-3 py-1 rounded-full border border-[#FF6FAE]/30">
+                  {product.badge}
+                </span>
+              )}
+
+              {/* WISHLIST BUTTON */}
+              <button
+                onClick={e => onToggleWishlist(product.id, e)}
+                className="absolute top-4 left-4 z-20 p-2.5 rounded-full bg-white/90 backdrop-blur-md shadow-md transition-transform hover:scale-110"
+              >
+                <Heart
+                  className={`w-5 h-5 ${
+                    isWishlisted ? 'text-[#FF6FAE] fill-[#FF6FAE]' : 'text-[#291A2D]'
+                  }`}
+                />
+              </button>
+            </div>
+
+            {/* THUMBNAILS GALLERY */}
+            <div className="grid grid-cols-3 gap-3">
+              {product.images.map((img, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setSelectedImgIndex(idx)}
+                  className={`aspect-[4/5] rounded-2xl overflow-hidden border-2 transition-all ${
+                    selectedImgIndex === idx
+                      ? 'border-[#FF6FAE] scale-105 shadow-md'
+                      : 'border-transparent opacity-70 hover:opacity-100'
+                  }`}
+                >
+                  <img src={img} alt={`نمای ${idx + 1}`} className="w-full h-full object-cover" />
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* RIGHT/BOTTOM: PRODUCT SPECS & PURCHASE OPTIONS (5 COLS) */}
+          <div className="md:col-span-5 space-y-5">
+
+            {/* BRAND & TITLE */}
+            <div className="space-y-1">
+              <span className="text-xs font-mono font-bold uppercase text-[#FF6FAE] tracking-wider">
+                {product.brand}
+              </span>
+              <h2 className="font-estedad font-black text-xl sm:text-2xl text-[#291A2D] leading-snug">
+                {product.name}
+              </h2>
+            </div>
+
+            {/* PRICE & DISCOUNT */}
+            <div className="flex items-baseline gap-3 p-3.5 bg-[#FFEBF3]/50 rounded-2xl border border-[#FF6FAE]/20">
+              <span className="font-estedad font-black text-2xl text-[#291A2D]">
+                {formatPrice(product.price)} <span className="text-xs font-medium text-[#291A2D]/70">تومان</span>
+              </span>
+
+              {product.originalPrice && (
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-[#291A2D]/40 line-through">
+                    {formatPrice(product.originalPrice)}
+                  </span>
+                  <span className="text-[10px] font-bold bg-[#FF6FAE] text-white px-2 py-0.5 rounded-full">
+                    تخفیف ویژه
+                  </span>
+                </div>
+              )}
+            </div>
+
+            {/* DESCRIPTION & FIT */}
+            <div className="space-y-2 text-xs leading-relaxed text-[#291A2D]/80">
+              <p className="font-medium">{product.description}</p>
+              <div className="inline-flex items-center gap-1.5 bg-[#F4F2FF] px-3 py-1.5 rounded-xl text-[11px] font-bold text-[#A98CFF]">
+                <span>تنخور:</span>
+                <span>{product.fit}</span>
+              </div>
+            </div>
+
+            {/* COLOR SELECTION */}
+            <div className="space-y-2 pt-2 border-t border-[#291A2D]/10">
+              <div className="flex justify-between items-center text-xs">
+                <span className="font-bold text-[#291A2D]">انتخاب رنگ:</span>
+                <span className="font-medium text-[#FF6FAE]">{activeColor?.name}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                {product.colors.map((c, i) => (
+                  <button
+                    key={i}
+                    onClick={() => handleColorChange(i)}
+                    className={`px-3.5 py-2 rounded-xl text-xs font-bold font-estedad flex items-center gap-2 transition-all border ${
+                      selectedColorIndex === i
+                        ? 'bg-[#291A2D] text-white border-[#291A2D] scale-105'
+                        : 'bg-white text-[#291A2D] border-[#291A2D]/15 hover:border-[#291A2D]/40'
+                    }`}
+                  >
+                    <span
+                      className="w-3.5 h-3.5 rounded-full border border-black/10"
+                      style={{ backgroundColor: c.hex }}
+                    />
+                    <span>{c.name}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* SIZE SELECTION */}
+            <div className="space-y-2">
+              <div className="flex justify-between items-center text-xs">
+                <span className="font-bold text-[#291A2D]">انتخاب سایز:</span>
+                <span className="text-[11px] text-[#291A2D]/50">راهنمای سایز استاندارد</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {product.sizes.map(size => (
+                  <button
+                    key={size}
+                    onClick={() => setSelectedSize(size)}
+                    className={`w-11 h-11 rounded-xl text-xs font-bold font-mono transition-all border ${
+                      selectedSize === size
+                        ? 'bg-[#291A2D] text-white border-[#291A2D] scale-105 shadow-sm'
+                        : 'bg-white text-[#291A2D] border-[#291A2D]/15 hover:border-[#291A2D]/40'
+                    }`}
+                  >
+                    {size}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* QUANTITY & ADD TO CART CTA */}
+            <div className="space-y-3 pt-3 border-t border-[#291A2D]/10">
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-bold text-[#291A2D]">تعداد:</span>
+                <div className="flex items-center border border-[#291A2D]/20 rounded-xl bg-white p-1">
+                  <button
+                    onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
+                    className="w-8 h-8 rounded-lg hover:bg-[#291A2D]/5 font-bold text-sm"
+                  >
+                    -
+                  </button>
+                  <span className="w-8 text-center text-xs font-bold">{quantity}</span>
+                  <button
+                    onClick={() => setQuantity(prev => prev + 1)}
+                    className="w-8 h-8 rounded-lg hover:bg-[#291A2D]/5 font-bold text-sm"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
+              <button
+                onClick={() => {
+                  onAddToCart(product, activeColor?.name, selectedSize, quantity);
+                  onClose();
+                }}
+                className="w-full py-4 bg-[#291A2D] hover:bg-[#FF6FAE] text-white font-estedad font-bold text-sm rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
+              >
+                <ShoppingBag className="w-5 h-5" />
+                <span>افزودن به سبد خرید ({formatPrice(product.price * quantity)} تومان)</span>
+              </button>
+            </div>
+
+            {/* TRUST BADGES */}
+            <div className="grid grid-cols-3 gap-2 pt-2 text-[10px] text-center font-medium text-[#291A2D]/70 bg-[#FFF8F0] p-3 rounded-2xl border border-[#291A2D]/5">
+              <div>🚚 ارسال اکسپرس</div>
+              <div>🛡️ ۱۰۰٪ اورجینال</div>
+              <div>🔄 ۷ روز تعویض</div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
     </div>
   );
 }
