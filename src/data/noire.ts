@@ -529,5 +529,14 @@ export const LANDING_REGISTRY: LandingPageInfo[] = [
     theme: 'minimal-luxury-editorial',
     dataset: 'WOMAN_LUX_PRODUCTS',
     previewImage: '/images/woman-lux/for-scrol-section-(1).webp'
+  },
+  {
+    slug: 'man-sport',
+    category: 'men-sportwear',
+    title: 'فروشگاه چندبرند پوشاک اسپرت و استریت‌ویر مردانه (فارسی RTL)',
+    description: 'طراحی حرفه‌ای و پرانرژی لندینگ پیج فروشگاه چندبرند پوشاک مردانه ایران شامل هدر شناور گلاس، استایل‌ساز تعاملی Build Your Fit، کارت محصولات ۳ تصویره و خرید آسان.',
+    theme: 'minimal-energy-streetwear',
+    dataset: 'MAN_SPORT_PRODUCTS',
+    previewImage: '/images/man-sport/T-shirt-1.webp'
   }
 ];
