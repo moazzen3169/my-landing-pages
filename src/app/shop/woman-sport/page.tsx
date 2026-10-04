@@ -241,11 +241,11 @@ export default function WomanSportLandingPage() {
       </header>
 
       {/* HERO / FASHION CAMPAIGN */}
-      <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 px-4 sm:px-8 max-w-7xl mx-auto overflow-hidden">
+      <section className="relative pt-28 pb-16 md:pt-24 md:pb-24 px-4 sm:px-8 max-w-7xl mx-auto overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
           {/* HERO TEXT & CTA */}
-          <div className="lg:col-span-6 space-y-6 text-right z-10">
+          <div className="lg:col-span-5 space-y-6 text-right z-10">
             {/* STICKER 1 */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFEBF3] border border-[#FF6FAE]/30 text-[#FF6FAE] text-xs font-bold -rotate-1">
               <Sparkles className="w-3.5 h-3.5" />
@@ -296,7 +296,7 @@ export default function WomanSportLandingPage() {
           </div>
 
           {/* HERO IMAGE & ASYMMETRIC COMPOSITION */}
-          <div className="lg:col-span-6 relative flex justify-center items-center">
+          <div className="lg:col-span-7 relative flex justify-center items-center">
             {/* DECORATIVE COLOR BLOCKS */}
             <div className="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-[#FFEBF3] -top-6 -right-6 -z-10 blur-2xl opacity-80" />
             <div className="absolute w-64 h-64 rounded-full bg-[#EBF8FF] -bottom-6 -left-6 -z-10 blur-2xl opacity-80" />
@@ -311,9 +311,9 @@ export default function WomanSportLandingPage() {
             </div>
 
             {/* MAIN HERO IMAGE CONTAINER */}
-            <div className="w-full max-w-md aspect-[4/5] rounded-[32px] overflow-hidden border-2 border-[#291A2D]/10 relative group">
+            <div className="w-full w-[600px] h-[600px] overflow-hidden  relative group">
               <img
-                src="/images/woman-sport/jacket-1.webp"
+                src="/images/woman-sport/hero.png"
                 alt="Women's Sport Fashion"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
@@ -1222,7 +1222,7 @@ function ProductCard({
           aria-label="تصویر قبلی"
           className="hidden md:flex absolute top-1/2 left-2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-white/80 backdrop-blur-md items-center justify-center text-[#291A2D] opacity-0 group-hover/img:opacity-100 transition-opacity"
         >
-          <ChevronRight className="w-4 h-4" />
+          <ChevronLeft className="w-4 h-4" />
         </button>
 
         <button
@@ -1230,7 +1230,7 @@ function ProductCard({
           aria-label="تصویر بعدی"
           className="hidden md:flex absolute top-1/2 right-2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-white/80 backdrop-blur-md items-center justify-center text-[#291A2D] opacity-0 group-hover/img:opacity-100 transition-opacity"
         >
-          <ChevronLeft className="w-4 h-4" />
+          <ChevronRight className="w-4 h-4" />
         </button>
 
         {/* IMAGE INDICATOR (01 / 03) */}
