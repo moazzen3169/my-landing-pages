@@ -37,6 +37,13 @@ export interface MoodOption {
   cardBg: string;
   sticker: string;
   heroImage: string;
+  energyLevel: number; // e.g. 85 for 85%
+  occasion: string; // e.g. 'دورهمی دوستانه و کافه‌گردی'
+  stylistTip: string; // Styling advice
+  bundleTitle: string; // e.g. 'ست کامل کیوت ژاپنی'
+  mainProductId: string;
+  matchingProductId: string;
+  bundleDiscountPercent: number;
 }
 
 export interface ColorFilterOption {
@@ -407,79 +414,121 @@ export const MOOD_OPTIONS: MoodOption[] = [
     id: 'cute',
     emoji: '🎀',
     labelEn: 'CUTE',
-    labelFa: 'کیوت & ناز',
-    description: 'رنگ‌های پاستلی لایف‌ستایل با حس شادابی و ظرافت دخترانه',
+    labelFa: 'کیوت & دخترانه',
+    description: 'ترکیب رنگ‌های پاستلی صورتی و لاوندر با حس شادابی، ظرافت و لطافت مدرن.',
     bgColor: '#FFF5F8',
     accentColor: '#FF6FAE',
     textColor: '#291A2D',
     cardBg: '#FFEBF3',
     sticker: 'SO CUTE ♡',
-    heroImage: '/images/woman-sport/jacket-1.webp'
+    heroImage: '/images/woman-sport/jacket-1.webp',
+    energyLevel: 85,
+    occasion: 'دورهمی‌های کژوال، قرارهای دوستانه و کافه‌گردی شهری',
+    stylistTip: 'این لوک را با کتونی پاستلی سفید-صورتی و یک جفت جوراب ساق‌دار سفید ست کنید تا جلوه شاداب Gen-Z کامل شود.',
+    bundleTitle: 'ست کیوت پاستلی PUMA + ALO',
+    mainProductId: 'ws-01',
+    matchingProductId: 'ws-02',
+    bundleDiscountPercent: 12
   },
   {
     id: 'playful',
     emoji: '🍓',
     labelEn: 'PLAYFUL',
     labelFa: 'سرزنده & بازیگوش',
-    description: 'ترکیب رنگ‌های پرانرژی نارنجی و لیمویی برای روزهای پرتحرک',
+    description: 'رنگ‌های پرانرژی آبی آسمانی و نارنجی روشن برای روزهای پرتحرک و اکتیو.',
     bgColor: '#FFF8F0',
     accentColor: '#FF9B78',
     textColor: '#291A2D',
     cardBg: '#FFEFE5',
     sticker: 'LOVE IT! 🍓',
-    heroImage: '/images/woman-sport/jumpsuit-3.webp'
+    heroImage: '/images/woman-sport/jumpsuit-3.webp',
+    energyLevel: 92,
+    occasion: 'پیاده‌روی عصرگاهی، گشت‌وگذار در شهر و فعالیت‌های بیرونی',
+    stylistTip: 'استفاده از کاپشن کراپ آبی در کنار جامپ‌سوت نارنجی یک تضاد رنگی بسیار شیک و عکس‌پذیر ایجاد می‌کند.',
+    bundleTitle: 'ست اکتیو زارا + نایکی',
+    mainProductId: 'ws-03',
+    matchingProductId: 'ws-10',
+    bundleDiscountPercent: 10
   },
   {
     id: 'party',
     emoji: '🪩',
     labelEn: 'PARTY',
     labelFa: 'شب & دورهمی',
-    description: 'استایل‌های جسورانه با تناژ پلوم عمیق و هایلایت‌های درخشان',
+    description: 'استایل‌های بادی‌سوت با تناژ پلوم عمیق و جزییات درخشان برای درخشش در شب.',
     bgColor: '#291A2D',
     accentColor: '#A98CFF',
     textColor: '#FFFDFC',
     cardBg: '#38253E',
     sticker: 'PARTY MODE 🪩',
-    heroImage: '/images/woman-sport/jumpsuit-10.webp'
+    heroImage: '/images/woman-sport/jumpsuit-10.webp',
+    energyLevel: 95,
+    occasion: 'مهمانی‌های شبانه، دورهمی و استایل جسورانه استریت',
+    stylistTip: 'جامپ‌سوت جذب مشکی-پلوم را با کت بومبر نیمه‌باز ست کنید و اکسسوری‌های نقره‌ای مدرن به آن اضافه کنید.',
+    bundleTitle: 'ست نایت لایف GYMSHARK + ZARA',
+    mainProductId: 'ws-08',
+    matchingProductId: 'ws-11',
+    bundleDiscountPercent: 15
   },
   {
     id: 'soft',
     emoji: '☁️',
     labelEn: 'SOFT',
-    labelFa: 'نرم & ملایم',
-    description: 'بافت‌های لطیف ابریشمی و نولویی با حس آرامش ابرهای سفید',
+    labelFa: 'آرامش & یوگا',
+    description: 'بافت‌های بی‌نظیر Nulu و فیبر ابریشمی برای یوگا، مدیتیشن و استراحت کامل.',
     bgColor: '#F4F2FF',
     accentColor: '#A98CFF',
     textColor: '#291A2D',
     cardBg: '#EAE6FF',
     sticker: 'FEELS LIKE CLOUD ☁️',
-    heroImage: '/images/woman-sport/jumpsuit-7.webp'
+    energyLevel: 50,
+    heroImage: '/images/woman-sport/jumpsuit-7.webp',
+    occasion: 'تمرینات یوگا، پیلاتس، ریلکسیشن خانه و سفرهای راحت',
+    stylistTip: 'این ست فوق‌العاده نرم با پارچه Nulu حس لمس ابریشم روی پوست دارد. گزینه‌ای بی‌نظیر برای حس آرامش خالص.',
+    bundleTitle: 'ست آرامش LULULEMON + ALO',
+    mainProductId: 'ws-06',
+    matchingProductId: 'ws-02',
+    bundleDiscountPercent: 10
   },
   {
     id: 'cool',
     emoji: '🖤',
     labelEn: 'COOL',
-    labelFa: 'کول & شیک',
-    description: 'استریت‌استایل‌های اورسایز با خطوط مینیمال و مدرن شهری',
+    labelFa: 'کول & اورسایز',
+    description: 'استریت‌استایل‌های اورسایز با فرم‌های آزاد، ژاپنی و خطوط مینیمال.',
     bgColor: '#F2F6F9',
     accentColor: '#291A2D',
     textColor: '#291A2D',
     cardBg: '#E2EAF1',
     sticker: 'TOO COOL 🔥',
-    heroImage: '/images/woman-sport/jacket-8.webp'
+    heroImage: '/images/woman-sport/jacket-8.webp',
+    energyLevel: 78,
+    occasion: 'قرار کاری کژوال، گالری‌گردی و دانشگاه',
+    stylistTip: 'کت اورسایز با دکمه‌های پرسی مخفی و شلوار بگ، حس اطمینان، مدرنیته و استایل خاص شهری را متکثر می‌کند.',
+    bundleTitle: 'ست استریت اورسایز ADIDAS + ZARA',
+    mainProductId: 'ws-05',
+    matchingProductId: 'ws-11',
+    bundleDiscountPercent: 12
   },
   {
     id: 'happy',
     emoji: '☀️',
     labelEn: 'HAPPY',
-    labelFa: 'شاد & پرانرژی',
-    description: 'تناژهای روشن خورشیدی برای حس مثبت و شادابی بی‌پایان',
+    labelFa: 'شاد & خورشیدی',
+    description: 'تناژهای روشن خورشیدی، لیمویی و نارنجی پاستلی برای انتقال انرژی مثبت.',
     bgColor: '#FFFDF0',
     accentColor: '#FFE66D',
     textColor: '#291A2D',
     cardBg: '#FFF9D6',
     sticker: 'SUNNY VIBES ☀️',
-    heroImage: '/images/woman-sport/jacket-7.webp'
+    heroImage: '/images/woman-sport/jacket-7.webp',
+    energyLevel: 88,
+    occasion: 'روزهای آفتابی، دورهمی‌های فضای باز و باشگاه',
+    stylistTip: 'ترکیب کت بومبر لیمویی روشن با جامپ‌سوت استرچ، ظاهری پر از نور و حس شادابی تابستانی خلق می‌کند.',
+    bundleTitle: 'ست خورشیدی PUMA + NIKE',
+    mainProductId: 'ws-12',
+    matchingProductId: 'ws-04',
+    bundleDiscountPercent: 14
   }
 ];
 
