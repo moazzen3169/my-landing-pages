@@ -2,11 +2,7 @@ $ next dev
 ▲ Next.js 16.3.8 (Turbopack)
 - Local:         http://localhost:3000
 - Network:       http://192.168.0.2:3000
-✓ Ready in 951ms
-✓ Running next.config.ts took 85ms
+✓ Ready in 569ms
+✓ Running next.config.ts took 49ms
 
-○ Compiling /shop/man-sport ...
- HEAD /shop/man-sport 200 in 3.8s (next.js: 3.4s, application-code: 381ms)
- GET /shop/man-sport 200 in 140ms (next.js: 12ms, application-code: 128ms)
- GET /shop/man-sport 200 in 112ms (next.js: 4ms, application-code: 108ms)
- GET /shop/man-sport 200 in 125ms (next.js: 6ms, application-code: 119ms)
+ GET /shop/woman-sport 200 in 3.5s (next.js: 3.1s, application-code: 462ms)

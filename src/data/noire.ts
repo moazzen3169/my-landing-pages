@@ -538,5 +538,14 @@ export const LANDING_REGISTRY: LandingPageInfo[] = [
     theme: 'minimal-energy-streetwear',
     dataset: 'MAN_SPORT_PRODUCTS',
     previewImage: '/images/man-sport/T-shirt-1.webp'
+  },
+  {
+    slug: 'woman-sport',
+    category: 'women-sportwear',
+    title: 'گرلی اسپرت (GIRLY SPORT) — فروشگاه پوشاک اسپرت و کژوال زنانه (فارسی RTL)',
+    description: 'طراحی مستقل و اختصاصی Ecommerce Experience برای فروشگاه آنلاین پوشاک اسپرت، کژوال و روزمره زنانه شامل مود سلیپ تعاملی Pick Your Mood، کارت‌های ۳تصویره محصولات، هدر شناور گلاس و Shop By Color.',
+    theme: 'girly-sporty-colorful',
+    dataset: 'WOMAN_SPORT_PRODUCTS',
+    previewImage: '/images/woman-sport/jacket-1.webp'
   }
 ];
