@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ManSportProduct } from '@/data/man-sport';
-import { X, ShoppingBag, Trash2, Plus, Minus, ArrowLeft, ShieldCheck } from 'lucide-react';
+import { X, ShoppingBag, Trash2, Plus, Minus, ArrowLeft } from 'lucide-react';
 
 interface CartItem {
   product: ManSportProduct;
@@ -44,13 +44,13 @@ export default function CartDrawer({
       />
 
       <div className="absolute inset-y-0 left-0 max-w-full flex">
-        <div className="w-screen max-w-md bg-[#111111] text-white border-r border-white/10 shadow-2xl flex flex-col justify-between p-6">
+        <div className="w-screen max-w-md bg-[#111111] text-white border-r border-white/10 flex flex-col justify-between p-6">
 
           {/* HEADER */}
           <div className="flex items-center justify-between pb-4 border-b border-white/10">
             <div className="flex items-center gap-2">
               <ShoppingBag className="w-5 h-5 text-[#B7FF00]" />
-              <h2 className="text-lg font-black font-peyda text-white">سبد خرید شما</h2>
+              <h2 className="text-lg font-black font-peyda text-white">سبد خرید</h2>
               <span className="text-xs font-mono font-bold bg-white/10 text-[#B7FF00] px-2 py-0.5 rounded-full">
                 {cartItems.length}
               </span>
@@ -67,13 +67,12 @@ export default function CartDrawer({
           <div className="flex-1 overflow-y-auto py-4 space-y-4 my-2 pr-1">
             {cartItems.length === 0 ? (
               <div className="text-center py-16 space-y-3">
-                <ShoppingBag className="w-12 h-12 text-slate-600 mx-auto" />
-                <p className="text-sm font-bold font-peyda text-slate-400">سبد خرید شما در حال حاضر خالی است.</p>
+                <p className="text-sm font-bold font-peyda text-slate-400">سبد خرید شما خالی است.</p>
                 <button
                   onClick={onClose}
                   className="px-5 py-2 rounded-xl bg-[#B7FF00] text-black font-peyda text-xs font-bold"
                 >
-                  مشاهده محصولات و خرید
+                  مشاهده محصولات
                 </button>
               </div>
             ) : (
@@ -134,24 +133,19 @@ export default function CartDrawer({
           {cartItems.length > 0 && (
             <div className="pt-4 border-t border-white/10 space-y-4">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-peyda text-slate-400">جمع کل سفارش:</span>
+                <span className="text-xs font-peyda text-slate-400">جمع کل:</span>
                 <span className="text-xl font-black font-mono text-[#B7FF00]">
                   {formatPrice(totalPrice)}
                 </span>
               </div>
 
               <button
-                onClick={() => alert('انتقال به درگاه پرداخت امن...')}
-                className="w-full py-4 rounded-2xl bg-[#B7FF00] hover:bg-white text-black font-extrabold font-peyda text-sm flex items-center justify-center gap-2 transition-all shadow-xl"
+                onClick={() => alert('انتقال به درگاه پرداخت...')}
+                className="w-full py-4 rounded-2xl bg-[#B7FF00] hover:bg-white text-black font-extrabold font-peyda text-sm flex items-center justify-center gap-2 transition-colors"
               >
-                <span>تکمیل خرید و ثبت سفارش</span>
+                <span>تکمیل خرید</span>
                 <ArrowLeft className="w-4 h-4" />
               </button>
-
-              <div className="flex items-center justify-center gap-1.5 text-[10px] font-peyda text-slate-400">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#2455FF]" />
-                <span>پرداخت امن و تضمین تعویض تا ۷ روز</span>
-              </div>
             </div>
           )}
 

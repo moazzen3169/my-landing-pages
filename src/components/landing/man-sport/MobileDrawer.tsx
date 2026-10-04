@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { X, Search, Sparkles, ChevronLeft, ArrowLeft } from 'lucide-react';
+import { X, Search } from 'lucide-react';
 import { MAN_SPORT_CATEGORIES, MAN_SPORT_STYLES } from '@/data/man-sport';
 
 interface MobileDrawerProps {
@@ -28,7 +28,7 @@ export default function MobileDrawer({
 
       {/* DRAWER CONTAINER */}
       <div className="absolute inset-y-0 right-0 max-w-full flex">
-        <div className="w-screen max-w-xs sm:max-w-sm bg-[#111111] text-white border-l border-white/10 shadow-2xl flex flex-col justify-between p-6 overflow-y-auto">
+        <div className="w-screen max-w-xs sm:max-w-sm bg-[#111111] text-white border-l border-white/10 flex flex-col justify-between p-6 overflow-y-auto">
 
           {/* TOP HEADER */}
           <div className="flex items-center justify-between pb-4 border-b border-white/10">
@@ -37,10 +37,10 @@ export default function MobileDrawer({
               onClick={onClose}
               className="flex items-center gap-2"
             >
-              <span className="w-8 h-8 rounded-lg bg-[#B7FF00] text-black flex items-center justify-center font-black text-xs">
+              <span className="w-8 h-8 rounded-full bg-[#B7FF00] text-black flex items-center justify-center font-bold text-xs">
                 MS
               </span>
-              <span className="font-black text-base font-peyda text-white">
+              <span className="font-bold text-base font-peyda text-white">
                 MAN<span className="text-[#B7FF00]">SPORT</span>
               </span>
             </Link>
@@ -63,85 +63,40 @@ export default function MobileDrawer({
               className="w-full flex items-center gap-2 px-4 py-3 rounded-2xl bg-white/5 border border-white/10 text-slate-300 text-xs font-peyda font-medium"
             >
               <Search className="w-4 h-4 text-[#B7FF00]" />
-              <span>چی می‌خوای بپوشی؟</span>
+              <span>جستجو...</span>
             </button>
           </div>
 
           {/* MAIN NAVIGATION LINKS */}
           <div className="flex-1 space-y-6 my-2">
-
-            {/* BUILD YOUR FIT SPECIAL LINK */}
-            <a
-              href="#build-your-fit"
-              onClick={onClose}
-              className="flex items-center justify-between p-3.5 rounded-2xl bg-[#B7FF00] text-black font-extrabold text-xs font-peyda shadow-lg"
-            >
-              <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-black" />
-                <span>استایل‌ساز (Build Your Fit)</span>
-              </div>
-              <ArrowLeft className="w-4 h-4" />
-            </a>
-
-            {/* CATEGORIES LIST */}
             <div className="space-y-2">
-              <span className="text-[10px] font-mono tracking-widest text-[#B7FF00] uppercase block">
-                دسته‌بندی‌های پوشاک
-              </span>
-              {MAN_SPORT_CATEGORIES.map((cat) => (
-                <a
-                  key={cat.id}
-                  href="#products-section"
-                  onClick={onClose}
-                  className="flex items-center justify-between p-2.5 rounded-xl hover:bg-white/5 text-xs font-bold font-peyda text-slate-200"
-                >
-                  <span>{cat.label}</span>
-                  <ChevronLeft className="w-4 h-4 text-slate-500" />
-                </a>
-              ))}
-            </div>
-
-            {/* STYLES LIST */}
-            <div className="space-y-2">
-              <span className="text-[10px] font-mono tracking-widest text-[#2455FF] uppercase block">
-                استایل‌ها
-              </span>
-              {MAN_SPORT_STYLES.map((style) => (
-                <a
-                  key={style.id}
-                  href="#styles-section"
-                  onClick={onClose}
-                  className="flex items-center justify-between p-2.5 rounded-xl hover:bg-white/5 text-xs font-bold font-peyda text-slate-200"
-                >
-                  <span>{style.title}</span>
-                  <span className="text-[9px] font-mono text-slate-500">{style.englishTitle}</span>
-                </a>
-              ))}
-            </div>
-
-            <div className="pt-2 border-t border-white/10 space-y-2">
-              <a
-                href="#brands-section"
-                onClick={onClose}
-                className="block p-2 text-xs font-bold font-peyda text-slate-300 hover:text-[#B7FF00]"
-              >
-                برندها (+۲۰ برند)
-              </a>
               <a
                 href="#products-section"
                 onClick={onClose}
-                className="block p-2 text-xs font-bold font-peyda text-slate-300 hover:text-[#B7FF00]"
+                className="block p-2 text-sm font-bold font-peyda text-slate-200 hover:text-[#B7FF00]"
               >
-                جدیدترین محصولات
+                محصولات
+              </a>
+              <a
+                href="#styles-section"
+                onClick={onClose}
+                className="block p-2 text-sm font-bold font-peyda text-slate-200 hover:text-[#B7FF00]"
+              >
+                استایل‌ها
+              </a>
+              <a
+                href="#brands-section"
+                onClick={onClose}
+                className="block p-2 text-sm font-bold font-peyda text-slate-200 hover:text-[#B7FF00]"
+              >
+                برندها
               </a>
             </div>
-
           </div>
 
-          {/* FOOTER CONTACT INFO */}
-          <div className="pt-4 border-t border-white/10 text-center text-[10px] font-mono text-slate-500 space-y-1">
-            <p>MAN SPORT — IRAN MULTI-BRAND STORE</p>
-            <p>پشتیبانی: ۰۲۱-۸۸۸۸۹۹۹۹</p>
+          {/* FOOTER */}
+          <div className="pt-4 border-t border-white/10 text-center text-[10px] font-mono text-slate-500">
+            <p>MAN SPORT</p>
           </div>
 
         </div>

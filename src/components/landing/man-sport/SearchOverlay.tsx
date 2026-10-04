@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { ManSportProduct } from '@/data/man-sport';
-import { Search, X, ArrowLeft, ShoppingBag, Star, Sparkles } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 
 interface SearchOverlayProps {
   isOpen: boolean;
@@ -34,7 +34,7 @@ export default function SearchOverlay({
 
   return (
     <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-start justify-center p-4 sm:p-6 md:p-10 animate-in fade-in duration-200">
-      <div className="bg-[#111111] border border-white/15 text-white w-full max-w-3xl rounded-3xl p-6 sm:p-8 shadow-2xl relative my-auto">
+      <div className="bg-[#111111] border border-white/15 text-white w-full max-w-3xl rounded-3xl p-6 sm:p-8 relative my-auto">
 
         {/* CLOSE BUTTON */}
         <button
@@ -45,11 +45,8 @@ export default function SearchOverlay({
           <X className="w-5 h-5" />
         </button>
 
-        {/* INPUT CAPSULE */}
+        {/* INPUT */}
         <div className="mb-6">
-          <span className="text-[10px] font-mono tracking-widest text-[#B7FF00] uppercase block mb-2">
-            SEARCH & DISCOVERY
-          </span>
           <div className="relative flex items-center">
             <Search className="w-5 h-5 absolute right-4 text-slate-400" />
             <input
@@ -84,9 +81,6 @@ export default function SearchOverlay({
         {/* SEARCH RESULTS */}
         {filteredProducts.length > 0 && (
           <div className="mt-6 space-y-3 max-h-80 overflow-y-auto pr-1">
-            <span className="text-xs font-mono text-[#B7FF00] block font-bold">
-              نتایج پیدا شده ({filteredProducts.length}):
-            </span>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {filteredProducts.map((p) => (
                 <div
@@ -95,7 +89,7 @@ export default function SearchOverlay({
                     onSelectProduct(p);
                     onClose();
                   }}
-                  className="flex items-center gap-3 p-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 cursor-pointer transition-all group"
+                  className="flex items-center gap-3 p-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 cursor-pointer transition-colors group"
                 >
                   <img
                     src={p.images[0]}

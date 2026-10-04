@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { ManSportProduct } from '@/data/man-sport';
-import { X, ShoppingBag, Check, Star, ShieldCheck, Truck } from 'lucide-react';
+import { X, ShoppingBag, Check } from 'lucide-react';
 
 interface ProductQuickViewProps {
   product: ManSportProduct | null;
@@ -36,7 +36,7 @@ export default function ProductQuickView({
 
   return (
     <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-in fade-in duration-200" dir="rtl">
-      <div className="bg-[#111111] border border-white/15 text-white w-full max-w-4xl rounded-3xl p-6 sm:p-8 shadow-2xl relative my-auto grid grid-cols-1 md:grid-cols-12 gap-8">
+      <div className="bg-[#111111] border border-white/15 text-white w-full max-w-4xl rounded-3xl p-6 sm:p-8 relative my-auto grid grid-cols-1 md:grid-cols-12 gap-8">
 
         {/* CLOSE BUTTON */}
         <button
@@ -76,24 +76,13 @@ export default function ProductQuickView({
         {/* DETAILS AREA */}
         <div className="md:col-span-6 flex flex-col justify-between space-y-4">
           <div>
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-mono font-bold text-[#B7FF00] uppercase tracking-widest">
-                {product.brand}
-              </span>
-              <div className="flex items-center gap-1 text-xs font-mono font-bold text-amber-400">
-                <Star className="w-3.5 h-3.5 fill-current" />
-                <span>{product.rating}</span>
-                <span className="text-slate-400 font-normal">({product.reviewCount})</span>
-              </div>
-            </div>
+            <span className="text-xs font-mono font-bold text-[#B7FF00] uppercase tracking-widest block mb-2">
+              {product.brand}
+            </span>
 
             <h2 className="text-xl sm:text-2xl font-black font-peyda text-white">
               {product.name}
             </h2>
-
-            <p className="text-xs text-slate-300 font-peyda leading-relaxed mt-2 bg-white/5 p-3 rounded-xl border border-white/5">
-              {product.description}
-            </p>
           </div>
 
           {/* SIZE SELECTION */}
@@ -127,7 +116,7 @@ export default function ProductQuickView({
 
             <button
               onClick={handleAdd}
-              className={`w-full py-4 rounded-2xl font-extrabold font-peyda text-sm flex items-center justify-center gap-2 transition-all shadow-xl ${
+              className={`w-full py-4 rounded-2xl font-extrabold font-peyda text-sm flex items-center justify-center gap-2 transition-colors ${
                 isAdded
                   ? 'bg-[#2455FF] text-white'
                   : 'bg-[#B7FF00] hover:bg-white text-black'
@@ -145,17 +134,6 @@ export default function ProductQuickView({
                 </>
               )}
             </button>
-          </div>
-
-          <div className="flex items-center justify-around text-[10px] font-peyda text-slate-400 pt-2 border-t border-white/5">
-            <div className="flex items-center gap-1">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#2455FF]" />
-              <span>ضمانت اصالت برند</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <Truck className="w-3.5 h-3.5 text-[#FF5A1F]" />
-              <span>ارسال سریع سراسر ایران</span>
-            </div>
           </div>
 
         </div>
