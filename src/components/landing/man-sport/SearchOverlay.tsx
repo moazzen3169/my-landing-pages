@@ -34,12 +34,12 @@ export default function SearchOverlay({
 
   return (
     <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-start justify-center p-4 sm:p-6 md:p-10 animate-in fade-in duration-200">
-      <div className="bg-[#111111] border border-white/15 text-white w-full max-w-3xl rounded-3xl p-6 sm:p-8 relative my-auto">
+      <div className="bg-[#111111] border border-white/15 text-white w-full max-w-3xl rounded-3xl p-6 sm:p-12 relative my-auto">
 
         {/* CLOSE BUTTON */}
         <button
           onClick={onClose}
-          className="absolute top-6 left-6 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+          className="absolute top-4 left-4 p-2 rounded-full hover:bg-white/20 text-white transition-colors"
           title="بستن"
         >
           <X className="w-5 h-5" />
