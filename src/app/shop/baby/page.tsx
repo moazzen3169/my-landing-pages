@@ -38,6 +38,8 @@ import {
   Mail,
   Send,
   HelpCircle,
+  ArrowLeft,
+  FlowerIcon,
 } from "lucide-react";
 
 export default function BabyLandingPage() {
@@ -474,55 +476,88 @@ export default function BabyLandingPage() {
         </div>
       )}
 
-      {/* 4. HERO SECTION - REDESIGNED: TOP CENTERED TEXT & CTAS, CENTERED LARGE IMAGE */}
-      <section className="relative py-12 lg:py-16 px-4 sm:px-8 max-w-[1400px] mx-auto overflow-hidden">
-        {/* AMBIENT BACKGROUND GLOWS */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#2B70C9]/15 rounded-full blur-3xl -z-10 pointer-events-none" />
-        <div className="absolute top-10 right-10 w-80 h-80 bg-[#F1C9BD]/30 rounded-full blur-3xl -z-10 pointer-events-none" />
-        <div className="absolute bottom-10 left-10 w-80 h-80 bg-[#D7E5E9]/40 rounded-full blur-3xl -z-10 pointer-events-none" />
+      {/* ================= HERO SECTION (REFERENCE MATCH) ================= */}
+      <section className="relative pt-8 md:pt-12 pb-16 md:pb-12 px-4 md:px-12 bg-[#FFFBF3] overflow-hidden min-h-[600px] md:min-h-[720px] flex flex-col justify-between">
+        {/* Layer 1: Oversized Editorial Headline */}
+        <div className="text-center relative z-10 select-none">
+          <h1 className="text-[64px] sm:text-[96px] md:text-[140px] lg:text-[170px] font-black leading-[0.85] tracking-tight text-[#1E0001] opacity-95">
+            دنیــــای کوچولوها
+          </h1>
+        </div>
 
-        <div className="flex flex-col items-center text-center space-y-8 max-w-4xl mx-auto z-10">
-          {/* PROMOTIONAL BADGE */}
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#EBF3FC] border border-[#2B70C9]/20 text-[#2B70C9] text-xs sm:text-sm font-bold font-peyda shadow-xs">
-            <Sparkles className="w-4 h-4 text-[#2B70C9]" />
-            <span>پیشنهادهای ویژه و کالکشن جدید تا ۴۰٪ تخفیف</span>
+        {/* Layer 2: Floating Organic Decorative Shapes */}
+        {/* Yellow Flower Top Left */}
+        <div className="absolute top-12 left-[10%] md:left-[15%] z-20 animate-pulse pointer-events-none">
+          <FlowerIcon className="w-16 h-16 md:w-24 md:h-24" fill="#FFD500" />
+        </div>
+        {/* Green Flower Bottom Right */}
+        <div className="absolute bottom-20 right-[25%] md:right-[25%] z-200 pointer-events-none">
+          <FlowerIcon className="w-14 h-14 md:w-20 md:h-20" fill="#20C98A" />
+        </div>
+
+        {/* Layer 3: Central Cut-out Hero Product (Overlapping Headline) */}
+        <div className="absolute bottom-[-400px] left-1/2 -translate-x-1/2 -translate-y-[48%] z-20 w-[650px] h-[650px]  pointer-events-none flex flex-col items-center justify-end">
+          <div className="relative w-full h-full">
+            <img
+              src="/images/BABY/hero5.png"
+              alt="صندلی نوزاد ارگونومیک"
+              fill
+              priority
+              className="object-contain drop-shadow-2xl"
+            />
+          </div>
+          {/* Primary CTA Pill positioned cleanly over product base */}
+        </div>
+
+        {/* Layer 4: Supporting Text & Primary CTA (Bottom Right/Left Composition) */}
+        <div className="relative z-30  flex justify-between items-center gap-6 pt-4 md:pt-6">
+          {/* Supporting Copy */}
+          <div className="space-y-2 max-w-xs">
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#F36A21]">
+              <Sparkles className="w-3.5 h-3.5" />
+              منتخب والدین هوشمند
+            </span>
+            <p className="text-lg md:text-xl font-bold text-[#1E0001] leading-tight">
+              ایمن، دوست‌داشتنی، برای روزهای کوچک و بزرگ
+            </p>
+            <p className="text-xs md:text-sm text-[#1E0001]/70 leading-relaxed">
+              مجموعه‌ای دست‌چین شده از برترین برندهای بین‌المللی سیسمونی و
+              مراقبت از کودک.
+            </p>
           </div>
 
-          {/* CENTERED LARGE FEATURED IMAGE DISPLAY */}
-          <div className="w-full mt-6 relative flex justify-center">
-            <div className="absolute z-10 right-1 ">
-              {/* HEADINGS */}
-              <div className="space-y-4 max-w-3xl">
-                <h1 className="font-peyda font-extrabold text-4xl sm:text-6xl text-[#302D2A] leading-[1.2]">
-                  یک دنیای کوچک، <br className="hidden sm:inline" />
-                  <span className="text-[#2B70C9]">برای انتخاب‌های بزرگ</span>
-                </h1>
-              </div>
+          {/* Empty Center Space (CTA is embedded under product) */}
+          <div className="hidden md:block"></div>
 
-              {/* CTAS (TWO CTA BUTTONS IN TOP CENTER) */}
-              <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+          {/* Promotional Card inside Hero (Bottom Left) */}
+          <div className="flex justify-end">
+            <div className="bg-[#FFF0E1] border border-[#1E0001]/15 rounded-[18px] p-3.5 md:p-4 max-w-xs w-full shadow-lg flex items-center gap-3 relative overflow-hidden group">
+              <div className="w-16 h-16 md:w-20 md:h-20 relative bg-white/70 rounded-xl overflow-hidden shrink-0">
+                <img
+                  src="/images/BABY/DinnerwareCutlerySet_Sage.webp"
+                  alt="پیشنهاد ویژه"
+                  fill
+                  className="object-contain p-1 group-hover:scale-110 transition-transform duration-300"
+                />
+              </div>
+              <div className="space-y-1">
+                <span className="text-[10px] font-bold bg-[#F36A21] text-white px-2 py-0.5 rounded-full">
+                  پیشنهاد ویژه
+                </span>
+                <p className="font-bold text-sm md:text-base text-[#1E0001] leading-none">
+                  تا ۵۰٪ تخفیف
+                </p>
+                <p className="text-[11px] text-[#1E0001]/70">
+                  ظروف نسوز سیلیکونی
+                </p>
                 <a
-                  href="#categories-section"
-                  className="px-8 py-4 bg-[#2B70C9] hover:bg-[#22579D] text-[#F8F5EF] font-peyda font-bold text-base rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2 group"
+                  href="#products-section"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-[#F36A21] hover:underline pt-0.5"
                 >
-                  <span>مشاهده محصولات</span>
-                  <ArrowUpLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1" />
-                </a>
-
-                <a
-                  href="#shop-by-age"
-                  className="px-8 py-4 bg-[#FFFFFF] hover:bg-[#EBF3FC] text-[#302D2A] hover:text-[#2B70C9] font-peyda font-bold text-base rounded-2xl border border-[#302D2A]/15 hover:border-[#2B70C9]/40 transition-all duration-300 shadow-sm"
-                >
-                  خرید بر اساس سن 🌱
+                  <span>مشاهده مجموعه</span>
+                  <ArrowLeft className="w-3 h-3" />
                 </a>
               </div>
-            </div>
-            <div className="relative w-full  max-w-[1400px] aspect-[16/9] ">
-              <img
-                src="/images/BABY/hero5.png"
-                alt="دنیای کوچولوها"
-                className="w-full h-full  object-contain transition-transform duration-700 group-hover:scale-105"
-              />
             </div>
           </div>
         </div>
@@ -570,7 +605,7 @@ export default function BabyLandingPage() {
             <div className="flex items-center justify-between pt-6 z-10">
               <span className="text-xs font-bold font-peyda text-[#2B70C9] group-hover:underline flex items-center gap-1">
                 <span>مشاهده محصولات لباس</span>
-                <ArrowUpLeft className="w-4 h-4" />
+                <ArrowLeft className="w-4 h-4" />
               </span>
             </div>
 
