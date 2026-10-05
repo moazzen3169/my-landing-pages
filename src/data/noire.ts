@@ -488,7 +488,7 @@ export const LANDING_REGISTRY: LandingPageInfo[] = [
   {
     slug: 'noire-men-formal',
     category: 'men-formal',
-    title: 'NOIRÉ — Multi-Brand Luxury Menswear Store (English)',
+    title: 'مردانه خارجی',
     description: 'Multi-brand luxury menswear store featuring curated everyday, smart casual, and formal collections from top fashion houses.',
     theme: 'minimal-luxury',
     dataset: 'NOIRE_PRODUCTS',
@@ -497,7 +497,7 @@ export const LANDING_REGISTRY: LandingPageInfo[] = [
   {
     slug: 'noire-men-formal-fa',
     category: 'men-formal',
-    title: 'نوآر (NOIRÉ) — بوتیک چندبرند پوشاک لوکس مردانه (فارسی)',
+    title: 'مردانه مجلسی',
     description: 'فروشگاه و بوتیک چندبرند پوشاک لوکس مردانه شامل کالکشن‌های روزمره، اسپرت شیک و کت و شلوار رسمی از برترین برندهای بین‌المللی.',
     theme: 'minimal-luxury',
     dataset: 'NOIRE_PRODUCTS_FA',
@@ -506,7 +506,7 @@ export const LANDING_REGISTRY: LandingPageInfo[] = [
   {
     slug: 'persian-luxury-v1',
     category: 'women-luxury',
-    title: 'تبریز بوتیک — فروشگاه چندبرند لوکس کیف و کفش زنانه (فارسی RTL)',
+    title: 'کیف و کفش مجلسی زنانه',
     description: 'بوتیک لوکس چندبرند کیف و کفش زنانه شامل بیش از ۲۵ برند معتبر از جمله پرادا، گوچی، سنت لوران، دیور و شنل با فروشگاه حضوری در تبریز.',
     theme: 'quiet-luxury-editorial',
     dataset: 'LUXURY_PRODUCTS',
@@ -515,7 +515,7 @@ export const LANDING_REGISTRY: LandingPageInfo[] = [
   {
     slug: 'solea-sneakers',
     category: 'footwear-sneakers',
-    title: 'سولئا (SOLEA) — بوتیک تخصصی اسنیکر لوکس (فارسی RTL)',
+    title: 'کفش اسپورت',
     description: 'کالکشن اختصاصی اسنیکرهای روز دنیا از برندهای نایکی، آدیداس، نیوبالانس، اسیکس و جردن با طراحی مدرن و مینیمال لوکس.',
     theme: 'luxury-sports-editorial',
     dataset: 'SOLEA_PRODUCTS',
@@ -524,7 +524,7 @@ export const LANDING_REGISTRY: LandingPageInfo[] = [
   {
     slug: 'woman-luxury-editorial',
     category: 'women-fashion',
-    title: 'نوآر زنانه (NOIRÉ Woman) — مانیفست مد و پوشاک لوکس زنانه (فارسی RTL)',
+    title: 'زنانه مجلسی',
     description: 'صفحه لندینگ مینیمال لوکس پوشاک زنانه شامل مانتو، کت، شلوار، پیراهن و پالتو با تجربه تعاملی استوری‌تلینگ، ویدیوی همه‌جانبه هیرو و خرید آنلاین.',
     theme: 'minimal-luxury-editorial',
     dataset: 'WOMAN_LUX_PRODUCTS',
@@ -533,7 +533,7 @@ export const LANDING_REGISTRY: LandingPageInfo[] = [
   {
     slug: 'man-sport',
     category: 'men-sportwear',
-    title: 'فروشگاه چندبرند پوشاک اسپرت و استریت‌ویر مردانه (فارسی RTL)',
+    title: 'مردانه اسپورت',
     description: 'طراحی حرفه‌ای و پرانرژی لندینگ پیج فروشگاه چندبرند پوشاک مردانه ایران شامل هدر شناور گلاس، استایل‌ساز تعاملی Build Your Fit، کارت محصولات ۳ تصویره و خرید آسان.',
     theme: 'minimal-energy-streetwear',
     dataset: 'MAN_SPORT_PRODUCTS',
@@ -542,7 +542,7 @@ export const LANDING_REGISTRY: LandingPageInfo[] = [
   {
     slug: 'woman-sport',
     category: 'women-sportwear',
-    title: 'گرلی اسپرت (GIRLY SPORT) — فروشگاه پوشاک اسپرت و کژوال زنانه (فارسی RTL)',
+    title: 'زنانه اسپورت',
     description: 'طراحی مستقل و اختصاصی Ecommerce Experience برای فروشگاه آنلاین پوشاک اسپرت، کژوال و روزمره زنانه شامل مود سلیپ تعاملی Pick Your Mood، کارت‌های ۳تصویره محصولات، هدر شناور گلاس و Shop By Color.',
     theme: 'girly-sporty-colorful',
     dataset: 'WOMAN_SPORT_PRODUCTS',
@@ -551,7 +551,7 @@ export const LANDING_REGISTRY: LandingPageInfo[] = [
   {
     slug: 'baby',
     category: 'baby-kids',
-    title: 'دنیای کوچولوها — فروشگاه تخصصی آنلاین سیسمونی، پوشاک و اسباب‌بازی کودک (فارسی RTL)',
+    title: 'سیسمونی بچه',
     description: 'یک دنیای کوچک برای انتخاب‌های بزرگ. فروشگاه تخصصی آنلاین پوشاک نوزادی و کودک، لوازم بهداشتی، ظروف تغذیه سیلیکونی، اسباب‌بازی‌های چوبی و تجهیزات اتاق کودک.',
     theme: 'scandinavian-baby-editorial',
     dataset: 'BABY_PRODUCTS',
