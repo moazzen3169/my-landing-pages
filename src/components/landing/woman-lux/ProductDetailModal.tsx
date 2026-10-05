@@ -69,7 +69,7 @@ export default function ProductDetailModal({
         </button>
 
         {/* LEFT COLUMN: PRODUCT IMAGES GALLERY */}
-        <div className="w-full md:w-1/2 p-4 sm:p-6 bg-[#F5F5F5] flex flex-col justify-between">
+        <div className="w-full md:w-1/2  pb-4 bg-[#F5F5F5] flex flex-col justify-between">
 
           {/* MAIN SELECTED IMAGE */}
           <div className="relative w-full aspect-[3/4] bg-neutral-200 overflow-hidden mb-4">

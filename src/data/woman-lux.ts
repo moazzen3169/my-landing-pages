@@ -41,9 +41,9 @@ export const WOMAN_LUX_PRODUCTS: WomanLuxProduct[] = [
     ],
     sizes: ['۳۶', '۳۸', '۴۰', '۴۲'],
     images: [
-      '/images/woman-lux/jackest-coat-2.webp',
-      '/images/woman-lux/jackest-coat-3.webp',
-      '/images/woman-lux/jackest-coat-4.webp'
+      '/images/woman-lux/woman-2.jpg',
+      '/images/woman-lux/woman-3.jpg',
+      '/images/woman-lux/woman-4.jpg'
     ],
     description: 'کت تک زنانه دوخته‌شده از پارچه پشم مرینو ساختاریافته. این مدل با لبه‌های تیز، سرشانه ساختارمند و لایه داخلی ابریشمی، سیلوئتی ماندگار و مقتدر برای استایل‌های رسمی و نیمه‌رسمی ارائه می‌دهد.',
     material: '۸۵٪ پشم مرینو فوق‌العاده ظریف، ۱۵٪ ابریشم طبيعی. آستر: ۱۰٪ کوپرو ابریشمی.',
@@ -68,9 +68,9 @@ export const WOMAN_LUX_PRODUCTS: WomanLuxProduct[] = [
     ],
     sizes: ['۳۶', '۳۸', '۴۰'],
     images: [
-      '/images/woman-lux/jackest-coat-5.webp',
-      '/images/woman-lux/jackest-coat-6.webp',
-      '/images/woman-lux/jackest-coat-7.webp'
+      '/images/woman-lux/woman-5.jpg',
+      '/images/woman-lux/woman-6.jpg',
+      '/images/woman-lux/woman-7.jpg'
     ],
     description: 'پالتوی بلند زمستانه با تراکم بالای پارچه پشم و کشمیر. آستر ابریشمی سبک و لطیف، حس گرما و لوکس بودن را در عین وزن سبک فراهم می‌سازد.',
     material: '۷۵٪ پشم بکر، ۲۵٪ کشمیر. آستر: ۱۰۰٪ ابریشم خالص.',
@@ -94,9 +94,9 @@ export const WOMAN_LUX_PRODUCTS: WomanLuxProduct[] = [
     ],
     sizes: ['۳۶', '۳۸', '۴۰'],
     images: [
-      '/images/woman-lux/jackest-coat-8.webp',
-      '/images/woman-lux/jackest-coat-9.webp',
-      '/images/woman-lux/jackest-coat-10.webp'
+      '/images/woman-lux/woman-8.jpg',
+      '/images/woman-lux/woman-10.jpg',
+      '/images/woman-lux/woman-10.jpg'
     ],
     description: 'کت چرم طبیعی گوسفندی فوق‌العاده نرم با عمل‌آوری مینیمال. دکمه‌های مخفی و یقه ایستاده ظاهری مدرن و آوانگارد ایجاد کرده است.',
     material: '۱۰۰٪ چرم طبیعی خالص گوسفندی. آستر ساتن مات.',
@@ -120,9 +120,9 @@ export const WOMAN_LUX_PRODUCTS: WomanLuxProduct[] = [
     ],
     sizes: ['۳۶', '۳۸', '۴۰', '۴۲'],
     images: [
-      '/images/woman-lux/jackest-coat-11.webp',
-      '/images/woman-lux/jackest-coat-12.webp',
-      '/images/woman-lux/jackest-coat-13.webp'
+      '/images/woman-lux/woman-11.jpg',
+      '/images/woman-lux/woman-12.jpg',
+      '/images/woman-lux/woman-13.jpg'
     ],
     description: 'پالتو فوتر سنگین با فرم کلاسیک مد روز. یقه‌های برگردان پهن و جیب‌های فیلتابی ظاهری باشکوه و در عین حال شیک ایجاد می‌کنند.',
     material: '۹۰٪ پشم فوتر سنگین، ۱۰٪ نایلون تقویت‌کننده.',
@@ -146,9 +146,9 @@ export const WOMAN_LUX_PRODUCTS: WomanLuxProduct[] = [
     ],
     sizes: ['۳۶', '۳۸', '۴۰', '۴۲'],
     images: [
-      '/images/woman-lux/jackest-coat-14.webp',
-      '/images/woman-lux/jackest-coat-15.webp',
-      '/images/woman-lux/jackest-coat-16.webp'
+      '/images/woman-lux/woman-14.jpg',
+      '/images/woman-lux/woman-15.jpg',
+      '/images/woman-lux/woman-16.jpg'
     ],
     description: 'مانتو کتی شیک و مینیمال مناسب برای محیط‌های رسمی و روزمره با کیفیت دوخت استثنایی و دکمه‌های بافت‌دار طبیعی.',
     material: '۷۰٪ کرپ پشمی، ۳۰٪ ویسکوز درجه یک.',
@@ -171,9 +171,9 @@ export const WOMAN_LUX_PRODUCTS: WomanLuxProduct[] = [
     ],
     sizes: ['۳۶', '۳۸', '۴۰'],
     images: [
-      '/images/woman-lux/jackest-coat-17.webp',
-      '/images/woman-lux/jackest-coat-18.webp',
-      '/images/woman-lux/jackest-coat-19.webp'
+      '/images/woman-lux/woman.jpg',
+      '/images/woman-lux/woman-2.jpg',
+      '/images/woman-lux/woman-3.jpg'
     ],
     description: 'کت تک کرپ مشکی با سقوط بسیار زیبای پارچه. مناسب برای ست کردن با شلوار یا پیراهن‌های فرمال.',
     material: '۱۰۰٪ کرپ ژورژت نخی سنگین.',
@@ -197,9 +197,9 @@ export const WOMAN_LUX_PRODUCTS: WomanLuxProduct[] = [
     ],
     sizes: ['۳۶', '۳۸', '۴۰'],
     images: [
-      '/images/woman-lux/jackest-coat-20.webp',
-      '/images/woman-lux/jackest-coat-21.webp',
-      '/images/woman-lux/jackest-coat-22.webp'
+      '/images/woman-lux/woman-4.jpg',
+      '/images/woman-lux/woman-5.jpg',
+      '/images/woman-lux/woman-6.jpg'
     ],
     description: 'پالتوی اورسایز مدرن الهام‌گرفته از استایل‌های مینیمال اروپایی. دارای آستین‌های رگلان و فرم آزاد.',
     material: '۸۰٪ پشم بکر، ۲۰٪ پلی‌آمید ساختاری.',
@@ -223,9 +223,9 @@ export const WOMAN_LUX_PRODUCTS: WomanLuxProduct[] = [
     ],
     sizes: ['۳۶', '۳۸', '۴۰', '۴۲'],
     images: [
-      '/images/woman-lux/womens-t-shirts-1.webp',
-      '/images/woman-lux/womens-t-shirts-2.webp',
-      '/images/woman-lux/womens-t-shirts-3.webp'
+      '/images/woman-lux/woman.jpg',
+      '/images/woman-lux/woman-2.jpg',
+      '/images/woman-lux/woman-3.jpg'
     ],
     description: 'شومیز ابریشمی با بافت نرم و درخشش فوق‌العاده ملایم. دارای مچ‌های ظریف و دکمه‌های صدف طبیعی.',
     material: '۱۰۰٪ ابریشم خالص کرپ دوشین.',
@@ -250,9 +250,9 @@ export const WOMAN_LUX_PRODUCTS: WomanLuxProduct[] = [
     ],
     sizes: ['۳۶', '۳۸', '۴۰'],
     images: [
-      '/images/woman-lux/womens-t-shirts-4.webp',
-      '/images/woman-lux/womens-t-shirts-5.webp',
-      '/images/woman-lux/womens-t-shirts-6.webp'
+      '/images/woman-lux/woman-4.jpg',
+      '/images/woman-lux/woman-5.jpg',
+      '/images/woman-lux/woman-6.jpg'
     ],
     description: 'تاپ مینیمال ساتن مناسب برای پوشیدن زیر کت‌های تک یا به صورت مجزا در مناسبت‌های خاص.',
     material: '۹۲٪ ساتن ابریشم، ۸٪ الاستان برای انعطاف.',
@@ -276,9 +276,9 @@ export const WOMAN_LUX_PRODUCTS: WomanLuxProduct[] = [
     ],
     sizes: ['۳۶', '۳۸', '۴۰', '۴۲'],
     images: [
-      '/images/woman-lux/womens-t-shirts-7.webp',
-      '/images/woman-lux/womens-t-shirts-8.webp',
-      '/images/woman-lux/womens-t-shirts-9.webp'
+      '/images/woman-lux/woman-7.jpg',
+      '/images/woman-lux/woman-8.jpg',
+      '/images/woman-lux/woman-10.jpg'
     ],
     description: 'بلوز پنبه‌ای سنگین با ساختار مستحکم و یقه کشبافت. ایده‌آل برای استایل‌های روزمره استودیو.',
     material: '۱۰۰٪ پنبه ارگانیک شانه شده ۳۰۰GSM.',
@@ -302,9 +302,9 @@ export const WOMAN_LUX_PRODUCTS: WomanLuxProduct[] = [
     ],
     sizes: ['۳۶', '۳۸', '۴۰', '۴۲'],
     images: [
-      '/images/woman-lux/womens-t-shirts-10.webp',
-      '/images/woman-lux/womens-t-shirts-11.webp',
-      '/images/woman-lux/womens-t-shirts-12.webp'
+      '/images/woman-lux/woman-10.jpg',
+      '/images/woman-lux/woman-11.jpg',
+      '/images/woman-lux/woman-12.jpg'
     ],
     description: 'شومیز دکمه‌دار نخی با فرم کشیده. دکمه‌های مخفی زیر پلاک، ظاهری کاملاً یکدست و مدرن ایجاد کرده‌اند.',
     material: '۱۰۰٪ پوپلین پنبه مصری.',
@@ -328,10 +328,10 @@ export const WOMAN_LUX_PRODUCTS: WomanLuxProduct[] = [
     ],
     sizes: ['۳۶', '۳۸', '۴۰'],
     images: [
-      '/images/woman-lux/womens-t-shirts-13.webp',
-      '/images/woman-lux/womens-t-shirts-14.webp',
-      '/images/woman-lux/womens-t-shirts-15.webp',
-      '/images/woman-lux/womens-t-shirts-16.webp'
+      '/images/woman-lux/woman-13.jpg',
+      '/images/woman-lux/woman-14.jpg',
+      '/images/woman-lux/woman-15.jpg',
+      '/images/woman-lux/woman-16.jpg'
     ],
     description: 'بلوز آستین بلند جرسی بسیار باکیفیت و تنفس‌پذیر برای استفاده روزانه تحت مانتو یا کت.',
     material: '۹۵٪ پنبه سوپیما، ۵٪ الاستان.',
@@ -373,8 +373,8 @@ export const SCROLL_SECTION_PRODUCTS: ScrollSectionProduct[] = [
     image: '/images/woman-lux/for-scrol-section-(1).webp',
     secondaryImages: [
       '/images/woman-lux/for-scrol-section-(1).webp',
-      '/images/woman-lux/jackest-coat-2.webp',
-      '/images/woman-lux/jackest-coat-3.webp'
+      '/images/woman-lux/woman-2.jpg',
+      '/images/woman-lux/woman-3.jpg'
     ],
     description: 'مانتو مجلسی فاخر با بافت ابریشمی و تزئینات دست‌دوز مینیمال. فرم آوانگارد این اثر، تلفیقی است از وقار کلاسیک و جسارت مد معاصر.',
     details: '۱۰۰٪ ابریشم خالص ژاپنی | لایه داخلی ساتن نرم | برش اختصاصی استودیو نوآر',
@@ -393,8 +393,8 @@ export const SCROLL_SECTION_PRODUCTS: ScrollSectionProduct[] = [
     image: '/images/woman-lux/for-scrol-section-(2).webp',
     secondaryImages: [
       '/images/woman-lux/for-scrol-section-(2).webp',
-      '/images/woman-lux/jackest-coat-5.webp',
-      '/images/woman-lux/jackest-coat-6.webp'
+      '/images/woman-lux/woman-5.jpg',
+      '/images/woman-lux/woman-6.jpg'
     ],
     description: 'پالتوی سنگین پشمی با سرشانه‌های تراشیده و یقه‌های کشیده. طراحی شده برای ساختن ایستایی مقتدرانه و گرمای بی‌نظیر.',
     details: '۸۰٪ پشم بکر ایتالیا، ۲۰٪ کشمیر | آستر کامل ابریشم | دکمه‌های بوفالو',
@@ -413,8 +413,8 @@ export const SCROLL_SECTION_PRODUCTS: ScrollSectionProduct[] = [
     image: '/images/woman-lux/for-scrol-section-(3).webp',
     secondaryImages: [
       '/images/woman-lux/for-scrol-section-(3).webp',
-      '/images/woman-lux/womens-t-shirts-1.webp',
-      '/images/woman-lux/womens-t-shirts-2.webp'
+      '/images/woman-lux/woman-1.jpg',
+      '/images/woman-lux/woman-2.jpg'
     ],
     description: 'پیراهن فرمال با درخشش ملایم ساتن ابریشم. سقوط روان پارچه بر روی فرم بدن، ظاهری باشکوه و در عین حال کاملاً مینیمال ایجاد می‌کند.',
     details: '۹۵٪ ساتن ابریشم سنگین | برش انحصاری | خطوط تمیز بدون دکمه رو',
@@ -433,8 +433,8 @@ export const SCROLL_SECTION_PRODUCTS: ScrollSectionProduct[] = [
     image: '/images/woman-lux/for-scrol-section-(4).webp',
     secondaryImages: [
       '/images/woman-lux/for-scrol-section-(4).webp',
-      '/images/woman-lux/jackest-coat-17.webp',
-      '/images/woman-lux/jackest-coat-18.webp'
+      '/images/woman-lux/woman-17.jpg',
+      '/images/woman-lux/woman-18.jpg'
     ],
     description: 'کت تک مدرن برای استایل‌های لایه‌ای روزمره. ترکیبی متوازن از راحتی، دقت در الگوسازی و ظرافت خیاطی سفارشی.',
     details: '۱۰۰٪ کرپ نخی پشمی | جیب‌های مخفی جانب | لبه‌های دست‌دوز',

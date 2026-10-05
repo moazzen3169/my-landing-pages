@@ -144,7 +144,7 @@ export default function Header({
               <ShoppingBag className="w-4 h-4" />
               <span className="hidden sm:inline">سبد خرید</span>
               {cartCount > 0 && (
-                <span className="px-1.5 py-0.2 text-[10px] bg-neutral-200 text-[#111111] rounded-full font-bold">
+                <span className="px-1.5 py-0 text-[10px]  text-[#111111]  font-bold">
                   {cartCount}
                 </span>
               )}

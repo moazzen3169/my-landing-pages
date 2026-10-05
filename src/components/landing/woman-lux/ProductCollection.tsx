@@ -53,7 +53,7 @@ export default function ProductCollection({
         </div>
 
         {/* PRODUCT CARDS GRID - EXACTLY 8 PRODUCTS */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-4 lg:gap-2">
           {displayProducts.map((product) => (
             <ProductCard
               key={product.id}
