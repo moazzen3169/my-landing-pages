@@ -475,7 +475,7 @@ export default function BabyLandingPage() {
       )}
 
       {/* 4. HERO SECTION - REDESIGNED: TOP CENTERED TEXT & CTAS, CENTERED LARGE IMAGE */}
-      <section className="relative py-12 lg:py-16 px-4 sm:px-8 max-w-7xl mx-auto overflow-hidden">
+      <section className="relative py-12 lg:py-16 px-4 sm:px-8 max-w-[1400px] mx-auto overflow-hidden">
         {/* AMBIENT BACKGROUND GLOWS */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#2B70C9]/15 rounded-full blur-3xl -z-10 pointer-events-none" />
         <div className="absolute top-10 right-10 w-80 h-80 bg-[#F1C9BD]/30 rounded-full blur-3xl -z-10 pointer-events-none" />
@@ -488,59 +488,40 @@ export default function BabyLandingPage() {
             <span>پیشنهادهای ویژه و کالکشن جدید تا ۴۰٪ تخفیف</span>
           </div>
 
-          {/* HEADINGS */}
-          <div className="space-y-4 max-w-3xl">
-            <h1 className="font-peyda font-extrabold text-4xl sm:text-6xl text-[#302D2A] leading-[1.2]">
-              یک دنیای کوچک، <br className="hidden sm:inline" />
-              <span className="text-[#2B70C9]">برای انتخاب‌های بزرگ</span>
-            </h1>
-
-            <p className="text-base sm:text-xl text-[#302D2A]/80 font-medium max-w-2xl mx-auto leading-relaxed">
-              از اولین لباس تا اولین قدم‌ها، همه چیز برای کوچولوی شما، با بالاترین کیفیت و طراحی فوق‌العاده.
-            </p>
-          </div>
-
-          {/* CTAS (TWO CTA BUTTONS IN TOP CENTER) */}
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-            <a
-              href="#categories-section"
-              className="px-8 py-4 bg-[#2B70C9] hover:bg-[#22579D] text-[#F8F5EF] font-peyda font-bold text-base rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2 group"
-            >
-              <span>مشاهده محصولات</span>
-              <ArrowUpLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1" />
-            </a>
-
-            <a
-              href="#shop-by-age"
-              className="px-8 py-4 bg-[#FFFFFF] hover:bg-[#EBF3FC] text-[#302D2A] hover:text-[#2B70C9] font-peyda font-bold text-base rounded-2xl border border-[#302D2A]/15 hover:border-[#2B70C9]/40 transition-all duration-300 shadow-sm"
-            >
-              خرید بر اساس سن 🌱
-            </a>
-          </div>
-
-          {/* TRUST MINI BADGES */}
-          <div className="pt-4 border-t border-[#302D2A]/10 w-full max-w-lg flex items-center justify-center gap-6 text-xs sm:text-sm font-medium text-[#302D2A]/70">
-            <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-[#2B70C9]" />
-              <span>ضمانت اصالت</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-[#2B70C9]" />
-              <span>برندهای مطرح</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-[#2B70C9]" />
-              <span>پشتیبانی کامل</span>
-            </div>
-          </div>
-
           {/* CENTERED LARGE FEATURED IMAGE DISPLAY */}
           <div className="w-full mt-6 relative flex justify-center">
-            <div className="relative w-full max-w-4xl aspect-[16/9] sm:aspect-[21/9] md:aspect-[2/1] rounded-[36px] overflow-hidden bg-gradient-to-b from-[#EBF3FC]/60 to-[#F8F5EF] border border-[#2B70C9]/15 p-4 sm:p-8 shadow-xl group">
+            <div className="absolute z-10 right-1 ">
+              {/* HEADINGS */}
+              <div className="space-y-4 max-w-3xl">
+                <h1 className="font-peyda font-extrabold text-4xl sm:text-6xl text-[#302D2A] leading-[1.2]">
+                  یک دنیای کوچک، <br className="hidden sm:inline" />
+                  <span className="text-[#2B70C9]">برای انتخاب‌های بزرگ</span>
+                </h1>
+              </div>
+
+              {/* CTAS (TWO CTA BUTTONS IN TOP CENTER) */}
+              <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+                <a
+                  href="#categories-section"
+                  className="px-8 py-4 bg-[#2B70C9] hover:bg-[#22579D] text-[#F8F5EF] font-peyda font-bold text-base rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2 group"
+                >
+                  <span>مشاهده محصولات</span>
+                  <ArrowUpLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1" />
+                </a>
+
+                <a
+                  href="#shop-by-age"
+                  className="px-8 py-4 bg-[#FFFFFF] hover:bg-[#EBF3FC] text-[#302D2A] hover:text-[#2B70C9] font-peyda font-bold text-base rounded-2xl border border-[#302D2A]/15 hover:border-[#2B70C9]/40 transition-all duration-300 shadow-sm"
+                >
+                  خرید بر اساس سن 🌱
+                </a>
+              </div>
+            </div>
+            <div className="relative w-full  max-w-[1400px] aspect-[16/9] ">
               <img
                 src="/images/BABY/hero5.png"
                 alt="دنیای کوچولوها"
-                className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full  object-contain transition-transform duration-700 group-hover:scale-105"
               />
             </div>
           </div>
