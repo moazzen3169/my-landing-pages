@@ -207,19 +207,19 @@ export default function BabyLandingPage() {
 
   return (
     <div
-      className="min-h-screen bg-[#fff] text-[#302D2A] font-vazir dir-rtl selection:bg-[#3F5147] selection:text-white relative overflow-x-hidden"
+      className="min-h-screen bg-[#fff] text-[#302D2A] font-vazir dir-rtl selection:bg-[#2B70C9] selection:text-white relative overflow-x-hidden"
       dir="rtl"
     >
       {/* TOAST NOTIFICATION */}
       {toastMessage && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#302D2A] text-[#F8F5EF] px-6 py-3 rounded-full text-sm font-medium border border-[#3F5147]/40 shadow-xl transition-all duration-300 flex items-center gap-2">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#302D2A] text-[#F8F5EF] px-6 py-3 rounded-full text-sm font-medium border border-[#2B70C9]/40 shadow-xl transition-all duration-300 flex items-center gap-2">
           <Sparkles className="w-4 h-4 text-[#F2E3A9] animate-pulse" />
           <span>{toastMessage}</span>
         </div>
       )}
 
       {/* 1. ANNOUNCEMENT BAR */}
-      <div className="bg-[#3F5147] text-[#F8F5EF] text-xs py-2.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-4 relative z-50 border-b border-[#F8F5EF]/10">
+      <div className="bg-[#2B70C9] text-[#F8F5EF] text-xs py-2.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-4 relative z-50 border-b border-[#F8F5EF]/10">
         <span className="hidden sm:inline">🌱</span>
         <span>
           ارسال سریع سراسری | ضمانت ۱۰۰٪ اصالت کالا | خرید امن و مطمئن برای
@@ -242,14 +242,14 @@ export default function BabyLandingPage() {
             </button>
 
             <Link href="/shop/baby" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-2xl bg-[#3F5147] text-[#F8F5EF] font-peyda font-bold text-lg flex items-center justify-center shadow-xs group-hover:bg-[#302D2A] transition-colors">
+              <div className="w-10 h-10 rounded-2xl bg-[#2B70C9] text-[#F8F5EF] font-peyda font-bold text-lg flex items-center justify-center shadow-xs group-hover:bg-[#302D2A] transition-colors">
                 👶
               </div>
               <div className="flex flex-col">
                 <span className="font-peyda font-extrabold text-xl sm:text-2xl tracking-tight text-[#302D2A] leading-none">
                   دنیای کوچولوها
                 </span>
-                <span className="text-[10px] font-mono tracking-widest text-[#3F5147] mt-0.5 uppercase">
+                <span className="text-[10px] font-mono tracking-widest text-[#2B70C9] mt-0.5 uppercase">
                   BABY & KIDS STORE
                 </span>
               </div>
@@ -267,7 +267,7 @@ export default function BabyLandingPage() {
                   setIsMegaMenuOpen(true);
                 }}
               >
-                <span className="hover:text-[#3F5147] transition-colors flex items-center gap-1">
+                <span className="hover:text-[#2B70C9] transition-colors flex items-center gap-1">
                   <span>{cat.title}</span>
                   <ChevronDown className="w-3.5 h-3.5 opacity-60 group-hover:rotate-180 transition-transform" />
                 </span>
@@ -301,7 +301,7 @@ export default function BabyLandingPage() {
             <button
               onClick={() => setIsCartOpen(true)}
               aria-label="سبد خرید"
-              className="px-3.5 py-2 rounded-2xl bg-[#3F5147] hover:bg-[#302D2A] text-[#F8F5EF] transition-colors flex items-center gap-2 relative shadow-xs"
+              className="px-3.5 py-2 rounded-2xl bg-[#2B70C9] hover:bg-[#302D2A] text-[#F8F5EF] transition-colors flex items-center gap-2 relative shadow-xs"
             >
               <ShoppingBag className="w-5 h-5" />
               <span className="hidden sm:inline text-xs font-bold font-peyda">
@@ -332,7 +332,7 @@ export default function BabyLandingPage() {
                   <div className="grid grid-cols-5 gap-8 text-right">
                     {/* COL 1: CATEGORY GROUPS */}
                     <div className="space-y-3 border-l border-[#302D2A]/10 pl-6">
-                      <h4 className="font-peyda font-bold text-sm text-[#3F5147] flex items-center gap-2">
+                      <h4 className="font-peyda font-bold text-sm text-[#2B70C9] flex items-center gap-2">
                         <span>{megData.icon}</span>
                         <span>دسته گروه‌ها</span>
                       </h4>
@@ -340,7 +340,7 @@ export default function BabyLandingPage() {
                         {megData.subcategories.slice(0, 4).map((sub, idx) => (
                           <li
                             key={idx}
-                            className="hover:text-[#3F5147] cursor-pointer transition-colors"
+                            className="hover:text-[#2B70C9] cursor-pointer transition-colors"
                           >
                             {sub}
                           </li>
@@ -350,14 +350,14 @@ export default function BabyLandingPage() {
 
                     {/* COL 2: SUBCATEGORIES */}
                     <div className="space-y-3 border-l border-[#302D2A]/10 pl-6">
-                      <h4 className="font-peyda font-bold text-sm text-[#3F5147]">
+                      <h4 className="font-peyda font-bold text-sm text-[#2B70C9]">
                         زیرمجموعه‌ها
                       </h4>
                       <ul className="space-y-2 text-xs text-[#302D2A]/80 font-medium">
                         {megData.subcategories.slice(3).map((sub, idx) => (
                           <li
                             key={idx}
-                            className="hover:text-[#3F5147] cursor-pointer transition-colors"
+                            className="hover:text-[#2B70C9] cursor-pointer transition-colors"
                           >
                             {sub}
                           </li>
@@ -367,14 +367,14 @@ export default function BabyLandingPage() {
 
                     {/* COL 3: AGE RANGES */}
                     <div className="space-y-3 border-l border-[#302D2A]/10 pl-6">
-                      <h4 className="font-peyda font-bold text-sm text-[#3F5147]">
+                      <h4 className="font-peyda font-bold text-sm text-[#2B70C9]">
                         تفکیک رده سنی
                       </h4>
                       <div className="flex flex-wrap gap-1.5">
                         {megData.ageRanges.map((age, idx) => (
                           <span
                             key={idx}
-                            className="px-2.5 py-1 rounded-lg bg-[#F8F5EF] text-[11px] font-bold text-[#302D2A] hover:bg-[#3F5147] hover:text-white cursor-pointer transition-colors"
+                            className="px-2.5 py-1 rounded-lg bg-[#F8F5EF] text-[11px] font-bold text-[#302D2A] hover:bg-[#2B70C9] hover:text-white cursor-pointer transition-colors"
                           >
                             {age}
                           </span>
@@ -384,16 +384,16 @@ export default function BabyLandingPage() {
 
                     {/* COL 4: POPULAR BRANDS */}
                     <div className="space-y-3 border-l border-[#302D2A]/10 pl-6">
-                      <h4 className="font-peyda font-bold text-sm text-[#3F5147]">
+                      <h4 className="font-peyda font-bold text-sm text-[#2B70C9]">
                         برندهای محبوب
                       </h4>
                       <ul className="space-y-2 text-xs text-[#302D2A]/80 font-medium">
                         {megData.brands.map((brand, idx) => (
                           <li
                             key={idx}
-                            className="hover:text-[#3F5147] cursor-pointer transition-colors flex items-center gap-1.5"
+                            className="hover:text-[#2B70C9] cursor-pointer transition-colors flex items-center gap-1.5"
                           >
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#3F5147]" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#2B70C9]" />
                             <span>{brand}</span>
                           </li>
                         ))}
@@ -414,7 +414,7 @@ export default function BabyLandingPage() {
                       </h5>
                       <a
                         href="#categories-section"
-                        className="inline-block text-[11px] font-bold text-[#3F5147] hover:underline"
+                        className="inline-block text-[11px] font-bold text-[#2B70C9] hover:underline"
                       >
                         مشاهده همه محصولات {megData.title} ←
                       </a>
@@ -441,7 +441,7 @@ export default function BabyLandingPage() {
             <div className="space-y-4 text-right">
               {MEGA_MENU_CATEGORIES.map((cat) => (
                 <div key={cat.id} className="space-y-2">
-                  <div className="font-peyda font-bold text-sm text-[#3F5147] flex items-center gap-2">
+                  <div className="font-peyda font-bold text-sm text-[#2B70C9] flex items-center gap-2">
                     <span>{cat.icon}</span>
                     <span>{cat.title}</span>
                   </div>
@@ -474,74 +474,73 @@ export default function BabyLandingPage() {
         </div>
       )}
 
-      {/* 4. HERO SECTION - ART DIRECTED MINIATURE CURATED WORLD */}
-      <section className="relative py-10 lg:py-14 px-4 sm:px-8 max-w-7xl mx-auto overflow-hidden">
-        {/* ORGANIC PEBBLE MOTIF BACKGROUND SHAPES */}
-        <div className="absolute top-10 right-10 w-96 h-96 bg-[#F1C9BD]/40 rounded-[60%_40%_70%_30%/40%_50%_60%_50%] blur-3xl -z-10 animate-pulse" />
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#D7E5E9]/50 rounded-[40%_60%_30%_70%/50%_40%_60%_50%] blur-3xl -z-10" />
+      {/* 4. HERO SECTION - REDESIGNED: TOP CENTERED TEXT & CTAS, CENTERED LARGE IMAGE */}
+      <section className="relative py-12 lg:py-16 px-4 sm:px-8 max-w-7xl mx-auto overflow-hidden">
+        {/* AMBIENT BACKGROUND GLOWS */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#2B70C9]/15 rounded-full blur-3xl -z-10 pointer-events-none" />
+        <div className="absolute top-10 right-10 w-80 h-80 bg-[#F1C9BD]/30 rounded-full blur-3xl -z-10 pointer-events-none" />
+        <div className="absolute bottom-10 left-10 w-80 h-80 bg-[#D7E5E9]/40 rounded-full blur-3xl -z-10 pointer-events-none" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          {/* HERO COPY (RIGHT 5 COLS) */}
-          <div className="lg:col-span-6 space-y-6 text-right z-10">
-            {/* PROMOTIONAL BADGE */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F2E3A9] border border-[#302D2A]/10 text-[#302D2A] text-xs font-bold font-peyda shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-[#3F5147]" />
-              <span>پیشنهادهای ویژه تا ۴۰٪ تخفیف</span>
-            </div>
+        <div className="flex flex-col items-center text-center space-y-8 max-w-4xl mx-auto z-10">
+          {/* PROMOTIONAL BADGE */}
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#EBF3FC] border border-[#2B70C9]/20 text-[#2B70C9] text-xs sm:text-sm font-bold font-peyda shadow-xs">
+            <Sparkles className="w-4 h-4 text-[#2B70C9]" />
+            <span>پیشنهادهای ویژه و کالکشن جدید تا ۴۰٪ تخفیف</span>
+          </div>
 
-            <h1 className="font-peyda font-extrabold text-4xl sm:text-6xl text-[#302D2A] leading-[1.15]">
-              یک دنیای کوچک، <br />
-              <span className="text-[#3F5147]">برای انتخاب‌های بزرگ</span>
+          {/* HEADINGS */}
+          <div className="space-y-4 max-w-3xl">
+            <h1 className="font-peyda font-extrabold text-4xl sm:text-6xl text-[#302D2A] leading-[1.2]">
+              یک دنیای کوچک، <br className="hidden sm:inline" />
+              <span className="text-[#2B70C9]">برای انتخاب‌های بزرگ</span>
             </h1>
 
-            <p className="text-base sm:text-lg text-[#302D2A]/80 font-medium max-w-md leading-relaxed">
-              از اولین لباس تا اولین قدم‌ها، <br />
-              همه چیز برای کوچولوی شما، یکجا.
+            <p className="text-base sm:text-xl text-[#302D2A]/80 font-medium max-w-2xl mx-auto leading-relaxed">
+              از اولین لباس تا اولین قدم‌ها، همه چیز برای کوچولوی شما، با بالاترین کیفیت و طراحی فوق‌العاده.
             </p>
+          </div>
 
-            {/* CTAS */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <a
-                href="#categories-section"
-                className="px-8 py-4 bg-[#3F5147] hover:bg-[#302D2A] text-[#F8F5EF] font-peyda font-bold text-base rounded-2xl transition-all duration-300 shadow-md flex items-center gap-2 group"
-              >
-                <span>مشاهده محصولات</span>
-                <ArrowUpLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1" />
-              </a>
+          {/* CTAS (TWO CTA BUTTONS IN TOP CENTER) */}
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+            <a
+              href="#categories-section"
+              className="px-8 py-4 bg-[#2B70C9] hover:bg-[#22579D] text-[#F8F5EF] font-peyda font-bold text-base rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2 group"
+            >
+              <span>مشاهده محصولات</span>
+              <ArrowUpLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1" />
+            </a>
 
-              <a
-                href="#shop-by-age"
-                className="px-7 py-4 bg-[#FFFFFF] hover:bg-[#F2E3A9] text-[#302D2A] font-peyda font-bold text-base rounded-2xl border border-[#302D2A]/15 transition-all duration-300"
-              >
-                خرید بر اساس سن 🌱
-              </a>
+            <a
+              href="#shop-by-age"
+              className="px-8 py-4 bg-[#FFFFFF] hover:bg-[#EBF3FC] text-[#302D2A] hover:text-[#2B70C9] font-peyda font-bold text-base rounded-2xl border border-[#302D2A]/15 hover:border-[#2B70C9]/40 transition-all duration-300 shadow-sm"
+            >
+              خرید بر اساس سن 🌱
+            </a>
+          </div>
+
+          {/* TRUST MINI BADGES */}
+          <div className="pt-4 border-t border-[#302D2A]/10 w-full max-w-lg flex items-center justify-center gap-6 text-xs sm:text-sm font-medium text-[#302D2A]/70">
+            <div className="flex items-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-[#2B70C9]" />
+              <span>ضمانت اصالت</span>
             </div>
-
-            {/* TRUST MINI BADGES */}
-            <div className="pt-6 border-t border-[#302D2A]/10 grid grid-cols-3 gap-3 text-xs font-medium text-[#302D2A]/70">
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#3F5147]" />
-                <span>ضمانت اصالت</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#3F5147]" />
-                <span>برندهای مطرح</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#3F5147]" />
-                <span>پشتیبانی کامل</span>
-              </div>
+            <div className="flex items-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-[#2B70C9]" />
+              <span>برندهای مطرح</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-[#2B70C9]" />
+              <span>پشتیبانی کامل</span>
             </div>
           </div>
 
-          {/* HERO INTERACTIVE CURATED COMPOSITION (LEFT 7 COLS) */}
-          <div className="lg:col-span-6 relative flex  ">
-            {/* CENTRAL PEBBLE CONTAINER */}
-            <div className="w-full max-h-[600px] aspect-[1/2]   relative overflow-hidden flex items-center justify-center">
+          {/* CENTERED LARGE FEATURED IMAGE DISPLAY */}
+          <div className="w-full mt-6 relative flex justify-center">
+            <div className="relative w-full max-w-4xl aspect-[16/9] sm:aspect-[21/9] md:aspect-[2/1] rounded-[36px] overflow-hidden bg-gradient-to-b from-[#EBF3FC]/60 to-[#F8F5EF] border border-[#2B70C9]/15 p-4 sm:p-8 shadow-xl group">
               <img
                 src="/images/BABY/hero5.png"
-                alt="Toys"
-                className=" transition-transform duration-500 group-hover:scale-105"
+                alt="دنیای کوچولوها"
+                className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
               />
             </div>
           </div>
@@ -555,7 +554,7 @@ export default function BabyLandingPage() {
       >
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-10 gap-4">
           <div className="text-right">
-            <span className="text-xs font-bold font-peyda text-[#3F5147] tracking-wider uppercase">
+            <span className="text-xs font-bold font-peyda text-[#2B70C9] tracking-wider uppercase">
               CATEGORY DISCOVERY
             </span>
             <h2 className="font-peyda font-extrabold text-3xl sm:text-4xl text-[#302D2A] mt-1">
@@ -588,7 +587,7 @@ export default function BabyLandingPage() {
             </div>
 
             <div className="flex items-center justify-between pt-6 z-10">
-              <span className="text-xs font-bold font-peyda text-[#3F5147] group-hover:underline flex items-center gap-1">
+              <span className="text-xs font-bold font-peyda text-[#2B70C9] group-hover:underline flex items-center gap-1">
                 <span>مشاهده محصولات لباس</span>
                 <ArrowUpLeft className="w-4 h-4" />
               </span>
@@ -616,7 +615,7 @@ export default function BabyLandingPage() {
             </div>
 
             <div className="pt-6 z-10">
-              <span className="text-xs font-bold font-peyda text-[#3F5147] group-hover:underline flex items-center gap-1">
+              <span className="text-xs font-bold font-peyda text-[#2B70C9] group-hover:underline flex items-center gap-1">
                 <span>مشاهده اسباب‌بازی‌ها</span>
                 <ArrowUpLeft className="w-4 h-4" />
               </span>
@@ -643,7 +642,7 @@ export default function BabyLandingPage() {
               </p>
             </div>
 
-            <span className="text-xs font-bold font-peyda text-[#3F5147] z-10 flex items-center gap-1">
+            <span className="text-xs font-bold font-peyda text-[#2B70C9] z-10 flex items-center gap-1">
               <span>دیدن بهداشتی‌ها</span>
               <ArrowUpLeft className="w-3.5 h-3.5" />
             </span>
@@ -669,7 +668,7 @@ export default function BabyLandingPage() {
               </p>
             </div>
 
-            <span className="text-xs font-bold font-peyda text-[#3F5147] z-10 flex items-center gap-1">
+            <span className="text-xs font-bold font-peyda text-[#2B70C9] z-10 flex items-center gap-1">
               <span>دیدن لوازم تغذیه</span>
               <ArrowUpLeft className="w-3.5 h-3.5" />
             </span>
@@ -695,7 +694,7 @@ export default function BabyLandingPage() {
               </p>
             </div>
 
-            <span className="text-xs font-bold font-peyda text-[#3F5147] z-10 flex items-center gap-1">
+            <span className="text-xs font-bold font-peyda text-[#2B70C9] z-10 flex items-center gap-1">
               <span>دیدن اتاق کودک</span>
               <ArrowUpLeft className="w-3.5 h-3.5" />
             </span>
@@ -752,7 +751,7 @@ export default function BabyLandingPage() {
       <section className="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-10 text-right">
           <div>
-            <span className="text-xs font-bold font-peyda text-[#3F5147] uppercase tracking-wider">
+            <span className="text-xs font-bold font-peyda text-[#2B70C9] uppercase tracking-wider">
               BEST SELLERS
             </span>
             <h2 className="font-peyda font-extrabold text-3xl sm:text-4xl text-[#302D2A] mt-1">
@@ -765,7 +764,7 @@ export default function BabyLandingPage() {
 
           <a
             href="#categories-section"
-            className="text-xs sm:text-sm font-bold font-peyda text-[#3F5147] hover:underline flex items-center gap-1"
+            className="text-xs sm:text-sm font-bold font-peyda text-[#2B70C9] hover:underline flex items-center gap-1"
           >
             <span>مشاهده همه</span>
             <ArrowUpLeft className="w-4 h-4" />
@@ -795,7 +794,7 @@ export default function BabyLandingPage() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
           <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
-            <span className="text-xs font-bold font-peyda text-[#3F5147] uppercase tracking-wider">
+            <span className="text-xs font-bold font-peyda text-[#2B70C9] uppercase tracking-wider">
               AGE BASED DISCOVERY
             </span>
             <h2 className="font-peyda font-extrabold text-3xl sm:text-4xl text-[#302D2A]">
@@ -817,7 +816,7 @@ export default function BabyLandingPage() {
                   onClick={() => setSelectedAgeId(cat.id)}
                   className={`shrink-0 px-5 py-3 rounded-2xl text-xs sm:text-sm font-bold font-peyda transition-all duration-300 ${
                     isSelected
-                      ? "bg-[#3F5147] text-[#F8F5EF] shadow-md scale-105"
+                      ? "bg-[#2B70C9] text-[#F8F5EF] shadow-md scale-105"
                       : "bg-[#FFFFFF] text-[#302D2A] border border-[#302D2A]/10 hover:bg-[#FFFFFF]/80"
                   }`}
                 >
@@ -836,7 +835,7 @@ export default function BabyLandingPage() {
                 className="w-24 h-24 sm:w-28 sm:h-28 object-contain rounded-2xl bg-[#F8F5EF] p-2"
               />
               <div className="space-y-1">
-                <span className="text-xs font-bold text-[#3F5147] font-peyda">
+                <span className="text-xs font-bold text-[#2B70C9] font-peyda">
                   {activeAgeCategoryObj.subhead}
                 </span>
                 <h3 className="font-peyda font-bold text-xl sm:text-2xl text-[#302D2A]">
@@ -881,7 +880,7 @@ export default function BabyLandingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             {/* COPY (6 COLS) */}
             <div className="lg:col-span-6 space-y-6 text-right">
-              <span className="inline-block px-3.5 py-1.5 rounded-full bg-[#3F5147] text-[#F8F5EF] text-xs font-bold font-peyda border border-[#F2E3A9]/30">
+              <span className="inline-block px-3.5 py-1.5 rounded-full bg-[#2B70C9] text-[#F8F5EF] text-xs font-bold font-peyda border border-[#F2E3A9]/30">
                 EDITORIAL & LIFESTYLE STORY
               </span>
 
@@ -901,7 +900,7 @@ export default function BabyLandingPage() {
               <div>
                 <a
                   href="#categories-section"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-[#F2E3A9] hover:bg-[#3F5147] text-[#302D2A] hover:text-white font-peyda font-bold text-sm rounded-2xl transition-all duration-300"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-[#F2E3A9] hover:bg-[#2B70C9] text-[#302D2A] hover:text-white font-peyda font-bold text-sm rounded-2xl transition-all duration-300"
                 >
                   <span>دنیای کوچولوها را ببینید</span>
                   <ArrowUpLeft className="w-4 h-4" />
@@ -934,7 +933,7 @@ export default function BabyLandingPage() {
       <section className="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-10 text-right">
           <div>
-            <span className="text-xs font-bold font-peyda text-[#3F5147] uppercase tracking-wider">
+            <span className="text-xs font-bold font-peyda text-[#2B70C9] uppercase tracking-wider">
               NEW COLLECTION
             </span>
             <h2 className="font-peyda font-extrabold text-3xl sm:text-4xl text-[#302D2A] mt-1 flex items-center gap-2">
@@ -968,7 +967,7 @@ export default function BabyLandingPage() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <span className="text-xs font-bold font-peyda text-[#3F5147] uppercase tracking-wider">
+            <span className="text-xs font-bold font-peyda text-[#2B70C9] uppercase tracking-wider">
               CURATED BRANDS
             </span>
             <h2 className="font-peyda font-extrabold text-3xl sm:text-4xl text-[#302D2A]">
@@ -991,7 +990,7 @@ export default function BabyLandingPage() {
                     onClick={() => setSelectedBrandHover(brand)}
                     className={`p-5 rounded-3xl border text-right cursor-pointer transition-all duration-300 ${
                       isSelected
-                        ? "bg-[#3F5147] text-[#F8F5EF] border-[#3F5147] shadow-md scale-[1.02]"
+                        ? "bg-[#2B70C9] text-[#F8F5EF] border-[#2B70C9] shadow-md scale-[1.02]"
                         : "bg-[#F8F5EF] text-[#302D2A] border-[#302D2A]/10 hover:border-[#302D2A]/30"
                     }`}
                   >
@@ -1003,7 +1002,7 @@ export default function BabyLandingPage() {
                         className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
                           isSelected
                             ? "bg-[#F2E3A9] text-[#302D2A]"
-                            : "bg-[#FFFFFF] text-[#3F5147]"
+                            : "bg-[#FFFFFF] text-[#2B70C9]"
                         }`}
                       >
                         {brand.origin}
@@ -1023,7 +1022,7 @@ export default function BabyLandingPage() {
 
             {/* SELECTED BRAND FEATURE CARD (5 COLS) */}
             <div className="lg:col-span-5 bg-[#F8F5EF] rounded-[36px] p-6 border border-[#302D2A]/10 text-center space-y-4">
-              <span className="text-xs font-bold text-[#3F5147] font-peyda">
+              <span className="text-xs font-bold text-[#2B70C9] font-peyda">
                 کالکشن منتخب {selectedBrandHover.name}
               </span>
               <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-white p-2 border border-[#302D2A]/10">
@@ -1048,7 +1047,7 @@ export default function BabyLandingPage() {
       <section className="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
         <div className="bg-[#F1C9BD]/30 rounded-[40px] p-8 sm:p-12 border border-[#302D2A]/10">
           <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
-            <span className="text-xs font-bold font-peyda text-[#3F5147] uppercase tracking-wider">
+            <span className="text-xs font-bold font-peyda text-[#2B70C9] uppercase tracking-wider">
               NURSERY STARTER BUNDLE
             </span>
             <h2 className="font-peyda font-extrabold text-3xl sm:text-4xl text-[#302D2A]">
@@ -1073,7 +1072,7 @@ export default function BabyLandingPage() {
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <span className="text-[10px] font-bold text-[#3F5147] block">
+                <span className="text-[10px] font-bold text-[#2B70C9] block">
                   {item.brand}
                 </span>
                 <h5 className="font-bold text-xs text-[#302D2A] line-clamp-1">
@@ -1105,7 +1104,7 @@ export default function BabyLandingPage() {
                 addToCart(BABY_PRODUCTS[0]);
                 addToCart(BABY_PRODUCTS[2]);
               }}
-              className="px-8 py-4 bg-[#3F5147] hover:bg-[#302D2A] text-[#F8F5EF] font-peyda font-bold text-sm rounded-2xl transition-colors shadow-md flex items-center gap-2"
+              className="px-8 py-4 bg-[#2B70C9] hover:bg-[#302D2A] text-[#F8F5EF] font-peyda font-bold text-sm rounded-2xl transition-colors shadow-md flex items-center gap-2"
             >
               <ShoppingBag className="w-5 h-5" />
               <span>افزودن کامل پک به سبد خرید</span>
@@ -1162,7 +1161,7 @@ export default function BabyLandingPage() {
       </section>
 
       {/* 15. FINAL CTA */}
-      <section className="py-20 bg-[#3F5147] text-[#F8F5EF] text-center relative overflow-hidden">
+      <section className="py-20 bg-[#2B70C9] text-[#F8F5EF] text-center relative overflow-hidden">
         {/* ORGANIC PEBBLE MOTIF */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#F2E3A9]/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -1194,7 +1193,7 @@ export default function BabyLandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 text-right">
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <span className="w-8 h-8 rounded-xl bg-[#3F5147] text-white font-bold flex items-center justify-center">
+              <span className="w-8 h-8 rounded-xl bg-[#2B70C9] text-white font-bold flex items-center justify-center">
                 👶
               </span>
               <span className="font-peyda font-extrabold text-xl text-white">
@@ -1273,7 +1272,7 @@ export default function BabyLandingPage() {
                 placeholder="ایمیل شما"
                 className="bg-[#FFFFFF]/10 border border-white/20 text-xs px-3 py-2.5 rounded-xl text-white focus:outline-none flex-1 text-right"
               />
-              <button className="px-4 py-2.5 bg-[#3F5147] hover:bg-[#F2E3A9] hover:text-[#302D2A] text-white text-xs font-bold rounded-xl transition-colors">
+              <button className="px-4 py-2.5 bg-[#2B70C9] hover:bg-[#F2E3A9] hover:text-[#302D2A] text-white text-xs font-bold rounded-xl transition-colors">
                 عضویت
               </button>
             </div>
@@ -1292,7 +1291,7 @@ export default function BabyLandingPage() {
             <div className="flex items-center justify-between border-b border-[#302D2A]/10 pb-4">
               <h3 className="font-peyda font-bold text-lg text-[#302D2A] flex items-center gap-2">
                 <span>سبد خرید</span>
-                <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#3F5147] text-white font-mono">
+                <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#2B70C9] text-white font-mono">
                   {cartCount}
                 </span>
               </h3>
@@ -1331,7 +1330,7 @@ export default function BabyLandingPage() {
                       <p className="text-[11px] text-[#302D2A]/60">
                         {item.color} • سایز {item.size}
                       </p>
-                      <p className="font-bold text-xs text-[#3F5147]">
+                      <p className="font-bold text-xs text-[#2B70C9]">
                         {formatPrice(item.product.price)} تومان
                       </p>
 
@@ -1369,7 +1368,7 @@ export default function BabyLandingPage() {
               <div className="border-t border-[#302D2A]/10 pt-4 space-y-3">
                 <div className="flex justify-between items-center text-sm font-bold">
                   <span>مبلغ قابل پرداخت:</span>
-                  <span className="text-lg text-[#3F5147]">
+                  <span className="text-lg text-[#2B70C9]">
                     {formatPrice(cartTotal)} تومان
                   </span>
                 </div>
@@ -1379,7 +1378,7 @@ export default function BabyLandingPage() {
                     setCartItems([]);
                     setIsCartOpen(false);
                   }}
-                  className="w-full py-3.5 bg-[#3F5147] text-white font-peyda font-bold text-sm rounded-xl hover:bg-[#302D2A] transition-colors"
+                  className="w-full py-3.5 bg-[#2B70C9] text-white font-peyda font-bold text-sm rounded-xl hover:bg-[#302D2A] transition-colors"
                 >
                   تکمیل و پرداخت نهایی
                 </button>
@@ -1427,7 +1426,7 @@ export default function BabyLandingPage() {
                         <h4 className="font-bold text-xs text-[#302D2A]">
                           {product.name}
                         </h4>
-                        <p className="font-bold text-xs text-[#3F5147]">
+                        <p className="font-bold text-xs text-[#2B70C9]">
                           {formatPrice(product.price)} تومان
                         </p>
                         <button
@@ -1435,7 +1434,7 @@ export default function BabyLandingPage() {
                             addToCart(product);
                             toggleWishlist(product.id);
                           }}
-                          className="text-[11px] font-bold text-[#3F5147] underline"
+                          className="text-[11px] font-bold text-[#2B70C9] underline"
                         >
                           انتقال به سبد خرید
                         </button>
@@ -1501,7 +1500,7 @@ export default function BabyLandingPage() {
                     className="w-12 h-12 object-contain bg-white rounded-xl p-1"
                   />
                   <div className="flex-1 text-right">
-                    <span className="text-[10px] text-[#3F5147] font-bold block">
+                    <span className="text-[10px] text-[#2B70C9] font-bold block">
                       {product.brand}
                     </span>
                     <h4 className="font-bold text-xs text-[#302D2A]">
@@ -1558,7 +1557,7 @@ function ProductCard({
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
 
   return (
-    <div className="group flex flex-col bg-[#FFFFFF] rounded-3xl overflow-hidden border border-[#302D2A]/10 hover:border-[#3F5147]/50 transition-all duration-300 relative text-right">
+    <div className="group flex flex-col bg-[#FFFFFF] rounded-3xl overflow-hidden border border-[#302D2A]/10 hover:border-[#2B70C9]/50 transition-all duration-300 relative text-right">
       {/* SALE BADGE */}
       {product.discountPercent && (
         <span className="absolute top-3 right-3 z-20 bg-[#D96C5F] text-white text-[10px] font-bold font-peyda px-2.5 py-1 rounded-full pointer-events-none">
@@ -1597,7 +1596,7 @@ function ProductCard({
             e.stopPropagation();
             onAddToCart(product);
           }}
-          className="absolute inset-x-3 bottom-3 z-20 py-2.5 bg-[#3F5147] hover:bg-[#302D2A] text-white text-xs font-bold font-peyda rounded-xl opacity-0 group-hover/img:opacity-100 transition-all duration-300 transform translate-y-2 group-hover/img:translate-y-0"
+          className="absolute inset-x-3 bottom-3 z-20 py-2.5 bg-[#2B70C9] hover:bg-[#302D2A] text-white text-xs font-bold font-peyda rounded-xl opacity-0 group-hover/img:opacity-100 transition-all duration-300 transform translate-y-2 group-hover/img:translate-y-0"
         >
           افزودن سریع به سبد
         </button>
@@ -1612,7 +1611,7 @@ function ProductCard({
           <span className="text-[10px] font-bold font-mono uppercase text-[#302D2A]/50 tracking-wider block">
             {product.brand}
           </span>
-          <h3 className="font-bold text-xs sm:text-sm text-[#302D2A] line-clamp-1 hover:text-[#3F5147] transition-colors">
+          <h3 className="font-bold text-xs sm:text-sm text-[#302D2A] line-clamp-1 hover:text-[#2B70C9] transition-colors">
             {product.name}
           </h3>
         </div>
@@ -1642,7 +1641,7 @@ function ProductCard({
 
           <button
             onClick={() => onOpenDetail(product)}
-            className="text-[11px] font-bold text-[#3F5147] hover:underline"
+            className="text-[11px] font-bold text-[#2B70C9] hover:underline"
           >
             جزئیات
           </button>
@@ -1737,7 +1736,7 @@ function ProductDetailModal({
                   onClick={() => setSelectedImgIndex(idx)}
                   className={`aspect-square rounded-2xl overflow-hidden bg-white p-1 border-2 transition-all ${
                     selectedImgIndex === idx
-                      ? "border-[#3F5147] scale-105 shadow-md"
+                      ? "border-[#2B70C9] scale-105 shadow-md"
                       : "border-transparent opacity-70 hover:opacity-100"
                   }`}
                 >
@@ -1754,7 +1753,7 @@ function ProductDetailModal({
           {/* RIGHT: SPECS & BUY (6 COLS) */}
           <div className="md:col-span-6 space-y-5">
             <div className="space-y-1">
-              <span className="text-xs font-mono font-bold uppercase text-[#3F5147] tracking-wider">
+              <span className="text-xs font-mono font-bold uppercase text-[#2B70C9] tracking-wider">
                 {product.brand}
               </span>
               <h2 className="font-peyda font-extrabold text-xl sm:text-2xl text-[#302D2A] leading-snug">
@@ -1818,7 +1817,7 @@ function ProductDetailModal({
                   onAddToCart(product, selectedColor, "استاندارد", quantity);
                   onClose();
                 }}
-                className="w-full py-4 bg-[#3F5147] hover:bg-[#302D2A] text-white font-peyda font-bold text-sm rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
+                className="w-full py-4 bg-[#2B70C9] hover:bg-[#302D2A] text-white font-peyda font-bold text-sm rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
               >
                 <ShoppingBag className="w-5 h-5" />
                 <span>
