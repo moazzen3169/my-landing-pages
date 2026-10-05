@@ -547,5 +547,14 @@ export const LANDING_REGISTRY: LandingPageInfo[] = [
     theme: 'girly-sporty-colorful',
     dataset: 'WOMAN_SPORT_PRODUCTS',
     previewImage: '/images/woman-sport/jacket-1.webp'
+  },
+  {
+    slug: 'baby',
+    category: 'baby-kids',
+    title: 'دنیای کوچولوها — فروشگاه تخصصی آنلاین سیسمونی، پوشاک و اسباب‌بازی کودک (فارسی RTL)',
+    description: 'یک دنیای کوچک برای انتخاب‌های بزرگ. فروشگاه تخصصی آنلاین پوشاک نوزادی و کودک، لوازم بهداشتی، ظروف تغذیه سیلیکونی، اسباب‌بازی‌های چوبی و تجهیزات اتاق کودک.',
+    theme: 'scandinavian-baby-editorial',
+    dataset: 'BABY_PRODUCTS',
+    previewImage: '/images/BABY/PACK_KS104958_P25004_1_260617031136.webp'
   }
 ];
