@@ -220,18 +220,18 @@ export default function BabyLandingPage() {
         </div>
       )}
 
-      {/* 1. ANNOUNCEMENT BAR */}
-      <div className="bg-[#2B70C9] text-[#F8F5EF] text-xs py-2.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-4 relative z-50 border-b border-[#F8F5EF]/10">
+      {/* 1. ANNOUNCEMENT BAR
+      <div className="bg-[#FFD500] text-[#270C0C] text-xs py-2.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-4 relative z-50 border-b border-[#F8F5EF]/10">
         <span className="hidden sm:inline">🌱</span>
         <span>
           ارسال سریع سراسری | ضمانت ۱۰۰٪ اصالت کالا | خرید امن و مطمئن برای
           کوچولوها
         </span>
         <span className="hidden sm:inline">✨</span>
-      </div>
+      </div> */}
 
       {/* 2. MAIN NAVIGATION */}
-      <header className="sticky top-0 z-40 bg-[#F8F5EF]/95 backdrop-blur-md border-b border-[#302D2A]/10 transition-all duration-300">
+      <header className="sticky top-0 z-40 bg-[#FFFBF3] stransition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 py-3.5 flex items-center justify-between">
           {/* RIGHT: LOGO & MOBILE TOGGLE */}
           <div className="flex items-center gap-4">
@@ -242,20 +242,21 @@ export default function BabyLandingPage() {
             >
               <Menu className="w-6 h-6" />
             </button>
-
-            <Link href="/shop/baby" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-2xl bg-[#2B70C9] text-[#F8F5EF] font-peyda font-bold text-lg flex items-center justify-center shadow-xs group-hover:bg-[#302D2A] transition-colors">
-                👶
-              </div>
-              <div className="flex flex-col">
-                <span className="font-peyda font-extrabold text-xl sm:text-2xl tracking-tight text-[#302D2A] leading-none">
-                  دنیای کوچولوها
-                </span>
-                <span className="text-[10px] font-mono tracking-widest text-[#2B70C9] mt-0.5 uppercase">
-                  BABY & KIDS STORE
-                </span>
-              </div>
+          {/* Right: Logo */}
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden p-2 rounded-lg hover:bg-[#1E0001]/5"
+            >
+              <Menu className="w-6 h-6 text-[#1E0001]" />
+            </button>
+            <Link href="/shop/baby" className="flex items-center gap-2 group">
+              <FlowerIcon className="w-7 h-7 transition-transform group-hover:rotate-45 duration-300" />
+              <span className="font-bold text-xl md:text-2xl tracking-tight text-[#1E0001]">
+                 کوچولوها
+              </span>
             </Link>
+          </div>
           </div>
 
           {/* CENTER: DESKTOP NAVIGATION WITH MEGA MENU TRIGGER */}
@@ -303,7 +304,7 @@ export default function BabyLandingPage() {
             <button
               onClick={() => setIsCartOpen(true)}
               aria-label="سبد خرید"
-              className="px-3.5 py-2 rounded-2xl bg-[#2B70C9] hover:bg-[#302D2A] text-[#F8F5EF] transition-colors flex items-center gap-2 relative shadow-xs"
+              className="px-3.5 py-2 rounded-2xl bg-[#F36A21] hover:bg-[#302D2A] text-[#F8F5EF] transition-colors flex items-center gap-2 relative shadow-xs"
             >
               <ShoppingBag className="w-5 h-5" />
               <span className="hidden sm:inline text-xs font-bold font-peyda">
@@ -491,7 +492,7 @@ export default function BabyLandingPage() {
           <FlowerIcon className="w-16 h-16 md:w-24 md:h-24" fill="#FFD500" />
         </div>
         {/* Green Flower Bottom Right */}
-        <div className="absolute bottom-20 right-[25%] md:right-[25%] z-200 pointer-events-none">
+        <div className="absolute bottom-48 right-[25%] md:right-[25%] z-200 pointer-events-none">
           <FlowerIcon className="w-14 h-14 md:w-20 md:h-20" fill="#20C98A" />
         </div>
 
@@ -510,7 +511,7 @@ export default function BabyLandingPage() {
         </div>
 
         {/* Layer 4: Supporting Text & Primary CTA (Bottom Right/Left Composition) */}
-        <div className="relative z-30  flex justify-between items-center gap-6 pt-4 md:pt-6">
+        <div className="relative z-30 mb-26  flex justify-between items-center gap-6 pt-4 md:pt-6">
           {/* Supporting Copy */}
           <div className="space-y-2 max-w-xs">
             <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#F36A21]">
@@ -900,7 +901,7 @@ export default function BabyLandingPage() {
                 EDITORIAL & LIFESTYLE STORY
               </span>
 
-              <h2 className="font-peyda font-extrabold text-3xl sm:text-5xl text-[#F8F5EF] leading-tight">
+              <h2 className="font-peyda font-extrabold text-3xl sm:text-5xl text-[#F8F5EF] ">
                 کوچک‌ترین لحظه‌ها، <br />
                 <span className="text-[#F2E3A9]">
                   بزرگ‌ترین خاطره‌ها هستند.
@@ -1081,11 +1082,11 @@ export default function BabyLandingPage() {
                 key={idx}
                 className="bg-white rounded-2xl p-3 text-center border border-[#302D2A]/10 space-y-2"
               >
-                <div className="aspect-square rounded-xl bg-[#F8F5EF] p-2 overflow-hidden">
+                <div className="aspect-square  rounded-xl bg-[#F8F5EF]  overflow-hidden">
                   <img
                     src={item.img}
                     alt={item.title}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <span className="text-[10px] font-bold text-[#2B70C9] block">
@@ -1185,7 +1186,7 @@ export default function BabyLandingPage() {
           <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 text-[#F2E3A9] text-xs font-bold font-peyda">
             SWEET SHOPPING FOR YOUR LITTLE ONES
           </span>
-          <h2 className="font-peyda font-extrabold text-3xl sm:text-5xl text-[#F8F5EF]">
+          <h2 className="font-peyda font-extrabold  text-3xl  sm:text-5xl text- text-[#F8F5EF]">
             برای کوچولوی شما، <br />
             چیزهای خوب کم نیستند.
           </h2>
