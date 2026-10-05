@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { useState, useMemo } from 'react';
-import Link from 'next/link';
+import React, { useState, useMemo } from "react";
+import Link from "next/link";
 import {
   BABY_PRODUCTS,
   AGE_CATEGORIES,
@@ -10,8 +10,8 @@ import {
   MEGA_MENU_CATEGORIES,
   BabyProduct,
   AgeCategory,
-  BrandItem
-} from '@/data/baby';
+  BrandItem,
+} from "@/data/baby";
 import {
   ShoppingBag,
   Heart,
@@ -37,33 +37,50 @@ import {
   Phone,
   Mail,
   Send,
-  HelpCircle
-} from 'lucide-react';
+  HelpCircle,
+} from "lucide-react";
 
 export default function BabyLandingPage() {
   // Navigation & Drawers State
-  const [activeMegaCategory, setActiveMegaCategory] = useState<string | null>(null);
+  const [activeMegaCategory, setActiveMegaCategory] = useState<string | null>(
+    null,
+  );
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // E-commerce Cart & Wishlist State
-  const [cartItems, setCartItems] = useState<{ product: BabyProduct; color: string; size: string; quantity: number }[]>([]);
-  const [wishlistIds, setWishlistIds] = useState<string[]>(['baby-01', 'baby-03', 'baby-05']);
+  const [cartItems, setCartItems] = useState<
+    { product: BabyProduct; color: string; size: string; quantity: number }[]
+  >([]);
+  const [wishlistIds, setWishlistIds] = useState<string[]>([
+    "baby-01",
+    "baby-03",
+    "baby-05",
+  ]);
 
   // Dynamic Interactive Features State
-  const [selectedAgeId, setSelectedAgeId] = useState<'0-3m' | '3-6m' | '6-12m' | '1-2y' | '2-4y' | '4y+'>('0-3m');
-  const [selectedCategoryFilter, setSelectedCategoryFilter] = useState<string>('all');
-  const [selectedBrandHover, setSelectedBrandHover] = useState<BrandItem>(BRANDS_LIST[0]);
+  const [selectedAgeId, setSelectedAgeId] = useState<
+    "0-3m" | "3-6m" | "6-12m" | "1-2y" | "2-4y" | "4y+"
+  >("0-3m");
+  const [selectedCategoryFilter, setSelectedCategoryFilter] =
+    useState<string>("all");
+  const [selectedBrandHover, setSelectedBrandHover] = useState<BrandItem>(
+    BRANDS_LIST[0],
+  );
 
   // Floating Hero Interactive Object Hover
-  const [hoveredHeroObject, setHoveredHeroObject] = useState<{ title: string; category: string } | null>(null);
+  const [hoveredHeroObject, setHoveredHeroObject] = useState<{
+    title: string;
+    category: string;
+  } | null>(null);
 
   // Detail Modal State
-  const [selectedProductForDetail, setSelectedProductForDetail] = useState<BabyProduct | null>(null);
+  const [selectedProductForDetail, setSelectedProductForDetail] =
+    useState<BabyProduct | null>(null);
 
   // Toast Notification State
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -74,30 +91,43 @@ export default function BabyLandingPage() {
   };
 
   // Cart operations
-  const addToCart = (product: BabyProduct, colorName?: string, sizeName?: string, quantity: number = 1) => {
-    const chosenColor = colorName || (product.colors && product.colors[0] ? product.colors[0].name : 'تک رنگ');
-    const chosenSize = sizeName || 'استاندارد';
+  const addToCart = (
+    product: BabyProduct,
+    colorName?: string,
+    sizeName?: string,
+    quantity: number = 1,
+  ) => {
+    const chosenColor =
+      colorName ||
+      (product.colors && product.colors[0] ? product.colors[0].name : "تک رنگ");
+    const chosenSize = sizeName || "استاندارد";
 
-    setCartItems(prev => {
+    setCartItems((prev) => {
       const existingIndex = prev.findIndex(
-        item => item.product.id === product.id && item.color === chosenColor && item.size === chosenSize
+        (item) =>
+          item.product.id === product.id &&
+          item.color === chosenColor &&
+          item.size === chosenSize,
       );
       if (existingIndex > -1) {
         const updated = [...prev];
         updated[existingIndex].quantity += quantity;
         return updated;
       }
-      return [...prev, { product, color: chosenColor, size: chosenSize, quantity: quantity }];
+      return [
+        ...prev,
+        { product, color: chosenColor, size: chosenSize, quantity: quantity },
+      ];
     });
     showToast(`«${product.name}» به سبد خرید اضافه شد ♡`);
   };
 
   const removeFromCart = (index: number) => {
-    setCartItems(prev => prev.filter((_, i) => i !== index));
+    setCartItems((prev) => prev.filter((_, i) => i !== index));
   };
 
   const updateCartQuantity = (index: number, delta: number) => {
-    setCartItems(prev => {
+    setCartItems((prev) => {
       const updated = [...prev];
       const newQty = updated[index].quantity + delta;
       if (newQty <= 0) {
@@ -109,7 +139,10 @@ export default function BabyLandingPage() {
   };
 
   const cartTotal = useMemo(() => {
-    return cartItems.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
+    return cartItems.reduce(
+      (acc, item) => acc + item.product.price * item.quantity,
+      0,
+    );
   }, [cartItems]);
 
   const cartCount = useMemo(() => {
@@ -119,13 +152,13 @@ export default function BabyLandingPage() {
   // Wishlist toggle
   const toggleWishlist = (productId: string, e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
-    setWishlistIds(prev => {
+    setWishlistIds((prev) => {
       const exists = prev.includes(productId);
       if (exists) {
-        showToast('از لیست علاقه‌مندی‌ها حذف شد');
-        return prev.filter(id => id !== productId);
+        showToast("از لیست علاقه‌مندی‌ها حذف شد");
+        return prev.filter((id) => id !== productId);
       } else {
-        showToast('به لیست علاقه‌مندی‌ها اضافه شد ♡');
+        showToast("به لیست علاقه‌مندی‌ها اضافه شد ♡");
         return [...prev, productId];
       }
     });
@@ -133,22 +166,24 @@ export default function BabyLandingPage() {
 
   // Filtered products for Age section
   const ageFilteredProducts = useMemo(() => {
-    return BABY_PRODUCTS.filter(p => p.ageGroup === selectedAgeId);
+    return BABY_PRODUCTS.filter((p) => p.ageGroup === selectedAgeId);
   }, [selectedAgeId]);
 
   // Discount / Sale section products
   const saleProducts = useMemo(() => {
-    return BABY_PRODUCTS.filter(p => p.isDiscounted || p.originalPrice);
+    return BABY_PRODUCTS.filter((p) => p.isDiscounted || p.originalPrice);
   }, []);
 
   // Best seller products
   const bestSellerProducts = useMemo(() => {
-    return BABY_PRODUCTS.filter(p => p.isBestSeller);
+    return BABY_PRODUCTS.filter((p) => p.isBestSeller);
   }, []);
 
   // New arrivals products
   const newArrivalProducts = useMemo(() => {
-    return BABY_PRODUCTS.filter(p => p.isNew || p.id === 'baby-07' || p.id === 'baby-09');
+    return BABY_PRODUCTS.filter(
+      (p) => p.isNew || p.id === "baby-07" || p.id === "baby-09",
+    );
   }, []);
 
   // Search results
@@ -156,19 +191,25 @@ export default function BabyLandingPage() {
     if (!searchQuery.trim()) return [];
     const q = searchQuery.toLowerCase();
     return BABY_PRODUCTS.filter(
-      p => p.name.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q) || p.description.toLowerCase().includes(q)
+      (p) =>
+        p.name.toLowerCase().includes(q) ||
+        p.brand.toLowerCase().includes(q) ||
+        p.description.toLowerCase().includes(q),
     );
   }, [searchQuery]);
 
   const formatPrice = (price: number) => {
-    return price.toLocaleString('fa-IR');
+    return price.toLocaleString("fa-IR");
   };
 
-  const activeAgeCategoryObj = AGE_CATEGORIES.find(a => a.id === selectedAgeId) || AGE_CATEGORIES[0];
+  const activeAgeCategoryObj =
+    AGE_CATEGORIES.find((a) => a.id === selectedAgeId) || AGE_CATEGORIES[0];
 
   return (
-    <div className="min-h-screen bg-[#F8F5EF] text-[#302D2A] font-vazir dir-rtl selection:bg-[#3F5147] selection:text-white relative overflow-x-hidden" dir="rtl">
-
+    <div
+      className="min-h-screen bg-[#fff] text-[#302D2A] font-vazir dir-rtl selection:bg-[#3F5147] selection:text-white relative overflow-x-hidden"
+      dir="rtl"
+    >
       {/* TOAST NOTIFICATION */}
       {toastMessage && (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#302D2A] text-[#F8F5EF] px-6 py-3 rounded-full text-sm font-medium border border-[#3F5147]/40 shadow-xl transition-all duration-300 flex items-center gap-2">
@@ -180,14 +221,16 @@ export default function BabyLandingPage() {
       {/* 1. ANNOUNCEMENT BAR */}
       <div className="bg-[#3F5147] text-[#F8F5EF] text-xs py-2.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-4 relative z-50 border-b border-[#F8F5EF]/10">
         <span className="hidden sm:inline">🌱</span>
-        <span>ارسال سریع سراسری | ضمانت ۱۰۰٪ اصالت کالا | خرید امن و مطمئن برای کوچولوها</span>
+        <span>
+          ارسال سریع سراسری | ضمانت ۱۰۰٪ اصالت کالا | خرید امن و مطمئن برای
+          کوچولوها
+        </span>
         <span className="hidden sm:inline">✨</span>
       </div>
 
       {/* 2. MAIN NAVIGATION */}
       <header className="sticky top-0 z-40 bg-[#F8F5EF]/95 backdrop-blur-md border-b border-[#302D2A]/10 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 py-3.5 flex items-center justify-between">
-
           {/* RIGHT: LOGO & MOBILE TOGGLE */}
           <div className="flex items-center gap-4">
             <button
@@ -215,7 +258,7 @@ export default function BabyLandingPage() {
 
           {/* CENTER: DESKTOP NAVIGATION WITH MEGA MENU TRIGGER */}
           <nav className="hidden lg:flex items-center gap-7 text-sm font-medium font-peyda text-[#302D2A]">
-            {MEGA_MENU_CATEGORIES.map(cat => (
+            {MEGA_MENU_CATEGORIES.map((cat) => (
               <div
                 key={cat.id}
                 className="relative py-2 group cursor-pointer"
@@ -230,15 +273,6 @@ export default function BabyLandingPage() {
                 </span>
               </div>
             ))}
-
-            <a href="#brands-section" className="hover:text-[#3F5147] transition-colors">
-              برندها
-            </a>
-
-            <a href="#sale-section" className="text-[#D96C5F] font-bold hover:opacity-80 transition-opacity flex items-center gap-1">
-              <span>تخفیف‌های ویژه</span>
-              <span className="text-[10px] bg-[#D96C5F]/15 text-[#D96C5F] px-2 py-0.5 rounded-full">تا ۴۰٪</span>
-            </a>
           </nav>
 
           {/* LEFT: ACTIONS */}
@@ -270,7 +304,9 @@ export default function BabyLandingPage() {
               className="px-3.5 py-2 rounded-2xl bg-[#3F5147] hover:bg-[#302D2A] text-[#F8F5EF] transition-colors flex items-center gap-2 relative shadow-xs"
             >
               <ShoppingBag className="w-5 h-5" />
-              <span className="hidden sm:inline text-xs font-bold font-peyda">سبد خرید</span>
+              <span className="hidden sm:inline text-xs font-bold font-peyda">
+                سبد خرید
+              </span>
               {cartCount > 0 && (
                 <span className="w-5 h-5 bg-[#F2E3A9] text-[#302D2A] text-xs font-bold rounded-full flex items-center justify-center">
                   {cartCount}
@@ -288,7 +324,10 @@ export default function BabyLandingPage() {
           >
             <div className="max-w-7xl mx-auto">
               {(() => {
-                const megData = MEGA_MENU_CATEGORIES.find(m => m.id === activeMegaCategory) || MEGA_MENU_CATEGORIES[0];
+                const megData =
+                  MEGA_MENU_CATEGORIES.find(
+                    (m) => m.id === activeMegaCategory,
+                  ) || MEGA_MENU_CATEGORIES[0];
                 return (
                   <div className="grid grid-cols-5 gap-8 text-right">
                     {/* COL 1: CATEGORY GROUPS */}
@@ -299,7 +338,10 @@ export default function BabyLandingPage() {
                       </h4>
                       <ul className="space-y-2 text-xs text-[#302D2A]/80 font-medium">
                         {megData.subcategories.slice(0, 4).map((sub, idx) => (
-                          <li key={idx} className="hover:text-[#3F5147] cursor-pointer transition-colors">
+                          <li
+                            key={idx}
+                            className="hover:text-[#3F5147] cursor-pointer transition-colors"
+                          >
                             {sub}
                           </li>
                         ))}
@@ -313,7 +355,10 @@ export default function BabyLandingPage() {
                       </h4>
                       <ul className="space-y-2 text-xs text-[#302D2A]/80 font-medium">
                         {megData.subcategories.slice(3).map((sub, idx) => (
-                          <li key={idx} className="hover:text-[#3F5147] cursor-pointer transition-colors">
+                          <li
+                            key={idx}
+                            className="hover:text-[#3F5147] cursor-pointer transition-colors"
+                          >
                             {sub}
                           </li>
                         ))}
@@ -327,7 +372,10 @@ export default function BabyLandingPage() {
                       </h4>
                       <div className="flex flex-wrap gap-1.5">
                         {megData.ageRanges.map((age, idx) => (
-                          <span key={idx} className="px-2.5 py-1 rounded-lg bg-[#F8F5EF] text-[11px] font-bold text-[#302D2A] hover:bg-[#3F5147] hover:text-white cursor-pointer transition-colors">
+                          <span
+                            key={idx}
+                            className="px-2.5 py-1 rounded-lg bg-[#F8F5EF] text-[11px] font-bold text-[#302D2A] hover:bg-[#3F5147] hover:text-white cursor-pointer transition-colors"
+                          >
                             {age}
                           </span>
                         ))}
@@ -341,7 +389,10 @@ export default function BabyLandingPage() {
                       </h4>
                       <ul className="space-y-2 text-xs text-[#302D2A]/80 font-medium">
                         {megData.brands.map((brand, idx) => (
-                          <li key={idx} className="hover:text-[#3F5147] cursor-pointer transition-colors flex items-center gap-1.5">
+                          <li
+                            key={idx}
+                            className="hover:text-[#3F5147] cursor-pointer transition-colors flex items-center gap-1.5"
+                          >
                             <span className="w-1.5 h-1.5 rounded-full bg-[#3F5147]" />
                             <span>{brand}</span>
                           </li>
@@ -352,10 +403,19 @@ export default function BabyLandingPage() {
                     {/* COL 5: EDITORIAL PROMO PHOTO */}
                     <div className="space-y-3 bg-[#F8F5EF] p-4 rounded-2xl border border-[#302D2A]/10 text-center">
                       <div className="aspect-[4/3] rounded-xl overflow-hidden mb-2">
-                        <img src={megData.promoImage} alt={megData.promoTitle} className="w-full h-full object-cover" />
+                        <img
+                          src={megData.promoImage}
+                          alt={megData.promoTitle}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
-                      <h5 className="font-peyda font-bold text-xs text-[#302D2A]">{megData.promoTitle}</h5>
-                      <a href="#categories-section" className="inline-block text-[11px] font-bold text-[#3F5147] hover:underline">
+                      <h5 className="font-peyda font-bold text-xs text-[#302D2A]">
+                        {megData.promoTitle}
+                      </h5>
+                      <a
+                        href="#categories-section"
+                        className="inline-block text-[11px] font-bold text-[#3F5147] hover:underline"
+                      >
                         مشاهده همه محصولات {megData.title} ←
                       </a>
                     </div>
@@ -379,7 +439,7 @@ export default function BabyLandingPage() {
             </div>
 
             <div className="space-y-4 text-right">
-              {MEGA_MENU_CATEGORIES.map(cat => (
+              {MEGA_MENU_CATEGORIES.map((cat) => (
                 <div key={cat.id} className="space-y-2">
                   <div className="font-peyda font-bold text-sm text-[#3F5147] flex items-center gap-2">
                     <span>{cat.icon}</span>
@@ -387,16 +447,26 @@ export default function BabyLandingPage() {
                   </div>
                   <div className="pr-6 space-y-1 text-xs text-[#302D2A]/70">
                     {cat.subcategories.slice(0, 4).map((sub, i) => (
-                      <div key={i} className="py-1">{sub}</div>
+                      <div key={i} className="py-1">
+                        {sub}
+                      </div>
                     ))}
                   </div>
                 </div>
               ))}
 
-              <a href="#brands-section" onClick={() => setMobileMenuOpen(false)} className="block py-2 font-bold text-sm text-[#302D2A]">
+              <a
+                href="#brands-section"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block py-2 font-bold text-sm text-[#302D2A]"
+              >
                 برندها
               </a>
-              <a href="#sale-section" onClick={() => setMobileMenuOpen(false)} className="block py-2 font-bold text-sm text-[#D96C5F]">
+              <a
+                href="#sale-section"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block py-2 font-bold text-sm text-[#D96C5F]"
+              >
                 تخفیف‌های ویژه
               </a>
             </div>
@@ -405,17 +475,14 @@ export default function BabyLandingPage() {
       )}
 
       {/* 4. HERO SECTION - ART DIRECTED MINIATURE CURATED WORLD */}
-      <section className="relative py-12 lg:py-20 px-4 sm:px-8 max-w-7xl mx-auto overflow-hidden">
-
+      <section className="relative py-10 lg:py-14 px-4 sm:px-8 max-w-7xl mx-auto overflow-hidden">
         {/* ORGANIC PEBBLE MOTIF BACKGROUND SHAPES */}
         <div className="absolute top-10 right-10 w-96 h-96 bg-[#F1C9BD]/40 rounded-[60%_40%_70%_30%/40%_50%_60%_50%] blur-3xl -z-10 animate-pulse" />
         <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#D7E5E9]/50 rounded-[40%_60%_30%_70%/50%_40%_60%_50%] blur-3xl -z-10" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* HERO COPY (RIGHT 5 COLS) */}
-          <div className="lg:col-span-5 space-y-6 text-right z-10">
-
+          <div className="lg:col-span-6 space-y-6 text-right z-10">
             {/* PROMOTIONAL BADGE */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F2E3A9] border border-[#302D2A]/10 text-[#302D2A] text-xs font-bold font-peyda shadow-xs">
               <Sparkles className="w-3.5 h-3.5 text-[#3F5147]" />
@@ -465,95 +532,27 @@ export default function BabyLandingPage() {
                 <span>پشتیبانی کامل</span>
               </div>
             </div>
-
           </div>
 
           {/* HERO INTERACTIVE CURATED COMPOSITION (LEFT 7 COLS) */}
-          <div className="lg:col-span-7 relative flex justify-center items-center min-h-[420px] sm:min-h-[500px]">
-
+          <div className="lg:col-span-6 relative flex  ">
             {/* CENTRAL PEBBLE CONTAINER */}
-            <div className="w-full max-w-[560px] aspect-[4/3] bg-[#FFFFFF] rounded-[48px] p-6 shadow-xl border border-[#302D2A]/10 relative overflow-hidden flex items-center justify-center">
-
-              {/* CENTRAL LIFESTYLE COMPOSITION */}
-              <div className="grid grid-cols-12 gap-3 w-full h-full">
-
-                {/* ITEM 1: MAIN CLOTHING */}
-                <div
-                  onMouseEnter={() => setHoveredHeroObject({ title: 'ست بادی و سرهمی', category: 'لباس کودک →' })}
-                  onMouseLeave={() => setHoveredHeroObject(null)}
-                  className="col-span-6 row-span-2 relative rounded-3xl overflow-hidden bg-[#F1C9BD]/40 p-2 group cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
-                >
-                  <img
-                    src="/images/BABY/PACK_KS104958_P25004_1_260617031136.webp"
-                    alt="Clothing"
-                    className="w-full h-full object-contain"
-                  />
-                  <div className="absolute bottom-2 right-2 bg-[#FFFFFF]/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold text-[#302D2A] opacity-90 group-hover:bg-[#3F5147] group-hover:text-white transition-colors">
-                    لباس کودک 🌱
-                  </div>
-                </div>
-
-                {/* ITEM 2: TOY */}
-                <div
-                  onMouseEnter={() => setHoveredHeroObject({ title: 'پک اسباب‌بازی چوبی', category: 'اسباب‌بازی‌ها →' })}
-                  onMouseLeave={() => setHoveredHeroObject(null)}
-                  className="col-span-6 h-40 relative rounded-3xl overflow-hidden bg-[#F2E3A9]/50 p-2 group cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
-                >
-                  <img
-                    src="/images/BABY/Product-Play-Kit-2026-Coconut-01.webp"
-                    alt="Toy"
-                    className="w-full h-full object-contain"
-                  />
-                  <div className="absolute bottom-2 right-2 bg-[#FFFFFF]/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold text-[#302D2A] opacity-90 group-hover:bg-[#3F5147] group-hover:text-white transition-colors">
-                    اسباب‌بازی 🧸
-                  </div>
-                </div>
-
-                {/* ITEM 3: CARE / FEEDING */}
-                <div
-                  onMouseEnter={() => setHoveredHeroObject({ title: 'ظروف سیلیکونی غذاخوری', category: 'تغذیه و مراقبت →' })}
-                  onMouseLeave={() => setHoveredHeroObject(null)}
-                  className="col-span-3 h-32 relative rounded-3xl overflow-hidden bg-[#D5E1D0]/50 p-2 group cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
-                >
-                  <img
-                    src="/images/BABY/DinnerwareCutlerySet_Sage.webp"
-                    alt="Feeding"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-
-                {/* ITEM 4: NURSERY */}
-                <div
-                  onMouseEnter={() => setHoveredHeroObject({ title: 'راکر آغوشی نوزاد', category: 'اتاق کودک →' })}
-                  onMouseLeave={() => setHoveredHeroObject(null)}
-                  className="col-span-3 h-32 relative rounded-3xl overflow-hidden bg-[#E7E1DA]/60 p-2 group cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
-                >
-                  <img
-                    src="/images/BABY/Product-The-Rocker-Oatmeal-01.webp"
-                    alt="Rocker"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-
-              </div>
-
-              {/* FLOATING HOVER TOOLTIP */}
-              {hoveredHeroObject && (
-                <div className="absolute top-4 left-4 z-30 bg-[#302D2A] text-[#F8F5EF] px-4 py-2 rounded-2xl text-xs font-bold font-peyda shadow-xl border border-[#F2E3A9]/30 animate-in fade-in duration-200">
-                  <span>{hoveredHeroObject.title}</span>
-                  <span className="block text-[10px] text-[#F2E3A9] font-normal mt-0.5">{hoveredHeroObject.category}</span>
-                </div>
-              )}
-
+            <div className="w-full max-h-[600px] aspect-[1/2]   relative overflow-hidden flex items-center justify-center">
+              <img
+                src="/images/BABY/hero5.png"
+                alt="Toys"
+                className=" transition-transform duration-500 group-hover:scale-105"
+              />
             </div>
-
           </div>
-
         </div>
       </section>
 
       {/* 5. CATEGORY DISCOVERY - ASYMMETRIC GRID */}
-      <section id="categories-section" className="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
+      <section
+        id="categories-section"
+        className="py-16 px-4 sm:px-8 max-w-7xl mx-auto"
+      >
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-10 gap-4">
           <div className="text-right">
             <span className="text-xs font-bold font-peyda text-[#3F5147] tracking-wider uppercase">
@@ -564,13 +563,13 @@ export default function BabyLandingPage() {
             </h2>
           </div>
           <p className="text-xs sm:text-sm text-[#302D2A]/70 font-medium max-w-md text-right">
-            محصولات منتخب از برندهای بین‌المللی تفکیک‌شده بر اساس نیازهای واقعی رشد فرزند شما.
+            محصولات منتخب از برندهای بین‌المللی تفکیک‌شده بر اساس نیازهای واقعی
+            رشد فرزند شما.
           </p>
         </div>
 
         {/* ASYMMETRIC GRID SYSTEM */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
-
           {/* CARD 1: LARGE - CLOTHING (#F1C9BD) */}
           <a
             href="#shop-by-age"
@@ -596,7 +595,7 @@ export default function BabyLandingPage() {
             </div>
 
             <img
-              src="/images/BABY/PACK_KS104958_P25004_1_260617031136.webp"
+              src="/images/BABY/hero4.png"
               alt="Clothing"
               className="absolute -bottom-6 -left-6 w-56 sm:w-72 h-56 sm:h-72 object-contain transition-transform duration-500 group-hover:scale-105"
             />
@@ -650,7 +649,7 @@ export default function BabyLandingPage() {
             </span>
 
             <img
-              src="/images/BABY/Product_Bathtime_Starter_Kit_Coconut_F1.webp"
+              src="/images/BABY/hero2.png"
               alt="Care"
               className="absolute -bottom-4 -left-4 w-40 h-40 object-contain transition-transform duration-500 group-hover:scale-105"
             />
@@ -676,7 +675,7 @@ export default function BabyLandingPage() {
             </span>
 
             <img
-              src="/images/BABY/DinnerwareCutlerySet_Sage.webp"
+              src="/images/BABY/hero1.png"
               alt="Feeding"
               className="absolute -bottom-4 -left-4 w-40 h-40 object-contain transition-transform duration-500 group-hover:scale-105"
             />
@@ -702,19 +701,20 @@ export default function BabyLandingPage() {
             </span>
 
             <img
-              src="/images/BABY/Product-The-Chair-II-Coconut-01.webp"
+              src="/images/BABY/hero3.png"
               alt="Nursery"
               className="absolute -bottom-4 -left-4 w-40 h-40 object-contain transition-transform duration-500 group-hover:scale-105"
             />
           </a>
-
         </div>
       </section>
 
       {/* 6. PROMOTIONAL / SALE SECTION */}
-      <section id="sale-section" className="py-16 bg-[#FFFFFF] border-y border-[#302D2A]/10">
+      <section
+        id="sale-section"
+        className="py-16 bg-[#FFFFFF] border-y border-[#302D2A]/10"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
-
           {/* SECTION HEADER */}
           <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-10 gap-4 text-right">
             <div>
@@ -726,13 +726,14 @@ export default function BabyLandingPage() {
               </h2>
             </div>
             <p className="text-xs sm:text-sm text-[#302D2A]/70 font-medium max-w-sm">
-              منتخب محصولات محبوب با تخفیف ویژه برای خرید به‌صرفه و اقتصادی والدین.
+              منتخب محصولات محبوب با تخفیف ویژه برای خرید به‌صرفه و اقتصادی
+              والدین.
             </p>
           </div>
 
           {/* PRODUCT CARDS GRID */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-            {saleProducts.map(product => (
+            {saleProducts.map((product) => (
               <ProductCard
                 key={product.id}
                 product={product}
@@ -744,7 +745,6 @@ export default function BabyLandingPage() {
               />
             ))}
           </div>
-
         </div>
       </section>
 
@@ -763,7 +763,10 @@ export default function BabyLandingPage() {
             </p>
           </div>
 
-          <a href="#categories-section" className="text-xs sm:text-sm font-bold font-peyda text-[#3F5147] hover:underline flex items-center gap-1">
+          <a
+            href="#categories-section"
+            className="text-xs sm:text-sm font-bold font-peyda text-[#3F5147] hover:underline flex items-center gap-1"
+          >
             <span>مشاهده همه</span>
             <ArrowUpLeft className="w-4 h-4" />
           </a>
@@ -771,7 +774,7 @@ export default function BabyLandingPage() {
 
         {/* BEST SELLERS GRID */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-          {bestSellerProducts.slice(0, 4).map(product => (
+          {bestSellerProducts.slice(0, 4).map((product) => (
             <ProductCard
               key={product.id}
               product={product}
@@ -786,9 +789,11 @@ export default function BabyLandingPage() {
       </section>
 
       {/* 9. SHOP BY AGE */}
-      <section id="shop-by-age" className="py-16 bg-[#F2E3A9]/30 border-y border-[#302D2A]/10">
+      <section
+        id="shop-by-age"
+        className="py-16 bg-[#F2E3A9]/30 border-y border-[#302D2A]/10"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
-
           <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
             <span className="text-xs font-bold font-peyda text-[#3F5147] uppercase tracking-wider">
               AGE BASED DISCOVERY
@@ -797,13 +802,14 @@ export default function BabyLandingPage() {
               برای هر مرحله از رشد
             </h2>
             <p className="text-xs sm:text-sm text-[#302D2A]/70">
-              انتخاب سریع و دقیق محصولات بر اساس سن و نیازمندی‌های حرکتی و تغذیه‌ای کودک.
+              انتخاب سریع و دقیق محصولات بر اساس سن و نیازمندی‌های حرکتی و
+              تغذیه‌ای کودک.
             </p>
           </div>
 
           {/* AGE NAVIGATION TABS */}
           <div className="flex items-center justify-center gap-2 overflow-x-auto pb-4 scrollbar-none mb-10">
-            {AGE_CATEGORIES.map(cat => {
+            {AGE_CATEGORIES.map((cat) => {
               const isSelected = selectedAgeId === cat.id;
               return (
                 <button
@@ -811,8 +817,8 @@ export default function BabyLandingPage() {
                   onClick={() => setSelectedAgeId(cat.id)}
                   className={`shrink-0 px-5 py-3 rounded-2xl text-xs sm:text-sm font-bold font-peyda transition-all duration-300 ${
                     isSelected
-                      ? 'bg-[#3F5147] text-[#F8F5EF] shadow-md scale-105'
-                      : 'bg-[#FFFFFF] text-[#302D2A] border border-[#302D2A]/10 hover:bg-[#FFFFFF]/80'
+                      ? "bg-[#3F5147] text-[#F8F5EF] shadow-md scale-105"
+                      : "bg-[#FFFFFF] text-[#302D2A] border border-[#302D2A]/10 hover:bg-[#FFFFFF]/80"
                   }`}
                 >
                   {cat.title}
@@ -830,9 +836,15 @@ export default function BabyLandingPage() {
                 className="w-24 h-24 sm:w-28 sm:h-28 object-contain rounded-2xl bg-[#F8F5EF] p-2"
               />
               <div className="space-y-1">
-                <span className="text-xs font-bold text-[#3F5147] font-peyda">{activeAgeCategoryObj.subhead}</span>
-                <h3 className="font-peyda font-bold text-xl sm:text-2xl text-[#302D2A]">{activeAgeCategoryObj.title}</h3>
-                <p className="text-xs sm:text-sm text-[#302D2A]/80 max-w-xl">{activeAgeCategoryObj.description}</p>
+                <span className="text-xs font-bold text-[#3F5147] font-peyda">
+                  {activeAgeCategoryObj.subhead}
+                </span>
+                <h3 className="font-peyda font-bold text-xl sm:text-2xl text-[#302D2A]">
+                  {activeAgeCategoryObj.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-[#302D2A]/80 max-w-xl">
+                  {activeAgeCategoryObj.description}
+                </p>
               </div>
             </div>
 
@@ -843,7 +855,7 @@ export default function BabyLandingPage() {
                   محصولات این رده سنی به زودی اضافه خواهند شد.
                 </p>
               ) : (
-                ageFilteredProducts.map(product => (
+                ageFilteredProducts.map((product) => (
                   <ProductCard
                     key={product.id}
                     product={product}
@@ -857,19 +869,16 @@ export default function BabyLandingPage() {
               )}
             </div>
           </div>
-
         </div>
       </section>
 
       {/* 10. EDITORIAL / LIFESTYLE STORY */}
       <section className="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
         <div className="bg-[#302D2A] text-[#F8F5EF] rounded-[40px] p-8 sm:p-14 relative overflow-hidden">
-
           {/* DECORATIVE LIGHT BLUR */}
           <div className="absolute -top-10 -right-10 w-96 h-96 bg-[#F1C9BD] rounded-full blur-[140px] opacity-20 pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-
             {/* COPY (6 COLS) */}
             <div className="lg:col-span-6 space-y-6 text-right">
               <span className="inline-block px-3.5 py-1.5 rounded-full bg-[#3F5147] text-[#F8F5EF] text-xs font-bold font-peyda border border-[#F2E3A9]/30">
@@ -878,11 +887,15 @@ export default function BabyLandingPage() {
 
               <h2 className="font-peyda font-extrabold text-3xl sm:text-5xl text-[#F8F5EF] leading-tight">
                 کوچک‌ترین لحظه‌ها، <br />
-                <span className="text-[#F2E3A9]">بزرگ‌ترین خاطره‌ها هستند.</span>
+                <span className="text-[#F2E3A9]">
+                  بزرگ‌ترین خاطره‌ها هستند.
+                </span>
               </h2>
 
               <p className="text-sm sm:text-base text-[#F8F5EF]/80 font-normal leading-relaxed">
-                محصولاتی را انتخاب کرده‌ایم که در روزهای واقعی زندگی، کنار شما و فرزندتان باشند. کیفیت بی‌نظیر، استانداردهای سلامتی اروپا و زیبایی ماندگار اسکاندیناوی.
+                محصولاتی را انتخاب کرده‌ایم که در روزهای واقعی زندگی، کنار شما و
+                فرزندتان باشند. کیفیت بی‌نظیر، استانداردهای سلامتی اروپا و
+                زیبایی ماندگار اسکاندیناوی.
               </p>
 
               <div>
@@ -913,9 +926,7 @@ export default function BabyLandingPage() {
                 />
               </div>
             </div>
-
           </div>
-
         </div>
       </section>
 
@@ -928,13 +939,15 @@ export default function BabyLandingPage() {
             </span>
             <h2 className="font-peyda font-extrabold text-3xl sm:text-4xl text-[#302D2A] mt-1 flex items-center gap-2">
               <span>تازه رسیده‌ها</span>
-              <span className="text-xs bg-[#D7E5E9] text-[#302D2A] px-2.5 py-0.5 rounded-full font-mono">NEW</span>
+              <span className="text-xs bg-[#D7E5E9] text-[#302D2A] px-2.5 py-0.5 rounded-full font-mono">
+                NEW
+              </span>
             </h2>
           </div>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-          {newArrivalProducts.map(product => (
+          {newArrivalProducts.map((product) => (
             <ProductCard
               key={product.id}
               product={product}
@@ -949,9 +962,11 @@ export default function BabyLandingPage() {
       </section>
 
       {/* 12. BRANDS SECTION */}
-      <section id="brands-section" className="py-20 bg-[#FFFFFF] border-y border-[#302D2A]/10">
+      <section
+        id="brands-section"
+        className="py-20 bg-[#FFFFFF] border-y border-[#302D2A]/10"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
-
           <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
             <span className="text-xs font-bold font-peyda text-[#3F5147] uppercase tracking-wider">
               CURATED BRANDS
@@ -960,15 +975,15 @@ export default function BabyLandingPage() {
               برندهایی که انتخاب کرده‌ایم
             </h2>
             <p className="text-xs sm:text-sm text-[#302D2A]/70">
-              تامین مستقیم بدون واسطه از معتبرترین برندهای جهانی سیسمونی و پوشاک کودک.
+              تامین مستقیم بدون واسطه از معتبرترین برندهای جهانی سیسمونی و پوشاک
+              کودک.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-
             {/* BRAND CARDS LIST (7 COLS) */}
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {BRANDS_LIST.map(brand => {
+              {BRANDS_LIST.map((brand) => {
                 const isSelected = selectedBrandHover.id === brand.id;
                 return (
                   <div
@@ -976,21 +991,29 @@ export default function BabyLandingPage() {
                     onClick={() => setSelectedBrandHover(brand)}
                     className={`p-5 rounded-3xl border text-right cursor-pointer transition-all duration-300 ${
                       isSelected
-                        ? 'bg-[#3F5147] text-[#F8F5EF] border-[#3F5147] shadow-md scale-[1.02]'
-                        : 'bg-[#F8F5EF] text-[#302D2A] border-[#302D2A]/10 hover:border-[#302D2A]/30'
+                        ? "bg-[#3F5147] text-[#F8F5EF] border-[#3F5147] shadow-md scale-[1.02]"
+                        : "bg-[#F8F5EF] text-[#302D2A] border-[#302D2A]/10 hover:border-[#302D2A]/30"
                     }`}
                   >
                     <div className="flex items-center justify-between mb-2">
-                      <span className="font-peyda font-extrabold text-lg">{brand.name}</span>
-                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                        isSelected ? 'bg-[#F2E3A9] text-[#302D2A]' : 'bg-[#FFFFFF] text-[#3F5147]'
-                      }`}>
+                      <span className="font-peyda font-extrabold text-lg">
+                        {brand.name}
+                      </span>
+                      <span
+                        className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                          isSelected
+                            ? "bg-[#F2E3A9] text-[#302D2A]"
+                            : "bg-[#FFFFFF] text-[#3F5147]"
+                        }`}
+                      >
                         {brand.origin}
                       </span>
                     </div>
-                    <p className={`text-xs line-clamp-2 font-medium ${
-                      isSelected ? 'text-[#F8F5EF]/90' : 'text-[#302D2A]/70'
-                    }`}>
+                    <p
+                      className={`text-xs line-clamp-2 font-medium ${
+                        isSelected ? "text-[#F8F5EF]/90" : "text-[#302D2A]/70"
+                      }`}
+                    >
                       {brand.description}
                     </p>
                   </div>
@@ -1017,16 +1040,13 @@ export default function BabyLandingPage() {
                 {selectedBrandHover.description}
               </p>
             </div>
-
           </div>
-
         </div>
       </section>
 
       {/* 13. CURATED COLLECTION / NURSERY BUNDLE */}
       <section className="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
         <div className="bg-[#F1C9BD]/30 rounded-[40px] p-8 sm:p-12 border border-[#302D2A]/10">
-
           <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
             <span className="text-xs font-bold font-peyda text-[#3F5147] uppercase tracking-wider">
               NURSERY STARTER BUNDLE
@@ -1042,12 +1062,23 @@ export default function BabyLandingPage() {
           {/* BUNDLE ITEMS ROW */}
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 mb-8">
             {CURATED_NURSERY_BUNDLE.items.map((item, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-3 text-center border border-[#302D2A]/10 space-y-2">
+              <div
+                key={idx}
+                className="bg-white rounded-2xl p-3 text-center border border-[#302D2A]/10 space-y-2"
+              >
                 <div className="aspect-square rounded-xl bg-[#F8F5EF] p-2 overflow-hidden">
-                  <img src={item.img} alt={item.title} className="w-full h-full object-contain" />
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="w-full h-full object-contain"
+                  />
                 </div>
-                <span className="text-[10px] font-bold text-[#3F5147] block">{item.brand}</span>
-                <h5 className="font-bold text-xs text-[#302D2A] line-clamp-1">{item.title}</h5>
+                <span className="text-[10px] font-bold text-[#3F5147] block">
+                  {item.brand}
+                </span>
+                <h5 className="font-bold text-xs text-[#302D2A] line-clamp-1">
+                  {item.title}
+                </h5>
               </div>
             ))}
           </div>
@@ -1070,7 +1101,7 @@ export default function BabyLandingPage() {
 
             <button
               onClick={() => {
-                showToast('پک کامل سیسمونی به سبد خرید اضافه شد ♡');
+                showToast("پک کامل سیسمونی به سبد خرید اضافه شد ♡");
                 addToCart(BABY_PRODUCTS[0]);
                 addToCart(BABY_PRODUCTS[2]);
               }}
@@ -1080,7 +1111,6 @@ export default function BabyLandingPage() {
               <span>افزودن کامل پک به سبد خرید</span>
             </button>
           </div>
-
         </div>
       </section>
 
@@ -1091,7 +1121,9 @@ export default function BabyLandingPage() {
             <div className="w-12 h-12 rounded-2xl bg-[#D7E5E9] text-[#302D2A] flex items-center justify-center mx-auto text-xl">
               🛡️
             </div>
-            <h3 className="font-peyda font-bold text-sm text-[#302D2A]">ضمانت اصالت کالا</h3>
+            <h3 className="font-peyda font-bold text-sm text-[#302D2A]">
+              ضمانت اصالت کالا
+            </h3>
             <p className="text-xs text-[#302D2A]/60">۱۰۰٪ اورجینال و مستقیم</p>
           </div>
 
@@ -1099,7 +1131,9 @@ export default function BabyLandingPage() {
             <div className="w-12 h-12 rounded-2xl bg-[#D5E1D0] text-[#302D2A] flex items-center justify-center mx-auto text-xl">
               🚀
             </div>
-            <h3 className="font-peyda font-bold text-sm text-[#302D2A]">ارسال سریع</h3>
+            <h3 className="font-peyda font-bold text-sm text-[#302D2A]">
+              ارسال سریع
+            </h3>
             <p className="text-xs text-[#302D2A]/60">تحویل اکسپرس سراسری</p>
           </div>
 
@@ -1107,7 +1141,9 @@ export default function BabyLandingPage() {
             <div className="w-12 h-12 rounded-2xl bg-[#F2E3A9] text-[#302D2A] flex items-center justify-center mx-auto text-xl">
               💳
             </div>
-            <h3 className="font-peyda font-bold text-sm text-[#302D2A]">پرداخت امن</h3>
+            <h3 className="font-peyda font-bold text-sm text-[#302D2A]">
+              پرداخت امن
+            </h3>
             <p className="text-xs text-[#302D2A]/60">درگاه‌های بانکی معتبر</p>
           </div>
 
@@ -1115,8 +1151,12 @@ export default function BabyLandingPage() {
             <div className="w-12 h-12 rounded-2xl bg-[#F1C9BD] text-[#302D2A] flex items-center justify-center mx-auto text-xl">
               🎧
             </div>
-            <h3 className="font-peyda font-bold text-sm text-[#302D2A]">پشتیبانی تخصصی</h3>
-            <p className="text-xs text-[#302D2A]/60">مشاوره قبل و بعد از خرید</p>
+            <h3 className="font-peyda font-bold text-sm text-[#302D2A]">
+              پشتیبانی تخصصی
+            </h3>
+            <p className="text-xs text-[#302D2A]/60">
+              مشاوره قبل و بعد از خرید
+            </p>
           </div>
         </div>
       </section>
@@ -1152,29 +1192,65 @@ export default function BabyLandingPage() {
       {/* 16. FOOTER */}
       <footer className="bg-[#302D2A] text-[#F8F5EF] py-16 border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 text-right">
-
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <span className="w-8 h-8 rounded-xl bg-[#3F5147] text-white font-bold flex items-center justify-center">👶</span>
-              <span className="font-peyda font-extrabold text-xl text-white">دنیای کوچولوها</span>
+              <span className="w-8 h-8 rounded-xl bg-[#3F5147] text-white font-bold flex items-center justify-center">
+                👶
+              </span>
+              <span className="font-peyda font-extrabold text-xl text-white">
+                دنیای کوچولوها
+              </span>
             </div>
             <p className="text-xs text-[#F8F5EF]/70 leading-relaxed font-normal">
-              فروشگاه آنلاین تخصصی چندبرند سیسمونی، پوشاک و اسباب‌بازی‌های ارگانیک کودک با تضمین اصالت و بهترین کیفیت جهانی.
+              فروشگاه آنلاین تخصصی چندبرند سیسمونی، پوشاک و اسباب‌بازی‌های
+              ارگانیک کودک با تضمین اصالت و بهترین کیفیت جهانی.
             </p>
           </div>
 
           <div className="space-y-3">
-            <h4 className="font-peyda font-bold text-sm text-[#F2E3A9]">دسته‌بندی‌های اصلی</h4>
+            <h4 className="font-peyda font-bold text-sm text-[#F2E3A9]">
+              دسته‌بندی‌های اصلی
+            </h4>
             <ul className="space-y-2 text-xs text-[#F8F5EF]/80">
-              <li><a href="#categories-section" className="hover:text-white transition-colors">لباس و سرهمی نوزاد</a></li>
-              <li><a href="#categories-section" className="hover:text-white transition-colors">مراقبت و بهداشت کودک</a></li>
-              <li><a href="#categories-section" className="hover:text-white transition-colors">ظروف و تغذیه سیلیکونی</a></li>
-              <li><a href="#categories-section" className="hover:text-white transition-colors">اسباب‌بازی‌های چوبی مونته‌سوری</a></li>
+              <li>
+                <a
+                  href="#categories-section"
+                  className="hover:text-white transition-colors"
+                >
+                  لباس و سرهمی نوزاد
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#categories-section"
+                  className="hover:text-white transition-colors"
+                >
+                  مراقبت و بهداشت کودک
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#categories-section"
+                  className="hover:text-white transition-colors"
+                >
+                  ظروف و تغذیه سیلیکونی
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#categories-section"
+                  className="hover:text-white transition-colors"
+                >
+                  اسباب‌بازی‌های چوبی مونته‌سوری
+                </a>
+              </li>
             </ul>
           </div>
 
           <div className="space-y-3">
-            <h4 className="font-peyda font-bold text-sm text-[#F2E3A9]">برندهای مطرح</h4>
+            <h4 className="font-peyda font-bold text-sm text-[#F2E3A9]">
+              برندهای مطرح
+            </h4>
             <ul className="space-y-2 text-xs text-[#F8F5EF]/80">
               <li>Liewood • Mushie</li>
               <li>Konges Sløjd • Stokke</li>
@@ -1184,9 +1260,12 @@ export default function BabyLandingPage() {
 
           {/* NEWSLETTER */}
           <div className="space-y-3">
-            <h4 className="font-peyda font-bold text-sm text-[#F2E3A9]">عضو دنیای کوچولوها شوید</h4>
+            <h4 className="font-peyda font-bold text-sm text-[#F2E3A9]">
+              عضو دنیای کوچولوها شوید
+            </h4>
             <p className="text-xs text-[#F8F5EF]/70 leading-relaxed">
-              با ثبت ایمیل خود از کد تخفیف‌های ویژه و ورود کالکشن‌های جدید مطلع شوید.
+              با ثبت ایمیل خود از کد تخفیف‌های ویژه و ورود کالکشن‌های جدید مطلع
+              شوید.
             </p>
             <div className="flex items-center gap-2 pt-1">
               <input
@@ -1199,7 +1278,6 @@ export default function BabyLandingPage() {
               </button>
             </div>
           </div>
-
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-10 mt-10 border-t border-white/10 text-center text-xs text-[#F8F5EF]/50 font-mono">
@@ -1231,20 +1309,31 @@ export default function BabyLandingPage() {
               {cartItems.length === 0 ? (
                 <div className="text-center py-16 space-y-3">
                   <ShoppingBag className="w-12 h-12 text-[#302D2A]/20 mx-auto" />
-                  <p className="text-sm font-medium text-[#302D2A]/60">سبد خرید شما خالی است</p>
+                  <p className="text-sm font-medium text-[#302D2A]/60">
+                    سبد خرید شما خالی است
+                  </p>
                 </div>
               ) : (
                 cartItems.map((item, idx) => (
-                  <div key={idx} className="flex gap-4 p-3 bg-[#FFFFFF] rounded-2xl border border-[#302D2A]/10 items-center">
+                  <div
+                    key={idx}
+                    className="flex gap-4 p-3 bg-[#FFFFFF] rounded-2xl border border-[#302D2A]/10 items-center"
+                  >
                     <img
                       src={item.product.images[0]}
                       alt={item.product.name}
                       className="w-16 h-16 object-contain rounded-xl bg-[#F8F5EF] p-1"
                     />
                     <div className="flex-1 space-y-1 text-right">
-                      <h4 className="font-bold text-xs text-[#302D2A] line-clamp-1">{item.product.name}</h4>
-                      <p className="text-[11px] text-[#302D2A]/60">{item.color} • سایز {item.size}</p>
-                      <p className="font-bold text-xs text-[#3F5147]">{formatPrice(item.product.price)} تومان</p>
+                      <h4 className="font-bold text-xs text-[#302D2A] line-clamp-1">
+                        {item.product.name}
+                      </h4>
+                      <p className="text-[11px] text-[#302D2A]/60">
+                        {item.color} • سایز {item.size}
+                      </p>
+                      <p className="font-bold text-xs text-[#3F5147]">
+                        {formatPrice(item.product.price)} تومان
+                      </p>
 
                       <div className="flex items-center gap-2 pt-1">
                         <button
@@ -1253,7 +1342,9 @@ export default function BabyLandingPage() {
                         >
                           -
                         </button>
-                        <span className="text-xs font-bold px-1">{item.quantity}</span>
+                        <span className="text-xs font-bold px-1">
+                          {item.quantity}
+                        </span>
                         <button
                           onClick={() => updateCartQuantity(idx, 1)}
                           className="w-6 h-6 rounded-md bg-[#F8F5EF] border border-[#302D2A]/20 text-xs font-bold"
@@ -1278,11 +1369,13 @@ export default function BabyLandingPage() {
               <div className="border-t border-[#302D2A]/10 pt-4 space-y-3">
                 <div className="flex justify-between items-center text-sm font-bold">
                   <span>مبلغ قابل پرداخت:</span>
-                  <span className="text-lg text-[#3F5147]">{formatPrice(cartTotal)} تومان</span>
+                  <span className="text-lg text-[#3F5147]">
+                    {formatPrice(cartTotal)} تومان
+                  </span>
                 </div>
                 <button
                   onClick={() => {
-                    alert('ثبت سفارش با موفقیت انجام شد!');
+                    alert("ثبت سفارش با موفقیت انجام شد!");
                     setCartItems([]);
                     setIsCartOpen(false);
                   }}
@@ -1315,36 +1408,47 @@ export default function BabyLandingPage() {
 
             <div className="flex-1 overflow-y-auto py-4 space-y-4">
               {wishlistIds.length === 0 ? (
-                <p className="text-center text-sm text-[#302D2A]/60 py-12">هیچ آیتمی در لیست علاقه‌مندی نیست</p>
+                <p className="text-center text-sm text-[#302D2A]/60 py-12">
+                  هیچ آیتمی در لیست علاقه‌مندی نیست
+                </p>
               ) : (
-                BABY_PRODUCTS.filter(p => wishlistIds.includes(p.id)).map(product => (
-                  <div key={product.id} className="flex gap-4 p-3 bg-white rounded-2xl border border-[#302D2A]/10 items-center">
-                    <img
-                      src={product.images[0]}
-                      alt={product.name}
-                      className="w-16 h-16 object-contain bg-[#F8F5EF] rounded-xl p-1"
-                    />
-                    <div className="flex-1 text-right space-y-1">
-                      <h4 className="font-bold text-xs text-[#302D2A]">{product.name}</h4>
-                      <p className="font-bold text-xs text-[#3F5147]">{formatPrice(product.price)} تومان</p>
+                BABY_PRODUCTS.filter((p) => wishlistIds.includes(p.id)).map(
+                  (product) => (
+                    <div
+                      key={product.id}
+                      className="flex gap-4 p-3 bg-white rounded-2xl border border-[#302D2A]/10 items-center"
+                    >
+                      <img
+                        src={product.images[0]}
+                        alt={product.name}
+                        className="w-16 h-16 object-contain bg-[#F8F5EF] rounded-xl p-1"
+                      />
+                      <div className="flex-1 text-right space-y-1">
+                        <h4 className="font-bold text-xs text-[#302D2A]">
+                          {product.name}
+                        </h4>
+                        <p className="font-bold text-xs text-[#3F5147]">
+                          {formatPrice(product.price)} تومان
+                        </p>
+                        <button
+                          onClick={() => {
+                            addToCart(product);
+                            toggleWishlist(product.id);
+                          }}
+                          className="text-[11px] font-bold text-[#3F5147] underline"
+                        >
+                          انتقال به سبد خرید
+                        </button>
+                      </div>
                       <button
-                        onClick={() => {
-                          addToCart(product);
-                          toggleWishlist(product.id);
-                        }}
-                        className="text-[11px] font-bold text-[#3F5147] underline"
+                        onClick={() => toggleWishlist(product.id)}
+                        className="p-1.5 text-[#302D2A]/40 hover:text-red-500"
                       >
-                        انتقال به سبد خرید
+                        <Trash2 className="w-4 h-4" />
                       </button>
                     </div>
-                    <button
-                      onClick={() => toggleWishlist(product.id)}
-                      className="p-1.5 text-[#302D2A]/40 hover:text-red-500"
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </button>
-                  </div>
-                ))
+                  ),
+                )
               )}
             </div>
           </div>
@@ -1362,7 +1466,7 @@ export default function BabyLandingPage() {
                   type="text"
                   placeholder="جستجوی نام محصول، برند، یا سن..."
                   value={searchQuery}
-                  onChange={e => setSearchQuery(e.target.value)}
+                  onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full bg-transparent border-none text-sm font-medium focus:outline-none text-right"
                   autoFocus
                 />
@@ -1377,10 +1481,12 @@ export default function BabyLandingPage() {
 
             <div className="max-h-96 overflow-y-auto space-y-3">
               {searchQuery && searchResults.length === 0 && (
-                <p className="text-center text-sm text-[#302D2A]/60 py-8">محصولی با این مشخصات یافت نشد</p>
+                <p className="text-center text-sm text-[#302D2A]/60 py-8">
+                  محصولی با این مشخصات یافت نشد
+                </p>
               )}
 
-              {searchResults.map(product => (
+              {searchResults.map((product) => (
                 <div
                   key={product.id}
                   onClick={() => {
@@ -1395,9 +1501,15 @@ export default function BabyLandingPage() {
                     className="w-12 h-12 object-contain bg-white rounded-xl p-1"
                   />
                   <div className="flex-1 text-right">
-                    <span className="text-[10px] text-[#3F5147] font-bold block">{product.brand}</span>
-                    <h4 className="font-bold text-xs text-[#302D2A]">{product.name}</h4>
-                    <span className="text-xs font-bold text-[#302D2A]">{formatPrice(product.price)} تومان</span>
+                    <span className="text-[10px] text-[#3F5147] font-bold block">
+                      {product.brand}
+                    </span>
+                    <h4 className="font-bold text-xs text-[#302D2A]">
+                      {product.name}
+                    </h4>
+                    <span className="text-xs font-bold text-[#302D2A]">
+                      {formatPrice(product.price)} تومان
+                    </span>
                   </div>
                 </div>
               ))}
@@ -1417,7 +1529,6 @@ export default function BabyLandingPage() {
           formatPrice={formatPrice}
         />
       )}
-
     </div>
   );
 }
@@ -1442,13 +1553,12 @@ function ProductCard({
   onToggleWishlist,
   onAddToCart,
   onOpenDetail,
-  formatPrice
+  formatPrice,
 }: ProductCardProps) {
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
 
   return (
     <div className="group flex flex-col bg-[#FFFFFF] rounded-3xl overflow-hidden border border-[#302D2A]/10 hover:border-[#3F5147]/50 transition-all duration-300 relative text-right">
-
       {/* SALE BADGE */}
       {product.discountPercent && (
         <span className="absolute top-3 right-3 z-20 bg-[#D96C5F] text-white text-[10px] font-bold font-peyda px-2.5 py-1 rounded-full pointer-events-none">
@@ -1458,13 +1568,13 @@ function ProductCard({
 
       {/* WISHLIST BUTTON */}
       <button
-        onClick={e => onToggleWishlist(product.id, e)}
+        onClick={(e) => onToggleWishlist(product.id, e)}
         aria-label="افزودن به علاقه‌مندی"
         className="absolute top-3 left-3 z-20 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-xs"
       >
         <Heart
           className={`w-4 h-4 transition-colors ${
-            isWishlisted ? 'text-[#D96C5F] fill-[#D96C5F]' : 'text-[#302D2A]'
+            isWishlisted ? "text-[#D96C5F] fill-[#D96C5F]" : "text-[#302D2A]"
           }`}
         />
       </button>
@@ -1473,12 +1583,12 @@ function ProductCard({
       <div
         onClick={() => onOpenDetail(product)}
         className="w-full aspect-[4/5] relative overflow-hidden p-4 group/img cursor-pointer transition-colors"
-        style={{ backgroundColor: product.bgTint || '#F8F5EF' }}
+        style={{ backgroundColor: product.bgTint || "#F8F5EF" }}
       >
         <img
           src={product.images[currentImgIndex] || product.images[0]}
           alt={product.name}
-          className="w-full h-full object-contain transition-transform duration-500 group-hover/img:scale-105"
+          className="w-full h-full accept-[4/5] object-cover rounded-2xl transition-transform duration-500 group-hover/img:scale-105"
         />
 
         {/* HOVER QUICK ACTION CTA */}
@@ -1495,7 +1605,10 @@ function ProductCard({
 
       {/* PRODUCT INFORMATION */}
       <div className="p-4 flex flex-col justify-between flex-1 space-y-2">
-        <div onClick={() => onOpenDetail(product)} className="space-y-1 cursor-pointer">
+        <div
+          onClick={() => onOpenDetail(product)}
+          className="space-y-1 cursor-pointer"
+        >
           <span className="text-[10px] font-bold font-mono uppercase text-[#302D2A]/50 tracking-wider block">
             {product.brand}
           </span>
@@ -1515,7 +1628,10 @@ function ProductCard({
         <div className="flex items-baseline justify-between pt-1 border-t border-[#302D2A]/5">
           <div className="flex flex-col">
             <span className="font-bold text-xs sm:text-sm text-[#302D2A]">
-              {formatPrice(product.price)} <span className="text-[10px] font-normal text-[#302D2A]/60">تومان</span>
+              {formatPrice(product.price)}{" "}
+              <span className="text-[10px] font-normal text-[#302D2A]/60">
+                تومان
+              </span>
             </span>
             {product.originalPrice && (
               <span className="text-[11px] text-[#302D2A]/40 line-through">
@@ -1532,7 +1648,6 @@ function ProductCard({
           </button>
         </div>
       </div>
-
     </div>
   );
 }
@@ -1545,7 +1660,12 @@ interface ProductDetailModalProps {
   isWishlisted: boolean;
   onClose: () => void;
   onToggleWishlist: (id: string, e?: React.MouseEvent) => void;
-  onAddToCart: (p: BabyProduct, colorName?: string, sizeName?: string, quantity?: number) => void;
+  onAddToCart: (
+    p: BabyProduct,
+    colorName?: string,
+    sizeName?: string,
+    quantity?: number,
+  ) => void;
   formatPrice: (price: number) => string;
 }
 
@@ -1555,10 +1675,12 @@ function ProductDetailModal({
   onClose,
   onToggleWishlist,
   onAddToCart,
-  formatPrice
+  formatPrice,
 }: ProductDetailModalProps) {
   const [selectedImgIndex, setSelectedImgIndex] = useState(0);
-  const [selectedColor, setSelectedColor] = useState(product.colors && product.colors[0] ? product.colors[0].name : 'تک رنگ');
+  const [selectedColor, setSelectedColor] = useState(
+    product.colors && product.colors[0] ? product.colors[0].name : "تک رنگ",
+  );
   const [quantity, setQuantity] = useState(1);
 
   return (
@@ -1567,8 +1689,8 @@ function ProductDetailModal({
       onClick={onClose}
     >
       <div
-        className="bg-[#F8F5EF] text-[#302D2A] w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-[32px] p-5 sm:p-8 shadow-2xl relative border border-[#302D2A]/10 text-right space-y-6"
-        onClick={e => e.stopPropagation()}
+        className="bg-[#fff] text-[#302D2A] w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-[32px] p-5 sm:p-8 shadow-2xl relative border border-[#302D2A]/10 text-right space-y-6"
+        onClick={(e) => e.stopPropagation()}
       >
         {/* CLOSE BUTTON */}
         <button
@@ -1580,12 +1702,11 @@ function ProductDetailModal({
         </button>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start pt-2">
-
           {/* LEFT: IMAGE GALLERY (6 COLS) */}
           <div className="md:col-span-6 space-y-3">
             <div
               className="w-full aspect-square rounded-3xl overflow-hidden p-6 relative border border-[#302D2A]/10"
-              style={{ backgroundColor: product.bgTint || '#FFFFFF' }}
+              style={{ backgroundColor: product.bgTint || "#FFFFFF" }}
             >
               <img
                 src={product.images[selectedImgIndex] || product.images[0]}
@@ -1595,12 +1716,14 @@ function ProductDetailModal({
 
               {/* WISHLIST BUTTON */}
               <button
-                onClick={e => onToggleWishlist(product.id, e)}
+                onClick={(e) => onToggleWishlist(product.id, e)}
                 className="absolute top-4 left-4 z-20 p-2.5 rounded-full bg-white/90 backdrop-blur-md shadow-md transition-transform hover:scale-110"
               >
                 <Heart
                   className={`w-5 h-5 ${
-                    isWishlisted ? 'text-[#D96C5F] fill-[#D96C5F]' : 'text-[#302D2A]'
+                    isWishlisted
+                      ? "text-[#D96C5F] fill-[#D96C5F]"
+                      : "text-[#302D2A]"
                   }`}
                 />
               </button>
@@ -1614,11 +1737,15 @@ function ProductDetailModal({
                   onClick={() => setSelectedImgIndex(idx)}
                   className={`aspect-square rounded-2xl overflow-hidden bg-white p-1 border-2 transition-all ${
                     selectedImgIndex === idx
-                      ? 'border-[#3F5147] scale-105 shadow-md'
-                      : 'border-transparent opacity-70 hover:opacity-100'
+                      ? "border-[#3F5147] scale-105 shadow-md"
+                      : "border-transparent opacity-70 hover:opacity-100"
                   }`}
                 >
-                  <img src={img} alt={`نمای ${idx + 1}`} className="w-full h-full object-contain" />
+                  <img
+                    src={img}
+                    alt={`نمای ${idx + 1}`}
+                    className="w-full h-full object-contain"
+                  />
                 </button>
               ))}
             </div>
@@ -1626,7 +1753,6 @@ function ProductDetailModal({
 
           {/* RIGHT: SPECS & BUY (6 COLS) */}
           <div className="md:col-span-6 space-y-5">
-
             <div className="space-y-1">
               <span className="text-xs font-mono font-bold uppercase text-[#3F5147] tracking-wider">
                 {product.brand}
@@ -1639,7 +1765,10 @@ function ProductDetailModal({
             {/* PRICE & DISCOUNT */}
             <div className="flex items-baseline gap-3 p-3.5 bg-white rounded-2xl border border-[#302D2A]/10">
               <span className="font-peyda font-extrabold text-2xl text-[#302D2A]">
-                {formatPrice(product.price)} <span className="text-xs font-medium text-[#302D2A]/70">تومان</span>
+                {formatPrice(product.price)}{" "}
+                <span className="text-xs font-medium text-[#302D2A]/70">
+                  تومان
+                </span>
               </span>
 
               {product.originalPrice && (
@@ -1656,7 +1785,8 @@ function ProductDetailModal({
 
             {product.material && (
               <div className="text-xs bg-[#D5E1D0]/40 p-3 rounded-xl text-[#302D2A] font-medium">
-                🌱 <span className="font-bold">جنس و متریال:</span> {product.material}
+                🌱 <span className="font-bold">جنس و متریال:</span>{" "}
+                {product.material}
               </div>
             )}
 
@@ -1666,14 +1796,16 @@ function ProductDetailModal({
                 <span className="text-xs font-bold text-[#302D2A]">تعداد:</span>
                 <div className="flex items-center border border-[#302D2A]/20 rounded-xl bg-white p-1">
                   <button
-                    onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
+                    onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
                     className="w-8 h-8 rounded-lg hover:bg-[#302D2A]/5 font-bold text-sm"
                   >
                     -
                   </button>
-                  <span className="w-8 text-center text-xs font-bold">{quantity}</span>
+                  <span className="w-8 text-center text-xs font-bold">
+                    {quantity}
+                  </span>
                   <button
-                    onClick={() => setQuantity(prev => prev + 1)}
+                    onClick={() => setQuantity((prev) => prev + 1)}
                     className="w-8 h-8 rounded-lg hover:bg-[#302D2A]/5 font-bold text-sm"
                   >
                     +
@@ -1683,18 +1815,19 @@ function ProductDetailModal({
 
               <button
                 onClick={() => {
-                  onAddToCart(product, selectedColor, 'استاندارد', quantity);
+                  onAddToCart(product, selectedColor, "استاندارد", quantity);
                   onClose();
                 }}
                 className="w-full py-4 bg-[#3F5147] hover:bg-[#302D2A] text-white font-peyda font-bold text-sm rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
               >
                 <ShoppingBag className="w-5 h-5" />
-                <span>افزودن به سبد خرید ({formatPrice(product.price * quantity)} تومان)</span>
+                <span>
+                  افزودن به سبد خرید ({formatPrice(product.price * quantity)}{" "}
+                  تومان)
+                </span>
               </button>
             </div>
-
           </div>
-
         </div>
       </div>
     </div>
