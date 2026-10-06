@@ -118,7 +118,7 @@ export const LUXURY_CATEGORIES: CategoryInfo[] = [
     slug: 'shoes',
     namePersian: 'کفش زنانه',
     nameEnglish: 'FOOTWEAR',
-    image: '/images/landings/persian-luxury-v1/3a28804b7a8a4efda8600ddc555107ea.png',
+    image: '/images/landings/persian-luxury-v1/woman-shoes-1.webp',
     productCount: 95,
     description: 'کفش‌های پاشنه‌دار مجلسی، لوفر و صندل‌های دست‌ساز فاخر'
   },
@@ -296,10 +296,10 @@ export const LUXURY_PRODUCTS: LuxuryProduct[] = [
     price: 88000000,
     priceFormatted: '۸۸,۰۰۰,۰۰۰ تومان',
     colors: [
-      { name: 'مشکی ورنی با زیره قرمز', hex: '#111111', image: '/images/landings/persian-luxury-v1/db894d0562154b5c8fd4b785407a6d5e.png' }
+      { name: 'مشکی ورنی با زیره قرمز', hex: '#111111', image: '/images/landings/persian-luxury-v1/woman-shoes-1.webp' }
     ],
     sizes: ['36', '37', '38', '39', '40'],
-    images: ['/images/landings/persian-luxury-v1/db894d0562154b5c8fd4b785407a6d5e.png'],
+    images: ['/images/landings/persian-luxury-v1/woman-shoes-1.webp', '/images/landings/persian-luxury-v1/woman-shoes-2.webp'],
     descriptionPersian: 'کفش پاشنه‌دار آیکونیک سو کیت کریستین لوبوتن با پاشنه باریک ۱۲ سانتی‌متری و زیره چرمی قرمز معروف جهانی.',
     detailsPersian: 'پنجه نوک‌تیز کشیده با شیب جذاب و ارگونومیک، آستر چرم طبیعی ایتالیایی.',
     materialPersian: '۱۰۰٪ چرم ورنی گوساله با زیره قرمز امضا شده',
@@ -323,10 +323,10 @@ export const LUXURY_PRODUCTS: LuxuryProduct[] = [
     price: 95000000,
     priceFormatted: '۹۵,۰۰۰,۰۰۰ تومان',
     colors: [
-      { name: 'شمپاینی ساتن', hex: '#D4C29E', image: '/images/landings/persian-luxury-v1/dbc4719eab2940af8862d43cfd8245a7.png' }
+      { name: 'شمپاینی ساتن', hex: '#D4C29E', image: '/images/landings/persian-luxury-v1/woman-shoes-3.webp' }
     ],
     sizes: ['36.5', '37', '37.5', '38', '38.5'],
-    images: ['/images/landings/persian-luxury-v1/dbc4719eab2940af8862d43cfd8245a7.png'],
+    images: ['/images/landings/persian-luxury-v1/woman-shoes-3.webp', '/images/landings/persian-luxury-v1/woman-shoes-4.webp'],
     descriptionPersian: 'کفش مجلسی جیمی چو با ربان‌های بزرگ ملموس ساتن غیرمتقارن روی پاشنه و مچ پا. شاهکار طراحی برای مراسم لوکس.',
     detailsPersian: 'پاشنه باریک ۸.۵ سانتی‌متری بسیار راحت، پارچه ساتن ابریشمی با آستر چرمی.',
     materialPersian: 'ساتن ابریشمی ایتالیایی با آستر چرم گوساله',
@@ -350,10 +350,10 @@ export const LUXURY_PRODUCTS: LuxuryProduct[] = [
     price: 78000000,
     priceFormatted: '۷۸,۰۰۰,۰۰۰ تومان',
     colors: [
-      { name: 'مشکی براق', hex: '#1C1C1C', image: '/images/landings/persian-luxury-v1/e577c707c2d2469f838b12f0a51ec13a.png' }
+      { name: 'مشکی براق', hex: '#1C1C1C', image: '/images/landings/persian-luxury-v1/woman-shoes-5.webp' }
     ],
     sizes: [ '37', '38', '39', '40'],
-    images: ['/images/landings/persian-luxury-v1/e577c707c2d2469f838b12f0a51ec13a.png'],
+    images: ['/images/landings/persian-luxury-v1/woman-shoes-5.webp', '/images/landings/persian-luxury-v1/woman-shoes-6.webp'],
     descriptionPersian: 'لوفر لژدار مونالیت پرادا با زیره لاستیکی عاج‌دار مدرن و لوگوی فلزی مثلثی پرادا روی زبانه چرمی.',
     detailsPersian: 'ارتفاع لژ ۵.۵ سانتی‌متر، چرم برس خورده با درخشش ملایم لوکس.',
     materialPersian: 'چرم گوساله Spazzolato برس‌خورده',
@@ -515,10 +515,10 @@ export const LUXURY_PRODUCTS: LuxuryProduct[] = [
     price: 68000000,
     priceFormatted: '۶۸,۰۰۰,۰۰۰ تومان',
     colors: [
-      { name: 'مشکی با سگک طلایی', hex: '#171717', image: '/images/landings/persian-luxury-v1/5633740aa337463f8e14fbceebc3fc3b.png' }
+      { name: 'مشکی با سگک طلایی', hex: '#171717', image: '/images/landings/persian-luxury-v1/woman-shoes-7.webp' }
     ],
     sizes: ['36', '37', '38', '39'],
-    images: ['/images/landings/persian-luxury-v1/5633740aa337463f8e14fbceebc3fc3b.png'],
+    images: ['/images/landings/persian-luxury-v1/woman-shoes-7.webp', '/images/landings/persian-luxury-v1/woman-shoes-8.webp'],
     descriptionPersian: 'مول چرمی پرینستون گوچی با سگک اسبی فلزی طلایی نعل‌مانند. ترکیبی راحت و فوق‌العاده شیک برای استایل روزمره فاخر.',
     detailsPersian: 'پاشنه مسطح ۱.۵ سانتی‌متری، کفی چرمی دست‌دوز فوق‌العاده نرم.',
     materialPersian: '۱۰۰٪ چرم گوساله صاف ایتالیایی',
@@ -531,6 +531,60 @@ export const LUXURY_PRODUCTS: LuxuryProduct[] = [
     reviewCount: 33,
     careInstructionsPersian: 'استفاده از قالب چوبی برای حفظ فرم.',
     shippingInfoPersian: 'ارسال اکسپرس کشوری.'
+  },
+  {
+    id: 'pl-w-17',
+    brand: 'CHRISTIAN LOUBOUTIN',
+    name: 'کفش پاشنه‌دار Kate 100 Nude',
+    slug: 'louboutin-kate-100-nude',
+    category: 'shoes',
+    categoryPersian: 'کفش زنانه',
+    price: 85000000,
+    priceFormatted: '۸۵,۰۰۰,۰۰۰ تومان',
+    colors: [
+      { name: 'کرم نود با زیره قرمز', hex: '#E2DDD3', image: '/images/landings/persian-luxury-v1/woman-shoes-9.webp' }
+    ],
+    sizes: ['36', '37', '38', '39'],
+    images: ['/images/landings/persian-luxury-v1/woman-shoes-9.webp', '/images/landings/persian-luxury-v1/woman-shoes-10.webp'],
+    descriptionPersian: 'کفش پاشنه‌دار کلاسیک کیت کریستین لوبوتن با رنگ نود عاجی و زیره قرمز آیکونیک.',
+    detailsPersian: 'پاشنه ۱۰ سانتی‌متری، ساختار چرم طبیعی بره ایتالیایی.',
+    materialPersian: '۱۰۰٪ چرم نپا طبیعی',
+    isNew: true,
+    isBestSeller: true,
+    isCurated: true,
+    stock: 3,
+    isAuthentic: true,
+    rating: 5.0,
+    reviewCount: 28,
+    careInstructionsPersian: 'نگهداری در کاور پارچه‌ای اصلی.',
+    shippingInfoPersian: 'ارسال اکسپرس به سراسر کشور.'
+  },
+  {
+    id: 'pl-w-18',
+    brand: 'JIMMY CHOO',
+    name: 'صندل مجلسی Bing 100 Crystal',
+    slug: 'jimmy-choo-bing-100-crystal',
+    category: 'shoes',
+    categoryPersian: 'کفش زنانه',
+    price: 92000000,
+    priceFormatted: '۹۲,۰۰۰,۰۰۰ تومان',
+    colors: [
+      { name: 'مشکی با نوار کریستالی', hex: '#111111', image: '/images/landings/persian-luxury-v1/woman-shoes-11.webp' }
+    ],
+    sizes: ['36.5', '37', '38', '39'],
+    images: ['/images/landings/persian-luxury-v1/woman-shoes-11.webp', '/images/landings/persian-luxury-v1/woman-shoes-12.webp'],
+    descriptionPersian: 'صندل مول جیمی چو با نوار رویی تزیین‌شده با کریستال‌های درخشان.',
+    detailsPersian: 'پاشنه ۱۰ سانتی‌متری باریک، کفی چرم گوساله ایتالیایی.',
+    materialPersian: 'چرم ورنی با نگین‌های کریستال سواروسکی',
+    isNew: true,
+    isBestSeller: false,
+    isCurated: true,
+    stock: 2,
+    isAuthentic: true,
+    rating: 4.9,
+    reviewCount: 21,
+    careInstructionsPersian: 'اجتناب از ضربه به نگین‌ها.',
+    shippingInfoPersian: 'ارسال ویژه لوکس.'
   },
   {
     id: 'pl-w-15',

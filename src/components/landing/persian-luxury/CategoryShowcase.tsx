@@ -14,7 +14,7 @@ export default function CategoryShowcase() {
     {
       title: 'کفش پاشنه‌دار مجلسی',
       sub: 'OCCASION HEELS',
-      image: '/images/landings/persian-luxury-v1/db894d0562154b5c8fd4b785407a6d5e.png',
+      image: '/images/landings/persian-luxury-v1/woman-shoes-1.webp',
       count: '۱۸ مدل',
     },
     {
