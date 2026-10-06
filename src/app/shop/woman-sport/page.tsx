@@ -174,11 +174,11 @@ function WomanSportContent() {
           {/* LOGO */}
           <Link href="/shop/woman-sport" className="flex items-center gap-2 group">
             <span className="w-8 h-8 rounded-full bg-[#FF6FAE] text-white font-estedad font-bold flex items-center justify-center text-sm transition-transform group-hover:scale-105">
-              G
+              {storeName ? storeName.charAt(0) : 'G'}
             </span>
             <div className="flex flex-col">
               <span className="font-estedad font-bold text-lg leading-none tracking-tight text-[#291A2D]">
-                GIRLY SPORT
+                {storeName}
               </span>
               <span className="text-[10px] text-[#291A2D]/60 tracking-wider font-mono">
                 WOMEN'S CASUAL

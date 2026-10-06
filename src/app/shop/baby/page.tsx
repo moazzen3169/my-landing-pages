@@ -255,7 +255,7 @@ function BabyContent() {
             <Link href="/shop/baby" className="flex items-center gap-2 group">
               <FlowerIcon className="w-7 h-7 transition-transform group-hover:rotate-45 duration-300" />
               <span className="font-bold text-xl md:text-2xl tracking-tight text-[#1E0001]">
-                 کوچولوها
+                {storeName}
               </span>
             </Link>
           </div>
