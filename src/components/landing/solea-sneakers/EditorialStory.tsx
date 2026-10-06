@@ -59,13 +59,13 @@ export default function EditorialStory() {
               </div>
 
               {/* LEFT COLUMN (RTL): SPOTLIGHT SNEAKER IMAGE */}
-              <div className="lg:col-span-5 relative aspect-4/3 sm:aspect-square bg-white border border-neutral-200 rounded-2xl flex items-center justify-center overflow-hidden group shadow-2xs">
+              <div className="lg:col-span-5 relative  aspect-[5/6] bg-white border border-neutral-200 rounded-2xl flex items-center justify-center overflow-hidden group shadow-2xs">
                 <Image
-                  src="/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KZ9157_00_plp_standard.png"
+                  src="/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_standard.png"
                   alt="Solea Sneaker Feature"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-contain p-4 transform group-hover:scale-108 transition-transform duration-500"
+                  className="object-cover "
                 />
                 <div className="absolute bottom-4 right-4 left-4 bg-white/95 backdrop-blur-md p-4 border border-neutral-200 rounded-xl text-right shadow-xs">
                   <span className="text-[10px] font-mono font-bold tracking-widest text-neutral-400 uppercase block">

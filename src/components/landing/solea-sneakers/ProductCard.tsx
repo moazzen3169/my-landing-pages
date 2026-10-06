@@ -60,12 +60,12 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
       onClick={() => onQuickView(product)}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="group relative bg-white border border-neutral-200/90 hover:border-black transition-all duration-300 flex flex-col justify-between cursor-pointer font-peyda text-right overflow-hidden rounded-xl shadow-xs hover:shadow-md"
+      className="group relative bg-white border h-full border-neutral-200 hover:border-black/80 transition-all duration-300 flex flex-col justify-between cursor-pointer font-peyda text-right overflow-hidden  "
       dir="rtl"
     >
       <div>
         {/* 1. CLEAN WHITE SNEAKER IMAGE CANVAS */}
-        <div className="relative aspect-square w-full bg-white overflow-hidden flex items-center justify-center p-6 border-b border-neutral-100">
+        <div className="relative aspect-square w-full  bg-white overflow-hidden flex items-center justify-center ">
 
           {/* SNEAKER IMAGE - PROMINENT PRESENTATION */}
           <div className="relative w-full h-full flex items-center justify-center">

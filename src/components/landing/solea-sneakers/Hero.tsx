@@ -162,7 +162,7 @@ export default function Hero({ onOpenSearch }: HeroProps) {
 
   return (
     <section
-      className="relative bg-[#F8F8F6] pt-24 pb-16 lg:pt-32 lg:pb-20 overflow-hidden font-peyda border-b border-neutral-200"
+      className="relative bg-[#313131] pt-24 pb-16 lg:pt-32 lg:pb-20 overflow-hidden font-peyda border-b border-neutral-200"
       dir="rtl"
     >
       {/* BACKGROUND DECORATIVE WATERMARK */}
@@ -172,36 +172,13 @@ export default function Hero({ onOpenSearch }: HeroProps) {
         </span>
       </div>
 
-      {/* TOP META STRIP */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-8 w-full mb-6">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-neutral-200/80 pb-3">
-          <div className="flex items-center gap-2.5 text-xs font-mono font-bold uppercase tracking-wider text-black">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>ویترین جدیدترین اسنیکرهای اورجینال ۲۰۲۶</span>
-          </div>
 
-          <div className="flex items-center gap-6 text-xs text-neutral-500 font-medium">
-            <span className="hidden sm:inline-flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-black" />
-              تضـمین ۱۰۰٪ اصـالت
-            </span>
-            <span className="hidden md:inline-flex items-center gap-1.5">
-              <Truck className="w-4 h-4 text-black" />
-              ارسال سریع کشوری
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <RotateCcw className="w-4 h-4 text-black" />
-              ۷ روز ضمانت تعویض
-            </span>
-          </div>
-        </div>
-      </div>
 
       {/* MAIN HERO CENTERPIECE CONTAINER */}
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-8 w-full">
 
         {/* 2-COLUMN GRID CANVAS: RIGHT = PRODUCT INFO, LEFT = SHOE IMAGE SLIDER */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center rounded-3xl bg-white border border-neutral-200/90 p-6 sm:p-8 lg:p-10 shadow-xs">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center ">
 
           {/* RIGHT COLUMN (RTL): PRODUCT INFORMATION & ACTIONS (5 COLS) */}
           <div className="lg:col-span-5 flex flex-col justify-between text-right space-y-6">
@@ -219,18 +196,18 @@ export default function Hero({ onOpenSearch }: HeroProps) {
                 {/* BRAND BADGE & RATING */}
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
-                    <span className="px-3.5 py-1 bg-black text-white text-xs font-bold rounded-full uppercase tracking-wider shadow-2xs">
+                    <span className="px-3.5  text-white text-xs font-bold  uppercase tracking-wider shadow-2xs">
                       {currentProduct.brand}
                     </span>
                     {currentProduct.badge && (
-                      <span className="px-3 py-1 bg-amber-100 text-amber-900 border border-amber-200/80 text-xs font-semibold rounded-full flex items-center gap-1">
+                      <span className="px-3  text-amber-600  text-xs font-semibold rounded-full flex items-center gap-1">
                         <Sparkles className="w-3.5 h-3.5 text-amber-600" />
                         {currentProduct.badge}
                       </span>
                     )}
                   </div>
 
-                  <div className="flex items-center gap-1 text-amber-500 text-xs font-bold bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200/60">
+                  <div className="flex items-center gap-1 text-amber-500 text-xs font-bold px-2.5 py-1z">
                     <Star className="w-3.5 h-3.5 fill-current" />
                     <span>{currentProduct.rating}</span>
                     <span className="text-neutral-400 font-normal">({currentProduct.reviewCount})</span>
@@ -242,32 +219,19 @@ export default function Hero({ onOpenSearch }: HeroProps) {
                   <span className="text-xs font-bold text-neutral-400 uppercase tracking-widest block mb-1">
                     {currentProduct.gender === 'men' ? 'اسنیکر مردانه' : currentProduct.gender === 'women' ? 'اسنیکر زنانه' : 'اسنیکر یونیسکس'}
                   </span>
-                  <h1 className="text-3xl sm:text-4xl font-black text-black leading-tight tracking-tight mb-3">
+                  <h1 className="text-3xl sm:text-4xl font-black text-white leading-tight tracking-tight mb-3">
                     {currentProduct.name}
                   </h1>
-                  <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
+                  <p className="text-xs sm:text-sm text-white/70 leading-relaxed font-normal">
                     {currentProduct.description}
                   </p>
                 </div>
 
-                {/* SPECIFICATIONS BADGES */}
-                <div className="flex flex-wrap items-center gap-2 text-xs text-neutral-600">
-                  <span className="px-3 py-1.5 bg-neutral-100 rounded-lg font-medium">
-                    رویه: {currentProduct.specifications.upper}
-                  </span>
-                  {currentProduct.specifications.weight && (
-                    <span className="px-3 py-1.5 bg-neutral-100 rounded-lg font-mono font-medium">
-                      وزن: {currentProduct.specifications.weight}
-                    </span>
-                  )}
-                </div>
 
                 {/* COLOR VARIANTS SELECTOR */}
                 {currentProduct.colors.length > 0 && (
                   <div>
-                    <div className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2 flex items-center justify-between">
-                      <span>انتخاب رنگ: <strong className="text-black font-bold">{activeColor.name}</strong></span>
-                    </div>
+
                     <div className="flex items-center gap-2.5">
                       {currentProduct.colors.map((color, idx) => (
                         <button
@@ -293,9 +257,7 @@ export default function Hero({ onOpenSearch }: HeroProps) {
                 {/* SIZES SELECTOR */}
                 {currentProduct.sizes.length > 0 && (
                   <div>
-                    <div className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">
-                      انتخاب سایز: <strong className="text-black font-bold">{selectedSize}</strong>
-                    </div>
+
                     <div className="flex flex-wrap gap-2">
                       {currentProduct.sizes.map((sz) => (
                         <button
@@ -303,8 +265,8 @@ export default function Hero({ onOpenSearch }: HeroProps) {
                           onClick={() => setSelectedSize(sz)}
                           className={`px-3 py-1.5 text-xs font-mono font-bold rounded-lg transition-all ${
                             selectedSize === sz
-                              ? "bg-black text-white shadow-xs"
-                              : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200"
+                              ? "bg-white text-black shadow-xs"
+                              : " text-white/90 hover:bg-black"
                           }`}
                         >
                           {sz}
@@ -315,8 +277,8 @@ export default function Hero({ onOpenSearch }: HeroProps) {
                 )}
 
                 {/* PRICE BLOCK */}
-                <div className="pt-2 border-t border-neutral-100 flex items-baseline gap-3">
-                  <div className="text-2xl sm:text-3xl font-black text-black">
+                <div className="pt-2 flex items-baseline gap-3">
+                  <div className="text-2xl sm:text-3xl font-black text-white">
                     {formatPersianPrice(currentProduct.price)}
                   </div>
                   {currentProduct.compareAtPrice && (
@@ -340,7 +302,7 @@ export default function Hero({ onOpenSearch }: HeroProps) {
                     className={`col-span-8 py-4 px-5 rounded-2xl font-bold text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-2 shadow-xs active:scale-98 ${
                       isAddedToCart
                         ? "bg-emerald-600 text-white"
-                        : "bg-black hover:bg-neutral-800 text-white"
+                        : "bg-amber-600 hover:bg-neutral-800 text-black"
                     }`}
                   >
                     {isAddedToCart ? (
@@ -383,17 +345,8 @@ export default function Hero({ onOpenSearch }: HeroProps) {
           </div>
 
           {/* LEFT COLUMN (RTL): FULL HEIGHT CENTRALLY DISPLAYED SHOE SLIDER (7 COLS) */}
-          <div className="lg:col-span-7 relative flex flex-col items-center justify-between bg-neutral-50/70 border border-neutral-100 rounded-2xl p-6 lg:p-8 min-h-[440px] sm:min-h-[500px]">
+          <div className="lg:col-span-7 relative flex flex-col items-center justify-between min-h-[440px] sm:min-h-[500px]">
 
-            {/* SLIDE COUNTER HEADER */}
-            <div className="w-full flex items-center justify-between z-20 mb-2">
-              <div className="text-xs font-mono font-bold text-neutral-400 uppercase tracking-widest">
-                مدل ویژه ویترین
-              </div>
-              <div className="text-xs font-mono font-bold text-neutral-500">
-                <span className="text-black text-sm font-extrabold">0{productIndex + 1}</span> / 0{HERO_PRODUCTS.length}
-              </div>
-            </div>
 
             {/* CENTER DISPLAY AREA: NAVIGATION BUTTONS + CENTRALLY POSITIONED FULL HEIGHT SHOE */}
             <div className="relative w-full flex-1 flex items-center justify-center py-4 my-2 select-none">
@@ -401,7 +354,7 @@ export default function Hero({ onOpenSearch }: HeroProps) {
               {/* PREVIOUS SLIDE BUTTON (RIGHT ARROW IN RTL) */}
               <button
                 onClick={() => paginate(-1)}
-                className="absolute right-0 sm:right-2 z-30 w-12 h-12 rounded-full bg-white hover:bg-black text-black hover:text-white border border-neutral-200 hover:border-black transition-all duration-300 flex items-center justify-center shadow-xs hover:shadow-md hover:scale-105 active:scale-95 group"
+                className="absolute right-0 sm:right-2 z-30 w-12 h-12  transition-all border-0 text-white  duration-300 flex items-center justify-center shadow-xs hover:scale-105 active:scale-95 group"
                 aria-label="محصول قبلی"
               >
                 <ChevronRight className="w-6 h-6 transform group-hover:scale-110 transition-transform" />
@@ -410,7 +363,7 @@ export default function Hero({ onOpenSearch }: HeroProps) {
               {/* NEXT SLIDE BUTTON (LEFT ARROW IN RTL) */}
               <button
                 onClick={() => paginate(1)}
-                className="absolute left-0 sm:left-2 z-30 w-12 h-12 rounded-full bg-white hover:bg-black text-black hover:text-white border border-neutral-200 hover:border-black transition-all duration-300 flex items-center justify-center shadow-xs hover:shadow-md hover:scale-105 active:scale-95 group"
+                className="absolute left-0 sm:left-2 z-30 w-12 h-12 border-0 text-white duration-300 flex items-center justify-center shadow-xs  hover:scale-105 active:scale-95 group"
                 aria-label="محصول بعدی"
               >
                 <ChevronLeft className="w-6 h-6 transform group-hover:scale-110 transition-transform" />
@@ -462,7 +415,7 @@ export default function Hero({ onOpenSearch }: HeroProps) {
                         fill
                         priority
                         sizes="(max-width: 768px) 90vw, 50vw"
-                        className="object-contain p-2 pointer-events-none mix-blend-multiply"
+                        className="object-cover p-2 pointer-events-none mix-blend-multiply"
                       />
                     </motion.div>
                   </motion.div>
@@ -480,7 +433,7 @@ export default function Hero({ onOpenSearch }: HeroProps) {
                   onClick={() => handleSelectProduct(idx)}
                   className={`transition-all duration-300 rounded-full ${
                     idx === productIndex
-                      ? "w-8 h-2.5 bg-black"
+                      ? "w-8 h-2.5 bg-amber-600"
                       : "w-2.5 h-2.5 bg-neutral-300 hover:bg-neutral-500"
                   }`}
                   aria-label={`اسلاید ${idx + 1}`}

@@ -64,7 +64,7 @@ export const SOLEA_CATEGORIES: SneakerCategory[] = [
     titlePersian: 'دویدن و رانینگ',
     titleEnglish: 'RUNNING',
     descriptionPersian: 'طراحی شده برای حداکثر بازگشت انرژی، سبکی بی‌نظیر و حفاظت از مفاصل در مسافت‌های طولانی.',
-    image: '/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_standard.png',
+    image: '/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KZ9157_00_plp_standard.png',
     count: 24,
   },
   {
@@ -72,7 +72,7 @@ export const SOLEA_CATEGORIES: SneakerCategory[] = [
     titlePersian: 'لایف‌استایل و شهری',
     titleEnglish: 'LIFESTYLE',
     descriptionPersian: 'تلفیقی از اصالت استریت‌ویر و راحتی تمام‌روز برای استایل‌های مدرن و روزمره.',
-    image: '/images/landings/solea-sneakers/Handball_Spezial_Schoenen_Blauw_BD7633_00_plp_standard.png',
+    image: '/images/landings/solea-sneakers/Campus_00s_Schoenen_Groen_H03472_00_plp_standard.png',
     count: 38,
   },
   {
@@ -105,7 +105,7 @@ export const SOLEA_PRODUCTS: SneakerProduct[] = [
     compareAtPrice: 24500000,
     discountPercentage: 18,
     colors: [
-      { name: 'خاکستری مدرن', hex: '#6B6B68', image: '/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KZ9157_00_plp_standard.png' },
+      { name: 'خاکستری مدرن', hex: '#6B6B68', image: '/images/landings/solea-sneakers/hero-2.png' },
       { name: 'دودی اسپرت', hex: '#3A3A37', image: '/images/landings/solea-sneakers/OZWEEGO_Schoenen_Grijs_EE6461_00_plp_standard.png' },
     ],
     sizes: ['38', '39', '40', '41', '42', '43', '44'],
@@ -138,7 +138,7 @@ export const SOLEA_PRODUCTS: SneakerProduct[] = [
     compareAtPrice: 17200000,
     discountPercentage: 14,
     colors: [
-      { name: 'قهوه‌ای چرمی / استخوانی', hex: '#4A3B32', image: '/images/landings/solea-sneakers/Samba_OG_Schoenen_Bruin_ID1481_00_plp_standard.png' },
+      { name: 'قهوه‌ای چرمی / استخوانی', hex: '#4A3B32', image: '/images/landings/solea-sneakers/hero-1.png' },
       { name: 'سفید کلاسیک', hex: '#FAFAF7', image: '/images/landings/solea-sneakers/Samba_LT_Schoenen_Wit_JS3931_00_plp_standard.png' },
     ],
     sizes: ['37', '38', '39', '40', '41', '42', '43'],
@@ -169,7 +169,7 @@ export const SOLEA_PRODUCTS: SneakerProduct[] = [
     gender: 'unisex',
     price: 16800000,
     colors: [
-      { name: 'آبی رویال', hex: '#1C3B6E', image: '/images/landings/solea-sneakers/Handball_Spezial_Schoenen_Blauw_BD7633_00_plp_standard.png' },
+      { name: 'آبی رویال', hex: '#1C3B6E', image: '/images/landings/solea-sneakers/hero-3.png' },
       { name: 'قهوه‌ای جیر', hex: '#5C4033', image: '/images/landings/solea-sneakers/HANDBALL_SPEZIAL_SCHOENEN_Bruin_KI2971_00_plp_standard.png' },
     ],
     sizes: ['39', '40', '41', '42', '43', '44'],
@@ -202,7 +202,7 @@ export const SOLEA_PRODUCTS: SneakerProduct[] = [
     compareAtPrice: 25500000,
     discountPercentage: 10,
     colors: [
-      { name: 'خاکستری متالیک', hex: '#8C8C84', image: '/images/landings/solea-sneakers/OZWEEGO_Schoenen_Grijs_EE6461_00_plp_standard.png' },
+      { name: 'خاکستری متالیک', hex: '#8C8C84', image: '/images/landings/solea-sneakers/hero-5.png' },
     ],
     sizes: ['40', '41', '42', '43', '44', '45'],
     images: [
@@ -231,7 +231,7 @@ export const SOLEA_PRODUCTS: SneakerProduct[] = [
     gender: 'men',
     price: 15500000,
     colors: [
-      { name: 'سفید استخوانی / مشکی', hex: '#FAFAF7', image: '/images/landings/solea-sneakers/HOOPS_CLASSIC_Schoenen_Wit_KI1061_00_plp_standard.png' },
+      { name: 'سفید استخوانی / مشکی', hex: '#FAFAF7', image: '/images/landings/solea-sneakers/hero-6.png' },
     ],
     sizes: ['41', '42', '43', '44', '45', '46'],
     images: [
@@ -262,7 +262,7 @@ export const SOLEA_PRODUCTS: SneakerProduct[] = [
     compareAtPrice: 19500000,
     discountPercentage: 8,
     colors: [
-      { name: 'سفید خالص', hex: '#FAFAF7', image: '/images/landings/solea-sneakers/BW_ARMY_SCHOENEN_Wit_KK2801_00_plp_standard.png' },
+      { name: 'سفید خالص', hex: '#FAFAF7', image: '/images/landings/solea-sneakers/hero-1.png' },
       { name: 'مشکی مات', hex: '#111111', image: '/images/landings/solea-sneakers/BW_ARMY_SCHOENEN_Zwart_KK2802_00_plp_standard.png' },
     ],
     sizes: ['38', '39', '40', '41', '42', '43'],

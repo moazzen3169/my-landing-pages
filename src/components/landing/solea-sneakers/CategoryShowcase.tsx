@@ -19,22 +19,10 @@ export default function CategoryShowcase({ onSelectCategory }: CategoryShowcaseP
   };
 
   return (
-    <section id="categories" className="relative py-28 lg:py-40 bg-white border-b border-neutral-200 font-peyda overflow-hidden" dir="rtl">
+    <section id="categories" className="relative py-4 bg-white border-b border-neutral-200 font-peyda overflow-hidden" dir="rtl">
       <div className="relative z-10 max-w-[1500px] mx-auto px-6 sm:px-10 md:px-16">
 
-        {/* SECTION HEADER */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-12 border-b border-neutral-200 mb-14">
-          <div>
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-widest text-neutral-500 mb-3">
-              <span className="w-2 h-2 rounded-full bg-black"></span>
-              CATEGORIES
-            </div>
-            <h2 className="text-3xl sm:text-3xl lg:text-6xl font-black text-black tracking-tight">
-              دسته‌بندی‌های ورزشی و اسپورت
-            </h2>
-          </div>
 
-        </div>
 
         {/* CATEGORY GRID WITH WHITE CARDS & ENLARGED SHOE IMAGES */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

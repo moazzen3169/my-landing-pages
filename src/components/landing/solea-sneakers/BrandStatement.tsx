@@ -5,7 +5,7 @@ import { ShieldCheck, Activity, Award } from 'lucide-react';
 
 export default function BrandStatement() {
   return (
-    <section className="relative bg-white py-28 lg:py-40 border-b border-neutral-200 font-peyda" dir="rtl">
+    <section className="relative bg-white py-28 lg:py-40 font-peyda" dir="rtl">
       <div className="relative z-10 max-w-[1500px] mx-auto px-6 sm:px-10 md:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
@@ -19,7 +19,7 @@ export default function BrandStatement() {
             <h2 className="text-3xl sm:text-5xl xl:text-6xl font-black text-black leading-[1.12] tracking-tight mb-6">
               انتخاب تخصصی بهترین
               <br />
-              <span className="text-neutral-400">کفش‌های اسپورت و ورزشی</span>
+              <span className="text-amber-600/50">کفش‌های اسپورت و ورزشی</span>
             </h2>
 
             <p className="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl font-normal mb-8">
@@ -61,23 +61,23 @@ export default function BrandStatement() {
 
           {/* LEFT COLUMN (RTL): CLEAN HIGHLIGHT BOX (5 COLS) */}
           <div className="lg:col-span-5 bg-[#F8F8F6] border border-neutral-200 p-8 sm:p-10 rounded-2xl shadow-2xs">
-            <div className="space-y-8 divide-y divide-neutral-200">
+            <div className="space-y-8 ">
               <div className="pt-0">
-                <div className="text-2xl font-bold text-black mb-2">تست و تعویض ۷ روزه سایز</div>
+                <div className="text-xl font-bold text-black mb-2">تست و تعویض ۷ روزه سایز</div>
                 <div className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
                   در صورت عدم تناسب سایز، امکان تعویض سریع بدون هزینه‌های اضافی فراهم است.
                 </div>
               </div>
 
               <div className="pt-6">
-                <div className="text-2xl font-bold text-black mb-2">ارسال سریع و رایگان</div>
+                <div className="text-xl font-bold text-black mb-2">ارسال سریع و رایگان</div>
                 <div className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
                   تحویل اکسپرس سفارش‌ها با بسته‌بندی ویژه محافظ کفش.
                 </div>
               </div>
 
               <div className="pt-6">
-                <div className="text-2xl font-bold text-black mb-2">مشاوره تخصصی انتخاب کتانی</div>
+                <div className="text-xl font-bold text-black mb-2">مشاوره تخصصی انتخاب کتانی</div>
                 <div className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
                   راهنمایی کارشناسان ورزشی برای انتخاب بهترین کفش متناسب با نوع فعالیت شما.
                 </div>

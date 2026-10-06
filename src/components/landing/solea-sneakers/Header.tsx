@@ -50,7 +50,7 @@ export default function Header({
   return (
     <div className="fixed top-0 left-0 right-0 z-50 font-peyda" dir="rtl">
       {/* 01 — TOP PROMO BAR */}
-      <div className="bg-[#0A0A0A] text-[#F3F3F1] h-9 flex items-center justify-center px-4 text-[11px] sm:text-xs font-medium tracking-normal border-b border-[#222222]">
+      <div className="bg-amber-600 text-[#F3F3F1] h-9 flex items-center justify-center px-4 text-[11px] sm:text-xs font-medium tracking-normal ">
         <div className="flex items-center gap-3">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
           <span>ارسال رایگان برای سفارش‌های بالای ۲۰ میلیون تومان</span>
@@ -61,10 +61,10 @@ export default function Header({
 
       {/* 02 — MAIN NAVIGATION */}
       <header
-        className={`transition-all duration-300 border-b ${
+        className={`transition-all duration-300  ${
           isScrolled
-            ? 'bg-[#F3F3F1]/90 backdrop-blur-md border-[#D9D9D5] py-3 shadow-xs'
-            : 'bg-[#F3F3F1]/60 backdrop-blur-xs border-transparent py-4'
+            ? 'bg-[#F3F3F1]/100  py-3 '
+            : 'bg-[#F3F3F1]/100  py-4'
         }`}
       >
         <div className="max-w-[1500px] mx-auto px-5 sm:px-8 md:px-12 flex items-center justify-between gap-6">
@@ -78,9 +78,7 @@ export default function Header({
               <span className="text-2xl sm:text-3xl font-black tracking-tight text-[var(--landing-primary,#0A0A0A)] uppercase font-peyda group-hover:opacity-75 transition-opacity">
                 {storeName}
               </span>
-              <span className="text-[10px] font-semibold tracking-widest text-[#6B6B68] uppercase hidden sm:inline-block border-r border-[#D9D9D5] pr-2.5">
-                EDITORIAL SNEAKERS
-              </span>
+
             </Link>
           </div>
 
@@ -127,13 +125,13 @@ export default function Header({
             {/* CART BUTTON */}
             <button
               onClick={onOpenCart}
-              className="relative flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--landing-primary,#0A0A0A)] text-[#F3F3F1] hover:opacity-90 transition-colors text-xs font-medium border border-[#0A0A0A]"
+              className="relative flex items-center gap-2 px-4 py-3 rounded-full bg-[var(--landing-primary,#0A0A0A)] text-[#F3F3F1] hover:opacity-90 transition-colors text-xs font-medium b"
               aria-label="سبد خرید"
             >
               <ShoppingBag className="w-3.5 h-3.5 shrink-0" />
               <span>سبد خرید</span>
               {totalItems > 0 && (
-                <span className="mr-1 px-1.5 py-0.2 bg-[#F3F3F1] text-[#0A0A0A] text-[10px] font-bold rounded-full">
+                <span className="mr-1 px-1.5 py-0.2  text-[#fff] text-[10px] font-bold rounded-full">
                   {totalItems}
                 </span>
               )}
