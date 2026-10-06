@@ -6,9 +6,10 @@ import { ArrowLeft, Send, Globe, MessageCircle, Ruler } from 'lucide-react';
 
 interface FooterProps {
   onOpenSizeGuide?: () => void;
+  storeName?: string;
 }
 
-export default function Footer({ onOpenSizeGuide }: FooterProps) {
+export default function Footer({ onOpenSizeGuide, storeName = 'دپیکس' }: FooterProps) {
   return (
     <footer className="bg-[#0A0A0A] text-[#F3F3F1] pt-20 pb-12 font-peyda text-right border-t border-[#222222]" dir="rtl">
       <div className="max-w-[1500px] mx-auto px-5 sm:px-8 md:px-12">
@@ -19,8 +20,8 @@ export default function Footer({ onOpenSizeGuide }: FooterProps) {
           {/* BRAND DESCRIPTION */}
           <div className="lg:col-span-4 space-y-5">
             <Link href="/shop/solea-sneakers" className="inline-block">
-              <span className="text-3xl font-black font-peyda tracking-tight text-[#F3F3F1] uppercase">
-                SOLEA
+              <span className="text-3xl font-black font-peyda tracking-tight text-[var(--landing-primary,#F3F3F1)] uppercase">
+                {storeName}
               </span>
               <span className="block text-[10px] font-mono tracking-widest text-[#6B6B68] uppercase mt-1">
                 EDITORIAL SNEAKERS & ATHLETICS
@@ -62,7 +63,7 @@ export default function Footer({ onOpenSizeGuide }: FooterProps) {
             {/* COL 1: SHOP */}
             <div>
               <h4 className="text-xs font-mono font-bold text-[#6B6B68] uppercase tracking-wider mb-4">
-                فروشگاه SOLEA
+                فروشگاه {storeName}
               </h4>
               <ul className="space-y-3 text-[#D9D9D5] font-normal">
                 <li><a href="#products" className="hover:text-[#F3F3F1] transition-colors">همه اسنیکرها</a></li>
@@ -102,7 +103,7 @@ export default function Footer({ onOpenSizeGuide }: FooterProps) {
             {/* COL 3: ABOUT */}
             <div>
               <h4 className="text-xs font-mono font-bold text-[#6B6B68] uppercase tracking-wider mb-4">
-                درباره سولئا
+                درباره {storeName}
               </h4>
               <ul className="space-y-3 text-[#D9D9D5] font-normal">
                 <li><a href="#" className="hover:text-[#F3F3F1] transition-colors">فلسفه و داستان برند</a></li>
@@ -132,7 +133,7 @@ export default function Footer({ onOpenSizeGuide }: FooterProps) {
         {/* BOTTOM COPYRIGHT */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#6B6B68]">
           <div>
-            © ۲۰۲۶ تمامی حقوق متعلق به بوتیک تخصصی اسنیکر SOLEA می‌باشد.
+            © ۲۰۲۶ تمامی حقوق متعلق به بوتیک تخصصی اسنیکر {storeName} می‌باشد.
           </div>
 
           <div className="flex items-center gap-6">

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import Header from '@/components/landing/persian-luxury/Header';
 import HeroSection from '@/components/landing/persian-luxury/HeroSection';
 import NewArrivals from '@/components/landing/persian-luxury/NewArrivals';
@@ -23,8 +23,11 @@ import CartDrawer, { CartItem } from '@/components/landing/persian-luxury/CartDr
 import WishlistModal from '@/components/landing/persian-luxury/WishlistModal';
 
 import { LUXURY_PRODUCTS, LuxuryProduct } from '@/data/persian-luxury-women';
+import { useStore } from '@/hooks/useStore';
 
-export default function PersianLuxuryWomenPage() {
+function PersianLuxuryContent() {
+  const { storeName, theme } = useStore('persian-luxury-v1');
+
   // STATE MANAGEMENT
   const [quickViewProduct, setQuickViewProduct] = useState<LuxuryProduct | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -105,6 +108,10 @@ export default function PersianLuxuryWomenPage() {
       className="min-h-screen bg-[#FFFFFF] text-[#111111] font-peyda selection:bg-[#000000] selection:text-white dir-rtl"
       dir="rtl"
       lang="fa"
+      style={{
+        '--landing-primary': theme.primary,
+        '--landing-secondary': theme.secondary || theme.primary,
+      } as React.CSSProperties}
     >
       {/* 01 STICKY HEADER */}
       <Header
@@ -114,6 +121,7 @@ export default function PersianLuxuryWomenPage() {
         onOpenCart={() => setIsCartOpen(true)}
         onOpenWishlist={() => setIsWishlistOpen(true)}
         onOpenMobileMenu={() => setIsSearchOpen(true)}
+        storeName={storeName}
       />
 
       {/* MAIN STOREFRONT BODY */}
@@ -184,7 +192,7 @@ export default function PersianLuxuryWomenPage() {
       </main>
 
       {/* 15 FOOTER */}
-      <Footer />
+      <Footer storeName={storeName} />
 
       {/* 16 MOBILE BOTTOM STICKY NAVIGATION */}
       <MobileBottomNav
@@ -227,5 +235,13 @@ export default function PersianLuxuryWomenPage() {
         onQuickView={(p) => setQuickViewProduct(p)}
       />
     </div>
+  );
+}
+
+export default function PersianLuxuryWomenPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-white" />}>
+      <PersianLuxuryContent />
+    </Suspense>
   );
 }

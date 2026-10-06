@@ -2,7 +2,11 @@
 
 import React from 'react';
 
-export default function GravityFooter() {
+interface GravityFooterProps {
+  storeName?: string;
+}
+
+export default function GravityFooter({ storeName = 'دپیکس' }: GravityFooterProps) {
   return (
     <footer id="footer" className="bg-[#111111] text-[#AAAAAA] font-peyda pt-16 pb-12 border-t border-[#222222]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,17 +15,17 @@ export default function GravityFooter() {
           <div className="lg:col-span-2 space-y-4">
             <a href="#" className="inline-block">
               <span className="text-2xl font-black text-white tracking-widest uppercase font-sans block">
-                GRAVITY
+                {storeName}
               </span>
               <span className="text-xs text-[#888888] font-bold block mt-0.5">
-                گراویتی • فروشگاه منتخب پوشاک مردانه
+                {storeName} • فروشگاه منتخب پوشاک مردانه
               </span>
             </a>
             <p className="text-xs text-[#888888] leading-relaxed max-w-sm">
-              گراویتی مرجع تخصصی پوشاک مردانه با انتخاب دقیق از برترین برندهای ایرانی و بین‌المللی. ارائه محصولات باکیفیت برای استایل‌های رسمی، نیمه‌رسمی و روزمره همراه با ارسال به سراسر ایران.
+              {storeName} مرجع تخصصی پوشاک مردانه با انتخاب دقیق از برترین برندهای ایرانی و بین‌المللی. ارائه محصولات باکیفیت برای استایل‌های رسمی، نیمه‌رسمی و روزمره همراه با ارسال به سراسر ایران.
             </p>
             <div className="text-xs text-[#777777] space-y-1 pt-2">
-              <p>دفتر و فروشگاه مرکزی: تبریز، [خیابان امام، برج تجاری / فروشگاه گراویتی]</p>
+              <p>دفتر و فروشگاه مرکزی: تبریز، [خیابان امام، برج تجاری / فروشگاه {storeName}]</p>
               <p>پشتیبانی مشتریان: [شماره تماس فروشگاه: ۰۴۱-XXXXXXXX]</p>
             </div>
           </div>
@@ -115,7 +119,7 @@ export default function GravityFooter() {
 
         {/* Copyright & Sub-footer */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#666666] gap-4">
-          <p>© ۲۰۲۶ GRAVITY / گراویتی. تمامی حقوق برای فروشگاه گراویتی محفوظ است.</p>
+          <p>© ۲۰۲۶ {storeName}. تمامی حقوق برای فروشگاه {storeName} محفوظ است.</p>
           <div className="flex items-center gap-4 text-[11px]">
             <a href="#" className="hover:text-[#AAAAAA]">حریم خصوصی</a>
             <span>•</span>

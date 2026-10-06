@@ -11,6 +11,7 @@ interface HeaderProps {
   onOpenCart: () => void;
   onOpenWishlist: () => void;
   onOpenMobileMenu: () => void;
+  storeName?: string;
 }
 
 export default function Header({
@@ -20,6 +21,7 @@ export default function Header({
   onOpenCart,
   onOpenWishlist,
   onOpenMobileMenu,
+  storeName = 'دپیکس',
 }: HeaderProps) {
   const [isScrolledPastHero, setIsScrolledPastHero] = useState(false);
 
@@ -59,8 +61,8 @@ export default function Header({
         {/* LOGO */}
         <div className="flex items-center gap-6">
           <Link href="/shop/persian-luxury-v1" className="group text-start flex flex-col">
-            <span className="min-w-[300px] text-2xl sm:text-3xl font-light tracking-widest text-[#000000] font-serif uppercase transition-colors">
-              MOR'E
+            <span className="min-w-[300px] text-2xl sm:text-3xl font-light tracking-widest text-[var(--landing-primary,#000000)] font-serif uppercase transition-colors">
+              {storeName}
             </span>
             <span className="text-[9px] text-[#666666] tracking-[0.2em] uppercase font-sans font-normal -mt-1">
               HAUTE COUTURE
@@ -100,7 +102,7 @@ export default function Header({
             <Heart className="w-4 h-4 stroke-[1.25]" />
             <span className="hidden sm:inline">علاقه‌مندی‌ها</span>
             {wishlistCount > 0 && (
-              <span className="w-4 h-4 bg-[#000000] text-white text-[9px] font-normal flex items-center justify-center">
+              <span className="w-4 h-4 bg-[var(--landing-primary,#000000)] text-white text-[9px] font-normal flex items-center justify-center">
                 {wishlistCount}
               </span>
             )}
@@ -114,7 +116,7 @@ export default function Header({
             <ShoppingBag className="w-4 h-4 stroke-[1.25]" />
             <span className="hidden sm:inline">سبد</span>
             {cartCount > 0 && (
-              <span className="w-4 h-4 bg-[#000000] text-white text-[9px] font-normal flex items-center justify-center">
+              <span className="w-4 h-4 bg-[var(--landing-primary,#000000)] text-white text-[9px] font-normal flex items-center justify-center">
                 {cartCount}
               </span>
             )}

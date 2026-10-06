@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import Header from '@/components/landing/man-sport/Header';
 import Hero from '@/components/landing/man-sport/Hero';
 import QuickCategories from '@/components/landing/man-sport/QuickCategories';
@@ -18,13 +18,16 @@ import CartDrawer from '@/components/landing/man-sport/CartDrawer';
 import MobileDrawer from '@/components/landing/man-sport/MobileDrawer';
 
 import { MAN_SPORT_PRODUCTS, ManSportProduct } from '@/data/man-sport';
+import { useStore } from '@/hooks/useStore';
 
 interface CartItem {
   product: ManSportProduct;
   quantity: number;
 }
 
-export default function ManSportLandingPage() {
+function ManSportContent() {
+  const { storeName, theme } = useStore('man-sport');
+
   // OVERLAY & MODAL STATES
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -68,7 +71,13 @@ export default function ManSportLandingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F3EE] text-[#111111] font-peyda antialiased selection:bg-[#111111] selection:text-[#E04A24]" dir="rtl">
+    <div
+      className="min-h-screen bg-[#F5F3EE] text-[#111111] font-peyda antialiased selection:bg-[#111111] selection:text-[#E04A24]"
+      dir="rtl"
+      style={{
+        '--landing-primary': theme.primary,
+      } as React.CSSProperties}
+    >
 
       {/* FLOATING GLASS HEADER */}
       <Header
@@ -77,6 +86,7 @@ export default function ManSportLandingPage() {
         onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
         cartCount={cartItems.reduce((sum, item) => sum + item.quantity, 0)}
         wishlistCount={3}
+        storeName={storeName}
       />
 
       {/* MAIN LANDING FLOW */}
@@ -88,7 +98,7 @@ export default function ManSportLandingPage() {
         <QuickCategories />
 
         {/* 03: SIGNATURE SCROLL EXPERIENCE (BUILD YOUR FIT) */}
-        <BuildYourFit onAddToCart={(fitItem) => setIsCartOpen(true)} />
+        <BuildYourFit onAddToCart={() => setIsCartOpen(true)} />
 
         {/* 04: NEW ARRIVALS & PRODUCT GRID */}
         <ProductGrid
@@ -110,7 +120,7 @@ export default function ManSportLandingPage() {
       </main>
 
       {/* FOOTER */}
-      <Footer />
+      <Footer storeName={storeName} />
 
       {/* INTERACTIVE MODALS & DRAWERS */}
       <SearchOverlay
@@ -141,5 +151,13 @@ export default function ManSportLandingPage() {
       />
 
     </div>
+  );
+}
+
+export default function ManSportLandingPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#F5F3EE]" />}>
+      <ManSportContent />
+    </Suspense>
   );
 }

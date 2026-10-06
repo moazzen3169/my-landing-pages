@@ -10,6 +10,7 @@ interface HeaderProps {
   onOpenCart: () => void;
   onOpenWishlist: () => void;
   onSelectCategory?: (category: string) => void;
+  storeName?: string;
 }
 
 export default function Header({
@@ -19,6 +20,7 @@ export default function Header({
   onOpenCart,
   onOpenWishlist,
   onSelectCategory,
+  storeName = 'دپیکس',
 }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -69,7 +71,7 @@ export default function Header({
       >
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between">
 
-          {/* RIGHT SIDE: BRAND LOGO (in RTL, Right side is visual start or logo) */}
+          {/* RIGHT SIDE: BRAND LOGO */}
           <div className="flex items-center gap-6">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -83,10 +85,9 @@ export default function Header({
               href="#"
               className="group flex items-center gap-2 text-right"
             >
-              <span className="font-serif tracking-widest text-xl sm:text-2xl font-bold uppercase">
-                NOIRÉ
+              <span className="font-serif tracking-widest text-xl sm:text-2xl font-bold uppercase text-[var(--landing-primary,#111111)] sm:text-current">
+                {storeName}
               </span>
-
             </a>
           </div>
 
@@ -102,7 +103,7 @@ export default function Header({
               >
                 {link.label}
                 <span className={`absolute bottom-0 left-0 right-0 h-[1.5px] scale-x-0 group-hover:scale-x-100 transition-transform origin-right duration-200 ${
-                  isScrolled ? 'bg-[#111111]' : 'bg-white'
+                  isScrolled ? 'bg-[var(--landing-primary,#111111)]' : 'bg-white'
                 }`} />
               </button>
             ))}
@@ -126,7 +127,7 @@ export default function Header({
             >
               <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
               {wishlistCount > 0 && (
-                <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#111111] text-white text-[9px] font-bold rounded-full flex items-center justify-center border border-white">
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-[var(--landing-primary,#111111)] text-white text-[9px] font-bold rounded-full flex items-center justify-center border border-white">
                   {wishlistCount}
                 </span>
               )}
@@ -136,7 +137,7 @@ export default function Header({
               onClick={onOpenCart}
               className={`p-2 px-3.5 rounded-full transition-all flex items-center gap-2 text-xs font-medium ${
                 isScrolled
-                  ? 'bg-[#111111] text-white hover:bg-black'
+                  ? 'bg-[var(--landing-primary,#111111)] text-white hover:opacity-90'
                   : 'bg-white text-[#111111] hover:bg-neutral-100'
               }`}
               aria-label="Cart"
@@ -144,7 +145,7 @@ export default function Header({
               <ShoppingBag className="w-4 h-4" />
               <span className="hidden sm:inline">سبد خرید</span>
               {cartCount > 0 && (
-                <span className="px-1.5 py-0 text-[10px]  text-[#111111]  font-bold">
+                <span className="px-1.5 py-0 text-[10px] text-[#111111] font-bold">
                   {cartCount}
                 </span>
               )}
@@ -162,7 +163,7 @@ export default function Header({
           >
             <div>
               <div className="flex items-center justify-between pb-6 border-b border-[#E5E5E5] mb-6">
-                <span className="font-serif tracking-widest text-lg font-bold">NOIRÉ WOMAN</span>
+                <span className="font-serif tracking-widest text-lg font-bold">{storeName}</span>
                 <button onClick={() => setIsMobileMenuOpen(false)} className="p-2">
                   <X className="w-5 h-5" />
                 </button>
@@ -190,7 +191,7 @@ export default function Header({
                 <Search className="w-4 h-4" />
               </button>
               <p className="text-[10px] text-[#6B6B6B] text-center pt-2">
-                © 2026 NOIRÉ. کلیه حقوق محفوظ است.
+                © 2026 {storeName}. کلیه حقوق محفوظ است.
               </p>
             </div>
           </div>

@@ -3,7 +3,11 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Send, PhoneCall, ShieldCheck, Share2 } from 'lucide-react';
 
-export default function Footer() {
+interface FooterProps {
+  storeName?: string;
+}
+
+export default function Footer({ storeName = 'دپیکس' }: FooterProps) {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
@@ -25,10 +29,10 @@ export default function Footer() {
           {/* BRAND COLUMN */}
           <div className="md:col-span-5 space-y-4 text-right">
             <span className="font-serif tracking-widest text-2xl font-bold uppercase block">
-              NOIRÉ WOMAN
+              {storeName}
             </span>
             <p className="text-xs text-white/60 leading-relaxed max-w-sm">
-              خانه مد نوآر؛ ارائه‌دهنده پوشاک فاخر و مینیمال زنانه با تمرکز بر اصالت پارچه، دقت خیاطی سفارشی و تجربه خرید متمایز دیجیتال.
+              خانه مد {storeName}؛ ارائه‌دهنده پوشاک فاخر و مینیمال زنانه با تمرکز بر اصالت پارچه، دقت خیاطی سفارشی و تجربه خرید متمایز دیجیتال.
             </p>
             <div className="flex items-center gap-4 pt-2">
               <a href="#" className="p-2 bg-white/5 hover:bg-white/20 transition-colors" aria-label="Social Link">
@@ -102,7 +106,7 @@ export default function Footer() {
           </div>
 
           <p className="text-center sm:text-left text-[11px]">
-            © 2026 NOIRÉ WOMAN. تمامی حقوق محفوظ است.
+            © 2026 {storeName}. تمامی حقوق محفوظ است.
           </p>
         </div>
       </div>

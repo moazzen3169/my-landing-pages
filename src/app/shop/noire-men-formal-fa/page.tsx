@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import GravityHeader from '@/components/gravity/GravityHeader';
 import GravityHero from '@/components/gravity/GravityHero';
 import GravityCategories from '@/components/gravity/GravityCategories';
@@ -18,8 +18,11 @@ import GravityCartDrawer, { CartItem } from '@/components/gravity/GravityCartDra
 import GravitySearchOverlay from '@/components/gravity/GravitySearchOverlay';
 import GravityQuickViewModal from '@/components/gravity/GravityQuickViewModal';
 import { GravityProduct } from '@/data/gravity-data';
+import { useStore } from '@/hooks/useStore';
 
-export default function GravityLandingPage() {
+function GravityContent() {
+  const { storeName, theme } = useStore('noire-men-formal-fa');
+
   // State management
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -82,7 +85,13 @@ export default function GravityLandingPage() {
   const totalCartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F3F2EE] text-[#111111] font-peyda dir-rtl selection:bg-[#111111] selection:text-white" dir="rtl">
+    <div
+      className="min-h-screen flex flex-col bg-[#F3F2EE] text-[#111111] font-peyda dir-rtl selection:bg-[#111111] selection:text-white"
+      dir="rtl"
+      style={{
+        '--landing-primary': theme.primary,
+      } as React.CSSProperties}
+    >
       {/* 01 HEADER */}
       <GravityHeader
         onOpenSearch={() => setIsSearchOpen(true)}
@@ -90,6 +99,7 @@ export default function GravityLandingPage() {
         onOpenWishlist={() => alert(`تعداد کالاها در لیست علاقه‌مندی‌ها: ${wishlistIds.length}`)}
         cartCount={totalCartCount}
         wishlistCount={wishlistIds.length}
+        storeName={storeName}
       />
 
       <main className="flex-grow">
@@ -130,7 +140,7 @@ export default function GravityLandingPage() {
       </main>
 
       {/* 12 FOOTER */}
-      <GravityFooter />
+      <GravityFooter storeName={storeName} />
 
       {/* DRAWERS & OVERLAYS */}
       <GravityCartDrawer
@@ -155,5 +165,13 @@ export default function GravityLandingPage() {
         isWishlisted={quickViewProduct ? wishlistIds.includes(quickViewProduct.id) : false}
       />
     </div>
+  );
+}
+
+export default function GravityLandingPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#F3F2EE]" />}>
+      <GravityContent />
+    </Suspense>
   );
 }

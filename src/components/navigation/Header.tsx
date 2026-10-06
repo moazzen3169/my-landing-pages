@@ -11,12 +11,14 @@ interface HeaderProps {
   onOpenSearch?: () => void;
   isDarkBackground?: boolean;
   isPersian?: boolean;
+  storeName?: string;
 }
 
 export default function Header({
   onOpenSearch,
   isDarkBackground = false,
   isPersian = false,
+  storeName,
 }: HeaderProps) {
   const { setIsCartOpen, totalItems } = useCart();
   const { wishlistCount } = useWishlist();
@@ -57,6 +59,8 @@ export default function Header({
     : isHeaderDarkTheme
     ? 'bg-transparent text-[#F3F2EE]'
     : 'bg-transparent text-[#111111]';
+
+  const brandText = storeName || 'NOIRÉ';
 
   return (
     <>
@@ -103,8 +107,8 @@ export default function Header({
           {/* CENTER: Brand Logo */}
           <div className="absolute left-1/2 -translate-x-1/2">
             <Link href="/" className="group flex flex-col items-center">
-              <span className="text-2xl sm:text-3xl font-light tracking-[0.3em] font-display">
-                NOIRÉ
+              <span className="text-2xl sm:text-3xl font-light tracking-[0.3em] font-display text-[var(--landing-primary,inherit)]">
+                {brandText}
               </span>
               <span className="text-[8px] tracking-[0.35em] text-[#77746E] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 -mt-0.5">
                 PARIS
