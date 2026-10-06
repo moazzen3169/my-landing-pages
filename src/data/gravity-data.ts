@@ -365,7 +365,7 @@ export const GRAVITY_STYLES: GravityStyle[] = [
 export const GRAVITY_COMPLETE_LOOK: GravityLook = {
   id: 'look-01',
   titleFa: 'استایل پیشنهادی فصل: جنتلمن معاصر',
-  subtitleFa: 'ترکیبی متوازن از کت تک سرمه‌ای، پیراهن آکسفورد و اکسسوری ابریشمی.',
+  subtitleFa: ' ',
   mainImage: '/images/gravity/for-hero-section-1.png',
   items: [
     {

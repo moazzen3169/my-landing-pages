@@ -46,9 +46,7 @@ export default function GravityNewArrivals({
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#111111] mb-1">
               تازه‌های گراویتی
             </h2>
-            <p className="text-sm text-[#666666] font-medium">
-              انتخاب‌های جدید این هفته از برندهای برتر پوشاک مردانه
-            </p>
+
           </div>
 
           {/* Filter Tabs */}

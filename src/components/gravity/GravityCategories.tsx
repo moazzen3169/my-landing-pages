@@ -29,7 +29,7 @@ export default function GravityCategories() {
               key={cat.id}
               href={`#${cat.id}`}
               className={`group relative overflow-hidden bg-[#EFEFEF] border border-[#D7D4CD] rounded-xs flex flex-col justify-end ${
-                idx === 0 ? 'col-span-2 sm:col-span-2 lg:col-span-2 row-span-4 min-h-[360px] sm:min-h-[460px]' : 'min-h-[220px] sm:min-h-[260px]'
+                idx === 0 ? 'col-span-2 sm:col-span-2 lg:col-span-2 row-span-3 min-h-[360px] sm:min-h-[400px]' : 'min-h-[220px] sm:min-h-[260px]'
               }`}
             >
               {/* Background Image */}
