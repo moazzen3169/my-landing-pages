@@ -97,7 +97,7 @@ export default function Hero({ onOpenSearch }: HeroProps) {
     return Math.abs(offset) * velocity;
   };
 
-  // Animation variants for smooth entrance and exit
+  // Animation variants for smooth entrance and exit of shoe
   const shoeVariants: Variants = {
     enter: (dir: number) => ({
       x: dir > 0 ? 280 : -280,
@@ -141,11 +141,11 @@ export default function Hero({ onOpenSearch }: HeroProps) {
   const infoVariants: Variants = {
     enter: (dir: number) => ({
       opacity: 0,
-      y: dir > 0 ? 12 : -12,
+      x: dir > 0 ? 30 : -30,
     }),
     center: {
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: {
         duration: 0.35,
         ease: "easeOut",
@@ -153,7 +153,7 @@ export default function Hero({ onOpenSearch }: HeroProps) {
     },
     exit: (dir: number) => ({
       opacity: 0,
-      y: dir < 0 ? -12 : 12,
+      x: dir < 0 ? -30 : 30,
       transition: {
         duration: 0.2,
       },
@@ -162,20 +162,20 @@ export default function Hero({ onOpenSearch }: HeroProps) {
 
   return (
     <section
-      className="relative bg-[#F8F8F6] pt-20 pb-12 lg:pt-28 lg:pb-16 overflow-hidden font-peyda border-b border-neutral-200"
+      className="relative bg-[#F8F8F6] pt-24 pb-16 lg:pt-32 lg:pb-20 overflow-hidden font-peyda border-b border-neutral-200"
       dir="rtl"
     >
       {/* BACKGROUND DECORATIVE WATERMARK */}
       <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center overflow-hidden opacity-[0.03]">
-        <span className="text-[18vw] font-black tracking-tighter text-black uppercase leading-none font-mono">
+        <span className="text-[20vw] font-black tracking-tighter text-black uppercase leading-none font-mono">
           {currentProduct.brand}
         </span>
       </div>
 
       {/* TOP META STRIP */}
-      <div className="relative z-10 max-w-[1350px] mx-auto px-4 sm:px-6 w-full mb-4">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-8 w-full mb-6">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-neutral-200/80 pb-3">
-          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-black">
+          <div className="flex items-center gap-2.5 text-xs font-mono font-bold uppercase tracking-wider text-black">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
             <span>ویترین جدیدترین اسنیکرهای اورجینال ۲۰۲۶</span>
           </div>
@@ -198,128 +198,14 @@ export default function Hero({ onOpenSearch }: HeroProps) {
       </div>
 
       {/* MAIN HERO CENTERPIECE CONTAINER */}
-      <div className="relative z-10 max-w-[1350px] mx-auto px-4 sm:px-6 w-full">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-8 w-full">
 
-        {/* FULL HEIGHT CENTRAL SNEAKER VISUAL CANVAS */}
-        <div className="relative w-full rounded-2xl bg-white border border-neutral-200/90 p-5 sm:p-7 lg:p-8 flex flex-col justify-between shadow-xs">
+        {/* 2-COLUMN GRID CANVAS: RIGHT = PRODUCT INFO, LEFT = SHOE IMAGE SLIDER */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center rounded-3xl bg-white border border-neutral-200/90 p-6 sm:p-8 lg:p-10 shadow-xs">
 
-          {/* CANVAS TOP HEADER: BADGES & COUNTER */}
-          <div className="w-full flex items-center justify-between z-20 mb-2">
-            <div className="flex items-center gap-2">
-              <span className="px-3 py-1 bg-black text-white text-[11px] font-bold rounded-full uppercase tracking-wider shadow-2xs">
-                {currentProduct.brand}
-              </span>
-              {currentProduct.badge && (
-                <span className="px-3 py-1 bg-amber-100 text-amber-900 border border-amber-200/80 text-[11px] font-semibold rounded-full flex items-center gap-1">
-                  <Sparkles className="w-3 h-3 text-amber-600" />
-                  {currentProduct.badge}
-                </span>
-              )}
-            </div>
+          {/* RIGHT COLUMN (RTL): PRODUCT INFORMATION & ACTIONS (5 COLS) */}
+          <div className="lg:col-span-5 flex flex-col justify-between text-right space-y-6">
 
-            {/* SLIDE COUNTER */}
-            <div className="flex items-center gap-3">
-              <div className="text-xs font-mono font-bold text-neutral-500">
-                <span className="text-black text-sm font-extrabold">0{productIndex + 1}</span> / 0{HERO_PRODUCTS.length}
-              </div>
-            </div>
-          </div>
-
-          {/* CENTER DISPLAY AREA: NAVIGATION BUTTONS + CENTRALLY POSITIONED FULL HEIGHT SHOE */}
-          <div className="relative w-full flex items-center justify-center py-2 sm:py-4 select-none">
-
-            {/* PREVIOUS SLIDE BUTTON (RIGHT ARROW IN RTL) */}
-            <button
-              onClick={() => paginate(-1)}
-              className="absolute right-0 sm:right-2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white hover:bg-black text-black hover:text-white border border-neutral-200 hover:border-black transition-all duration-300 flex items-center justify-center shadow-xs hover:shadow-md hover:scale-105 active:scale-95 group"
-              aria-label="محصول قبلی"
-            >
-              <ChevronRight className="w-5 h-5 transform group-hover:scale-110 transition-transform" />
-            </button>
-
-            {/* NEXT SLIDE BUTTON (LEFT ARROW IN RTL) */}
-            <button
-              onClick={() => paginate(1)}
-              className="absolute left-0 sm:left-2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white hover:bg-black text-black hover:text-white border border-neutral-200 hover:border-black transition-all duration-300 flex items-center justify-center shadow-xs hover:shadow-md hover:scale-105 active:scale-95 group"
-              aria-label="محصول بعدی"
-            >
-              <ChevronLeft className="w-5 h-5 transform group-hover:scale-110 transition-transform" />
-            </button>
-
-            {/* FULL HEIGHT CENTRAL SHOE DISPLAY WITH DRAG AND ANIMATED TRANSITION */}
-            <div className="relative w-full max-w-[620px] h-[260px] sm:h-[320px] lg:h-[350px] flex items-center justify-center overflow-visible">
-
-              {/* RADIAL AMBIENT GLOW BEHIND SHOE */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-neutral-200/30 via-neutral-100/50 to-transparent rounded-full blur-2xl pointer-events-none -z-10 scale-90"></div>
-
-              <AnimatePresence initial={false} custom={direction} mode="wait">
-                <motion.div
-                  key={page}
-                  custom={direction}
-                  variants={shoeVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  drag="x"
-                  dragConstraints={{ left: 0, right: 0 }}
-                  dragElastic={0.2}
-                  onDragEnd={(e, { offset, velocity }) => {
-                    const swipe = swipePower(offset.x, velocity.x);
-                    if (swipe < -swipeConfidenceThreshold) {
-                      paginate(1);
-                    } else if (swipe > swipeConfidenceThreshold) {
-                      paginate(-1);
-                    }
-                  }}
-                  className="absolute inset-0 flex items-center justify-center cursor-grab active:cursor-grabbing p-2"
-                >
-                  {/* IDLE FLOATING MOTION WRAPPER */}
-                  <motion.div
-                    animate={{
-                      y: [0, -8, 0],
-                      rotate: [0, 0.8, 0],
-                    }}
-                    transition={{
-                      duration: 4.2,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                    className="relative w-full h-full flex items-center justify-center"
-                  >
-                    <Image
-                      src={activeImage}
-                      alt={currentProduct.name}
-                      fill
-                      priority
-                      sizes="(max-width: 768px) 90vw, 50vw"
-                      className="object-contain p-2 pointer-events-none mix-blend-multiply"
-                    />
-                  </motion.div>
-                </motion.div>
-              </AnimatePresence>
-
-            </div>
-
-          </div>
-
-          {/* SLIDER DOTS PAGINATION */}
-          <div className="flex items-center justify-center gap-1.5 mb-5 z-20">
-            {HERO_PRODUCTS.map((prod, idx) => (
-              <button
-                key={prod.id}
-                onClick={() => handleSelectProduct(idx)}
-                className={`transition-all duration-300 rounded-full ${
-                  idx === productIndex
-                    ? "w-7 h-2 bg-black"
-                    : "w-2 h-2 bg-neutral-300 hover:bg-neutral-500"
-                }`}
-                aria-label={`اسلاید ${idx + 1}`}
-              />
-            ))}
-          </div>
-
-          {/* SUB-HERO: PRODUCT DETAILS & ACTION BUTTONS SECTION */}
-          <div className="w-full border-t border-neutral-100 pt-5 z-20">
             <AnimatePresence custom={direction} mode="wait">
               <motion.div
                 key={page}
@@ -328,168 +214,280 @@ export default function Hero({ onOpenSearch }: HeroProps) {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center"
+                className="space-y-6"
               >
-
-                {/* PRODUCT TITLE, RATING & SPECS (5 COLS) */}
-                <div className="lg:col-span-5 flex flex-col items-start text-right">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[11px] font-bold text-neutral-500 uppercase tracking-widest">
-                      {currentProduct.brand} • {currentProduct.gender === 'men' ? 'مردانه' : currentProduct.gender === 'women' ? 'زنانه' : 'یونیسکس'}
+                {/* BRAND BADGE & RATING */}
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2">
+                    <span className="px-3.5 py-1 bg-black text-white text-xs font-bold rounded-full uppercase tracking-wider shadow-2xs">
+                      {currentProduct.brand}
                     </span>
-                    <div className="flex items-center gap-1 text-amber-500 text-[11px] font-bold bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200/60">
-                      <Star className="w-3 h-3 fill-current" />
-                      <span>{currentProduct.rating}</span>
-                      <span className="text-neutral-400 font-normal">({currentProduct.reviewCount})</span>
-                    </div>
+                    {currentProduct.badge && (
+                      <span className="px-3 py-1 bg-amber-100 text-amber-900 border border-amber-200/80 text-xs font-semibold rounded-full flex items-center gap-1">
+                        <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                        {currentProduct.badge}
+                      </span>
+                    )}
                   </div>
 
-                  <h1 className="text-xl sm:text-2xl font-black text-black leading-tight tracking-tight mb-1.5">
+                  <div className="flex items-center gap-1 text-amber-500 text-xs font-bold bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200/60">
+                    <Star className="w-3.5 h-3.5 fill-current" />
+                    <span>{currentProduct.rating}</span>
+                    <span className="text-neutral-400 font-normal">({currentProduct.reviewCount})</span>
+                  </div>
+                </div>
+
+                {/* TITLE & DESCRIPTION */}
+                <div>
+                  <span className="text-xs font-bold text-neutral-400 uppercase tracking-widest block mb-1">
+                    {currentProduct.gender === 'men' ? 'اسنیکر مردانه' : currentProduct.gender === 'women' ? 'اسنیکر زنانه' : 'اسنیکر یونیسکس'}
+                  </span>
+                  <h1 className="text-3xl sm:text-4xl font-black text-black leading-tight tracking-tight mb-3">
                     {currentProduct.name}
                   </h1>
-
-                  <p className="text-xs text-neutral-600 line-clamp-2 leading-relaxed mb-2.5 font-normal">
+                  <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
                     {currentProduct.description}
                   </p>
+                </div>
 
-                  <div className="flex flex-wrap items-center gap-1.5 text-[10px] text-neutral-500">
-                    <span className="px-2 py-0.5 bg-neutral-100 rounded-md font-medium">
-                      رویه: {currentProduct.specifications.upper}
+                {/* SPECIFICATIONS BADGES */}
+                <div className="flex flex-wrap items-center gap-2 text-xs text-neutral-600">
+                  <span className="px-3 py-1.5 bg-neutral-100 rounded-lg font-medium">
+                    رویه: {currentProduct.specifications.upper}
+                  </span>
+                  {currentProduct.specifications.weight && (
+                    <span className="px-3 py-1.5 bg-neutral-100 rounded-lg font-mono font-medium">
+                      وزن: {currentProduct.specifications.weight}
                     </span>
-                    {currentProduct.specifications.weight && (
-                      <span className="px-2 py-0.5 bg-neutral-100 rounded-md font-mono font-medium">
-                        وزن: {currentProduct.specifications.weight}
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                {/* COLOR & SIZE SELECTOR (3 COLS) */}
-                <div className="lg:col-span-3 flex flex-col justify-center gap-2.5 text-right">
-                  {/* COLOR VARIANTS */}
-                  {currentProduct.colors.length > 0 && (
-                    <div>
-                      <div className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider mb-1 flex items-center justify-between">
-                        <span>رنگ: <strong className="text-black font-semibold">{activeColor.name}</strong></span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        {currentProduct.colors.map((color, idx) => (
-                          <button
-                            key={color.name + idx}
-                            onClick={() => setSelectedColorIndex(idx)}
-                            className={`w-6 h-6 rounded-full transition-all duration-200 border flex items-center justify-center p-0.5 ${
-                              selectedColorIndex === idx
-                                ? "border-black ring-2 ring-black/20 scale-110"
-                                : "border-neutral-300 hover:border-neutral-500"
-                            }`}
-                            style={{ backgroundColor: color.hex }}
-                            title={color.name}
-                          >
-                            {selectedColorIndex === idx && (
-                              <span className={`w-1.5 h-1.5 rounded-full ${color.hex === '#FAFAF7' || color.hex === '#FFFFFF' ? 'bg-black' : 'bg-white'}`} />
-                            )}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* SIZES */}
-                  {currentProduct.sizes.length > 0 && (
-                    <div>
-                      <div className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider mb-1">
-                        سایز: <strong className="text-black font-semibold">{selectedSize}</strong>
-                      </div>
-                      <div className="flex flex-wrap gap-1">
-                        {currentProduct.sizes.map((sz) => (
-                          <button
-                            key={sz}
-                            onClick={() => setSelectedSize(sz)}
-                            className={`px-2 py-0.5 text-xs font-mono font-bold rounded-md transition-all ${
-                              selectedSize === sz
-                                ? "bg-black text-white"
-                                : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200"
-                            }`}
-                          >
-                            {sz}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
                   )}
                 </div>
 
-                {/* PRICE & ACTION BUTTONS: ADD TO CART + WISHLIST (4 COLS) */}
-                <div className="lg:col-span-4 flex flex-col justify-center items-stretch lg:items-end gap-2.5 text-right border-t lg:border-t-0 border-neutral-100 pt-3 lg:pt-0">
-
-                  {/* PRICE DISPLAY */}
-                  <div className="flex items-baseline justify-between lg:justify-end gap-2.5">
-                    {currentProduct.compareAtPrice && (
-                      <span className="text-xs text-neutral-400 line-through">
-                        {formatPersianPrice(currentProduct.compareAtPrice)}
-                      </span>
-                    )}
-                    <div className="text-lg sm:text-xl font-black text-black">
-                      {formatPersianPrice(currentProduct.price)}
+                {/* COLOR VARIANTS SELECTOR */}
+                {currentProduct.colors.length > 0 && (
+                  <div>
+                    <div className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2 flex items-center justify-between">
+                      <span>انتخاب رنگ: <strong className="text-black font-bold">{activeColor.name}</strong></span>
                     </div>
-                    {currentProduct.discountPercentage && (
-                      <span className="px-1.5 py-0.5 bg-rose-100 text-rose-700 text-[10px] font-bold rounded border border-rose-200">
-                        ٪{currentProduct.discountPercentage}-
-                      </span>
-                    )}
+                    <div className="flex items-center gap-2.5">
+                      {currentProduct.colors.map((color, idx) => (
+                        <button
+                          key={color.name + idx}
+                          onClick={() => setSelectedColorIndex(idx)}
+                          className={`w-8 h-8 rounded-full transition-all duration-200 border flex items-center justify-center p-0.5 ${
+                            selectedColorIndex === idx
+                              ? "border-black ring-2 ring-black/20 scale-110"
+                              : "border-neutral-300 hover:border-neutral-500"
+                          }`}
+                          style={{ backgroundColor: color.hex }}
+                          title={color.name}
+                        >
+                          {selectedColorIndex === idx && (
+                            <span className={`w-2 h-2 rounded-full ${color.hex === '#FAFAF7' || color.hex === '#FFFFFF' ? 'bg-black' : 'bg-white'}`} />
+                          )}
+                        </button>
+                      ))}
+                    </div>
                   </div>
+                )}
 
-                  {/* DUAL BUTTONS: ADD TO CART + LIKE/WISHLIST */}
-                  <div className="grid grid-cols-12 gap-2 w-full">
-
-                    {/* ADD TO CART BUTTON */}
-                    <button
-                      onClick={handleAddToCart}
-                      className={`col-span-8 py-3 px-3.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-xs active:scale-98 ${
-                        isAddedToCart
-                          ? "bg-emerald-600 text-white"
-                          : "bg-black hover:bg-neutral-800 text-white"
-                      }`}
-                    >
-                      {isAddedToCart ? (
-                        <>
-                          <Check className="w-4 h-4" />
-                          <span>به سبد اضافه شد</span>
-                        </>
-                      ) : (
-                        <>
-                          <ShoppingBag className="w-4 h-4" />
-                          <span>افزودن به سبد خرید</span>
-                        </>
-                      )}
-                    </button>
-
-                    {/* FAVORITE / WISHLIST BUTTON ("پسندیدن") */}
-                    <button
-                      onClick={handleToggleWishlist}
-                      className={`col-span-4 py-3 px-2 rounded-xl font-semibold text-xs sm:text-sm transition-all duration-300 flex items-center justify-center gap-1.5 border active:scale-98 ${
-                        isLiked
-                          ? "bg-rose-50 text-rose-600 border-rose-200 hover:bg-rose-100"
-                          : "bg-white hover:bg-neutral-100 text-black border-neutral-300 hover:border-black"
-                      }`}
-                      title={isLiked ? "حذف از پسندیده‌ها" : "پسندیدن"}
-                    >
-                      <Heart
-                        className={`w-4 h-4 transition-transform ${
-                          isLiked ? "fill-rose-500 text-rose-500 scale-110" : "text-black"
-                        }`}
-                      />
-                      <span>
-                        {isLiked ? "پسندیده شد" : "پسندیدن"}
-                      </span>
-                    </button>
-
+                {/* SIZES SELECTOR */}
+                {currentProduct.sizes.length > 0 && (
+                  <div>
+                    <div className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">
+                      انتخاب سایز: <strong className="text-black font-bold">{selectedSize}</strong>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {currentProduct.sizes.map((sz) => (
+                        <button
+                          key={sz}
+                          onClick={() => setSelectedSize(sz)}
+                          className={`px-3 py-1.5 text-xs font-mono font-bold rounded-lg transition-all ${
+                            selectedSize === sz
+                              ? "bg-black text-white shadow-xs"
+                              : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200"
+                          }`}
+                        >
+                          {sz}
+                        </button>
+                      ))}
+                    </div>
                   </div>
+                )}
 
+                {/* PRICE BLOCK */}
+                <div className="pt-2 border-t border-neutral-100 flex items-baseline gap-3">
+                  <div className="text-2xl sm:text-3xl font-black text-black">
+                    {formatPersianPrice(currentProduct.price)}
+                  </div>
+                  {currentProduct.compareAtPrice && (
+                    <span className="text-sm text-neutral-400 line-through">
+                      {formatPersianPrice(currentProduct.compareAtPrice)}
+                    </span>
+                  )}
+                  {currentProduct.discountPercentage && (
+                    <span className="px-2.5 py-1 bg-rose-100 text-rose-700 text-xs font-bold rounded-md border border-rose-200">
+                      ٪{currentProduct.discountPercentage}-
+                    </span>
+                  )}
                 </div>
 
+                {/* DUAL ACTION BUTTONS: ADD TO CART + WISHLIST ("پسندیدن") */}
+                <div className="grid grid-cols-12 gap-3 pt-2">
+
+                  {/* ADD TO CART BUTTON (8 COLS) */}
+                  <button
+                    onClick={handleAddToCart}
+                    className={`col-span-8 py-4 px-5 rounded-2xl font-bold text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-2 shadow-xs active:scale-98 ${
+                      isAddedToCart
+                        ? "bg-emerald-600 text-white"
+                        : "bg-black hover:bg-neutral-800 text-white"
+                    }`}
+                  >
+                    {isAddedToCart ? (
+                      <>
+                        <Check className="w-5 h-5" />
+                        <span>به سبد اضافه شد</span>
+                      </>
+                    ) : (
+                      <>
+                        <ShoppingBag className="w-5 h-5" />
+                        <span>افزودن به سبد خرید</span>
+                      </>
+                    )}
+                  </button>
+
+                  {/* FAVORITE / WISHLIST BUTTON (4 COLS / "پسندیدن") */}
+                  <button
+                    onClick={handleToggleWishlist}
+                    className={`col-span-4 py-4 px-3 rounded-2xl font-semibold text-xs sm:text-sm transition-all duration-300 flex items-center justify-center gap-2 border active:scale-98 ${
+                      isLiked
+                        ? "bg-rose-50 text-rose-600 border-rose-200 hover:bg-rose-100"
+                        : "bg-white hover:bg-neutral-100 text-black border-neutral-300 hover:border-black"
+                    }`}
+                    title={isLiked ? "حذف از پسندیده‌ها" : "پسندیدن"}
+                  >
+                    <Heart
+                      className={`w-4 h-4 sm:w-5 sm:h-5 transition-transform ${
+                        isLiked ? "fill-rose-500 text-rose-500 scale-110" : "text-black"
+                      }`}
+                    />
+                    <span>
+                      {isLiked ? "پسندیده شد" : "پسندیدن"}
+                    </span>
+                  </button>
+
+                </div>
               </motion.div>
             </AnimatePresence>
+
+          </div>
+
+          {/* LEFT COLUMN (RTL): FULL HEIGHT CENTRALLY DISPLAYED SHOE SLIDER (7 COLS) */}
+          <div className="lg:col-span-7 relative flex flex-col items-center justify-between bg-neutral-50/70 border border-neutral-100 rounded-2xl p-6 lg:p-8 min-h-[440px] sm:min-h-[500px]">
+
+            {/* SLIDE COUNTER HEADER */}
+            <div className="w-full flex items-center justify-between z-20 mb-2">
+              <div className="text-xs font-mono font-bold text-neutral-400 uppercase tracking-widest">
+                مدل ویژه ویترین
+              </div>
+              <div className="text-xs font-mono font-bold text-neutral-500">
+                <span className="text-black text-sm font-extrabold">0{productIndex + 1}</span> / 0{HERO_PRODUCTS.length}
+              </div>
+            </div>
+
+            {/* CENTER DISPLAY AREA: NAVIGATION BUTTONS + CENTRALLY POSITIONED FULL HEIGHT SHOE */}
+            <div className="relative w-full flex-1 flex items-center justify-center py-4 my-2 select-none">
+
+              {/* PREVIOUS SLIDE BUTTON (RIGHT ARROW IN RTL) */}
+              <button
+                onClick={() => paginate(-1)}
+                className="absolute right-0 sm:right-2 z-30 w-12 h-12 rounded-full bg-white hover:bg-black text-black hover:text-white border border-neutral-200 hover:border-black transition-all duration-300 flex items-center justify-center shadow-xs hover:shadow-md hover:scale-105 active:scale-95 group"
+                aria-label="محصول قبلی"
+              >
+                <ChevronRight className="w-6 h-6 transform group-hover:scale-110 transition-transform" />
+              </button>
+
+              {/* NEXT SLIDE BUTTON (LEFT ARROW IN RTL) */}
+              <button
+                onClick={() => paginate(1)}
+                className="absolute left-0 sm:left-2 z-30 w-12 h-12 rounded-full bg-white hover:bg-black text-black hover:text-white border border-neutral-200 hover:border-black transition-all duration-300 flex items-center justify-center shadow-xs hover:shadow-md hover:scale-105 active:scale-95 group"
+                aria-label="محصول بعدی"
+              >
+                <ChevronLeft className="w-6 h-6 transform group-hover:scale-110 transition-transform" />
+              </button>
+
+              {/* FULL HEIGHT CENTRAL SHOE DISPLAY WITH DRAG AND ANIMATED TRANSITION */}
+              <div className="relative w-full max-w-[540px] h-[300px] sm:h-[380px] lg:h-[420px] flex items-center justify-center overflow-visible">
+
+                {/* RADIAL AMBIENT GLOW BEHIND SHOE */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-neutral-300/30 via-neutral-200/50 to-transparent rounded-full blur-3xl pointer-events-none -z-10 scale-90"></div>
+
+                <AnimatePresence initial={false} custom={direction} mode="wait">
+                  <motion.div
+                    key={page}
+                    custom={direction}
+                    variants={shoeVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.2}
+                    onDragEnd={(e, { offset, velocity }) => {
+                      const swipe = swipePower(offset.x, velocity.x);
+                      if (swipe < -swipeConfidenceThreshold) {
+                        paginate(1);
+                      } else if (swipe > swipeConfidenceThreshold) {
+                        paginate(-1);
+                      }
+                    }}
+                    className="absolute inset-0 flex items-center justify-center cursor-grab active:cursor-grabbing p-2"
+                  >
+                    {/* IDLE FLOATING MOTION WRAPPER WITH MIX-BLEND-MULTIPLY */}
+                    <motion.div
+                      animate={{
+                        y: [0, -10, 0],
+                        rotate: [0, 1.2, 0],
+                      }}
+                      transition={{
+                        duration: 4.5,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                      className="relative w-full h-full flex items-center justify-center"
+                    >
+                      <Image
+                        src={activeImage}
+                        alt={currentProduct.name}
+                        fill
+                        priority
+                        sizes="(max-width: 768px) 90vw, 50vw"
+                        className="object-contain p-2 pointer-events-none mix-blend-multiply"
+                      />
+                    </motion.div>
+                  </motion.div>
+                </AnimatePresence>
+
+              </div>
+
+            </div>
+
+            {/* SLIDER DOTS PAGINATION */}
+            <div className="flex items-center justify-center gap-2 mt-2 z-20">
+              {HERO_PRODUCTS.map((prod, idx) => (
+                <button
+                  key={prod.id}
+                  onClick={() => handleSelectProduct(idx)}
+                  className={`transition-all duration-300 rounded-full ${
+                    idx === productIndex
+                      ? "w-8 h-2.5 bg-black"
+                      : "w-2.5 h-2.5 bg-neutral-300 hover:bg-neutral-500"
+                  }`}
+                  aria-label={`اسلاید ${idx + 1}`}
+                />
+              ))}
+            </div>
+
           </div>
 
         </div>

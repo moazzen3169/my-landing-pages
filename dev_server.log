@@ -11,3 +11,4 @@ $ next dev
 Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
  GET /shop/solea-sneakers 200 in 158ms (next.js: 10ms, application-code: 148ms)
  GET /shop/solea-sneakers 200 in 149ms (next.js: 7ms, application-code: 142ms)
+ GET /shop/solea-sneakers 200 in 226ms (next.js: 25ms, application-code: 201ms)
