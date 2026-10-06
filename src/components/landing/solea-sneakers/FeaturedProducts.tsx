@@ -18,7 +18,7 @@ export default function FeaturedProducts({
   const [activeGender, setActiveGender] = useState<string>('all');
   const [activeCatFilter, setActiveCatFilter] = useState<string>(selectedCategoryFromHero || 'all');
   const [sortBy, setSortBy] = useState<'featured' | 'price-asc' | 'price-desc' | 'rating'>('featured');
-  const [visibleCount, setVisibleCount] = useState<number>(6);
+  const [visibleCount, setVisibleCount] = useState<number>(10);
 
   const filterTabs = [
     { id: 'all', label: 'همه کفش‌ها' },
