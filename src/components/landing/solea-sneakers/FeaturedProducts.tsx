@@ -21,7 +21,7 @@ export default function FeaturedProducts({
   const [visibleCount, setVisibleCount] = useState<number>(6);
 
   const filterTabs = [
-    { id: 'all', label: 'همه اسنیکرها' },
+    { id: 'all', label: 'همه کفش‌ها' },
     { id: 'men', label: 'مردانه' },
     { id: 'women', label: 'زنانه' },
     { id: 'unisex', label: 'یونیسکس' },
@@ -55,26 +55,26 @@ export default function FeaturedProducts({
   const displayedProducts = filtered.slice(0, visibleCount);
 
   return (
-    <section id="products" className="py-20 lg:py-28 bg-[#F3F3F1] font-peyda text-right border-b border-[#D9D9D5]" dir="rtl">
-      <div className="max-w-[1500px] mx-auto px-5 sm:px-8 md:px-12">
+    <section id="products" className="py-28 lg:py-40 bg-[#F8F8F6] font-peyda text-right border-b border-neutral-200" dir="rtl">
+      <div className="max-w-[1500px] mx-auto px-6 sm:px-10 md:px-16">
 
-        {/* SECTION HEADER */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#D9D9D5] mb-10">
+        {/* SECTION HEADER WITH INCREASED WHITESPACE */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 border-b border-neutral-200 mb-12">
           <div>
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-widest text-[#6B6B68] mb-3">
-              <span className="w-2 h-2 rounded-full bg-[#0A0A0A]"></span>
-              CURATED ESSENTIALS
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-widest text-neutral-500 mb-3">
+              <span className="w-2 h-2 rounded-full bg-black"></span>
+              SNEAKER COLLECTION
             </div>
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#0A0A0A] tracking-tight">
-              انتخاب‌های محبوب
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-black tracking-tight">
+              محبوب‌ترین کفش‌های اسپورت
             </h2>
-            <p className="text-sm sm:text-base text-[#6B6B68] mt-2 font-normal max-w-xl">
-              کالکشن منتخب از برترین اسنیکرهای روز جهان؛ با ساختار مدرن، تنفس‌پذیری عالی و راحتی تمام‌روز.
+            <p className="text-sm sm:text-base text-neutral-600 mt-3 font-normal max-w-xl leading-relaxed">
+              برترین اسنیکرهای روز جهان؛ طراحی شده برای راحتی، تنفس‌پذیری عالی و فعالیت‌های ورزشی و روزمره.
             </p>
           </div>
 
           {/* FILTER TABS */}
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2.5">
             {filterTabs.map((tab) => (
               <button
                 key={tab.id}
@@ -82,10 +82,10 @@ export default function FeaturedProducts({
                   setActiveGender(tab.id);
                   setVisibleCount(6);
                 }}
-                className={`px-4 py-2 text-xs font-semibold transition-all rounded-full ${
+                className={`px-5 py-2.5 text-xs font-semibold transition-all rounded-full ${
                   activeGender === tab.id
-                    ? 'bg-[#0A0A0A] text-[#F3F3F1]'
-                    : 'bg-[#E8E8E5] text-[#0A0A0A] hover:bg-[#D9D9D5] border border-[#D9D9D5]'
+                    ? 'bg-black text-white shadow-xs'
+                    : 'bg-white text-black hover:bg-neutral-100 border border-neutral-200'
                 }`}
               >
                 {tab.label}
@@ -95,18 +95,18 @@ export default function FeaturedProducts({
         </div>
 
         {/* SUB-CONTROLS & SORTING */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10">
-          <div className="text-xs font-medium text-[#6B6B68]">
-            نمایش <span className="font-bold text-[#0A0A0A]">{displayedProducts.length}</span> از <span className="font-bold text-[#0A0A0A]">{filtered.length}</span> اسنیکر
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-12">
+          <div className="text-xs font-medium text-neutral-500">
+            نمایش <span className="font-bold text-black">{displayedProducts.length}</span> از <span className="font-bold text-black">{filtered.length}</span> مدل کفش اسپورت
           </div>
 
           <div className="flex items-center gap-2 text-xs shrink-0">
-            <SlidersHorizontal className="w-3.5 h-3.5 text-[#0A0A0A] shrink-0" />
-            <span className="text-[#6B6B68] font-medium">مرتب‌سازی:</span>
+            <SlidersHorizontal className="w-3.5 h-3.5 text-black shrink-0" />
+            <span className="text-neutral-500 font-medium">مرتب‌سازی:</span>
             <select
               value={sortBy}
               onChange={(e: any) => setSortBy(e.target.value)}
-              className="bg-[#E8E8E5] border border-[#D9D9D5] rounded-full px-3.5 py-1.5 text-xs font-semibold text-[#0A0A0A] focus:outline-none focus:border-[#0A0A0A]"
+              className="bg-white border border-neutral-200 rounded-full px-4 py-2 text-xs font-semibold text-black focus:outline-none focus:border-black shadow-2xs"
             >
               <option value="featured">پیش‌فرض (محبوب‌ترین‌ها)</option>
               <option value="price-asc">قیمت: از کم به زیاد</option>
@@ -116,15 +116,15 @@ export default function FeaturedProducts({
           </div>
         </div>
 
-        {/* PRODUCT GRID WITH STAGGERED REVEAL */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {/* PRODUCT GRID WITH SPACIOUS SPACING */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
           {displayedProducts.map((product, idx) => (
             <motion.div
               key={product.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: (idx % 3) * 0.1 }}
+              transition={{ duration: 0.4, delay: (idx % 3) * 0.08 }}
             >
               <ProductCard
                 product={product}
@@ -135,14 +135,14 @@ export default function FeaturedProducts({
           ))}
         </div>
 
-        {/* LOAD MORE / EXPAND ACTION */}
+        {/* LOAD MORE ACTION */}
         {visibleCount < filtered.length && (
-          <div className="mt-14 text-center">
+          <div className="mt-16 text-center">
             <button
               onClick={() => setVisibleCount((prev) => prev + 6)}
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#E8E8E5] hover:bg-[#0A0A0A] text-[#0A0A0A] hover:text-[#F3F3F1] border border-[#D9D9D5] font-semibold text-sm rounded-full transition-all duration-300 group"
+              className="inline-flex items-center gap-2 px-9 py-4 bg-white hover:bg-black text-black hover:text-white border border-neutral-200 hover:border-black font-semibold text-sm rounded-full transition-all duration-300 group shadow-2xs"
             >
-              <span>مشاهده اسنیکرهای بیشتر</span>
+              <span>مشاهده کفش‌های بیشتر</span>
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             </button>
           </div>

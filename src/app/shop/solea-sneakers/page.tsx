@@ -19,7 +19,6 @@ import SearchOverlay from '@/components/landing/solea-sneakers/SearchOverlay';
 import CartDrawer from '@/components/landing/solea-sneakers/CartDrawer';
 import MobileDrawer from '@/components/landing/solea-sneakers/MobileDrawer';
 import SizeGuideModal from '@/components/landing/solea-sneakers/SizeGuideModal';
-import CustomCursor from '@/components/landing/solea-sneakers/CustomCursor';
 import SmoothScrollProvider from '@/components/landing/solea-sneakers/SmoothScrollProvider';
 
 import { SneakerProduct } from '@/data/solea-sneakers';
@@ -44,9 +43,6 @@ function SoleaContent() {
           '--landing-primary': theme.primary,
         } as React.CSSProperties}
       >
-
-        {/* DESKTOP CUSTOM CURSOR */}
-        <CustomCursor />
 
         {/* 01 TOP PROMO BAR & 02 NAVIGATION */}
         <Header
