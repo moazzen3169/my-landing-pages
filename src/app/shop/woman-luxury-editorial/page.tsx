@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Header from '@/components/landing/woman-lux/Header';
 import HeroSection from '@/components/landing/woman-lux/HeroSection';
+import CategorySection from '@/components/landing/woman-lux/CategorySection';
 import ProductCollection from '@/components/landing/woman-lux/ProductCollection';
 import ScrollInteractiveSection from '@/components/landing/woman-lux/ScrollInteractiveSection';
 import EditorialBrandSection from '@/components/landing/woman-lux/EditorialBrandSection';
@@ -122,6 +123,11 @@ export default function WomanLuxuryEditorialPage() {
             const el = document.getElementById('new-arrivals');
             if (el) el.scrollIntoView({ behavior: 'smooth' });
           }}
+        />
+
+        {/* MINIMAL CATEGORIES SECTION RIGHT AFTER HERO */}
+        <CategorySection
+          onSelectCategory={(cat) => setSelectedCategory(cat)}
         />
 
         {/* 03 NEW COLLECTION PRODUCT ROW */}

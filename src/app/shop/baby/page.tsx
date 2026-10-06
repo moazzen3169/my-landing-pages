@@ -502,9 +502,7 @@ export default function BabyLandingPage() {
             <img
               src="/images/BABY/hero5.png"
               alt="صندلی نوزاد ارگونومیک"
-              fill
-              priority
-              className="object-contain drop-shadow-2xl"
+              className="w-full h-full object-contain drop-shadow-2xl"
             />
           </div>
           {/* Primary CTA Pill positioned cleanly over product base */}
@@ -537,8 +535,7 @@ export default function BabyLandingPage() {
                 <img
                   src="/images/BABY/DinnerwareCutlerySet_Sage.webp"
                   alt="پیشنهاد ویژه"
-                  fill
-                  className="object-contain p-1 group-hover:scale-110 transition-transform duration-300"
+                  className="w-full h-full object-contain p-1 group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
               <div className="space-y-1">
