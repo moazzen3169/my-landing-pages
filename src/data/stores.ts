@@ -39,91 +39,561 @@ export const STORES: Record<string, Store> = {
       'woman-sport': {
         primary: '#FF6FAE',
       },
-      'baby': {
+      baby: {
         primary: '#2B70C9',
         secondary: '#F36A21',
       },
     },
   },
 
-  mahrukh: {
-    slug: 'mahrukh',
-    name: 'ماه‌رخ',
+  gravity: {
+    slug: 'gravity',
+    name: 'Gravity',
     themes: {
-      'woman-luxury-editorial': {
-        primary: '#8B4513',
-        secondary: '#D2691E',
-      },
-      'noire-men-formal': {
-        primary: '#2C3E50',
-      },
-      'noire-men-formal-fa': {
-        primary: '#2C3E50',
-      },
-      'persian-luxury-v1': {
-        primary: '#8B0000',
-        secondary: '#B22222',
-      },
-      'solea-sneakers': {
-        primary: '#2E8B57',
-      },
-      'man-sport': {
-        primary: '#D35400',
-      },
-      'woman-sport': {
-        primary: '#E63946',
-      },
-      'baby': {
-        primary: '#E76F51',
-        secondary: '#2A9D8F',
-      },
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
     },
   },
 
-  royal: {
-    slug: 'royal',
-    name: 'رویال',
+  gray: {
+    slug: 'gray',
+    name: 'Gray',
     themes: {
-      'woman-luxury-editorial': {
-        primary: '#4A154B',
-        secondary: '#6B1D5C',
-      },
-      'noire-men-formal': {
-        primary: '#1A252C',
-      },
-      'noire-men-formal-fa': {
-        primary: '#1A252C',
-      },
-      'persian-luxury-v1': {
-        primary: '#1D3557',
-        secondary: '#457B9D',
-      },
-      'solea-sneakers': {
-        primary: '#3D5A80',
-      },
-      'man-sport': {
-        primary: '#2563EB',
-      },
-      'woman-sport': {
-        primary: '#9333EA',
-      },
-      'baby': {
-        primary: '#7C3AED',
-        secondary: '#EC4899',
-      },
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  'vip-men': {
+    slug: 'vip-men',
+    name: 'V.I.P MEN',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  'i-mod': {
+    slug: 'i-mod',
+    name: 'I Mod',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  mada: {
+    slug: 'mada',
+    name: 'مدا',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  'elma-boutique': {
+    slug: 'elma-boutique',
+    name: 'Elma Boutique',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  vini: {
+    slug: 'vini',
+    name: 'Vini',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  'black-horse': {
+    slug: 'black-horse',
+    name: 'اسب سیاه',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  barcode: {
+    slug: 'barcode',
+    name: 'Barcode',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  rose: {
+    slug: 'rose',
+    name: 'Rose',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  jadi: {
+    slug: 'jadi',
+    name: 'جدی',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  ipek: {
+    slug: 'ipek',
+    name: 'آیپک',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  milad: {
+    slug: 'milad',
+    name: 'میلاد',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  'no-1': {
+    slug: 'no-1',
+    name: 'No.1',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  'gift-plus': {
+    slug: 'gift-plus',
+    name: 'هدیه پلاس',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  mannequin: {
+    slug: 'mannequin',
+    name: 'مانکن',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  penti: {
+    slug: 'penti',
+    name: 'Penti',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  sahel: {
+    slug: 'sahel',
+    name: 'ساحل',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  chanel: {
+    slug: 'chanel',
+    name: 'شنل',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  ufo: {
+    slug: 'ufo',
+    name: 'یوفو',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  'daniz-pamuk': {
+    slug: 'daniz-pamuk',
+    name: 'دنیز پاموک',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  aida: {
+    slug: 'aida',
+    name: 'آیدا',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  shoesland: {
+    slug: 'shoesland',
+    name: 'Shoesland',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  vinci: {
+    slug: 'vinci',
+    name: 'وینچی',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  'khane-kif-o-kafsh': {
+    slug: 'khane-kif-o-kafsh',
+    name: 'خانه کیف و کفش',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  'manto-nima': {
+    slug: 'manto-nima',
+    name: 'مانتو نیما',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  'city-mod': {
+    slug: 'city-mod',
+    name: 'سیتی مد',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  'set-mod': {
+    slug: 'set-mod',
+    name: 'ست مد',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  'voroojak-kids': {
+    slug: 'voroojak-kids',
+    name: 'Voroojak Kids',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  kamyar: {
+    slug: 'kamyar',
+    name: 'کامیار',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  mamad: {
+    slug: 'mamad',
+    name: 'مامد',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  'mada-style': {
+    slug: 'mada-style',
+    name: 'مدا استایل',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  kara: {
+    slug: 'kara',
+    name: 'کارا',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  negah: {
+    slug: 'negah',
+    name: 'نگاه',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
+    },
+  },
+
+  niko: {
+    slug: 'niko',
+    name: 'نیکو',
+    themes: {
+      'woman-luxury-editorial': { primary: '#000000' },
+      'noire-men-formal': { primary: '#000000' },
+      'noire-men-formal-fa': { primary: '#000000' },
+      'persian-luxury-v1': { primary: '#000000' },
+      'solea-sneakers': { primary: '#000000' },
+      'man-sport': { primary: '#000000' },
+      'woman-sport': { primary: '#000000' },
+      baby: { primary: '#000000' },
     },
   },
 };
 
-export function getStoreAndTheme(landingSlug: string, storeSlug?: string | null): {
+export function getStoreAndTheme(
+  landingSlug: string,
+  storeSlug?: string | null
+): {
   storeName: string;
   theme: LandingTheme;
   storeSlug: string;
 } {
-  const storeKey = storeSlug && STORES[storeSlug] ? storeSlug : DEFAULT_STORE_SLUG;
+  const storeKey =
+    storeSlug && STORES[storeSlug]
+      ? storeSlug
+      : DEFAULT_STORE_SLUG;
+
   const store = STORES[storeKey];
-  const defaultLandingTheme = STORES.default.themes[landingSlug] || { primary: '#111111' };
-  const landingTheme = store.themes[landingSlug] || defaultLandingTheme;
+
+  const defaultLandingTheme =
+    STORES.default.themes[landingSlug] || {
+      primary: '#111111',
+    };
+
+  const landingTheme =
+    store.themes[landingSlug] || defaultLandingTheme;
 
   return {
     storeName: store.name,
