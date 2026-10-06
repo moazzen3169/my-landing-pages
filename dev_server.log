@@ -2,71 +2,19 @@ $ next dev
 ▲ Next.js 16.3.8 (Turbopack)
 - Local:         http://localhost:3000
 - Network:       http://192.168.0.2:3000
-✓ Ready in 556ms
-✓ Running next.config.ts took 46ms
+✓ Ready in 538ms
+✓ Running next.config.ts took 48ms
 
-○ Compiling /shop/man-sport ...
- GET /shop/man-sport 200 in 3.7s (next.js: 3.3s, application-code: 411ms)
- GET /shop/man-sport 200 in 148ms (next.js: 14ms, application-code: 134ms)
-[browser] React has detected a change in the order of Hooks called by SizeGuideModal. This will lead to bugs and errors if not fixed. For more information, read the Rules of Hooks: https://react.dev/link/rules-of-hooks
-
-   Previous render            Next render
-   ------------------------------------------------------
-1. useState                   useState
-2. useState                   useState
-3. useState                   useState
-4. useState                   useState
-5. undefined                  useMemo
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    at SizeGuideModal (src/components/landing/man-sport/SizeGuideModal.tsx:50:33)
-  48 |
-  49 |   // Smart size recommendation logic
-> 50 |   const recommendation = useMemo(() => {
-     |                                 ^
-  51 |     // Basic calculation using Height/Weight ratio index
-  52 |     const bmi = weight / Math.pow(height / 100, 2);
-  53 |     let sizeIndex = 2; // Default L (0: S, 1: M, 2: L, 3: XL, 4: 2XL) (src/components/landing/man-sport/SizeGuideModal.tsx:50:33)
-[browser] Uncaught Error: Rendered more hooks than during the previous render.
-    at SizeGuideModal (src/components/landing/man-sport/SizeGuideModal.tsx:50:33)
-    at ProductQuickView (src/components/landing/man-sport/ProductQuickView.tsx:479:7)
-    at ManSportLandingPage (src/app/shop/man-sport/page.tsx:123:7)
-  48 |
-  49 |   // Smart size recommendation logic
-> 50 |   const recommendation = useMemo(() => {
-     |                                 ^
-  51 |     // Basic calculation using Height/Weight ratio index
-  52 |     const bmi = weight / Math.pow(height / 100, 2);
-  53 |     let sizeIndex = 2; // Default L (0: S, 1: M, 2: L, 3: XL, 4: 2XL)
- GET /shop/man-sport 200 in 113ms (next.js: 4ms, application-code: 109ms)
-[browser] React has detected a change in the order of Hooks called by SizeGuideModal. This will lead to bugs and errors if not fixed. For more information, read the Rules of Hooks: https://react.dev/link/rules-of-hooks
-
-   Previous render            Next render
-   ------------------------------------------------------
-1. useState                   useState
-2. useState                   useState
-3. useState                   useState
-4. useState                   useState
-5. undefined                  useMemo
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    at SizeGuideModal (src/components/landing/man-sport/SizeGuideModal.tsx:50:33)
-  48 |
-  49 |   // Smart size recommendation logic
-> 50 |   const recommendation = useMemo(() => {
-     |                                 ^
-  51 |     // Basic calculation using Height/Weight ratio index
-  52 |     const bmi = weight / Math.pow(height / 100, 2);
-  53 |     let sizeIndex = 2; // Default L (0: S, 1: M, 2: L, 3: XL, 4: 2XL) (src/components/landing/man-sport/SizeGuideModal.tsx:50:33)
-[browser] Uncaught Error: Rendered more hooks than during the previous render.
-    at SizeGuideModal (src/components/landing/man-sport/SizeGuideModal.tsx:50:33)
-    at ProductQuickView (src/components/landing/man-sport/ProductQuickView.tsx:479:7)
-    at ManSportLandingPage (src/app/shop/man-sport/page.tsx:123:7)
-  48 |
-  49 |   // Smart size recommendation logic
-> 50 |   const recommendation = useMemo(() => {
-     |                                 ^
-  51 |     // Basic calculation using Height/Weight ratio index
-  52 |     const bmi = weight / Math.pow(height / 100, 2);
-  53 |     let sizeIndex = 2; // Default L (0: S, 1: M, 2: L, 3: XL, 4: 2XL)
- GET /shop/man-sport 200 in 118ms (next.js: 7ms, application-code: 111ms)
+○ Compiling /shop/solea-sneakers ...
+ GET /shop/solea-sneakers 200 in 5.9s (next.js: 5.2s, application-code: 769ms)
+ GET /images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_plp_standard.png 404 in 462ms (next.js: 418ms, application-code: 44ms)
+⨯ The requested resource isn't a valid image for /images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_plp_standard.png received null
+ GET /images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_plp_standard.png 404 in 230ms (next.js: 7ms, application-code: 223ms)
+⨯ The requested resource isn't a valid image for /images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_plp_standard.png received null
+[browser] Image with src "/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_plp_standard.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_plp_standard.png 404 in 151ms (next.js: 29ms, application-code: 123ms)
+⨯ The requested resource isn't a valid image for /images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_plp_standard.png received null
+ GET /shop/solea-sneakers 200 in 152ms (next.js: 11ms, application-code: 141ms)
+[browser] Image with src "/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_standard.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /shop/solea-sneakers 200 in 147ms (next.js: 9ms, application-code: 138ms)
+[browser] Image with src "/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KZ9157_00_plp_standard.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
