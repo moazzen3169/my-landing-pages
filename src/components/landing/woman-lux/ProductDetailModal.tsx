@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { X, Heart, ShoppingBag, Check, ShieldCheck, Truck } from 'lucide-react';
+import { X, Heart, ShoppingBag, Check, ShieldCheck, Truck, Ruler } from 'lucide-react';
 import { WomanLuxProduct, ScrollSectionProduct } from '@/data/woman-lux';
+import SizeGuideModal from '@/components/landing/woman-lux/SizeGuideModal';
 
 type AnyProduct = WomanLuxProduct | ScrollSectionProduct;
 
@@ -28,6 +29,7 @@ export default function ProductDetailModal({
   const [quantity, setQuantity] = useState(1);
   const [addedAnimation, setAddedAnimation] = useState(false);
   const [prevProductId, setPrevProductId] = useState<string | null>(null);
+  const [isSizeGuideOpen, setIsSizeGuideOpen] = useState(false);
 
   if (!product) return null;
 
@@ -141,7 +143,16 @@ export default function ProductDetailModal({
             {/* SIZE SELECTOR */}
             {product.sizes && product.sizes.length > 0 && (
               <div className="space-y-2">
-                <span className="text-xs text-[#6B6B6B]">سایز: {selectedSize || product.sizes[0]}</span>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-[#6B6B6B]">سایز: {selectedSize || product.sizes[0]}</span>
+                  <button
+                    onClick={() => setIsSizeGuideOpen(true)}
+                    className="inline-flex items-center gap-1 text-xs text-[#111111] font-medium underline hover:opacity-75 transition-opacity font-peyda"
+                  >
+                    <Ruler className="w-3.5 h-3.5" />
+                    <span>راهنمای سایز</span>
+                  </button>
+                </div>
                 <div className="flex items-center gap-2 flex-wrap">
                   {product.sizes.map((s) => (
                     <button
@@ -242,6 +253,11 @@ export default function ProductDetailModal({
           </div>
         </div>
       </div>
+
+      <SizeGuideModal
+        isOpen={isSizeGuideOpen}
+        onClose={() => setIsSizeGuideOpen(false)}
+      />
     </div>
   );
 }
