@@ -28,24 +28,24 @@ export default function CustomerTrustSection() {
   ];
 
   return (
-    <section className="py-10 sm:py-14 bg-[#F1F5F9] border-t border-[#CBD5E1]/60 font-peyda text-right" dir="rtl">
-      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12">
+    <section className="py-20 lg:py-28 bg-[#F8F8F6] border-t border-b border-neutral-200 font-peyda text-right" dir="rtl">
+      <div className="max-w-[1500px] mx-auto px-6 sm:px-10 md:px-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {guarantees.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
                 key={idx}
-                className="bg-[#ffffffffffff] border border-[#CBD5E1]/60 p-6 rounded-[20px] transition-colors duration-300 hover:border-[#0B1220] flex flex-col justify-between"
+                className="bg-white border border-neutral-200 p-7 rounded-2xl transition-all duration-300 hover:border-black flex flex-col justify-between shadow-2xs hover:shadow-md"
               >
                 <div>
-                  <div className="w-11 h-11 rounded-xl bg-[#0B1220] text-[#F8FAFC] flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center mb-5 shadow-2xs">
                     <Icon className="w-5 h-5 shrink-0" />
                   </div>
-                  <h3 className="text-base font-bold text-[#0B1220] mb-1.5">
+                  <h3 className="text-base font-bold text-black mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-[#475569] font-peyda leading-relaxed font-normal">
+                  <p className="text-xs text-neutral-600 font-peyda leading-relaxed font-normal">
                     {item.description}
                   </p>
                 </div>

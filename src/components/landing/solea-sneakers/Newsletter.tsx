@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Mail, CheckCircle, ArrowLeft } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { CheckCircle, ArrowLeft } from 'lucide-react';
 
 export default function Newsletter() {
   const [email, setEmail] = useState('');
@@ -19,63 +18,55 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="py-24 lg:py-32 bg-[#F3F3F1] font-peyda text-right border-b border-[#D9D9D5]" dir="rtl">
-      <div className="max-w-[1500px] mx-auto px-5 sm:px-8 md:px-12">
+    <section className="py-28 lg:py-40 bg-white font-peyda text-right border-b border-neutral-200" dir="rtl">
+      <div className="max-w-[1500px] mx-auto px-6 sm:px-10 md:px-16">
 
-        {/* 25 — FINAL CONVERSION SECTION */}
-        <div className="bg-[#0A0A0A] text-[#F3F3F1] p-10 sm:p-16 lg:p-24 border border-[#0A0A0A] relative overflow-hidden">
-
-          {/* OVERSIZED BACKGROUND TEXT */}
-          <div className="absolute top-1/2 -translate-y-1/2 right-0 left-0 pointer-events-none select-none opacity-5 text-center overflow-hidden">
-            <span className="text-[20vw] font-black leading-none uppercase tracking-tighter text-[#F3F3F1]">
-              JOIN SOLEA
-            </span>
-          </div>
+        <div className="bg-[#F8F8F6] text-black p-10 sm:p-16 lg:p-20 border border-neutral-200 rounded-3xl relative overflow-hidden shadow-2xs">
 
           <div className="max-w-3xl mx-auto text-center space-y-8 relative z-10">
 
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-[#181818] border border-[#333333] text-xs font-mono font-bold text-[#D9D9D5] uppercase tracking-wider">
-              <span>FINAL STEP</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-neutral-200 text-xs font-mono font-bold text-black uppercase tracking-wider rounded-full shadow-2xs">
+              <span>NEWSLETTER & DROPS</span>
             </div>
 
-            <h2 className="text-4xl sm:text-6xl font-black text-[#F3F3F1] leading-tight">
-              قدم بعدی،
+            <h2 className="text-3xl sm:text-5xl font-black text-black leading-tight">
+              در جریان جدیدترین کتانی‌ها
               <br />
-              <span className="text-[#6B6B68]">از اینجا شروع می‌شود.</span>
+              <span className="text-neutral-400">و تخفیف‌های ویژه باشید</span>
             </h2>
 
-            <p className="text-base sm:text-lg text-[#D9D9D5] font-normal leading-relaxed max-w-xl mx-auto">
-              کالکشن تخصصی SOLEA را کشف کن و با ثبت ایمیل، زودتر از همه از دراپ‌های محدود و انتشار نسل جدید اسنیکرها باخبر شو.
+            <p className="text-base text-neutral-600 font-normal leading-relaxed max-w-xl mx-auto">
+              با ثبت ایمیل، زودتر از دیگران از موجود شدن مدل‌های جدید، دراپ‌های محدود و پیشنهادهای ویژه اطلاع پیدا کنید.
             </p>
 
             {/* CTAs */}
             <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
               <a
                 href="#products"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-[#F3F3F1] hover:bg-[#D9D9D5] text-[#0A0A0A] font-bold text-sm rounded-full transition-colors group"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-black hover:bg-neutral-800 text-white font-bold text-sm rounded-full transition-colors group shadow-xs"
               >
-                <span>مشاهده همه اسنیکرها</span>
+                <span>مشاهده همه کفش‌های اسپورت</span>
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1.5 transition-transform" />
               </a>
 
               <a
                 href="#limited-drop"
-                className="inline-flex items-center gap-2 px-7 py-4 bg-transparent hover:bg-[#181818] text-[#F3F3F1] border border-[#333333] font-semibold text-sm rounded-full transition-colors"
+                className="inline-flex items-center gap-2 px-7 py-4 bg-white hover:bg-neutral-100 text-black border border-neutral-200 font-semibold text-sm rounded-full transition-colors shadow-2xs"
               >
-                <span>کشف دراپ‌های محدود</span>
+                <span>دراپ‌های محدود</span>
               </a>
             </div>
 
             {/* NEWSLETTER FORM */}
-            <div className="pt-8 border-t border-[#333333] max-w-md mx-auto">
-              <div className="text-xs font-mono font-bold text-[#6B6B68] mb-3 uppercase">
-                NEWSLETTER REGISTRATION
+            <div className="pt-8 border-t border-neutral-200 max-w-md mx-auto">
+              <div className="text-xs font-mono font-bold text-neutral-500 mb-3 uppercase">
+                عضویت در خبرنامه
               </div>
 
               <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-3">
                 {subscribed ? (
-                  <div className="w-full py-3.5 px-6 bg-emerald-900/80 border border-emerald-700 text-emerald-100 font-bold text-xs rounded-full flex items-center justify-center gap-2">
-                    <CheckCircle className="w-4 h-4 shrink-0 text-emerald-400" />
+                  <div className="w-full py-3.5 px-6 bg-emerald-50 border border-emerald-200 text-emerald-800 font-bold text-xs rounded-full flex items-center justify-center gap-2">
+                    <CheckCircle className="w-4 h-4 shrink-0 text-emerald-600" />
                     <span>عضویت شما با موفقیت ثبت شد!</span>
                   </div>
                 ) : (
@@ -86,11 +77,11 @@ export default function Newsletter() {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="آدرس ایمیل شما..."
                       required
-                      className="w-full px-5 py-3.5 bg-[#181818] border border-[#333333] text-xs font-peyda text-[#F3F3F1] placeholder-[#6B6B68] focus:outline-none focus:border-[#F3F3F1] rounded-none"
+                      className="w-full px-5 py-3.5 bg-white border border-neutral-200 text-xs font-peyda text-black placeholder-neutral-400 focus:outline-none focus:border-black rounded-full shadow-2xs"
                     />
                     <button
                       type="submit"
-                      className="w-full sm:w-auto px-7 py-3.5 bg-[#F3F3F1] hover:bg-[#D9D9D5] text-[#0A0A0A] font-bold text-xs rounded-none transition-colors shrink-0"
+                      className="w-full sm:w-auto px-7 py-3.5 bg-black hover:bg-neutral-800 text-white font-bold text-xs rounded-full transition-colors shrink-0 shadow-xs"
                     >
                       عضویت
                     </button>

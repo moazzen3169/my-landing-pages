@@ -2,19 +2,14 @@ $ next dev
 ▲ Next.js 16.3.8 (Turbopack)
 - Local:         http://localhost:3000
 - Network:       http://192.168.0.2:3000
-✓ Ready in 538ms
-✓ Running next.config.ts took 48ms
+✓ Ready in 604ms
+✓ Running next.config.ts took 51ms
 
 ○ Compiling /shop/solea-sneakers ...
- GET /shop/solea-sneakers 200 in 5.9s (next.js: 5.2s, application-code: 769ms)
- GET /images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_plp_standard.png 404 in 462ms (next.js: 418ms, application-code: 44ms)
-⨯ The requested resource isn't a valid image for /images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_plp_standard.png received null
- GET /images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_plp_standard.png 404 in 230ms (next.js: 7ms, application-code: 223ms)
-⨯ The requested resource isn't a valid image for /images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_plp_standard.png received null
-[browser] Image with src "/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_plp_standard.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
- GET /images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_plp_standard.png 404 in 151ms (next.js: 29ms, application-code: 123ms)
-⨯ The requested resource isn't a valid image for /images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_plp_standard.png received null
- GET /shop/solea-sneakers 200 in 152ms (next.js: 11ms, application-code: 141ms)
-[browser] Image with src "/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_standard.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
- GET /shop/solea-sneakers 200 in 147ms (next.js: 9ms, application-code: 138ms)
+ HEAD /shop/solea-sneakers 200 in 6.3s (next.js: 5.5s, application-code: 838ms)
+ GET /shop/solea-sneakers 200 in 182ms (next.js: 12ms, application-code: 170ms)
+[browser] Image with src "/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KZ9157_00_plp_standard.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /shop/solea-sneakers 200 in 157ms (next.js: 5ms, application-code: 152ms)
+[browser] Image with src "/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KZ9157_00_plp_standard.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /shop/solea-sneakers 200 in 152ms (next.js: 6ms, application-code: 145ms)
 [browser] Image with src "/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KZ9157_00_plp_standard.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes

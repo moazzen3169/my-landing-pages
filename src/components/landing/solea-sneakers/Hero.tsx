@@ -2,8 +2,7 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowLeft, Sparkles, ArrowDownRight, ArrowDownLeft } from "lucide-react";
+import { ArrowLeft, Sparkles, ArrowDownLeft } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { SOLEA_PRODUCTS } from "@/data/solea-sneakers";
 import { formatPersianPrice } from "@/lib/utils";
@@ -25,129 +24,112 @@ export default function Hero({ onOpenSearch }: HeroProps) {
   });
 
   // Smooth scroll transformations
-  const heroShoeY = useTransform(scrollYProgress, [0, 1], [0, 80]);
-  const heroShoeRotate = useTransform(scrollYProgress, [0, 1], [0, -6]);
-  const heroShoeScale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
-  const bgTextX = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const heroShoeY = useTransform(scrollYProgress, [0, 1], [0, 60]);
+  const heroShoeRotate = useTransform(scrollYProgress, [0, 1], [0, -4]);
+  const heroShoeScale = useTransform(scrollYProgress, [0, 1], [1, 0.98]);
 
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen bg-[#F3F3F1] pt-32 pb-16 lg:pt-36 lg:pb-24 overflow-hidden flex flex-col justify-between font-peyda border-b border-[#D9D9D5]"
+      className="relative bg-[#F8F8F6] pt-36 pb-20 lg:pt-44 lg:pb-28 overflow-hidden flex flex-col justify-between font-peyda border-b border-neutral-200"
       dir="rtl"
     >
-      {/* OVERSIZED BACKGROUND TYPOGRAPHY (PERSION "حرکت") */}
-      <motion.div
-        style={{ x: bgTextX }}
-        className="absolute top-1/2 -translate-y-1/2 right-[5%] left-0 pointer-events-none select-none z-0 whitespace-nowrap overflow-hidden opacity-10"
-      >
-        <span className="text-[22vw] font-black leading-none text-[#0A0A0A] tracking-tighter">
-          حرکـــــت
-        </span>
-      </motion.div>
-
       {/* MAIN CONTAINER */}
-      <div className="relative z-10 max-w-[1500px] mx-auto px-5 sm:px-8 md:px-12 w-full flex-1 flex flex-col justify-between">
+      <div className="relative z-10 max-w-[1500px] mx-auto px-6 sm:px-10 md:px-16 w-full flex-1 flex flex-col justify-between">
 
-        {/* TOP ROW: EYEBROW & META */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#D9D9D5]/80 pb-4 mb-8 lg:mb-12">
-          <div className="flex items-center gap-3 text-xs font-mono font-bold tracking-widest text-[#0A0A0A]/70 uppercase">
-            <span className="w-2 h-2 rounded-full bg-[#0A0A0A]"></span>
-            <span>SOLEA / COLLECTION 2026</span>
+        {/* TOP ROW: STORE META */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-neutral-200 pb-5 mb-10 lg:mb-16">
+          <div className="flex items-center gap-3 text-xs font-mono font-bold tracking-widest text-black uppercase">
+            <span className="w-2.5 h-2.5 rounded-full bg-black"></span>
+            <span>فروشگاه تخصصی کفش و اسنیکر اسپورت</span>
           </div>
-          <div className="text-xs font-medium text-[#6B6B68]">
-            طراحی ارگونومیک • کیفیت پرمیوم • نسخه محدود
+          <div className="text-xs font-medium text-neutral-500">
+            تضمین اصالت کالا • ارسال سریع • تنوع جدیدترین مدل‌های روز
           </div>
         </div>
 
-        {/* CENTER CONTENT GRID (ASYMMETRICAL EDITORIAL LAYOUT) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center my-auto">
+        {/* CENTER CONTENT GRID */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center my-auto py-4">
 
-          {/* RIGHT COLUMN (RTL): HEADLINE, TEXT, CTAs (6 COLS) */}
+          {/* RIGHT COLUMN (RTL): STORE HEADLINE & CTAs (6 COLS) */}
           <div className="lg:col-span-6 flex flex-col items-start z-10">
             {/* BADGE */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#E8E8E5] border border-[#D9D9D5] rounded-full text-[11px] font-semibold text-[#0A0A0A] mb-6">
-              <Sparkles className="w-3.5 h-3.5 text-[#0A0A0A]" />
-              <span>بازتعریف زیبایی‌شناسی اسنیکر</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-neutral-200 rounded-full text-xs font-semibold text-black mb-6 shadow-2xs">
+              <Sparkles className="w-4 h-4 text-black" />
+              <span>کالکشن جدید اسنیکرهای اسپورت ۲۰۲۶</span>
             </div>
 
-            {/* GIANT HEADLINE */}
-            <h1 className="text-5xl sm:text-7xl xl:text-[84px] font-black text-[#0A0A0A] leading-[1.02] tracking-tight mb-6">
-              هر قدم،
+            {/* HEADLINE */}
+            <h1 className="text-4xl sm:text-6xl xl:text-7xl font-black text-black leading-[1.08] tracking-tight mb-6">
+              جدیدترین کفش‌های اسپورت
               <br />
-              <span className="text-[#0A0A0A]/40 font-black">یک بیانیه است.</span>
+              <span className="text-neutral-400 font-bold">و اسنیکرهای اورجینال</span>
             </h1>
 
-            {/* SUPPORTING TEXT */}
-            <p className="text-base sm:text-lg text-[#6B6B68] max-w-lg leading-relaxed font-normal mb-8 sm:mb-10">
-              تلفیق ارگونومی تخصصی، ساختار مدرن معماری و اصالت استریت‌ویر. انتخابی بی‌زمان برای کسانی که سبک زندگی خود را خلق می‌کنند.
+            {/* SUPPORTING TEXT - CLEAR AND CONCISE */}
+            <p className="text-base sm:text-lg text-neutral-600 max-w-lg leading-relaxed font-normal mb-8 lg:mb-10">
+              مجموعه‌ای کامل از برترین مدل‌های تخصصی دویدن، تمرین و استفاده روزمره با طراحی ارگونومیک و راحتی فوق‌العاده.
             </p>
 
             {/* CALL TO ACTIONS */}
             <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
               <a
                 href="#products"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#0A0A0A] text-[#F3F3F1] hover:bg-[#222222] font-semibold text-sm rounded-full transition-all duration-300 group shadow-sm hover:shadow-md"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-black text-white hover:bg-neutral-800 font-semibold text-sm rounded-full transition-all duration-300 group shadow-xs hover:shadow-md"
               >
-                <span>کشف کالکشن جدید</span>
+                <span>مشاهده و خرید کفش‌ها</span>
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1.5 transition-transform duration-300" />
               </a>
 
               <a
-                href="#limited-drop"
-                className="inline-flex items-center justify-center gap-2 px-7 py-4 bg-transparent hover:bg-[#E8E8E5] text-[#0A0A0A] border border-[#D9D9D5] hover:border-[#0A0A0A] font-semibold text-sm rounded-full transition-all duration-300"
+                href="#categories"
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 bg-white hover:bg-neutral-100 text-black border border-neutral-200 hover:border-black font-semibold text-sm rounded-full transition-all duration-300 shadow-2xs"
               >
-                <span>دراپ‌های محدود</span>
+                <span>دسته‌بندی‌های ورزشی</span>
               </a>
             </div>
           </div>
 
-          {/* LEFT COLUMN (RTL): FLOATING HERO PRODUCT WITH PARALLAX (6 COLS) */}
-          <div className="lg:col-span-6 relative flex items-center justify-center py-6 lg:py-0">
+          {/* LEFT COLUMN (RTL): ENLARGED HERO SNEAKER DISPLAY (6 COLS) */}
+          <div className="lg:col-span-6 relative flex items-center justify-center py-4 lg:py-0">
 
-            {/* FLOATING PRODUCT CANVAS */}
             <motion.div
               style={{
                 y: heroShoeY,
                 rotate: heroShoeRotate,
                 scale: heroShoeScale,
               }}
-              className="relative w-full max-w-[580px] aspect-4/3 flex items-center justify-center group"
+              className="relative w-full max-w-[620px] aspect-4/3 flex items-center justify-center group"
             >
-              {/* SUBTLE BACKGROUND CIRCLE GLOW */}
-              <div className="absolute inset-4 rounded-full bg-[#E8E8E5]/70 blur-2xl -z-10 group-hover:scale-105 transition-transform duration-700"></div>
+              {/* CLEAN LIGHT BACKGROUND SHADOW */}
+              <div className="absolute inset-2 rounded-full bg-neutral-200/50 blur-3xl -z-10 group-hover:scale-105 transition-transform duration-700"></div>
 
-              {/* OVERSIZED SECONDARY ENGLISH BRAND TEXT */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-5 select-none font-black text-8xl sm:text-9xl uppercase tracking-widest text-[#0A0A0A]">
-                SOLEA
-              </div>
-
-              {/* SNEAKER IMAGE */}
-              <div className="relative w-full h-full p-4 flex items-center justify-center">
+              {/* SNEAKER IMAGE - LARGER & PROMINENT */}
+              <div className="relative w-full h-full p-2 flex items-center justify-center">
                 <Image
                   src={heroProduct.images[0]}
                   alt={heroProduct.name}
                   fill
                   priority
-                  className="object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="object-contain transform group-hover:scale-108 transition-transform duration-700 ease-out"
                 />
               </div>
 
-              {/* HOVER / INTERACTIVE PRODUCT BADGE (TSSF STYLE EDITORIAL CHIP) */}
-              <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 bg-[#F3F3F1]/95 backdrop-blur-md border border-[#D9D9D5] p-3.5 sm:p-4 rounded-2xl shadow-lg max-w-[240px] opacity-95 group-hover:opacity-100 transition-all duration-300">
-                <div className="text-[10px] font-mono font-bold uppercase text-[#6B6B68] mb-1">
-                  FLAGSHIP MODEL
+              {/* PRODUCT QUICK CHIP */}
+              <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 bg-white border border-neutral-200 p-4 rounded-2xl shadow-md max-w-[260px] transition-all duration-300">
+                <div className="text-[10px] font-mono font-bold uppercase text-neutral-400 mb-1">
+                  مدل ویژه فروشگاه
                 </div>
-                <div className="text-xs font-bold text-[#0A0A0A] line-clamp-1">
+                <div className="text-xs font-bold text-black line-clamp-1">
                   {heroProduct.name}
                 </div>
-                <div className="text-xs font-semibold text-[#0A0A0A] mt-1 flex items-center justify-between">
+                <div className="text-xs font-bold text-black mt-1.5 flex items-center justify-between pt-1.5 border-t border-neutral-100">
                   <span>{formatPersianPrice(heroProduct.price)}</span>
                   <a
                     href="#products"
-                    className="text-[11px] text-[#6B6B68] hover:text-[#0A0A0A] underline underline-offset-2 flex items-center gap-0.5"
+                    className="text-[11px] text-neutral-600 hover:text-black font-medium underline underline-offset-2 flex items-center gap-0.5"
                   >
-                    <span>مشاهده</span>
+                    <span>خرید</span>
                     <ArrowDownLeft className="w-3 h-3" />
                   </a>
                 </div>
@@ -158,23 +140,23 @@ export default function Hero({ onOpenSearch }: HeroProps) {
 
         </div>
 
-        {/* BOTTOM METRICS & SPECIFICATIONS STRIP */}
-        <div className="pt-10 lg:pt-14 border-t border-[#D9D9D5]/80 grid grid-cols-2 md:grid-cols-4 gap-6 text-right">
+        {/* BOTTOM STORE ADVANTAGES STRIP */}
+        <div className="pt-12 lg:pt-16 border-t border-neutral-200 grid grid-cols-2 md:grid-cols-4 gap-8 text-right">
           <div>
-            <div className="text-2xl sm:text-3xl font-black text-[#0A0A0A]">۳۴۰g</div>
-            <div className="text-xs text-[#6B6B68] font-medium mt-0.5">وزن فوق‌العاده سبک</div>
+            <div className="text-2xl sm:text-3xl font-black text-black">۳۴۰ گرم</div>
+            <div className="text-xs text-neutral-500 font-medium mt-1">وزن سبک و راحتی حرکت</div>
           </div>
           <div>
-            <div className="text-2xl sm:text-3xl font-black text-[#0A0A0A]">Adiprene+</div>
-            <div className="text-xs text-[#6B6B68] font-medium mt-0.5">کوشنینگ و جذب ضربه دوگانه</div>
+            <div className="text-2xl sm:text-3xl font-black text-black">جذب ضربه دوگانه</div>
+            <div className="text-xs text-neutral-500 font-medium mt-1">کوشنینگ پیشرفته ورزشی</div>
           </div>
           <div>
-            <div className="text-2xl sm:text-3xl font-black text-[#0A0A0A]">۱۰۰٪</div>
-            <div className="text-xs text-[#6B6B68] font-medium mt-0.5">ضمانت اصالت و اورجینال</div>
+            <div className="text-2xl sm:text-3xl font-black text-black">۱۰۰٪ اورجینال</div>
+            <div className="text-xs text-neutral-500 font-medium mt-1">تضمین اصالت تمام برندها</div>
           </div>
           <div>
-            <div className="text-2xl sm:text-3xl font-black text-[#0A0A0A]">۲۴ ساعته</div>
-            <div className="text-xs text-[#6B6B68] font-medium mt-0.5">ارسال اکسپرس سراسر کشور</div>
+            <div className="text-2xl sm:text-3xl font-black text-black">تحویل اکسپرس</div>
+            <div className="text-xs text-neutral-500 font-medium mt-1">ارسال سریع به سراسر کشور</div>
           </div>
         </div>
 
