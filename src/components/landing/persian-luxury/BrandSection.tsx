@@ -18,7 +18,7 @@ export default function BrandSection({ onSelectBrand }: BrandSectionProps) {
   const row2Items = [...row2Brands, ...row2Brands, ...row2Brands, ...row2Brands];
 
   return (
-    <section id="brands" className="py-20 md:py-28 bg-[#FFFFFF] border-t border-b border-[#E5E5E5] font-peyda overflow-hidden">
+    <section id="brands" className="py-20 md:py-28 bg-[#FFFFFF] border-t border-b border-[#E5E5E5] font-peyda overflow-hidden group/brands">
       {/* SECTION HEADER */}
       <div className="max-w-[1600px] mx-auto px-6 sm:px-10 md:px-12 mb-12 text-center">
         <span className="block text-[11px] font-mono font-medium text-[#999999] uppercase tracking-widest mb-2">
@@ -97,13 +97,19 @@ export default function BrandSection({ onSelectBrand }: BrandSectionProps) {
         }
         .animate-brand-marquee-right {
           display: flex;
-          animation: brandMarqueeRight 45s linear infinite;
+          animation: brandMarqueeRight 110s linear infinite;
           will-change: transform;
         }
         .animate-brand-marquee-left {
           display: flex;
-          animation: brandMarqueeLeft 45s linear infinite;
+          animation: brandMarqueeLeft 110s linear infinite;
           will-change: transform;
+        }
+        .group\/brands:hover .animate-brand-marquee-right,
+        .group\/brands:hover .animate-brand-marquee-left,
+        #brands:hover .animate-brand-marquee-right,
+        #brands:hover .animate-brand-marquee-left {
+          animation-play-state: paused;
         }
       `}</style>
     </section>
