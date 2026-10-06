@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Header from '@/components/landing/solea-sneakers/Header';
 import Hero from '@/components/landing/solea-sneakers/Hero';
 import TrustBar from '@/components/landing/solea-sneakers/TrustBar';
+import BrandStatement from '@/components/landing/solea-sneakers/BrandStatement';
 import FeaturedProducts from '@/components/landing/solea-sneakers/FeaturedProducts';
 import CategoryShowcase from '@/components/landing/solea-sneakers/CategoryShowcase';
 import BrandSection from '@/components/landing/solea-sneakers/BrandSection';
@@ -18,6 +19,8 @@ import SearchOverlay from '@/components/landing/solea-sneakers/SearchOverlay';
 import CartDrawer from '@/components/landing/solea-sneakers/CartDrawer';
 import MobileDrawer from '@/components/landing/solea-sneakers/MobileDrawer';
 import SizeGuideModal from '@/components/landing/solea-sneakers/SizeGuideModal';
+import CustomCursor from '@/components/landing/solea-sneakers/CustomCursor';
+import SmoothScrollProvider from '@/components/landing/solea-sneakers/SmoothScrollProvider';
 
 import { SneakerProduct } from '@/data/solea-sneakers';
 
@@ -30,84 +33,92 @@ export default function SoleaSneakersLandingPage() {
   const [isSizeGuideOpen, setIsSizeGuideOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-[#0B1220] font-peyda antialiased selection:bg-[#0B1220] selection:text-[#F8FAFC]" dir="rtl">
+    <SmoothScrollProvider>
+      <div className="min-h-screen bg-[#F3F3F1] text-[#0A0A0A] font-peyda antialiased selection:bg-[#0A0A0A] selection:text-[#F3F3F1]" dir="rtl">
 
-      {/* HEADER */}
-      <Header
-        onOpenSearch={() => setIsSearchOpen(true)}
-        onOpenCart={() => setIsCartOpen(true)}
-        onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
-      />
+        {/* DESKTOP CUSTOM CURSOR */}
+        <CustomCursor />
 
-      {/* MAIN CONTENT */}
-      <main className="space-y-6 sm:space-y-0  pb-16">
-
-        {/* HERO */}
-        <Hero onOpenSearch={() => setIsSearchOpen(true)} />
-
-        {/* TRUST BAR */}
-        <TrustBar />
-
-        {/* FEATURED PRODUCTS */}
-        <FeaturedProducts
-          onQuickView={(p) => setQuickViewProduct(p)}
+        {/* 01 TOP PROMO BAR & 02 NAVIGATION */}
+        <Header
+          onOpenSearch={() => setIsSearchOpen(true)}
+          onOpenCart={() => setIsCartOpen(true)}
+          onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
         />
 
-        {/* CATEGORY SHOWCASE */}
-        <CategoryShowcase />
+        {/* MAIN EDITORIAL EXPERIENCE */}
+        <main className="overflow-x-hidden">
 
-        {/* BRAND STRIP */}
-        <BrandSection />
+          {/* 03 HERO & 10 HERO PRODUCT ANIMATION & 11 HERO INTERACTION */}
+          <Hero onOpenSearch={() => setIsSearchOpen(true)} />
 
-        {/* EDITORIAL STORY */}
-        <EditorialStory />
+          {/* 12 TRUST STRIP */}
+          <TrustBar />
 
-        {/* LIMITED DROP */}
-        <LimitedDrop
-          onQuickView={(p) => setQuickViewProduct(p)}
+          {/* 13 BRAND STATEMENT ("ما فقط کفش نمی‌فروشیم") */}
+          <BrandStatement />
+
+          {/* 14 FEATURED PRODUCTS & 15 HOVER & 16 SCROLL ANIMATION & 17 FILTERS */}
+          <FeaturedProducts
+            onQuickView={(p) => setQuickViewProduct(p)}
+          />
+
+          {/* 18 PERFORMANCE / COLLECTIONS & 19 HORIZONTAL/GRID PRESENTATION & 20 OVERSIZED TYPO */}
+          <CategoryShowcase />
+
+          {/* 42 BRAND TICKER */}
+          <BrandSection />
+
+          {/* 21 BRAND / EDITORIAL & 22 LARGE IMAGE CAMPAIGN */}
+          <EditorialStory />
+
+          {/* 23 LIMITED DROP & 24 LIMITED DROP ANIMATION */}
+          <LimitedDrop
+            onQuickView={(p) => setQuickViewProduct(p)}
+          />
+
+          {/* 12 TRUST & SERVICE ADVANTAGES */}
+          <CustomerTrustSection />
+
+          {/* 25 FINAL CONVERSION SECTION */}
+          <Newsletter />
+
+        </main>
+
+        {/* 26 FOOTER */}
+        <Footer onOpenSizeGuide={() => setIsSizeGuideOpen(true)} />
+
+        {/* OVERLAYS & MODALS */}
+        <ProductQuickView
+          product={quickViewProduct}
+          onClose={() => setQuickViewProduct(null)}
+          onOpenSizeGuide={() => setIsSizeGuideOpen(true)}
         />
 
-        {/* CUSTOMER TRUST */}
-        <CustomerTrustSection />
+        <SearchOverlay
+          isOpen={isSearchOpen}
+          onClose={() => setIsSearchOpen(false)}
+          onSelectProduct={(p) => setQuickViewProduct(p)}
+        />
 
-        {/* NEWSLETTER */}
-        <Newsletter />
+        <CartDrawer
+          isOpen={isCartOpen}
+          onClose={() => setIsCartOpen(false)}
+        />
 
-      </main>
+        <MobileDrawer
+          isOpen={isMobileMenuOpen}
+          onClose={() => setIsMobileMenuOpen(false)}
+          onOpenSearch={() => setIsSearchOpen(true)}
+        />
 
-      {/* FOOTER */}
-      <Footer onOpenSizeGuide={() => setIsSizeGuideOpen(true)} />
+        <SizeGuideModal
+          isOpen={isSizeGuideOpen}
+          onClose={() => setIsSizeGuideOpen(false)}
+          initialCategory={quickViewProduct?.gender || 'unisex'}
+        />
 
-      {/* OVERLAYS & MODALS */}
-      <ProductQuickView
-        product={quickViewProduct}
-        onClose={() => setQuickViewProduct(null)}
-        onOpenSizeGuide={() => setIsSizeGuideOpen(true)}
-      />
-
-      <SearchOverlay
-        isOpen={isSearchOpen}
-        onClose={() => setIsSearchOpen(false)}
-        onSelectProduct={(p) => setQuickViewProduct(p)}
-      />
-
-      <CartDrawer
-        isOpen={isCartOpen}
-        onClose={() => setIsCartOpen(false)}
-      />
-
-      <MobileDrawer
-        isOpen={isMobileMenuOpen}
-        onClose={() => setIsMobileMenuOpen(false)}
-        onOpenSearch={() => setIsSearchOpen(true)}
-      />
-
-      <SizeGuideModal
-        isOpen={isSizeGuideOpen}
-        onClose={() => setIsSizeGuideOpen(false)}
-        initialCategory={quickViewProduct?.gender || 'unisex'}
-      />
-
-    </div>
+      </div>
+    </SmoothScrollProvider>
   );
 }

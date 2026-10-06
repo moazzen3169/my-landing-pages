@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import ProductCard from './ProductCard';
 import { SOLEA_PRODUCTS, SneakerProduct } from '@/data/solea-sneakers';
 import { SlidersHorizontal, ArrowLeft } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface FeaturedProductsProps {
   onQuickView: (product: SneakerProduct) => void;
@@ -17,13 +18,14 @@ export default function FeaturedProducts({
   const [activeGender, setActiveGender] = useState<string>('all');
   const [activeCatFilter, setActiveCatFilter] = useState<string>(selectedCategoryFromHero || 'all');
   const [sortBy, setSortBy] = useState<'featured' | 'price-asc' | 'price-desc' | 'rating'>('featured');
+  const [visibleCount, setVisibleCount] = useState<number>(6);
 
-  const genderTabs = [
+  const filterTabs = [
     { id: 'all', label: 'همه اسنیکرها' },
     { id: 'men', label: 'مردانه' },
     { id: 'women', label: 'زنانه' },
     { id: 'unisex', label: 'یونیسکس' },
-    { id: 'limited', label: 'نسخه محدود' },
+    { id: 'limited', label: 'دراپ محدود' },
   ];
 
   let filtered = SOLEA_PRODUCTS;
@@ -50,35 +52,40 @@ export default function FeaturedProducts({
     filtered = [...filtered].sort((a, b) => b.rating - a.rating);
   }
 
+  const displayedProducts = filtered.slice(0, visibleCount);
+
   return (
-    <section id="products" className="py-10 sm:py-16 font-peyda text-right" dir="rtl">
-      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12">
+    <section id="products" className="py-20 lg:py-28 bg-[#F3F3F1] font-peyda text-right border-b border-[#D9D9D5]" dir="rtl">
+      <div className="max-w-[1500px] mx-auto px-5 sm:px-8 md:px-12">
 
         {/* SECTION HEADER */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#CBD5E1]/60 mb-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#D9D9D5] mb-10">
           <div>
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-widest text-[#8FA9C4] mb-2">
-              <span className="w-2 h-2 rounded-full bg-[#0B1220]"></span>
-              FEATURED COLLECTION
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-widest text-[#6B6B68] mb-3">
+              <span className="w-2 h-2 rounded-full bg-[#0A0A0A]"></span>
+              CURATED ESSENTIALS
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B1220]">
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#0A0A0A] tracking-tight">
               انتخاب‌های محبوب
             </h2>
-            <p className="text-sm sm:text-base text-[#475569] font-peyda mt-2 font-normal">
-              اسنیکرهای منتخب سال؛ طراحی ارگونومیک، عملکرد ورزشی و استایل روزمره.
+            <p className="text-sm sm:text-base text-[#6B6B68] mt-2 font-normal max-w-xl">
+              کالکشن منتخب از برترین اسنیکرهای روز جهان؛ با ساختار مدرن، تنفس‌پذیری عالی و راحتی تمام‌روز.
             </p>
           </div>
 
           {/* FILTER TABS */}
           <div className="flex flex-wrap items-center gap-2">
-            {genderTabs.map((tab) => (
+            {filterTabs.map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveGender(tab.id)}
-                className={`px-4 py-2 text-xs font-semibold rounded-full transition-colors ${
+                onClick={() => {
+                  setActiveGender(tab.id);
+                  setVisibleCount(6);
+                }}
+                className={`px-4 py-2 text-xs font-semibold transition-all rounded-full ${
                   activeGender === tab.id
-                    ? 'bg-[#0B1220] text-[#F8FAFC]'
-                    : 'bg-[#F1F5F9] text-[#475569] hover:bg-[#CBD5E1]/50 border border-[#CBD5E1]/50'
+                    ? 'bg-[#0A0A0A] text-[#F3F3F1]'
+                    : 'bg-[#E8E8E5] text-[#0A0A0A] hover:bg-[#D9D9D5] border border-[#D9D9D5]'
                 }`}
               >
                 {tab.label}
@@ -88,18 +95,18 @@ export default function FeaturedProducts({
         </div>
 
         {/* SUB-CONTROLS & SORTING */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
-          <div className="text-xs font-peyda text-[#475569]">
-            نمایش <span className="font-bold text-[#0B1220]">{filtered.length}</span> مدل اسنیکر منتخب
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10">
+          <div className="text-xs font-medium text-[#6B6B68]">
+            نمایش <span className="font-bold text-[#0A0A0A]">{displayedProducts.length}</span> از <span className="font-bold text-[#0A0A0A]">{filtered.length}</span> اسنیکر
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-peyda shrink-0">
-            <SlidersHorizontal className="w-4 h-4 text-[#8FA9C4] shrink-0" />
-            <span className="text-[#475569] font-medium">مرتب‌سازی:</span>
+          <div className="flex items-center gap-2 text-xs shrink-0">
+            <SlidersHorizontal className="w-3.5 h-3.5 text-[#0A0A0A] shrink-0" />
+            <span className="text-[#6B6B68] font-medium">مرتب‌سازی:</span>
             <select
               value={sortBy}
               onChange={(e: any) => setSortBy(e.target.value)}
-              className="bg-[#F1F5F9] border border-[#CBD5E1]/60 rounded-xl px-3 py-2 text-xs font-semibold text-[#0B1220] focus:outline-none focus:border-[#0B1220]"
+              className="bg-[#E8E8E5] border border-[#D9D9D5] rounded-full px-3.5 py-1.5 text-xs font-semibold text-[#0A0A0A] focus:outline-none focus:border-[#0A0A0A]"
             >
               <option value="featured">پیش‌فرض (محبوب‌ترین‌ها)</option>
               <option value="price-asc">قیمت: از کم به زیاد</option>
@@ -109,27 +116,37 @@ export default function FeaturedProducts({
           </div>
         </div>
 
-        {/* PRODUCT GRID */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-          {filtered.map((product) => (
-            <ProductCard
+        {/* PRODUCT GRID WITH STAGGERED REVEAL */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {displayedProducts.map((product, idx) => (
+            <motion.div
               key={product.id}
-              product={product}
-              onQuickView={onQuickView}
-            />
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: (idx % 3) * 0.1 }}
+            >
+              <ProductCard
+                product={product}
+                onQuickView={onQuickView}
+                index={idx}
+              />
+            </motion.div>
           ))}
         </div>
 
-        {/* VIEW ALL ACTION */}
-        <div className="mt-14 text-center">
-          <a
-            href="#categories"
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#F1F5F9] hover:bg-[#0B1220] text-[#0B1220] hover:text-[#F8FAFC] border border-[#CBD5E1]/60 font-semibold text-sm rounded-full transition-colors group"
-          >
-            <span>مشاهده تمام دسته‌بندی‌ها</span>
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-          </a>
-        </div>
+        {/* LOAD MORE / EXPAND ACTION */}
+        {visibleCount < filtered.length && (
+          <div className="mt-14 text-center">
+            <button
+              onClick={() => setVisibleCount((prev) => prev + 6)}
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#E8E8E5] hover:bg-[#0A0A0A] text-[#0A0A0A] hover:text-[#F3F3F1] border border-[#D9D9D5] font-semibold text-sm rounded-full transition-all duration-300 group"
+            >
+              <span>مشاهده اسنیکرهای بیشتر</span>
+              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            </button>
+          </div>
+        )}
 
       </div>
     </section>

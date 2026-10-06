@@ -64,7 +64,7 @@ export const SOLEA_CATEGORIES: SneakerCategory[] = [
     titlePersian: 'دویدن و رانینگ',
     titleEnglish: 'RUNNING',
     descriptionPersian: 'طراحی شده برای حداکثر بازگشت انرژی، سبکی بی‌نظیر و حفاظت از مفاصل در مسافت‌های طولانی.',
-    image: '/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_plp_standard.png',
+    image: '/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_standard.png',
     count: 24,
   },
   {
@@ -105,13 +105,13 @@ export const SOLEA_PRODUCTS: SneakerProduct[] = [
     compareAtPrice: 24500000,
     discountPercentage: 18,
     colors: [
-      { name: 'خاکستری مدرن', hex: '#6B6B68', image: '/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_plp_standard.png' },
-      { name: 'دودی اسپرت', hex: '#3A3A37', image: '/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KZ9157_00_plp_standard.png' },
+      { name: 'خاکستری مدرن', hex: '#6B6B68', image: '/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KZ9157_00_plp_standard.png' },
+      { name: 'دودی اسپرت', hex: '#3A3A37', image: '/images/landings/solea-sneakers/OZWEEGO_Schoenen_Grijs_EE6461_00_plp_standard.png' },
     ],
     sizes: ['38', '39', '40', '41', '42', '43', '44'],
     images: [
-      '/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KJ7895_00_plp_standard.png',
       '/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KZ9157_00_plp_standard.png',
+      '/images/landings/solea-sneakers/OZWEEGO_Schoenen_Grijs_EE6461_00_plp_standard.png',
     ],
     description: 'نسل جدید کوشنینگ حجیم با ساختار آرکیتکچرال. طراحی لوکس و آینده‌نگرانه برای راحتی بی‌وقفه از صبح تا شب.',
     specifications: {
