@@ -1,13 +1,72 @@
-
-> projects@0.1.0 dev
-> next dev
-
+$ next dev
 ▲ Next.js 16.3.8 (Turbopack)
 - Local:         http://localhost:3000
 - Network:       http://192.168.0.2:3000
-✓ Ready in 573ms
+✓ Ready in 556ms
 ✓ Running next.config.ts took 46ms
 
-○ Compiling /shop/persian-luxury-v1 ...
- HEAD /shop/persian-luxury-v1 200 in 5.6s (next.js: 4.9s, application-code: 694ms)
- GET /shop/persian-luxury-v1 200 in 204ms (next.js: 11ms, application-code: 193ms)
+○ Compiling /shop/man-sport ...
+ GET /shop/man-sport 200 in 3.7s (next.js: 3.3s, application-code: 411ms)
+ GET /shop/man-sport 200 in 148ms (next.js: 14ms, application-code: 134ms)
+[browser] React has detected a change in the order of Hooks called by SizeGuideModal. This will lead to bugs and errors if not fixed. For more information, read the Rules of Hooks: https://react.dev/link/rules-of-hooks
+
+   Previous render            Next render
+   ------------------------------------------------------
+1. useState                   useState
+2. useState                   useState
+3. useState                   useState
+4. useState                   useState
+5. undefined                  useMemo
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    at SizeGuideModal (src/components/landing/man-sport/SizeGuideModal.tsx:50:33)
+  48 |
+  49 |   // Smart size recommendation logic
+> 50 |   const recommendation = useMemo(() => {
+     |                                 ^
+  51 |     // Basic calculation using Height/Weight ratio index
+  52 |     const bmi = weight / Math.pow(height / 100, 2);
+  53 |     let sizeIndex = 2; // Default L (0: S, 1: M, 2: L, 3: XL, 4: 2XL) (src/components/landing/man-sport/SizeGuideModal.tsx:50:33)
+[browser] Uncaught Error: Rendered more hooks than during the previous render.
+    at SizeGuideModal (src/components/landing/man-sport/SizeGuideModal.tsx:50:33)
+    at ProductQuickView (src/components/landing/man-sport/ProductQuickView.tsx:479:7)
+    at ManSportLandingPage (src/app/shop/man-sport/page.tsx:123:7)
+  48 |
+  49 |   // Smart size recommendation logic
+> 50 |   const recommendation = useMemo(() => {
+     |                                 ^
+  51 |     // Basic calculation using Height/Weight ratio index
+  52 |     const bmi = weight / Math.pow(height / 100, 2);
+  53 |     let sizeIndex = 2; // Default L (0: S, 1: M, 2: L, 3: XL, 4: 2XL)
+ GET /shop/man-sport 200 in 113ms (next.js: 4ms, application-code: 109ms)
+[browser] React has detected a change in the order of Hooks called by SizeGuideModal. This will lead to bugs and errors if not fixed. For more information, read the Rules of Hooks: https://react.dev/link/rules-of-hooks
+
+   Previous render            Next render
+   ------------------------------------------------------
+1. useState                   useState
+2. useState                   useState
+3. useState                   useState
+4. useState                   useState
+5. undefined                  useMemo
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    at SizeGuideModal (src/components/landing/man-sport/SizeGuideModal.tsx:50:33)
+  48 |
+  49 |   // Smart size recommendation logic
+> 50 |   const recommendation = useMemo(() => {
+     |                                 ^
+  51 |     // Basic calculation using Height/Weight ratio index
+  52 |     const bmi = weight / Math.pow(height / 100, 2);
+  53 |     let sizeIndex = 2; // Default L (0: S, 1: M, 2: L, 3: XL, 4: 2XL) (src/components/landing/man-sport/SizeGuideModal.tsx:50:33)
+[browser] Uncaught Error: Rendered more hooks than during the previous render.
+    at SizeGuideModal (src/components/landing/man-sport/SizeGuideModal.tsx:50:33)
+    at ProductQuickView (src/components/landing/man-sport/ProductQuickView.tsx:479:7)
+    at ManSportLandingPage (src/app/shop/man-sport/page.tsx:123:7)
+  48 |
+  49 |   // Smart size recommendation logic
+> 50 |   const recommendation = useMemo(() => {
+     |                                 ^
+  51 |     // Basic calculation using Height/Weight ratio index
+  52 |     const bmi = weight / Math.pow(height / 100, 2);
+  53 |     let sizeIndex = 2; // Default L (0: S, 1: M, 2: L, 3: XL, 4: 2XL)
+ GET /shop/man-sport 200 in 118ms (next.js: 7ms, application-code: 111ms)
