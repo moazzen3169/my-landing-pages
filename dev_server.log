@@ -1,13 +1,18 @@
-
-> projects@0.1.0 dev
-> next dev
-
+$ next dev
 ▲ Next.js 16.3.8 (Turbopack)
 - Local:         http://localhost:3000
 - Network:       http://192.168.0.2:3000
-✓ Ready in 563ms
-✓ Running next.config.ts took 44ms
+✓ Ready in 544ms
+✓ Running next.config.ts took 48ms
 
-○ Compiling /shop/baby ...
- HEAD /shop/baby 200 in 3.7s (next.js: 3.3s, application-code: 384ms)
- GET /shop/baby 200 in 175ms (next.js: 14ms, application-code: 160ms)
+○ Compiling /shop/noire-men-formal-fa ...
+ GET /shop/noire-men-formal-fa 200 in 4.3s (next.js: 3.8s, application-code: 478ms)
+[browser] Image with src "/images/gravity/shirt-1.webp" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/gravity/acssory-1.webp" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/gravity/shoes-1.webp" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/gravity/product-1.webp" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /shop/noire-men-formal-fa 200 in 150ms (next.js: 9ms, application-code: 140ms)
+[browser] Image with src "/images/gravity/product-1.webp" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/gravity/shirt-1.webp" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/gravity/acssory-1.webp" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/gravity/shoes-1.webp" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
