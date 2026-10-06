@@ -17,7 +17,7 @@ export default function EditorialStory() {
       {/* 01 — CLEAN SNEAKER FEATURE HIGHLIGHT */}
       <section className="py-28 lg:py-40 bg-white border-b border-neutral-200 relative overflow-hidden">
         <div className="relative z-10 max-w-[1500px] mx-auto px-6 sm:px-10 md:px-16">
-          <div className="bg-[#F8F8F6] text-black p-8 sm:p-12 lg:p-16 relative overflow-hidden border border-neutral-200 rounded-3xl shadow-2xs">
+          <div className="bg-[#ffffff] text-black relative overflow-hidden ">
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
@@ -28,15 +28,13 @@ export default function EditorialStory() {
                   <span>کیفیت و استاندارد ورزشی</span>
                 </div>
 
-                <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-black leading-[1.12] tracking-tight">
+                <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-black leading-[1.4] tracking-tight">
                   فن‌آوری پیشرفته
                   <br />
                   <span className="text-neutral-400">در هر گام و هر فعالیت.</span>
                 </h2>
 
-                <p className="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl font-normal">
-                  ترکیب فوم‌های پیشرفته لایه میانی، پارچه‌های تنفس‌پذیر و ساختار ارگونومیک، بالاترین میزان جذب ضربه و راحتی بی‌نظیر را برای فعالیت‌های روزمره و ورزشی شما تضمین می‌کند.
-                </p>
+
 
                 {/* PROOF POINTS */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-neutral-200">
@@ -61,7 +59,7 @@ export default function EditorialStory() {
               </div>
 
               {/* LEFT COLUMN (RTL): SPOTLIGHT SNEAKER IMAGE */}
-              <div className="lg:col-span-5 relative aspect-4/3 sm:aspect-square bg-white border border-neutral-200 rounded-2xl flex items-center justify-center p-6 overflow-hidden group shadow-2xs">
+              <div className="lg:col-span-5 relative aspect-4/3 sm:aspect-square bg-white border border-neutral-200 rounded-2xl flex items-center justify-center overflow-hidden group shadow-2xs">
                 <Image
                   src="/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KZ9157_00_plp_standard.png"
                   alt="Solea Sneaker Feature"

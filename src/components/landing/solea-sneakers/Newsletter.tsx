@@ -21,7 +21,7 @@ export default function Newsletter() {
     <section className="py-28 lg:py-40 bg-white font-peyda text-right border-b border-neutral-200" dir="rtl">
       <div className="max-w-[1500px] mx-auto px-6 sm:px-10 md:px-16">
 
-        <div className="bg-[#F8F8F6] text-black p-10 sm:p-16 lg:p-20 border border-neutral-200 rounded-3xl relative overflow-hidden shadow-2xs">
+        <div className="bg-[#ffffff] text-black  relative overflow-hidden shadow-2xs">
 
           <div className="max-w-3xl mx-auto text-center space-y-8 relative z-10">
 

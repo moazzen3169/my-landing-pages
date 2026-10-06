@@ -55,7 +55,7 @@ export default function FeaturedProducts({
   const displayedProducts = filtered.slice(0, visibleCount);
 
   return (
-    <section id="products" className="py-28 lg:py-40 bg-[#F8F8F6] font-peyda text-right border-b border-neutral-200" dir="rtl">
+    <section id="products" className="py-28 lg:py-40 bg-[#ffffff] font-peyda text-right border-b border-neutral-200" dir="rtl">
       <div className="max-w-[1500px] mx-auto px-6 sm:px-10 md:px-16">
 
         {/* SECTION HEADER WITH INCREASED WHITESPACE */}
@@ -73,25 +73,6 @@ export default function FeaturedProducts({
             </p>
           </div>
 
-          {/* FILTER TABS */}
-          <div className="flex flex-wrap items-center gap-2.5">
-            {filterTabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => {
-                  setActiveGender(tab.id);
-                  setVisibleCount(6);
-                }}
-                className={`px-5 py-2.5 text-xs font-semibold transition-all rounded-full ${
-                  activeGender === tab.id
-                    ? 'bg-black text-white shadow-xs'
-                    : 'bg-white text-black hover:bg-neutral-100 border border-neutral-200'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
         </div>
 
         {/* SUB-CONTROLS & SORTING */}

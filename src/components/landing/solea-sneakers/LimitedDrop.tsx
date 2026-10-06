@@ -75,9 +75,7 @@ export default function LimitedDrop({ onQuickView }: LimitedDropProps) {
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-black tracking-tight">
               کتانی‌های دراپ محدود
             </h2>
-            <p className="text-sm sm:text-base text-neutral-600 mt-2 font-normal max-w-lg leading-relaxed">
-              مدل‌های اختصاصی با تولید محدود جهانی؛ اولویت تحویل بر اساس زمان ثبت سفارش است.
-            </p>
+
           </div>
 
           {/* COUNTDOWN TIMER */}

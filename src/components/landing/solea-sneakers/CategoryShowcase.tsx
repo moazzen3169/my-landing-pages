@@ -29,13 +29,11 @@ export default function CategoryShowcase({ onSelectCategory }: CategoryShowcaseP
               <span className="w-2 h-2 rounded-full bg-black"></span>
               CATEGORIES
             </div>
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-black tracking-tight">
+            <h2 className="text-3xl sm:text-3xl lg:text-6xl font-black text-black tracking-tight">
               دسته‌بندی‌های ورزشی و اسپورت
             </h2>
           </div>
-          <p className="text-sm sm:text-base text-neutral-600 max-w-md font-normal leading-relaxed">
-            انتخاب کفش بر اساس نیاز شما؛ از کفش‌های تخصصی دویدن و تمرین تا کتانی‌های سبک روزمره و استریت‌ویر.
-          </p>
+
         </div>
 
         {/* CATEGORY GRID WITH WHITE CARDS & ENLARGED SHOE IMAGES */}
@@ -51,10 +49,10 @@ export default function CategoryShowcase({ onSelectCategory }: CategoryShowcaseP
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
                 onClick={() => onSelectCategory && onSelectCategory(cat.id)}
-                className="group relative bg-[#F8F8F6] border border-neutral-200 hover:border-black transition-all duration-300 cursor-pointer overflow-hidden flex flex-col justify-between p-7 h-[480px] rounded-2xl shadow-2xs hover:shadow-md"
+                className="group relative bg-[#EAEFF0] border border-neutral-200 hover:border-black transition-all duration-300 cursor-pointer overflow-hidden flex flex-col justify-between p-0  rounded-2xl shadow-2xs hover:shadow-md"
               >
                 {/* TOP ROW: NUMBER & METRIC BADGE */}
-                <div className="flex items-center justify-between text-xs font-mono">
+                <div className="flex items-center justify-between z-10 text-xs p-3 font-mono">
                   <span className="text-lg font-black text-black">
                     ۰{idx + 1}
                   </span>
@@ -64,18 +62,18 @@ export default function CategoryShowcase({ onSelectCategory }: CategoryShowcaseP
                 </div>
 
                 {/* CENTER: ENLARGED PRODUCT SNEAKER IMAGE */}
-                <div className="relative w-full h-[220px] my-auto flex items-center justify-center p-2">
+                <div className="relative w-full aspect-[1/1] my-auto flex items-center justify-center p-2">
                   <Image
                     src={cat.image}
                     alt={cat.titlePersian}
                     fill
                     sizes="(max-width: 768px) 100vw, 25vw"
-                    className="object-contain transform group-hover:scale-110 transition-transform duration-500 ease-out"
+                    className="object-cover  rotate-90    transform group-hover:scale-110 transition-transform duration-500 ease-out"
                   />
                 </div>
 
                 {/* BOTTOM CONTENT */}
-                <div className="pt-4 border-t border-neutral-200">
+                <div className="p-4 border-t border-neutral-200">
                   <div className="text-[11px] font-mono text-neutral-500 mb-1">
                     {cat.titleEnglish} • {cat.count} مدل
                   </div>
@@ -84,9 +82,7 @@ export default function CategoryShowcase({ onSelectCategory }: CategoryShowcaseP
                     {cat.titlePersian}
                   </h3>
 
-                  <p className="text-xs text-neutral-600 line-clamp-2 leading-relaxed mb-4">
-                    {cat.descriptionPersian}
-                  </p>
+
 
                   <div className="inline-flex items-center gap-2 text-xs font-bold text-black group-hover:text-neutral-600 transition-colors">
                     <span>مشاهده کفش‌های این دسته</span>

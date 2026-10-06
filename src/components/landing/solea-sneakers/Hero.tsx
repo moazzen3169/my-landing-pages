@@ -60,7 +60,7 @@ export default function Hero({ onOpenSearch }: HeroProps) {
             </div>
 
             {/* HEADLINE */}
-            <h1 className="text-4xl sm:text-6xl xl:text-7xl font-black text-black leading-[1.08] tracking-tight mb-6">
+            <h1 className="text-4xl sm:text-6xl xl:text-6xl font-black text-black leading-[1.08] tracking-tight mb-6">
               جدیدترین کفش‌های اسپورت
               <br />
               <span className="text-neutral-400 font-bold">و اسنیکرهای اورجینال</span>
@@ -116,7 +116,7 @@ export default function Hero({ onOpenSearch }: HeroProps) {
               </div>
 
               {/* PRODUCT QUICK CHIP */}
-              <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 bg-white border border-neutral-200 p-4 rounded-2xl shadow-md max-w-[260px] transition-all duration-300">
+              <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-white border border-neutral-200 p-4 rounded-2xl shadow-md max-w-[260px] transition-all duration-300">
                 <div className="text-[10px] font-mono font-bold uppercase text-neutral-400 mb-1">
                   مدل ویژه فروشگاه
                 </div>
