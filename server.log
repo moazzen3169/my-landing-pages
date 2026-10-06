@@ -1,5 +1,12 @@
-▲ Next.js 16.3.8
+$ next dev
+▲ Next.js 16.3.8 (Turbopack)
 - Local:         http://localhost:3000
 - Network:       http://192.168.0.2:3000
-✓ Ready in 192ms
-✓ Running next.config.ts took 47ms
+✓ Ready in 622ms
+✓ Running next.config.ts took 44ms
+
+○ Compiling /shop/solea-sneakers ...
+ HEAD /shop/solea-sneakers 200 in 6.9s (next.js: 6.3s, application-code: 564ms)
+ GET /shop/solea-sneakers 200 in 186ms (next.js: 11ms, application-code: 175ms)
+[browser] Image with src "/images/landings/solea-sneakers/man.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading

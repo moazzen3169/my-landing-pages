@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import {
   ChevronLeft,
@@ -65,6 +65,14 @@ export default function Hero({ onOpenSearch }: HeroProps) {
   };
 
   const isLiked = isInWishlist(currentProduct.id);
+
+  // Auto-play slider every 1 second (1000ms)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      paginate(1);
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [page]);
 
   // Navigate slider
   const paginate = (newDirection: number) => {
