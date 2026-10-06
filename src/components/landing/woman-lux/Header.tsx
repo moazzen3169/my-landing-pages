@@ -63,7 +63,7 @@ export default function Header({
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 font-header-woman-lux ${
           isScrolled
             ? 'bg-white text-[#111111] border-b border-[#E5E5E5] py-4 shadow-xs'
             : 'bg-gradient-to-b from-black/60 via-black/30 to-transparent text-white py-6'

@@ -48,7 +48,7 @@ export default function Header({
   ];
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 font-peyda" dir="rtl">
+    <div className="fixed top-0 left-0 right-0 z-50 font-header-solea" dir="rtl">
       {/* 01 — TOP PROMO BAR */}
       <div className="bg-[#0A0A0A] text-[#F3F3F1] h-9 flex items-center justify-center px-4 text-[11px] sm:text-xs font-medium tracking-normal border-b border-[#222222]">
         <div className="flex items-center gap-3">

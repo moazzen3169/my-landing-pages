@@ -233,7 +233,7 @@ function BabyContent() {
       </div> */}
 
       {/* 2. MAIN NAVIGATION */}
-      <header className="sticky top-0 z-40 bg-[#FFFBF3] stransition-all duration-300">
+      <header className="sticky top-0 z-40 bg-[#FFFBF3] stransition-all duration-300 font-header-baby">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 py-3.5 flex items-center justify-between">
           {/* RIGHT: LOGO & MOBILE TOGGLE */}
           <div className="flex items-center gap-4">

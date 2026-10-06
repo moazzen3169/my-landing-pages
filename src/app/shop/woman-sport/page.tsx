@@ -168,7 +168,7 @@ function WomanSportContent() {
       )}
 
       {/* FLOATING GLASS HEADER */}
-      <header className="fixed top-4 inset-x-0 z-40 px-4 sm:px-8 max-w-7xl mx-auto pointer-events-none">
+      <header className="fixed top-4 inset-x-0 z-40 px-4 sm:px-8 max-w-7xl mx-auto pointer-events-none font-header-woman-sport">
         <div className="pointer-events-auto bg-[#FFFDFC]/85 backdrop-blur-md border border-[#291A2D]/10 rounded-full px-5 py-3 flex items-center justify-between transition-all duration-300">
 
           {/* LOGO */}

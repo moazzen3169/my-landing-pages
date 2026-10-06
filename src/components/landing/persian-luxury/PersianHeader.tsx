@@ -23,7 +23,7 @@ export default function PersianHeader({ onOpenSearch, cartCount }: PersianHeader
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 font-peyda ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 font-header-persian-lux ${
         isScrolled
           ? 'bg-[#0B0C0E]/90 backdrop-blur-xl border-b border-[#23262F]/80 py-3.5 shadow-2xl shadow-black/50'
           : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent py-5'

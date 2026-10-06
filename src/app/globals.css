@@ -142,6 +142,39 @@
   font-family: 'Estedad', 'Vazirmatn', sans-serif;
 }
 
+/* Dual Font Header Classes (Supports English Font + Persian Peyda Font) */
+.font-header-noire {
+  font-family: var(--font-manrope), 'Peyda', sans-serif;
+}
+
+.font-header-gravity {
+  font-family: var(--font-dm-sans), 'Peyda', sans-serif;
+}
+
+.font-header-persian-lux {
+  font-family: var(--font-manrope), 'Peyda', serif, sans-serif;
+}
+
+.font-header-solea {
+  font-family: var(--font-dm-sans), 'Peyda', sans-serif;
+}
+
+.font-header-woman-lux {
+  font-family: var(--font-manrope), 'Peyda', sans-serif;
+}
+
+.font-header-man-sport {
+  font-family: var(--font-dm-sans), 'Peyda', sans-serif;
+}
+
+.font-header-woman-sport {
+  font-family: var(--font-dm-sans), 'Peyda', sans-serif;
+}
+
+.font-header-baby {
+  font-family: var(--font-dm-sans), 'Peyda', sans-serif;
+}
+
 /* Persian typography rules & letter-spacing resets */
 [dir="rtl"], .dir-rtl {
   letter-spacing: 0 !important;

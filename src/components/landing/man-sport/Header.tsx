@@ -34,7 +34,7 @@ export default function Header({
   const shortInitial = storeName ? storeName.charAt(0) : 'د';
 
   return (
-    <header className="fixed top-4 sm:top-5 left-0 right-0 z-50 pointer-events-none transition-all duration-300">
+    <header className="fixed top-4 sm:top-5 left-0 right-0 z-50 pointer-events-none transition-all duration-300 font-header-man-sport">
       {/* FLOATING GLASS CONTAINER (88%-92% VIEWPORT WIDTH) */}
       <div
         className={`pointer-events-auto max-w-[650px] mx-auto rounded-full transition-all duration-300 border ${
