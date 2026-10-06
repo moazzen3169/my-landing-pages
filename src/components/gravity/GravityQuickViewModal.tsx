@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { GravityProduct } from '@/data/gravity-data';
-import { X, ShoppingBag, Heart, ShieldCheck, Truck } from 'lucide-react';
+import { X, ShoppingBag, Heart, ShieldCheck, Truck, Ruler } from 'lucide-react';
+import GravitySizeGuideModal from './GravitySizeGuideModal';
 
 interface GravityQuickViewModalProps {
   product: GravityProduct | null;
@@ -21,6 +22,7 @@ export default function GravityQuickViewModal({
   isWishlisted,
 }: GravityQuickViewModalProps) {
   const [selectedSize, setSelectedSize] = useState<string>('');
+  const [isSizeGuideOpen, setIsSizeGuideOpen] = useState(false);
 
   if (!product) return null;
 
@@ -93,12 +95,23 @@ export default function GravityQuickViewModal({
               </div>
 
               {/* Sizes Selection */}
-              {product.sizes && product.sizes.length > 0 && (
-                <div className="space-y-2 mb-6">
-                  <span className="text-xs font-bold text-[#111111] block">
+              <div className="space-y-2 mb-6">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-[#111111]">
                     انتخاب سایز:
                   </span>
-                  <div className="flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setIsSizeGuideOpen(true)}
+                    className="text-xs font-bold text-[#111111] hover:underline flex items-center gap-1 cursor-pointer transition-opacity hover:opacity-80"
+                  >
+                    <Ruler size={14} />
+                    <span>راهنمای سایز و محاسبه‌گر</span>
+                  </button>
+                </div>
+
+                {product.sizes && product.sizes.length > 0 && (
+                  <div className="flex flex-wrap gap-2 pt-1">
                     {product.sizes.map((size) => (
                       <button
                         key={size}
@@ -113,8 +126,8 @@ export default function GravityQuickViewModal({
                       </button>
                     ))}
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
 
             {/* Actions */}
@@ -158,6 +171,13 @@ export default function GravityQuickViewModal({
           </div>
         </div>
       </div>
+
+      {/* SIZE GUIDE MODAL */}
+      <GravitySizeGuideModal
+        isOpen={isSizeGuideOpen}
+        onClose={() => setIsSizeGuideOpen(false)}
+        defaultCategory={product.category}
+      />
     </div>
   );
 }

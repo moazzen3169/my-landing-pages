@@ -22,26 +22,26 @@ export default function GravityHero() {
   // [0.75 - 1.0]: image 3
 
   // We can transform scroll progress into opacities or positions for each slide
-  const leftOpacity0 = useTransform(scrollYProgress, [0, 0.2, 0.28], [1, 1, 0]);
-  const leftOpacity1 = useTransform(scrollYProgress, [0.22, 0.28, 0.45, 0.53], [0, 1, 1, 0]);
-  const leftOpacity2 = useTransform(scrollYProgress, [0.47, 0.53, 0.7, 0.78], [0, 1, 1, 0]);
-  const leftOpacity3 = useTransform(scrollYProgress, [0.72, 0.78, 1], [0, 1, 1]);
+  const leftOpacity0 = useTransform(scrollYProgress, [0, 0.18, 0.25], [1, 1, 0]);
+  const leftOpacity1 = useTransform(scrollYProgress, [0.20, 0.25, 0.43, 0.50], [0, 1, 1, 0]);
+  const leftOpacity2 = useTransform(scrollYProgress, [0.45, 0.50, 0.68, 0.75], [0, 1, 1, 0]);
+  const leftOpacity3 = useTransform(scrollYProgress, [0.70, 0.75, 0.88, 1], [0, 1, 1, 0]);
 
-  const rightOpacity0 = useTransform(scrollYProgress, [0, 0.2, 0.28], [1, 1, 0]);
-  const rightOpacity1 = useTransform(scrollYProgress, [0.22, 0.28, 0.45, 0.53], [0, 1, 1, 0]);
-  const rightOpacity2 = useTransform(scrollYProgress, [0.47, 0.53, 0.7, 0.78], [0, 1, 1, 0]);
-  const rightOpacity3 = useTransform(scrollYProgress, [0.72, 0.78, 1], [0, 1, 1]);
+  const rightOpacity0 = useTransform(scrollYProgress, [0, 0.18, 0.25], [1, 1, 0]);
+  const rightOpacity1 = useTransform(scrollYProgress, [0.20, 0.25, 0.43, 0.50], [0, 1, 1, 0]);
+  const rightOpacity2 = useTransform(scrollYProgress, [0.45, 0.50, 0.68, 0.75], [0, 1, 1, 0]);
+  const rightOpacity3 = useTransform(scrollYProgress, [0.70, 0.75, 0.88, 1], [0, 1, 1, 0]);
 
-  // Subtle Y translations for parallax effect
-  const leftY0 = useTransform(scrollYProgress, [0, 0.25], [0, -30]);
-  const leftY1 = useTransform(scrollYProgress, [0.22, 0.5], [30, -30]);
-  const leftY2 = useTransform(scrollYProgress, [0.47, 0.75], [30, -30]);
-  const leftY3 = useTransform(scrollYProgress, [0.72, 1], [30, 0]);
+  // Full page Y translations so images enter and completely exit the viewport
+  const leftY0 = useTransform(scrollYProgress, [0, 0.18, 0.25], ['0%', '0%', '-120%']);
+  const leftY1 = useTransform(scrollYProgress, [0.20, 0.25, 0.43, 0.50], ['120%', '0%', '0%', '-120%']);
+  const leftY2 = useTransform(scrollYProgress, [0.45, 0.50, 0.68, 0.75], ['120%', '0%', '0%', '-120%']);
+  const leftY3 = useTransform(scrollYProgress, [0.70, 0.75, 0.88, 1.0], ['120%', '0%', '0%', '-120%']);
 
-  const rightY0 = useTransform(scrollYProgress, [0, 0.25], [0, 30]);
-  const rightY1 = useTransform(scrollYProgress, [0.22, 0.5], [-30, 30]);
-  const rightY2 = useTransform(scrollYProgress, [0.47, 0.75], [-30, 30]);
-  const rightY3 = useTransform(scrollYProgress, [0.72, 1], [-30, 0]);
+  const rightY0 = useTransform(scrollYProgress, [0, 0.18, 0.25], ['0%', '0%', '120%']);
+  const rightY1 = useTransform(scrollYProgress, [0.20, 0.25, 0.43, 0.50], ['-120%', '0%', '0%', '120%']);
+  const rightY2 = useTransform(scrollYProgress, [0.45, 0.50, 0.68, 0.75], ['-120%', '0%', '0%', '120%']);
+  const rightY3 = useTransform(scrollYProgress, [0.70, 0.75, 0.88, 1.0], ['-120%', '0%', '0%', '120%']);
 
   const leftOpacities = [leftOpacity0, leftOpacity1, leftOpacity2, leftOpacity3];
   const rightOpacities = [rightOpacity0, rightOpacity1, rightOpacity2, rightOpacity3];
@@ -51,8 +51,8 @@ export default function GravityHero() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full  font-peyda"
-      style={{ height: '250vh' }}
+      className="relative w-full font-peyda"
+      style={{ height: '380vh' }}
     >
       {/* Sticky Hero Viewport Container */}
       <div className="sticky top-0 h-screen w-full  overflow-hidden flex flex-col justify-between ">
