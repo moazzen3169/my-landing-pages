@@ -7,9 +7,11 @@ import { ShieldCheck, RefreshCw, Truck, Lock } from 'lucide-react';
 
 interface EditorialSectionProps {
   isPersian?: boolean;
+  storeName?: string;
 }
 
-export function BrandStory({ isPersian = false }: EditorialSectionProps) {
+export function BrandStory({ isPersian = false, storeName }: EditorialSectionProps) {
+  const name = storeName || (isPersian ? 'نوآر' : 'NOIRÉ');
   return (
     <section className="section-padding bg-[#0B0B0B] text-[#F3F2EE] border-t border-[#2B2B2B]">
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
@@ -21,7 +23,7 @@ export function BrandStory({ isPersian = false }: EditorialSectionProps) {
                 : 'text-[10px] font-mono tracking-[0.35em] text-[#A58B68] uppercase'
             }
           >
-            {isPersian ? 'بیانیه نوآر' : 'OUR MANIFESTO'}
+            {isPersian ? `بیانیه ${name}` : 'OUR MANIFESTO'}
           </span>
           <h2
             className={
@@ -48,8 +50,8 @@ export function BrandStory({ isPersian = false }: EditorialSectionProps) {
             }`}
           >
             {isPersian
-              ? 'فروشگاه چندبرند لوکس نوآر (NOIRÉ) مجموعه‌ای گزینش‌شده از بهترین کالکشن‌های پوشاک مردانه روزمره و مجلسی برندهای مطرح جهانی مانند Tom Ford, Zegna, Loro Piana و Burberry را برای آقایان شیک‌پوش فراهم آورده است.'
-              : 'NOIRÉ is a luxury multi-brand menswear boutique curating finest formal tailoring, smart casual, and luxury essentials from iconic fashion houses like Tom Ford, Zegna, Loro Piana, and Burberry.'}
+              ? `فروشگاه چندبرند لوکس ${name} مجموعه‌ای گزینش‌شده از بهترین کالکشن‌های پوشاک مردانه روزمره و مجلسی برندهای مطرح جهانی مانند Tom Ford, Zegna, Loro Piana و Burberry را برای آقایان شیک‌پوش فراهم آورده است.`
+              : `${name} is a luxury multi-brand menswear boutique curating finest formal tailoring, smart casual, and luxury essentials from iconic fashion houses like Tom Ford, Zegna, Loro Piana, and Burberry.`}
           </p>
           <div
             className={`grid grid-cols-2 gap-6 pt-6 border-t border-[#2B2B2B] ${
@@ -140,7 +142,8 @@ export function QualitySection({ isPersian = false }: EditorialSectionProps) {
   );
 }
 
-export function Newsletter({ isPersian = false }: EditorialSectionProps) {
+export function Newsletter({ isPersian = false, storeName }: EditorialSectionProps) {
+  const name = storeName || (isPersian ? 'نوآر' : 'NOIRÉ');
   return (
     <section className="section-padding bg-[#0B0B0B] text-[#F3F2EE] border-t border-[#2B2B2B]">
       <div className="max-w-2xl mx-auto px-5 text-center space-y-6">
@@ -160,7 +163,7 @@ export function Newsletter({ isPersian = false }: EditorialSectionProps) {
               : 'text-3xl sm:text-5xl font-light font-display text-white uppercase tracking-tight'
           }
         >
-          {isPersian ? 'به دنیای نوآر بپیوندید.' : 'ENTER THE WORLD OF NOIRÉ.'}
+          {isPersian ? `به دنیای ${name} بپیوندید.` : `ENTER THE WORLD OF ${name}.`}
         </h2>
         <p
           className={`text-[#D7D4CD] max-w-md mx-auto leading-relaxed ${
@@ -175,7 +178,7 @@ export function Newsletter({ isPersian = false }: EditorialSectionProps) {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            alert(isPersian ? 'با تشکر از اشتراک شما در نوآر.' : 'Thank you for subscribing to NOIRÉ.');
+            alert(isPersian ? `با تشکر از اشتراک شما در ${name}.` : `Thank you for subscribing to ${name}.`);
           }}
           className="flex flex-col sm:flex-row items-center max-w-md mx-auto gap-3 pt-4"
         >
@@ -201,14 +204,15 @@ export function Newsletter({ isPersian = false }: EditorialSectionProps) {
   );
 }
 
-export function Footer({ isPersian = false }: EditorialSectionProps) {
+export function Footer({ isPersian = false, storeName }: EditorialSectionProps) {
+  const name = storeName || 'NOIRÉ';
   return (
     <footer className="bg-[#0B0B0B] text-[#D7D4CD] border-t border-[#2B2B2B] pt-16 pb-12 text-xs">
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 grid grid-cols-1 md:grid-cols-5 gap-10 mb-16 text-start">
         {/* Brand Column */}
         <div className="md:col-span-2 space-y-4">
           <Link href="/" className="text-3xl font-light font-display tracking-[0.3em] text-white inline-block">
-            NOIRÉ
+            {name}
           </Link>
           <p
             className={`text-[#77746E] max-w-sm leading-relaxed ${
@@ -285,7 +289,7 @@ export function Footer({ isPersian = false }: EditorialSectionProps) {
           isPersian ? 'text-xs font-normal font-peyda' : 'text-[10px] font-mono uppercase'
         }`}
       >
-        <p>© 2026 NOIRÉ MENSWEAR. {isPersian ? 'تمام حقوق محفوظ است.' : 'ALL RIGHTS RESERVED.'}</p>
+        <p>© 2026 {name} MENSWEAR. {isPersian ? 'تمام حقوق محفوظ است.' : 'ALL RIGHTS RESERVED.'}</p>
         <div className="flex gap-6">
           <span className="hover:text-white cursor-pointer transition-colors">{isPersian ? 'حریم خصوصی' : 'PRIVACY POLICY'}</span>
           <span className="hover:text-white cursor-pointer transition-colors">{isPersian ? 'شرایط استفاده' : 'TERMS OF SERVICE'}</span>

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Search, ShoppingBag, Heart, Menu, User, ArrowLeft } from 'lucide-react';
+import { Search, ShoppingBag, Heart, Menu } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
 
@@ -11,12 +11,14 @@ interface HeaderProps {
   onOpenCart: () => void;
   onOpenMobileMenu: () => void;
   onOpenQuickView?: (productId: string) => void;
+  storeName?: string;
 }
 
 export default function Header({
   onOpenSearch,
   onOpenCart,
   onOpenMobileMenu,
+  storeName = 'دپیکس',
 }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const { totalItems } = useCart();
@@ -53,7 +55,7 @@ export default function Header({
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
           <span>ارسال رایگان برای سفارش‌های بالای ۲۰ میلیون تومان</span>
           <span className="hidden md:inline text-[#6B6B68]">|</span>
-          <span className="hidden md:inline text-[#D9D9D5]">دراپ‌های جدید SOLEA را زودتر از همه ببینید</span>
+          <span className="hidden md:inline text-[#D9D9D5]">دراپ‌های جدید {storeName} را زودتر از همه ببینید</span>
         </div>
       </div>
 
@@ -73,8 +75,8 @@ export default function Header({
               href="/shop/solea-sneakers"
               className="flex items-baseline gap-2 group"
             >
-              <span className="text-2xl sm:text-3xl font-black tracking-tight text-[#0A0A0A] uppercase font-peyda group-hover:opacity-75 transition-opacity">
-                SOLEA
+              <span className="text-2xl sm:text-3xl font-black tracking-tight text-[var(--landing-primary,#0A0A0A)] uppercase font-peyda group-hover:opacity-75 transition-opacity">
+                {storeName}
               </span>
               <span className="text-[10px] font-semibold tracking-widest text-[#6B6B68] uppercase hidden sm:inline-block border-r border-[#D9D9D5] pr-2.5">
                 EDITORIAL SNEAKERS
@@ -116,7 +118,7 @@ export default function Header({
             >
               <Heart className="w-4 h-4 shrink-0" />
               {wishlistCount > 0 && (
-                <span className="absolute -top-1 -left-1 w-4 h-4 rounded-full bg-[#0A0A0A] text-[#F3F3F1] text-[9px] font-bold flex items-center justify-center">
+                <span className="absolute -top-1 -left-1 w-4 h-4 rounded-full bg-[var(--landing-primary,#0A0A0A)] text-[#F3F3F1] text-[9px] font-bold flex items-center justify-center">
                   {wishlistCount}
                 </span>
               )}
@@ -125,7 +127,7 @@ export default function Header({
             {/* CART BUTTON */}
             <button
               onClick={onOpenCart}
-              className="relative flex items-center gap-2 px-4 py-2 rounded-full bg-[#0A0A0A] text-[#F3F3F1] hover:bg-[#222222] transition-colors text-xs font-medium border border-[#0A0A0A]"
+              className="relative flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--landing-primary,#0A0A0A)] text-[#F3F3F1] hover:opacity-90 transition-colors text-xs font-medium border border-[#0A0A0A]"
               aria-label="سبد خرید"
             >
               <ShoppingBag className="w-3.5 h-3.5 shrink-0" />

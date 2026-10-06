@@ -1,9 +1,12 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 
-export default function Footer() {
+interface FooterProps {
+  storeName?: string;
+}
+
+export default function Footer({ storeName = 'دپیکس' }: FooterProps) {
   return (
     <footer className="bg-[#FFFFFF] border-t border-[#E5E5E5] font-peyda text-[#111111] pt-16 pb-24 md:pb-16 dir-rtl">
       <div className="max-w-[1600px] mx-auto px-6 sm:px-10 md:px-12">
@@ -11,8 +14,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 pb-16 border-b border-[#E5E5E5]">
           {/* BRAND */}
           <div className="space-y-4 text-start">
-            <span className="text-2xl font-light tracking-widest text-[#000000] font-serif uppercase block">
-              MOR'E
+            <span className="text-2xl font-light tracking-widest text-[var(--landing-primary,#000000)] font-serif uppercase block">
+              {storeName}
             </span>
             <p className="text-xs text-[#666666] leading-relaxed font-normal">
               مرجع تخصصی کیف و کفش‌های لوکس زنانه با ضمانت اصالت.
@@ -51,7 +54,7 @@ export default function Footer() {
               بوتیک
             </span>
             <p className="text-xs text-[#333333] font-normal leading-relaxed">
-              تبریز، ولیعصر، سنگفرش شهریار، بوتیک موره
+              تبریز، ولیعصر، سنگفرش شهریار، بوتیک {storeName}
             </p>
             <p className="text-xs font-mono text-[#666666] dir-ltr text-end sm:text-start">
               +98 41 3333 0000
@@ -60,7 +63,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#999999] font-mono gap-4">
-          <span>© 2026 MOR'E. ALL RIGHTS RESERVED.</span>
+          <span>© 2026 {storeName}. ALL RIGHTS RESERVED.</span>
           <span>HAUTE COUTURE & LUXURY LEATHER</span>
         </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, Suspense } from "react";
+import { useStore } from "@/hooks/useStore";
 import Link from "next/link";
 import {
   BABY_PRODUCTS,
@@ -42,7 +43,8 @@ import {
   FlowerIcon,
 } from "lucide-react";
 
-export default function BabyLandingPage() {
+function BabyContent() {
+  const { storeName } = useStore("baby");
   // Navigation & Drawers State
   const [activeMegaCategory, setActiveMegaCategory] = useState<string | null>(
     null,
@@ -1844,5 +1846,14 @@ function ProductDetailModal({
         </div>
       </div>
     </div>
+  );
+}
+
+
+export default function BabyLandingPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#5F4A4A]" />}>
+      <BabyContent />
+    </Suspense>
   );
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import Header from '@/components/navigation/Header';
 import Preloader from '@/components/ui/Preloader';
 import HeroSection from '@/components/hero/HeroSection';
@@ -18,8 +18,10 @@ import { CartProvider } from '@/context/CartContext';
 import { WishlistProvider } from '@/context/WishlistContext';
 import SmoothScrollProvider from '@/components/ui/SmoothScrollProvider';
 import { NOIRE_PRODUCTS } from '@/data/noire';
+import { useStore } from '@/hooks/useStore';
 
-export default function NoireLandingPage() {
+function NoireContent() {
+  const { storeName, theme } = useStore('noire-men-formal');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
@@ -29,8 +31,13 @@ export default function NoireLandingPage() {
           <Preloader />
           <CustomCursor />
 
-          <div className="min-h-screen flex flex-col bg-[#F3F2EE] text-[#111111] relative">
-            <Header onOpenSearch={() => setIsSearchOpen(true)} isDarkBackground={true} />
+          <div
+            className="min-h-screen flex flex-col bg-[#F3F2EE] text-[#111111] relative"
+            style={{
+              '--landing-primary': theme.primary,
+            } as React.CSSProperties}
+          >
+            <Header onOpenSearch={() => setIsSearchOpen(true)} isDarkBackground={true} storeName={storeName} />
 
             <main className="flex-grow">
               {/* 01 HERO SECTION WITH LOOK SELECTOR */}
@@ -56,17 +63,17 @@ export default function NoireLandingPage() {
               <OutfitBuilder />
 
               {/* 07 BRAND STORY */}
-              <BrandStory />
+              <BrandStory storeName={storeName} />
 
               {/* 08 QUALITY & SERVICES */}
               <QualitySection />
 
               {/* 09 NEWSLETTER */}
-              <Newsletter />
+              <Newsletter storeName={storeName} />
             </main>
 
             {/* 10 FOOTER */}
-            <Footer />
+            <Footer storeName={storeName} />
 
             {/* DRAWERS & OVERLAYS */}
             <CartDrawer />
@@ -75,5 +82,13 @@ export default function NoireLandingPage() {
         </SmoothScrollProvider>
       </WishlistProvider>
     </CartProvider>
+  );
+}
+
+export default function NoireLandingPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#F3F2EE]" />}>
+      <NoireContent />
+    </Suspense>
   );
 }

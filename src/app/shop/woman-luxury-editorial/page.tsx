@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import Header from '@/components/landing/woman-lux/Header';
 import HeroSection from '@/components/landing/woman-lux/HeroSection';
 import CategorySection from '@/components/landing/woman-lux/CategorySection';
@@ -16,10 +16,13 @@ import WishlistModal from '@/components/landing/woman-lux/WishlistModal';
 import SearchOverlay from '@/components/landing/woman-lux/SearchOverlay';
 
 import { WOMAN_LUX_PRODUCTS, WomanLuxProduct, ScrollSectionProduct } from '@/data/woman-lux';
+import { useStore } from '@/hooks/useStore';
 
 type AnyProduct = WomanLuxProduct | ScrollSectionProduct;
 
-export default function WomanLuxuryEditorialPage() {
+function WomanLuxuryContent() {
+  const { storeName, theme } = useStore('woman-luxury-editorial');
+
   // STATE MANAGEMENT
   const [selectedProductDetail, setSelectedProductDetail] = useState<AnyProduct | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -101,6 +104,10 @@ export default function WomanLuxuryEditorialPage() {
       className="min-h-screen bg-[#FFFFFF] text-[#111111] font-peyda selection:bg-[#000000] selection:text-white dir-rtl"
       dir="rtl"
       lang="fa"
+      style={{
+        '--landing-primary': theme.primary,
+        '--landing-secondary': theme.secondary || theme.primary,
+      } as React.CSSProperties}
     >
       {/* 01 HEADER */}
       <Header
@@ -110,6 +117,7 @@ export default function WomanLuxuryEditorialPage() {
         onOpenCart={() => setIsCartOpen(true)}
         onOpenWishlist={() => setIsWishlistOpen(true)}
         onSelectCategory={(cat) => setSelectedCategory(cat)}
+        storeName={storeName}
       />
 
       <main className="space-y-0">
@@ -167,7 +175,7 @@ export default function WomanLuxuryEditorialPage() {
       </main>
 
       {/* 07 FOOTER */}
-      <Footer />
+      <Footer storeName={storeName} />
 
       {/* MODALS & OVERLAYS */}
       <ProductDetailModal
@@ -201,5 +209,13 @@ export default function WomanLuxuryEditorialPage() {
         onOpenDetail={(prod) => setSelectedProductDetail(prod)}
       />
     </div>
+  );
+}
+
+export default function WomanLuxuryEditorialPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-white" />}>
+      <WomanLuxuryContent />
+    </Suspense>
   );
 }

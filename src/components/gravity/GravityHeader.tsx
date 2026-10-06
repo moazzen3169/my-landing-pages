@@ -9,6 +9,7 @@ interface GravityHeaderProps {
   onOpenWishlist: () => void;
   cartCount: number;
   wishlistCount: number;
+  storeName?: string;
 }
 
 export default function GravityHeader({
@@ -17,6 +18,7 @@ export default function GravityHeader({
   onOpenWishlist,
   cartCount,
   wishlistCount,
+  storeName = 'دپیکس',
 }: GravityHeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -35,17 +37,15 @@ export default function GravityHeader({
 
   return (
     <>
-
-
       {/* Main Sticky Header */}
       <header
-        className={` w-full top-0 z-40 transition-all duration-300 font-peyda ${
+        className={`w-full top-0 z-40 transition-all duration-300 font-peyda ${
           isScrolled
-            ? 'bg-[#F3F2EE]   border-[#D7D4CD]/60 py-5'
+            ? 'bg-[#F3F2EE] border-[#D7D4CD]/60 py-5'
             : 'bg-[#F3F2EE] border-[#D7D4CD]/60 py-5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6  lg:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Right Section (RTL Navigation Items) */}
           <nav className="hidden lg:flex items-center gap-9 text-sm font-medium text-[#111111]">
             <a
@@ -53,23 +53,22 @@ export default function GravityHeader({
               className="hover:text-[#666666] transition-colors py-1 relative group"
             >
               جدیدها
-              <span className="absolute bottom-0 right-0 w-0 h-[1.5px] bg-[#111111] transition-all duration-200 group-hover:w-full"></span>
+              <span className="absolute bottom-0 right-0 w-0 h-[1.5px] bg-[var(--landing-primary,#111111)] transition-all duration-200 group-hover:w-full"></span>
             </a>
             <a
               href="#categories"
               className="hover:text-[#666666] transition-colors py-1 relative group"
             >
               دسته‌بندی‌ها
-              <span className="absolute bottom-0 right-0 w-0 h-[1.5px] bg-[#111111] transition-all duration-200 group-hover:w-full"></span>
+              <span className="absolute bottom-0 right-0 w-0 h-[1.5px] bg-[var(--landing-primary,#111111)] transition-all duration-200 group-hover:w-full"></span>
             </a>
             <a
               href="#brands"
               className="hover:text-[#666666] transition-colors py-1 relative group"
             >
               برندها
-              <span className="absolute bottom-0 right-0 w-0 h-[1.5px] bg-[#111111] transition-all duration-200 group-hover:w-full"></span>
+              <span className="absolute bottom-0 right-0 w-0 h-[1.5px] bg-[var(--landing-primary,#111111)] transition-all duration-200 group-hover:w-full"></span>
             </a>
-
           </nav>
 
           {/* Mobile Menu Toggle Button */}
@@ -81,14 +80,14 @@ export default function GravityHeader({
             {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
 
-          {/* Center Section: GRAVITY Logo */}
+          {/* Center Section: Logo */}
           <div className="text-center">
             <a href="#" className="inline-block group">
-              <span className="text-2xl sm:text-3xl font-black tracking-widest text-[#111111] font-sans uppercase block leading-none">
-                GRAVITY
+              <span className="text-2xl sm:text-3xl font-black tracking-widest text-[var(--landing-primary,#111111)] font-sans uppercase block leading-none">
+                {storeName}
               </span>
               <span className="text-[10px] text-[#666666] tracking-widest font-medium font-peyda block mt-0.5">
-                گراویتی • پوشاک مردانه
+                {storeName} • پوشاک مردانه
               </span>
             </a>
           </div>
@@ -113,7 +112,7 @@ export default function GravityHeader({
             >
               <Heart size={19} className="stroke-[1.75]" />
               {wishlistCount > 0 && (
-                <span className="absolute top-1 right-1 bg-[#111111] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
+                <span className="absolute top-1 right-1 bg-[var(--landing-primary,#111111)] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
                   {wishlistCount}
                 </span>
               )}
@@ -122,7 +121,7 @@ export default function GravityHeader({
             {/* Cart Trigger */}
             <button
               onClick={onOpenCart}
-              className="p-2 bg-[#111111] text-white hover:bg-[#333333] transition-all px-3 py-1.5 rounded-sm flex items-center gap-2 text-xs font-medium"
+              className="p-2 bg-[var(--landing-primary,#111111)] text-white hover:opacity-90 transition-all px-3 py-1.5 rounded-sm flex items-center gap-2 text-xs font-medium"
               aria-label="سبد خرید"
             >
               <ShoppingBag size={17} className="stroke-[1.75]" />

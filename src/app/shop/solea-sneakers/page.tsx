@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import Header from '@/components/landing/solea-sneakers/Header';
 import Hero from '@/components/landing/solea-sneakers/Hero';
 import TrustBar from '@/components/landing/solea-sneakers/TrustBar';
@@ -23,8 +23,11 @@ import CustomCursor from '@/components/landing/solea-sneakers/CustomCursor';
 import SmoothScrollProvider from '@/components/landing/solea-sneakers/SmoothScrollProvider';
 
 import { SneakerProduct } from '@/data/solea-sneakers';
+import { useStore } from '@/hooks/useStore';
 
-export default function SoleaSneakersLandingPage() {
+function SoleaContent() {
+  const { storeName, theme } = useStore('solea-sneakers');
+
   // STATE
   const [quickViewProduct, setQuickViewProduct] = useState<SneakerProduct | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -34,7 +37,13 @@ export default function SoleaSneakersLandingPage() {
 
   return (
     <SmoothScrollProvider>
-      <div className="min-h-screen bg-[#F3F3F1] text-[#0A0A0A] font-peyda antialiased selection:bg-[#0A0A0A] selection:text-[#F3F3F1]" dir="rtl">
+      <div
+        className="min-h-screen bg-[#F3F3F1] text-[#0A0A0A] font-peyda antialiased selection:bg-[#0A0A0A] selection:text-[#F3F3F1]"
+        dir="rtl"
+        style={{
+          '--landing-primary': theme.primary,
+        } as React.CSSProperties}
+      >
 
         {/* DESKTOP CUSTOM CURSOR */}
         <CustomCursor />
@@ -44,6 +53,7 @@ export default function SoleaSneakersLandingPage() {
           onOpenSearch={() => setIsSearchOpen(true)}
           onOpenCart={() => setIsCartOpen(true)}
           onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
+          storeName={storeName}
         />
 
         {/* MAIN EDITORIAL EXPERIENCE */}
@@ -86,7 +96,7 @@ export default function SoleaSneakersLandingPage() {
         </main>
 
         {/* 26 FOOTER */}
-        <Footer onOpenSizeGuide={() => setIsSizeGuideOpen(true)} />
+        <Footer onOpenSizeGuide={() => setIsSizeGuideOpen(true)} storeName={storeName} />
 
         {/* OVERLAYS & MODALS */}
         <ProductQuickView
@@ -120,5 +130,13 @@ export default function SoleaSneakersLandingPage() {
 
       </div>
     </SmoothScrollProvider>
+  );
+}
+
+export default function SoleaSneakersLandingPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#F3F3F1]" />}>
+      <SoleaContent />
+    </Suspense>
   );
 }

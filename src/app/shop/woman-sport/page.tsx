@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, Suspense } from 'react';
+import { useStore } from '@/hooks/useStore';
 import Link from 'next/link';
 import {
   WOMAN_SPORT_PRODUCTS,
@@ -34,7 +35,8 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-export default function WomanSportLandingPage() {
+function WomanSportContent() {
+  const { storeName, theme } = useStore("woman-sport");
   // Navigation & Drawers State
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
@@ -1464,5 +1466,14 @@ function ProductDetailModal({
         </div>
       </div>
     </div>
+  );
+}
+
+
+export default function WomanSportLandingPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#FFFDFC]" />}>
+      <WomanSportContent />
+    </Suspense>
   );
 }
