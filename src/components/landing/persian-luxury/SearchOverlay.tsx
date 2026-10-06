@@ -37,7 +37,7 @@ export default function SearchOverlay({
 
         {/* HEADER */}
         <div className="flex items-center justify-between mb-12">
-          <span className="text-xl font-light tracking-widest font-serif">MOR'E</span>
+          <span className="text-xl font-light tracking-widest font-peyda">MOR'E</span>
           <button onClick={onClose} className="p-2 text-[#000000] hover:opacity-60">
             <X className="w-6 h-6 stroke-[1.25]" />
           </button>

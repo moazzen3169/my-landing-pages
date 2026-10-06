@@ -61,12 +61,10 @@ export default function Header({
         {/* LOGO */}
         <div className="flex items-center gap-6">
           <Link href="/shop/persian-luxury-v1" className="group text-start flex flex-col">
-            <span className="min-w-[300px] text-2xl sm:text-3xl font-light tracking-widest text-[var(--landing-primary,#000000)] font-serif uppercase transition-colors">
+            <span className="min-w-[300px] text-2xl sm:text-2 xl font-bold tracking-widest text-[var(--landing-primary,#000000)] font-peyda uppercase transition-colors">
               {storeName}
             </span>
-            <span className="text-[9px] text-[#666666] tracking-[0.2em] uppercase font-sans font-normal -mt-1">
-              HAUTE COUTURE
-            </span>
+
           </Link>
         </div>
 

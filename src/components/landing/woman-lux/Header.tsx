@@ -85,7 +85,7 @@ export default function Header({
               href="#"
               className="group flex items-center gap-2 text-right"
             >
-              <span className="font-serif tracking-widest text-xl sm:text-2xl font-bold uppercase text-[var(--landing-primary,#111111)] sm:text-current">
+              <span className="font-peyda tracking-widest text-xl sm:text-2xl font-bold uppercase text-[var(--landing-primary,#111111)] sm:text-current">
                 {storeName}
               </span>
             </a>
@@ -163,7 +163,7 @@ export default function Header({
           >
             <div>
               <div className="flex items-center justify-between pb-6 border-b border-[#E5E5E5] mb-6">
-                <span className="font-serif tracking-widest text-lg font-bold">{storeName}</span>
+                <span className="font-peyda tracking-widest text-lg font-bold">{storeName}</span>
                 <button onClick={() => setIsMobileMenuOpen(false)} className="p-2">
                   <X className="w-5 h-5" />
                 </button>

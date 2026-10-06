@@ -35,7 +35,7 @@ export default function SearchOverlay({
     <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md animate-fade-in flex flex-col justify-start p-4 sm:p-8">
       {/* TOP HEADER */}
       <div className="max-w-4xl mx-auto w-full flex items-center justify-between pb-6 border-b border-white/20">
-        <span className="font-serif tracking-widest text-lg font-bold text-white">
+        <span className="font-peyda tracking-widest text-lg font-bold text-white">
           NOIRÉ SEARCH
         </span>
         <button

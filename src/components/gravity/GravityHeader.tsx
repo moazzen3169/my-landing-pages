@@ -83,12 +83,10 @@ export default function GravityHeader({
           {/* Center Section: Logo */}
           <div className="text-center">
             <a href="#" className="inline-block group">
-              <span className="text-2xl sm:text-3xl font-black tracking-widest text-[var(--landing-primary,#111111)] font-sans uppercase block leading-none">
+              <span className="text-2xl sm:text-3xl font-medium tracking-widest text-[var(--landing-primary,#111111)] font-peyda uppercase block leading-none">
                 {storeName}
               </span>
-              <span className="text-[10px] text-[#666666] tracking-widest font-medium font-peyda block mt-0.5">
-                {storeName} • پوشاک مردانه
-              </span>
+
             </a>
           </div>
 

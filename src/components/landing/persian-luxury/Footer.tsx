@@ -14,7 +14,7 @@ export default function Footer({ storeName = 'دپیکس' }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 pb-16 border-b border-[#E5E5E5]">
           {/* BRAND */}
           <div className="space-y-4 text-start">
-            <span className="text-2xl font-light tracking-widest text-[var(--landing-primary,#000000)] font-serif uppercase block">
+            <span className="text-2xl font-light tracking-widest text-[var(--landing-primary,#000000)] font-peyda uppercase block">
               {storeName}
             </span>
             <p className="text-xs text-[#666666] leading-relaxed font-normal">

@@ -28,7 +28,7 @@ export default function Footer({ storeName = 'دپیکس' }: FooterProps) {
 
           {/* BRAND COLUMN */}
           <div className="md:col-span-5 space-y-4 text-right">
-            <span className="font-serif tracking-widest text-2xl font-bold uppercase block">
+            <span className="font-peyda tracking-widest text-2xl font-bold uppercase block">
               {storeName}
             </span>
             <p className="text-xs text-white/60 leading-relaxed max-w-sm">

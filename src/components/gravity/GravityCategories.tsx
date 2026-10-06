@@ -7,7 +7,7 @@ import { ArrowUpLeft } from 'lucide-react';
 
 export default function GravityCategories() {
   return (
-    <section id="categories" className="py-20 md:py-28 bg-[#F3F2EE] border-b border-[#D7D4CD] font-peyda">
+    <section id="categories" className="py-20 md:py-28 bg-[#ffffff]  font-peyda">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#D7D4CD]/80 gap-4">
@@ -19,9 +19,7 @@ export default function GravityCategories() {
               چه چیزی می‌پوشی؟
             </h2>
           </div>
-          <p className="text-sm text-[#666666] max-w-md font-medium leading-relaxed">
-            مجموعه‌ای از پوشاک مردانه طراحی و انتخاب شده برای تمامی فصل‌ها و موقعیت‌های رسمی تا روزمره.
-          </p>
+
         </div>
 
         {/* Category Grid */}
@@ -30,8 +28,8 @@ export default function GravityCategories() {
             <a
               key={cat.id}
               href={`#${cat.id}`}
-              className={`group relative overflow-hidden bg-[#E8E6E1] border border-[#D7D4CD] rounded-xs flex flex-col justify-end ${
-                idx === 0 ? 'col-span-2 sm:col-span-2 lg:col-span-2 row-span-2 min-h-[360px] sm:min-h-[460px]' : 'min-h-[220px] sm:min-h-[260px]'
+              className={`group relative overflow-hidden bg-[#EFEFEF] border border-[#D7D4CD] rounded-xs flex flex-col justify-end ${
+                idx === 0 ? 'col-span-2 sm:col-span-2 lg:col-span-2 row-span-4 min-h-[360px] sm:min-h-[460px]' : 'min-h-[220px] sm:min-h-[260px]'
               }`}
             >
               {/* Background Image */}
@@ -40,16 +38,15 @@ export default function GravityCategories() {
                   src={cat.image}
                   alt={cat.titleFa}
                   fill
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="object-contain object-left group-hover:scale-105 transition-transform duration-700 ease-out"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent transition-opacity duration-300" />
               </div>
 
               {/* Content Overlay */}
-              <div className="relative p-5 sm:p-6 text-white z-10 flex items-end justify-between">
+              <div className="absolute top-[0px] right-[0px] p-5 sm:p-6 text-black z-10 flex items-end justify-between">
                 <div>
-                  <span className="text-[11px] font-medium text-white/70 block mb-1 tracking-wider">
+                  <span className="text-[11px] font-medium text-black/70 block mb-1 tracking-wider">
                     {cat.titleEn} • {cat.count}
                   </span>
                   <h3 className="text-lg sm:text-xl font-bold tracking-normal group-hover:text-[#DDDDDD] transition-colors">
@@ -57,9 +54,6 @@ export default function GravityCategories() {
                   </h3>
                 </div>
 
-                <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm group-hover:bg-[#111111] text-white flex items-center justify-center transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                  <ArrowUpLeft size={16} />
-                </div>
               </div>
             </a>
           ))}

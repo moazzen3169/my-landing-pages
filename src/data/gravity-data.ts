@@ -76,14 +76,14 @@ export const GRAVITY_CATEGORIES: GravityCategory[] = [
   {
     id: 'blazers',
     titleFa: 'کت تک',
-    titleEn: 'BLAZERS & JACKETS',
+    titleEn: '',
     count: '۱۸ مدل',
     image: '/images/gravity/product-3.webp',
     link: '#blazers',
   },
   {
     id: 'shirts',
-    titleFa: 'پیراهن رسمی و روزمره',
+    titleFa: 'پیراهن رسمی ',
     titleEn: 'SHIRTS',
     count: '۳۲ مدل',
     image: '/images/gravity/shirt-1.webp',
@@ -91,7 +91,7 @@ export const GRAVITY_CATEGORIES: GravityCategory[] = [
   },
   {
     id: 'trousers',
-    titleFa: 'شلوار پارچه‌ای و جین',
+    titleFa: 'شلوار پارچه‌ای  ',
     titleEn: 'TROUSERS & JEANS',
     count: '۲۸ مدل',
     image: '/images/gravity/product-5.webp',
@@ -100,7 +100,7 @@ export const GRAVITY_CATEGORIES: GravityCategory[] = [
   {
     id: 'hoodies',
     titleFa: 'هودی و دورس',
-    titleEn: 'HOODIES & SWEATSHIRTS',
+    titleEn: '',
     count: '۱۵ مدل',
     image: '/images/gravity/product-12.webp',
     link: '#hoodies',
