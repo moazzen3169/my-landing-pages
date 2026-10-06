@@ -70,7 +70,7 @@ export default function Hero({ onOpenSearch }: HeroProps) {
   useEffect(() => {
     const timer = setInterval(() => {
       paginate(1);
-    }, 1000);
+    }, 2000);
     return () => clearInterval(timer);
   }, [page]);
 
@@ -170,11 +170,11 @@ export default function Hero({ onOpenSearch }: HeroProps) {
 
   return (
     <section
-      className="relative bg-[#313131] pt-24 pb-16 lg:pt-32 lg:pb-20 overflow-hidden font-peyda border-b border-neutral-200"
+      className="relative bg-[#313131] pt-24 pb-16 lg:pt-32 lg:pb-20 overflow-hidden items-center justify-center flex font-peyda border-b h-[100dvh] border-neutral-200"
       dir="rtl"
     >
       {/* BACKGROUND DECORATIVE WATERMARK */}
-      <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center overflow-hidden opacity-[0.03]">
+      <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center overflow-hidden opacity-[0.1]">
         <span className="text-[20vw] font-black tracking-tighter text-black uppercase leading-none font-mono">
           {currentProduct.brand}
         </span>
