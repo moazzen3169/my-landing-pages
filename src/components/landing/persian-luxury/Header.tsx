@@ -59,7 +59,7 @@ export default function Header({
         {/* LOGO */}
         <div className="flex items-center gap-6">
           <Link href="/shop/persian-luxury-v1" className="group text-start flex flex-col">
-            <span className="text-2xl sm:text-3xl font-light tracking-widest text-[#000000] font-serif uppercase transition-colors">
+            <span className="min-w-[300px] text-2xl sm:text-3xl font-light tracking-widest text-[#000000] font-serif uppercase transition-colors">
               MOR'E
             </span>
             <span className="text-[9px] text-[#666666] tracking-[0.2em] uppercase font-sans font-normal -mt-1">
