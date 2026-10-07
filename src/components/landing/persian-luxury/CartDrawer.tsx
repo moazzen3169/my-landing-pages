@@ -57,7 +57,10 @@ export default function CartDrawer({
                       <span className="block text-[10px] font-mono text-[#666666] uppercase" dir="ltr">{item.product.brand}</span>
                       <h4 className="text-xs font-normal text-[#000000] line-clamp-1">{item.product.name}</h4>
                       <p className="text-[11px] text-[#666666] mt-1">
-                        رنگ: {item.selectedColor} | سایز: {item.selectedSize}
+                        رنگ: {item.selectedColor}
+                        {item.product.category === 'shoes' && item.selectedSize && (
+                          <span> | سایز: {item.selectedSize}</span>
+                        )}
                       </p>
                     </div>
 

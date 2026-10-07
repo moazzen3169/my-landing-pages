@@ -2,13 +2,11 @@ $ next dev
 ▲ Next.js 16.3.8 (Turbopack)
 - Local:         http://localhost:3000
 - Network:       http://192.168.0.2:3000
-✓ Ready in 530ms
-✓ Running next.config.ts took 43ms
+✓ Ready in 564ms
+✓ Running next.config.ts took 45ms
 
-○ Compiling /shop/solea-sneakers ...
- GET /shop/solea-sneakers 200 in 5.9s (next.js: 5.1s, application-code: 809ms)
-[browser] Image with src "/images/landings/solea-sneakers/ADISTAR_XLG_2.0_SCHOENEN_Grijs_KZ9157_00_plp_standard.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+○ Compiling /shop/persian-luxury-v1 ...
+ GET /shop/persian-luxury-v1 200 in 6.3s (next.js: 5.6s, application-code: 673ms)
+[browser] Image with src "/images/landings/persian-luxury-v1/woman-shoes-1.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
 Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
- GET /shop/solea-sneakers 200 in 158ms (next.js: 10ms, application-code: 148ms)
- GET /shop/solea-sneakers 200 in 149ms (next.js: 7ms, application-code: 142ms)
- GET /shop/solea-sneakers 200 in 226ms (next.js: 25ms, application-code: 201ms)
+ GET /shop/persian-luxury-v1 200 in 164ms (next.js: 8ms, application-code: 155ms)

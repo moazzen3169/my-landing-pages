@@ -3,11 +3,11 @@
 import React, { useState, Suspense } from 'react';
 import Header from '@/components/landing/persian-luxury/Header';
 import HeroSection from '@/components/landing/persian-luxury/HeroSection';
-import NewArrivals from '@/components/landing/persian-luxury/NewArrivals';
 import CategoryShowcase from '@/components/landing/persian-luxury/CategoryShowcase';
-import BrandSection from '@/components/landing/persian-luxury/BrandSection';
-import CuratedEditSection from '@/components/landing/persian-luxury/CuratedEditSection';
+import HandbagsSection from '@/components/landing/persian-luxury/HandbagsSection';
+import ShoesSection from '@/components/landing/persian-luxury/ShoesSection';
 import Bestsellers from '@/components/landing/persian-luxury/Bestsellers';
+import BrandSection from '@/components/landing/persian-luxury/BrandSection';
 import CampaignSection from '@/components/landing/persian-luxury/CampaignSection';
 import CatalogGrid from '@/components/landing/persian-luxury/CatalogGrid';
 import AuthenticitySection from '@/components/landing/persian-luxury/AuthenticitySection';
@@ -40,11 +40,11 @@ function PersianLuxuryContent() {
     {
       product: LUXURY_PRODUCTS[0],
       selectedColor: LUXURY_PRODUCTS[0].colors[0]?.name || 'مشکی',
-      selectedSize: 'One Size',
+      selectedSize: '',
       quantity: 1,
     },
   ]);
-  const [wishlistIds, setWishlistIds] = useState<string[]>(['pl-w-01', 'pl-w-04']);
+  const [wishlistIds, setWishlistIds] = useState<string[]>(['pl-w-01', 'pl-w-08']);
 
   // WISHLIST TOGGLE
   const handleToggleWishlist = (id: string) => {
@@ -129,31 +129,26 @@ function PersianLuxuryContent() {
         {/* 02 HERO SECTION */}
         <HeroSection />
 
-        {/* 04 NEW ARRIVALS */}
-        <NewArrivals
-          products={LUXURY_PRODUCTS}
-          wishlistIds={wishlistIds}
-          onToggleWishlist={handleToggleWishlist}
-          onQuickView={(p) => setQuickViewProduct(p)}
-        />
-
-        {/* 05 CATEGORY SHOWCASE */}
+        {/* 03 CATEGORIES (دسته‌بندی‌ها) */}
         <CategoryShowcase />
 
-        {/* 06 BRAND SECTION */}
-        <BrandSection
-          onSelectBrand={(brand) => setSelectedBrandFilter(brand)}
-        />
-
-        {/* 07 THE EDIT / CURATED COLLECTION */}
-        <CuratedEditSection
+        {/* 04 HANDBAGS (کیف زنانه - کارت محصولات مرتبط) */}
+        <HandbagsSection
           products={LUXURY_PRODUCTS}
           wishlistIds={wishlistIds}
           onToggleWishlist={handleToggleWishlist}
           onQuickView={(p) => setQuickViewProduct(p)}
         />
 
-        {/* 08 BESTSELLERS */}
+        {/* 05 SHOES (کفش زنانه - کارت محصولات مرتبط) */}
+        <ShoesSection
+          products={LUXURY_PRODUCTS}
+          wishlistIds={wishlistIds}
+          onToggleWishlist={handleToggleWishlist}
+          onQuickView={(p) => setQuickViewProduct(p)}
+        />
+
+        {/* 06 BESTSELLERS (پرفروش‌ترین‌ها - کارت محصولات مرتبط) */}
         <Bestsellers
           products={LUXURY_PRODUCTS}
           wishlistIds={wishlistIds}
@@ -161,7 +156,12 @@ function PersianLuxuryContent() {
           onQuickView={(p) => setQuickViewProduct(p)}
         />
 
-        {/* 09 CAMPAIGN / PRIVATE SALE */}
+        {/* 07 BRAND SECTION */}
+        <BrandSection
+          onSelectBrand={(brand) => setSelectedBrandFilter(brand)}
+        />
+
+        {/* 08 CAMPAIGN / PRIVATE SALE */}
         <CampaignSection
           products={LUXURY_PRODUCTS}
           wishlistIds={wishlistIds}
@@ -169,7 +169,7 @@ function PersianLuxuryContent() {
           onQuickView={(p) => setQuickViewProduct(p)}
         />
 
-        {/* 10 FULL STORE CATALOG */}
+        {/* 09 FULL STORE CATALOG */}
         <CatalogGrid
           products={LUXURY_PRODUCTS}
           wishlistIds={wishlistIds}
@@ -178,23 +178,23 @@ function PersianLuxuryContent() {
           selectedBrandFilter={selectedBrandFilter}
         />
 
-        {/* 11 AUTHENTICITY SECTION */}
+        {/* 10 AUTHENTICITY SECTION */}
         <AuthenticitySection />
 
-        {/* 12 PHYSICAL STORE CONNECTION */}
+        {/* 11 PHYSICAL STORE CONNECTION */}
         <PhysicalStoreSection />
 
-        {/* 13 CUSTOMER SUPPORT */}
+        {/* 12 CUSTOMER SUPPORT */}
         <SupportSection />
 
-        {/* 14 NEWSLETTER */}
+        {/* 13 NEWSLETTER */}
         <Newsletter />
       </main>
 
-      {/* 15 FOOTER */}
+      {/* 14 FOOTER */}
       <Footer storeName={storeName} />
 
-      {/* 16 MOBILE BOTTOM STICKY NAVIGATION */}
+      {/* 15 MOBILE BOTTOM STICKY NAVIGATION */}
       <MobileBottomNav
         cartCount={totalCartCount}
         wishlistCount={wishlistIds.length}
