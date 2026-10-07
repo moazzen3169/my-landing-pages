@@ -180,9 +180,7 @@ function WomanSportContent() {
               <span className="font-estedad font-bold text-lg leading-none tracking-tight text-[#291A2D]">
                 {storeName}
               </span>
-              <span className="text-[10px] text-[#291A2D]/60 tracking-wider font-mono">
-                WOMEN'S CASUAL
-              </span>
+ 
             </div>
           </Link>
 

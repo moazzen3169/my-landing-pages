@@ -638,9 +638,9 @@ function BabyContent() {
             </div>
 
             <img
-              src="/images/BABY/Product-Play-Kit-2026-Coconut-01.webp"
+              src="/images/BABY/hero.png"
               alt="Toys"
-              className="absolute -bottom-4 -left-4 w-48 h-48 object-contain transition-transform duration-500 group-hover:scale-105"
+              className="absolute bottom-4  left-4 w-48 h-48 object-contain transition-transform duration-500 group-hover:scale-105"
             />
           </a>
 

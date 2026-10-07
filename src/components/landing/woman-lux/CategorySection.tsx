@@ -57,7 +57,7 @@ export default function CategorySection({ onSelectCategory }: CategorySectionPro
   };
 
   return (
-    <section className="py-12 px-4 sm:px-8 max-w-7xl mx-auto bg-[#FFFFFF] border-b border-[#E5E5E5]">
+    <section className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
       {/* SECTION HEADER */}
       <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-8 pb-4 border-b border-[#F0F0F0]">
         <div>
