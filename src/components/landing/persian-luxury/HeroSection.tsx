@@ -35,7 +35,7 @@ export default function HeroSection() {
     // Unsubscribe scroll progress to continuously update target time
     const unsubscribeScroll = scrollYProgress.on('change', (latestProgress) => {
       if (videoDurationRef.current > 0) {
-        const clampedProgress = Math.min(Math.max(latestProgress, 0), 0.999);
+        const clampedProgress = Math.min(Math.max(latestProgress, 0), 2.999);
         targetTimeRef.current = clampedProgress * videoDurationRef.current;
       }
     });

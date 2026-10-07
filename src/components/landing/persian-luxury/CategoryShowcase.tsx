@@ -56,14 +56,14 @@ export default function CategoryShowcase() {
               <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors" />
 
               {/* OVERLAY CONTENT */}
-              <div className="absolute inset-0 p-8 flex flex-col justify-end text-white">
-                <span className="text-[10px] font-mono tracking-widest text-[#FFFFFF]/80 uppercase">
+              <div className="absolute  top-0 p-8 flex flex-col justify-end text-black">
+                <span className="text-[10px] font-mono tracking-widest text-[#000]/80 uppercase">
                   {cat.sub}
                 </span>
-                <h3 className="text-xl font-normal mt-1 text-[#FFFFFF]">
+                <h3 className="text-xl font-normal mt-1 text-[#000]">
                   {cat.title}
                 </h3>
-                <span className="text-xs text-[#FFFFFF]/70 mt-2 font-mono">
+                <span className="text-xs text-[#000]/70 mt-2 font-mono">
                   {cat.count}
                 </span>
               </div>

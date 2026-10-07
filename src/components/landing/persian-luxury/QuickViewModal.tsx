@@ -74,7 +74,7 @@ export default function QuickViewModal({
         </button>
 
         {/* GALLERY SECTION (LEFT ON DESKTOP, TOP ON MOBILE) */}
-        <div className="w-full md:w-1/2 bg-[#F7F7F7] relative flex flex-col justify-between p-6 sm:p-8">
+        <div className="w-full md:w-1/2 bg-[#F7F7F7] relative flex flex-col justify-between ">
           <div className="relative aspect-[3/4] w-full bg-[#FAFAFA] overflow-hidden">
             <Image
               src={product.images[selectedImageIdx] || product.images[0]}
