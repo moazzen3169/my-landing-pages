@@ -18,54 +18,54 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="py-28 lg:py-40 bg-white font-peyda text-right border-b border-neutral-200" dir="rtl">
-      <div className="max-w-[1500px] mx-auto px-6 sm:px-10 md:px-16">
+    <section className="py-12 sm:py-20 lg:py-28 bg-white font-peyda text-right border-b border-neutral-200" dir="rtl">
+      <div className="max-w-[1500px] mx-auto px-4 sm:px-8 md:px-12">
 
-        <div className="bg-[#ffffff] text-black  relative overflow-hidden shadow-2xs">
+        <div className="bg-[#ffffff] text-black relative overflow-hidden">
 
-          <div className="max-w-3xl mx-auto text-center space-y-8 relative z-10">
+          <div className="max-w-2xl mx-auto text-center space-y-5 sm:space-y-6 relative z-10">
 
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-neutral-200 text-xs font-mono font-bold text-black uppercase tracking-wider rounded-full shadow-2xs">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F8F8F6] border border-neutral-200 text-[11px] sm:text-xs font-mono font-bold text-black uppercase tracking-wider rounded-full shadow-2xs">
               <span>NEWSLETTER & DROPS</span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-black text-black leading-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold text-black leading-tight">
               در جریان جدیدترین کتانی‌ها
               <br />
-              <span className="text-neutral-400">و تخفیف‌های ویژه باشید</span>
+              <span className="text-neutral-400 font-normal">و تخفیف‌های ویژه باشید</span>
             </h2>
 
-            <p className="text-base text-neutral-600 font-normal leading-relaxed max-w-xl mx-auto">
+            <p className="text-xs sm:text-sm text-neutral-600 font-normal leading-relaxed max-w-lg mx-auto">
               با ثبت ایمیل، زودتر از دیگران از موجود شدن مدل‌های جدید، دراپ‌های محدود و پیشنهادهای ویژه اطلاع پیدا کنید.
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <a
                 href="#products"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-black hover:bg-neutral-800 text-white font-bold text-sm rounded-full transition-colors group shadow-xs"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-black hover:bg-neutral-800 text-white font-bold text-xs sm:text-sm rounded-full transition-colors group shadow-xs active:scale-95"
               >
                 <span>مشاهده همه کفش‌های اسپورت</span>
-                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1.5 transition-transform" />
+                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               </a>
 
               <a
                 href="#limited-drop"
-                className="inline-flex items-center gap-2 px-7 py-4 bg-white hover:bg-neutral-100 text-black border border-neutral-200 font-semibold text-sm rounded-full transition-colors shadow-2xs"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#F8F8F6] hover:bg-neutral-200 text-black border border-neutral-200 font-semibold text-xs sm:text-sm rounded-full transition-colors active:scale-95"
               >
                 <span>دراپ‌های محدود</span>
               </a>
             </div>
 
             {/* NEWSLETTER FORM */}
-            <div className="pt-8 border-t border-neutral-200 max-w-md mx-auto">
-              <div className="text-xs font-mono font-bold text-neutral-500 mb-3 uppercase">
+            <div className="pt-6 sm:pt-8 border-t border-neutral-200 max-w-md mx-auto">
+              <div className="text-[11px] sm:text-xs font-mono font-bold text-neutral-500 mb-2.5 uppercase">
                 عضویت در خبرنامه
               </div>
 
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-3">
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-2.5">
                 {subscribed ? (
-                  <div className="w-full py-3.5 px-6 bg-emerald-50 border border-emerald-200 text-emerald-800 font-bold text-xs rounded-full flex items-center justify-center gap-2">
+                  <div className="w-full py-3 px-5 bg-emerald-50 border border-emerald-200 text-emerald-800 font-bold text-xs rounded-full flex items-center justify-center gap-2">
                     <CheckCircle className="w-4 h-4 shrink-0 text-emerald-600" />
                     <span>عضویت شما با موفقیت ثبت شد!</span>
                   </div>
@@ -77,11 +77,11 @@ export default function Newsletter() {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="آدرس ایمیل شما..."
                       required
-                      className="w-full px-5 py-3.5 bg-white border border-neutral-200 text-xs font-peyda text-black placeholder-neutral-400 focus:outline-none focus:border-black rounded-full shadow-2xs"
+                      className="w-full px-4 py-3 bg-[#F8F8F6] border border-neutral-200 text-xs font-peyda text-black placeholder-neutral-400 focus:outline-none focus:border-black rounded-full shadow-2xs"
                     />
                     <button
                       type="submit"
-                      className="w-full sm:w-auto px-7 py-3.5 bg-black hover:bg-neutral-800 text-white font-bold text-xs rounded-full transition-colors shrink-0 shadow-xs"
+                      className="w-full sm:w-auto px-6 py-3 bg-black hover:bg-neutral-800 text-white font-bold text-xs rounded-full transition-colors shrink-0 shadow-xs active:scale-95"
                     >
                       عضویت
                     </button>

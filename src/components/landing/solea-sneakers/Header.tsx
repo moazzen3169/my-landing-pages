@@ -26,7 +26,7 @@ export default function Header({
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 30) {
+      if (window.scrollY > 20) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -50,35 +50,32 @@ export default function Header({
   return (
     <div className="fixed top-0 left-0 right-0 z-50 font-peyda" dir="rtl">
       {/* 01 — TOP PROMO BAR */}
-      <div className="bg-amber-600 text-[#F3F3F1] h-9 flex items-center justify-center px-4 text-[11px] sm:text-xs font-medium tracking-normal ">
-        <div className="flex items-center gap-3">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>ارسال رایگان برای سفارش‌های بالای ۲۰ میلیون تومان</span>
-          <span className="hidden md:inline text-[#6B6B68]">|</span>
-          <span className="hidden md:inline text-[#D9D9D5]">دراپ‌های جدید {storeName} را زودتر از همه ببینید</span>
+      <div className="bg-amber-600 text-[#F3F3F1] h-8 sm:h-9 flex items-center justify-center px-3 sm:px-4 text-[10px] sm:text-xs font-medium tracking-normal border-b border-amber-700/30">
+        <div className="flex items-center gap-2 sm:gap-3 truncate">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+          <span className="truncate">ارسال رایگان سفارش‌های بالای ۲۰ میلیون تومان</span>
+          <span className="hidden md:inline text-amber-200/60">|</span>
+          <span className="hidden md:inline text-amber-100">دراپ‌های جدید {storeName} را زودتر از همه ببینید</span>
         </div>
       </div>
 
       {/* 02 — MAIN NAVIGATION */}
       <header
-        className={`transition-all duration-300  ${
-          isScrolled
-            ? 'bg-[#F3F3F1]/100  py-3 '
-            : 'bg-[#F3F3F1]/100  py-4'
+        className={`transition-all duration-300 bg-[#F3F3F1]/95 backdrop-blur-md border-b border-[#E8E8E5] ${
+          isScrolled ? 'py-2.5 sm:py-3 shadow-xs' : 'py-3 sm:py-4'
         }`}
       >
-        <div className="max-w-[1500px] mx-auto px-5 sm:px-8 md:px-12 flex items-center justify-between gap-6">
+        <div className="max-w-[1500px] mx-auto px-4 sm:px-8 md:px-12 flex items-center justify-between gap-3 sm:gap-6">
 
           {/* RIGHT (RTL): LOGO & WORDMARK */}
           <div className="flex items-center gap-8 shrink-0">
             <Link
               href="/shop/solea-sneakers"
-              className="flex items-baseline gap-2 group"
+              className="flex items-baseline gap-2 group py-1"
             >
-              <span className="text-2xl sm:text-3xl font-black tracking-tight text-[var(--landing-primary,#0A0A0A)] uppercase font-peyda group-hover:opacity-75 transition-opacity">
+              <span className="text-xl sm:text-2xl md:text-3xl font-black tracking-tight text-[var(--landing-primary,#0A0A0A)] uppercase font-peyda group-hover:opacity-80 transition-opacity">
                 {storeName}
               </span>
-
             </Link>
           </div>
 
@@ -95,24 +92,24 @@ export default function Header({
             ))}
           </nav>
 
-          {/* LEFT (RTL): ACTIONS (SEARCH, ACCOUNT, CART, MOBILE TOGGLE) */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          {/* LEFT (RTL): ACTIONS (SEARCH, WISHLIST, CART, MOBILE TOGGLE) */}
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             {/* SEARCH */}
             <button
               onClick={onOpenSearch}
-              className="flex items-center gap-2.5 px-3.5 py-2 text-xs font-medium text-[#0A0A0A] bg-[#E8E8E5] hover:bg-[#D9D9D5] border border-[#D9D9D5] rounded-full transition-colors"
+              className="flex items-center gap-2 px-2.5 sm:px-3.5 py-2 text-xs font-medium text-[#0A0A0A] bg-[#E8E8E5] hover:bg-[#D9D9D5] border border-[#D9D9D5] rounded-full transition-colors active:scale-95"
               aria-label="جستجو"
             >
-              <Search className="w-3.5 h-3.5 shrink-0 text-[#0A0A0A]" />
+              <Search className="w-4 h-4 shrink-0 text-[#0A0A0A]" />
               <span className="hidden sm:inline text-[#6B6B68]">جستجو...</span>
             </button>
 
-            {/* ACCOUNT / WISHLIST */}
+            {/* WISHLIST */}
             <a
               href="#products"
               className="relative p-2 text-[#0A0A0A] hover:bg-[#E8E8E5] rounded-full transition-colors hidden sm:flex items-center justify-center border border-[#D9D9D5]"
               aria-label="حساب کاربری"
-              title="حساب کاربری / علاقه‌مندی‌ها"
+              title="پسندیده‌ها"
             >
               <Heart className="w-4 h-4 shrink-0" />
               {wishlistCount > 0 && (
@@ -125,13 +122,13 @@ export default function Header({
             {/* CART BUTTON */}
             <button
               onClick={onOpenCart}
-              className="relative flex items-center gap-2 px-4 py-3 rounded-full bg-[var(--landing-primary,#0A0A0A)] text-[#F3F3F1] hover:opacity-90 transition-colors text-xs font-medium b"
+              className="relative flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full bg-[var(--landing-primary,#0A0A0A)] text-[#F3F3F1] hover:opacity-90 transition-colors text-xs font-semibold active:scale-95"
               aria-label="سبد خرید"
             >
               <ShoppingBag className="w-3.5 h-3.5 shrink-0" />
-              <span>سبد خرید</span>
+              <span className="hidden sm:inline">سبد خرید</span>
               {totalItems > 0 && (
-                <span className="mr-1 px-1.5 py-0.2  text-[#fff] text-[10px] font-bold rounded-full">
+                <span className="px-1.5 py-0.5 bg-amber-500 text-black text-[10px] font-bold rounded-full min-w-[18px] text-center">
                   {totalItems}
                 </span>
               )}
@@ -140,7 +137,7 @@ export default function Header({
             {/* MOBILE MENU TOGGLE */}
             <button
               onClick={onOpenMobileMenu}
-              className="p-2 text-[#0A0A0A] hover:bg-[#E8E8E5] border border-[#D9D9D5] rounded-full xl:hidden transition-colors"
+              className="p-2 text-[#0A0A0A] hover:bg-[#E8E8E5] border border-[#D9D9D5] rounded-full xl:hidden transition-colors active:scale-95"
               aria-label="منوی موبایل"
             >
               <Menu className="w-4 h-4 shrink-0" />

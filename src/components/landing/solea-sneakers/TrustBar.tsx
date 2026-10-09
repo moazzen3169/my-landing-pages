@@ -29,9 +29,9 @@ export default function TrustBar() {
   ];
 
   return (
-    <section className="bg-[#F3F3F1] py-12 sm:py-16 border-b border-[#D9D9D5] font-peyda" dir="rtl">
-      <div className="max-w-[1500px] mx-auto px-5 sm:px-8 md:px-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 divide-y sm:divide-y-0 sm:divide-x sm:divide-x-reverse divide-[#D9D9D5]">
+    <section className="bg-[#F8F8F6] py-8 sm:py-12 border-b border-[#E8E8E5] font-peyda text-right" dir="rtl">
+      <div className="max-w-[1500px] mx-auto px-4 sm:px-8 md:px-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {trustItems.map((item, index) => {
             const Icon = item.icon;
             return (
@@ -40,17 +40,17 @@ export default function TrustBar() {
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`flex items-start gap-4 ${index !== 0 ? 'pt-6 sm:pt-0 sm:pr-8' : ''}`}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                className="bg-white border border-neutral-200 p-3.5 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center gap-3 shadow-2xs hover:border-black transition-colors"
               >
-                <div className="p-3 bg-[#E8E8E5] border border-[#D9D9D5] rounded-xl shrink-0 text-[#0A0A0A]">
-                  <Icon className="w-5 h-5 stroke-[1.5]" />
+                <div className="p-2.5 sm:p-3 bg-[#F3F3F1] border border-neutral-200 rounded-xl shrink-0 text-[#0A0A0A]">
+                  <Icon className="w-4 h-4 sm:w-5 sm:h-5 stroke-[1.75]" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-[#0A0A0A] mb-1">
+                  <h3 className="text-xs sm:text-sm font-bold text-[#0A0A0A] mb-0.5 sm:mb-1">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-[#6B6B68] leading-relaxed font-normal">
+                  <p className="text-[11px] sm:text-xs text-[#6B6B68] leading-relaxed font-normal line-clamp-2">
                     {item.description}
                   </p>
                 </div>
