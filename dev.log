@@ -1,0 +1,10 @@
+$ next dev
+▲ Next.js 16.3.8 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.2:3000
+✓ Ready in 564ms
+✓ Running next.config.ts took 45ms
+
+○ Compiling /shop/baby ...
+ GET /shop/baby 200 in 4.2s (next.js: 3.6s, application-code: 622ms)
+ GET /shop/baby 200 in 152ms (next.js: 5ms, application-code: 146ms)
