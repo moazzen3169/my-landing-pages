@@ -1833,17 +1833,30 @@ function ProductDetailModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-6 bg-black/60 backdrop-blur-md animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-0 sm:p-6 bg-black/60 backdrop-blur-md animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="bg-[#fff] text-[#302D2A] w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-t-[32px] sm:rounded-[32px] p-5 sm:p-8 shadow-2xl relative border border-[#302D2A]/10 text-right space-y-6"
+        className="bg-[#fff] text-[#302D2A] w-full h-full sm:h-auto sm:max-h-[90vh] max-w-4xl overflow-y-auto rounded-none sm:rounded-[32px] p-4 sm:p-8 shadow-2xl relative border-0 sm:border border-[#302D2A]/10 text-right flex flex-col justify-between"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* CLOSE BUTTON */}
+        {/* MOBILE STICKY TOP HEADER */}
+        <div className="sticky top-0 z-30 flex items-center justify-between pb-3 mb-3 bg-white/95 backdrop-blur-md border-b border-[#302D2A]/10 md:hidden">
+          <span className="text-xs font-bold font-peyda text-[#302D2A] truncate pl-2">
+            {product.name}
+          </span>
+          <button
+            onClick={onClose}
+            className="p-1.5 rounded-full bg-[#302D2A]/5 hover:bg-[#302D2A] hover:text-white transition-colors shrink-0"
+            aria-label="بستن"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+        {/* DESKTOP CLOSE BUTTON */}
         <button
           onClick={onClose}
-          className="absolute top-4 left-4 sm:top-5 sm:left-5 z-30 p-2.5 rounded-full bg-[#302D2A]/5 hover:bg-[#302D2A] hover:text-white transition-colors"
+          className="hidden md:flex absolute top-5 left-5 z-30 p-2.5 rounded-full bg-[#302D2A]/5 hover:bg-[#302D2A] hover:text-white transition-colors"
           aria-label="بستن"
         >
           <X className="w-5 h-5" />
@@ -1938,8 +1951,8 @@ function ProductDetailModal({
               </div>
             )}
 
-            {/* QUANTITY & ADD TO CART CTA */}
-            <div className="space-y-3 pt-3 border-t border-[#302D2A]/10 sticky bottom-0 bg-white sm:static py-2 sm:py-0">
+            {/* QUANTITY & ADD TO CART CTA (Sticky on Mobile Bottom) */}
+            <div className="space-y-3 pt-3 border-t border-[#302D2A]/10 sticky bottom-0 bg-white sm:static py-2 sm:py-0 -mx-4 px-4 sm:mx-0 sm:px-0">
               <div className="flex items-center gap-3">
                 <span className="text-xs font-bold text-[#302D2A]">تعداد:</span>
                 <div className="flex items-center border border-[#302D2A]/20 rounded-xl bg-white p-1">

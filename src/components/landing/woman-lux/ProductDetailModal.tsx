@@ -56,22 +56,36 @@ export default function ProductDetailModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-0 sm:p-4 bg-black/60 backdrop-blur-xs animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-0 sm:p-4 bg-black/60 backdrop-blur-xs animate-fade-in font-peyda" dir="rtl">
       <div
-        className="relative w-full max-w-4xl h-full sm:h-auto max-h-[92vh] bg-white text-[#111111] shadow-2xl flex flex-col md:flex-row overflow-y-auto md:overflow-hidden"
+        className="relative w-full h-full sm:h-auto max-w-4xl sm:max-h-[92vh] bg-white text-[#111111] shadow-2xl flex flex-col md:flex-row overflow-y-auto justify-between"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* CLOSE BUTTON */}
+        {/* MOBILE STICKY TOP BAR */}
+        <div className="sticky top-0 z-30 flex items-center justify-between p-3.5 bg-white/95 backdrop-blur-md border-b border-black/10 md:hidden">
+          <span className="text-xs font-bold text-[#111111] truncate pl-2">
+            {product.name}
+          </span>
+          <button
+            onClick={onClose}
+            className="p-1.5 bg-[#F5F5F5] hover:bg-[#111111] hover:text-white rounded-full transition-colors shrink-0"
+            aria-label="بستن"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* DESKTOP CLOSE BUTTON */}
         <button
           onClick={onClose}
-          className="absolute top-4 left-4 z-20 p-2 bg-white/80 backdrop-blur-xs hover:bg-white text-[#111111] transition-colors border border-black/10"
+          className="hidden md:flex absolute top-4 left-4 z-20 p-2 bg-white/80 backdrop-blur-xs hover:bg-white text-[#111111] transition-colors border border-black/10"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* LEFT COLUMN: PRODUCT IMAGES GALLERY */}
-        <div className="w-full md:w-1/2  pb-4 bg-[#F5F5F5] flex flex-col justify-between">
+        <div className="w-full md:w-1/2 pb-4 bg-[#F5F5F5] flex flex-col justify-between shrink-0">
 
           {/* MAIN SELECTED IMAGE */}
           <div className="relative w-full aspect-[3/4] bg-neutral-200 overflow-hidden mb-4">
@@ -103,12 +117,12 @@ export default function ProductDetailModal({
         </div>
 
         {/* RIGHT COLUMN: PRODUCT INFO & PURCHASE CONTROLS */}
-        <div className="w-full md:w-1/2 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto max-h-[90vh] md:max-h-none text-right">
+        <div className="w-full md:w-1/2 p-5 sm:p-8 flex flex-col justify-between text-right flex-1 space-y-6">
           <div className="space-y-6">
 
             {/* CATEGORY & NAME */}
             <div className="space-y-1">
-              <span className="text-[10px] font-mono text-[#6B6B6B] uppercase tracking-widest">
+              <span className="text-[10px] font-mono text-[#6B6B6B] uppercase tracking-widest block" dir="ltr">
                 NOIRÉ WOMAN
               </span>
               <h2 className="text-xl sm:text-2xl font-bold font-peyda text-[#111111]">
@@ -123,12 +137,12 @@ export default function ProductDetailModal({
             {product.colors && product.colors.length > 0 && (
               <div className="space-y-2">
                 <span className="text-xs text-[#6B6B6B]">رنگ: {selectedColor || product.colors[0].name}</span>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2.5">
                   {product.colors.map((c, i) => (
                     <button
                       key={i}
                       onClick={() => setSelectedColor(c.name)}
-                      className={`w-6 h-6 rounded-full border-2 transition-all p-0.5 ${
+                      className={`w-7 h-7 rounded-full border-2 transition-all p-0.5 ${
                         (selectedColor || product.colors[0].name) === c.name ? 'border-[#111111] scale-110' : 'border-transparent'
                       }`}
                       title={c.name}
@@ -158,7 +172,7 @@ export default function ProductDetailModal({
                     <button
                       key={s}
                       onClick={() => setSelectedSize(s)}
-                      className={`px-3 py-1.5 text-xs font-semibold border transition-all ${
+                      className={`px-3.5 py-2 text-xs font-semibold border transition-all ${
                         (selectedSize || product.sizes[0]) === s
                           ? 'border-[#111111] bg-[#111111] text-white'
                           : 'border-[#E5E5E5] text-[#111111] hover:border-[#111111]'
@@ -177,14 +191,14 @@ export default function ProductDetailModal({
               <div className="flex items-center gap-3 w-max border border-[#E5E5E5] p-1">
                 <button
                   onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                  className="w-7 h-7 flex items-center justify-center hover:bg-[#F5F5F5] text-sm"
+                  className="w-8 h-8 flex items-center justify-center hover:bg-[#F5F5F5] text-sm font-bold"
                 >
                   -
                 </button>
                 <span className="text-xs font-bold px-2">{quantity}</span>
                 <button
                   onClick={() => setQuantity((q) => q + 1)}
-                  className="w-7 h-7 flex items-center justify-center hover:bg-[#F5F5F5] text-sm"
+                  className="w-8 h-8 flex items-center justify-center hover:bg-[#F5F5F5] text-sm font-bold"
                 >
                   +
                 </button>
@@ -209,8 +223,8 @@ export default function ProductDetailModal({
             </div>
           </div>
 
-          {/* ACTION BUTTONS */}
-          <div className="pt-6 border-t border-[#E5E5E5] space-y-3 mt-6">
+          {/* ACTION BUTTONS (Sticky on Mobile Bottom) */}
+          <div className="sticky bottom-0 bg-white pt-3 pb-2 sm:py-0 border-t border-[#E5E5E5] space-y-3 -mx-5 px-5 sm:mx-0 sm:px-0">
             <div className="flex items-center gap-3">
               <button
                 onClick={handleAdd}
@@ -235,14 +249,14 @@ export default function ProductDetailModal({
 
               <button
                 onClick={() => onToggleWishlist(product.id)}
-                className="p-3.5 border border-[#E5E5E5] hover:border-[#111111] transition-colors"
+                className="p-3.5 border border-[#E5E5E5] hover:border-[#111111] transition-colors shrink-0"
                 aria-label="Wishlist"
               >
                 <Heart className={`w-5 h-5 ${isWishlisted ? 'fill-[#111111] text-[#111111]' : 'text-[#111111]'}`} />
               </button>
             </div>
 
-            <div className="flex items-center justify-between text-[11px] text-[#6B6B6B] pt-2">
+            <div className="flex items-center justify-between text-[11px] text-[#6B6B6B] pt-1">
               <span className="flex items-center gap-1">
                 <Truck className="w-3.5 h-3.5" /> ارسال سریع رایگان
               </span>

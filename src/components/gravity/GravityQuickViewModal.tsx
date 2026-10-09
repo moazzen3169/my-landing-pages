@@ -31,19 +31,34 @@ export default function GravityQuickViewModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-center justify-center p-4 font-peyda dir-rtl" dir="rtl">
+    <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-center justify-center p-0 sm:p-4 font-peyda dir-rtl" dir="rtl">
       {/* Modal Box */}
-      <div className="bg-white max-w-3xl w-full rounded-xs shadow-2xl overflow-hidden border border-[#E5E5E5] relative animate-scaleUp max-h-[90vh] overflow-y-auto">
-        {/* Close Button */}
+      <div className="bg-white max-w-3xl w-full h-full sm:h-auto sm:max-h-[90vh] rounded-none sm:rounded-xs shadow-2xl overflow-y-auto border-0 sm:border border-[#E5E5E5] relative animate-scaleUp flex flex-col justify-between">
+        
+        {/* Sticky Mobile Top Header Bar */}
+        <div className="sticky top-0 z-30 flex items-center justify-between p-3.5 sm:p-4 bg-white/95 backdrop-blur-md border-b border-[#E5E5E5] md:hidden">
+          <span className="text-xs font-extrabold text-[#111111] truncate pl-2">
+            {product.name}
+          </span>
+          <button
+            onClick={onClose}
+            className="p-1.5 bg-[#F4F4F0] hover:bg-[#111111] hover:text-white rounded-full transition-colors shrink-0"
+            aria-label="بستن"
+          >
+            <X size={18} />
+          </button>
+        </div>
+
+        {/* Desktop Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-3 left-3 z-20 p-2 bg-white/90 hover:bg-[#111111] hover:text-white rounded-full transition-colors"
+          className="hidden md:flex absolute top-3 left-3 z-20 p-2 bg-white/90 hover:bg-[#111111] hover:text-white rounded-full transition-colors border border-[#E5E5E5]"
           aria-label="بستن"
         >
           <X size={18} />
         </button>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 p-6 sm:p-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 p-5 sm:p-8 flex-1">
           {/* Image (Desktop: 5 cols) */}
           <div className="md:col-span-5 relative aspect-[3/4] bg-[#E8E6E1] rounded-xs overflow-hidden">
             <Image
@@ -51,6 +66,7 @@ export default function GravityQuickViewModal({
               alt={product.name}
               fill
               className="object-cover object-center"
+              priority
             />
           </div>
 
@@ -116,7 +132,7 @@ export default function GravityQuickViewModal({
                       <button
                         key={size}
                         onClick={() => setSelectedSize(size)}
-                        className={`px-3.5 py-1.5 text-xs font-bold rounded-xs transition-all border ${
+                        className={`px-4 py-2 text-xs font-bold rounded-xs transition-all border ${
                           selectedSize === size
                             ? 'bg-[#111111] text-white border-[#111111]'
                             : 'bg-white text-[#111111] border-[#D7D4CD] hover:border-[#111111]'
@@ -130,15 +146,15 @@ export default function GravityQuickViewModal({
               </div>
             </div>
 
-            {/* Actions */}
-            <div className="pt-4 border-t border-[#E5E5E5] space-y-3">
+            {/* Actions (Sticky on mobile bottom) */}
+            <div className="sticky bottom-0 bg-white pt-3 pb-2 sm:py-0 border-t border-[#E5E5E5] space-y-3 -mx-5 px-5 sm:mx-0 sm:px-0">
               <div className="flex gap-3">
                 <button
                   onClick={() => {
                     onAddToCart(product, selectedSize);
                     onClose();
                   }}
-                  className="flex-grow py-3.5 bg-[#111111] hover:bg-[#333333] text-white font-extrabold text-sm rounded-xs transition-colors flex items-center justify-center gap-2"
+                  className="flex-grow py-3.5 bg-[#111111] hover:bg-[#333333] text-white font-extrabold text-xs sm:text-sm rounded-xs transition-colors flex items-center justify-center gap-2"
                 >
                   <ShoppingBag size={18} />
                   <span>افزودن به سبد خرید</span>
@@ -157,7 +173,7 @@ export default function GravityQuickViewModal({
                 </button>
               </div>
 
-              <div className="flex items-center justify-between text-[11px] text-[#777777] pt-2">
+              <div className="flex items-center justify-between text-[11px] text-[#777777] pt-1">
                 <span className="flex items-center gap-1">
                   <Truck size={14} className="text-[#111111]" />
                   ارسال سریع به سراسر ایران

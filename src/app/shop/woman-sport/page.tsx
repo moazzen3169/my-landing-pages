@@ -1264,17 +1264,31 @@ function ProductDetailModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/60 backdrop-blur-md animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-0 sm:p-6 bg-black/60 backdrop-blur-md animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="bg-[#FFFDFC] text-[#291A2D] w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-[32px] p-5 sm:p-8 shadow-2xl relative border border-[#291A2D]/10 text-right space-y-6"
+        className="bg-[#FFFDFC] text-[#291A2D] w-full h-full sm:h-auto sm:max-h-[92vh] max-w-4xl overflow-y-auto rounded-none sm:rounded-[32px] p-4 sm:p-8 shadow-2xl relative border-0 sm:border border-[#291A2D]/10 text-right flex flex-col justify-between"
         onClick={e => e.stopPropagation()}
       >
-        {/* CLOSE BUTTON */}
+        {/* MOBILE STICKY TOP HEADER */}
+        <div className="sticky top-0 z-30 flex items-center justify-between pb-3 mb-3 bg-[#FFFDFC]/95 backdrop-blur-md border-b border-[#291A2D]/10 md:hidden">
+          <span className="text-xs font-bold font-estedad text-[#291A2D] truncate pl-2">
+            {product.name}
+          </span>
+          <button
+            onClick={onClose}
+            className="p-1.5 rounded-full bg-[#291A2D]/5 hover:bg-[#291A2D] hover:text-white transition-colors shrink-0"
+            aria-label="بستن"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* DESKTOP CLOSE BUTTON */}
         <button
           onClick={onClose}
-          className="absolute top-5 left-5 z-30 p-2.5 rounded-full bg-[#291A2D]/5 hover:bg-[#291A2D] hover:text-white transition-colors"
+          className="hidden md:flex absolute top-5 left-5 z-30 p-2.5 rounded-full bg-[#291A2D]/5 hover:bg-[#291A2D] hover:text-white transition-colors"
           aria-label="بستن"
         >
           <X className="w-5 h-5" />
@@ -1419,8 +1433,8 @@ function ProductDetailModal({
               </div>
             </div>
 
-            {/* QUANTITY & ADD TO CART CTA */}
-            <div className="space-y-3 pt-3 border-t border-[#291A2D]/10">
+            {/* QUANTITY & ADD TO CART CTA (Sticky on Mobile Bottom) */}
+            <div className="space-y-3 pt-3 border-t border-[#291A2D]/10 sticky bottom-0 bg-[#FFFDFC] -mx-4 px-4 sm:mx-0 sm:px-0">
               <div className="flex items-center gap-3">
                 <span className="text-xs font-bold text-[#291A2D]">تعداد:</span>
                 <div className="flex items-center border border-[#291A2D]/20 rounded-xl bg-white p-1">

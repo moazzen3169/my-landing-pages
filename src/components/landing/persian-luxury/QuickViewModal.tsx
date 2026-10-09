@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { X, Heart, ShoppingBag, Check, Ruler, ShieldCheck, Sparkles, Truck } from 'lucide-react';
+import { X, Heart, ShoppingBag, Check, Ruler, ShieldCheck, Sparkles } from 'lucide-react';
 import { LuxuryProduct } from '@/data/persian-luxury-women';
 
 interface QuickViewModalProps {
@@ -57,24 +57,38 @@ export default function QuickViewModal({
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-8 bg-black/60 backdrop-blur-md font-peyda dir-rtl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-0 sm:p-6 md:p-8 bg-black/60 backdrop-blur-md font-peyda dir-rtl">
 
       {/* MAIN CONTAINER WITH SPACIOUS LAYOUT */}
       <div
-        className="relative w-full max-w-5xl bg-[#FFFFFF] border border-[#E5E5E5] overflow-hidden max-h-[92vh] flex flex-col md:flex-row shadow-2xl rounded-none"
+        className="relative w-full h-full sm:h-auto sm:max-h-[92vh] max-w-5xl bg-[#FFFFFF] border-0 sm:border border-[#E5E5E5] overflow-y-auto flex flex-col md:flex-row shadow-2xl rounded-none justify-between"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* CLOSE BUTTON */}
+        {/* MOBILE STICKY HEADER */}
+        <div className="sticky top-0 z-30 flex items-center justify-between p-3.5 bg-white/95 backdrop-blur-md border-b border-[#E5E5E5] md:hidden">
+          <span className="text-xs font-bold text-[#000000] truncate pl-2">
+            {product.name}
+          </span>
+          <button
+            onClick={onClose}
+            className="p-1.5 text-[#000000] hover:bg-[#F0F0F0] rounded-full transition-colors shrink-0"
+            aria-label="بستن"
+          >
+            <X className="w-5 h-5 stroke-[1.5]" />
+          </button>
+        </div>
+
+        {/* DESKTOP CLOSE BUTTON */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 z-30 p-2 text-[#000000] hover:opacity-50 transition-opacity bg-white/80 backdrop-blur-sm rounded-full"
+          className="hidden md:flex absolute top-5 right-5 z-30 p-2 text-[#000000] hover:opacity-50 transition-opacity bg-white/80 backdrop-blur-sm rounded-full"
           aria-label="بستن"
         >
           <X className="w-5 h-5 stroke-[1.5]" />
         </button>
 
         {/* GALLERY SECTION (LEFT ON DESKTOP, TOP ON MOBILE) */}
-        <div className="w-full md:w-1/2 bg-[#F7F7F7] relative flex flex-col justify-between ">
+        <div className="w-full md:w-1/2 bg-[#F7F7F7] relative flex flex-col justify-between shrink-0">
           <div className="relative aspect-[3/4] w-full bg-[#FAFAFA] overflow-hidden">
             <Image
               src={product.images[selectedImageIdx] || product.images[0]}
@@ -82,12 +96,13 @@ export default function QuickViewModal({
               fill
               className="object-cover object-center transition-all duration-500"
               unoptimized
+              priority
             />
           </div>
 
           {/* GALLERY THUMBNAILS */}
           {product.images.length > 1 && (
-            <div className="mt-4 flex gap-3 justify-center">
+            <div className="p-3 flex gap-3 justify-center bg-[#F7F7F7]">
               {product.images.map((img, i) => (
                 <button
                   key={i}
@@ -106,7 +121,7 @@ export default function QuickViewModal({
         </div>
 
         {/* DETAILS SECTION WITH GENEROUS WHITE SPACE */}
-        <div className="w-full md:w-1/2 p-6 sm:p-10 md:p-12 overflow-y-auto flex flex-col justify-between text-start space-y-8 bg-[#FFFFFF]">
+        <div className="w-full md:w-1/2 p-5 sm:p-10 md:p-12 flex flex-col justify-between text-start space-y-8 bg-[#FFFFFF] flex-1">
 
           <div className="space-y-6">
 
@@ -115,13 +130,13 @@ export default function QuickViewModal({
               <span className="block text-[11px] font-mono text-[#666666] uppercase tracking-widest mb-1.5" dir="ltr">
                 {product.brand}
               </span>
-              <h2 className="text-2xl sm:text-3xl font-light text-[#000000] leading-snug tracking-tight">
+              <h2 className="text-xl sm:text-3xl font-light text-[#000000] leading-snug tracking-tight">
                 {product.name}
               </h2>
 
               {/* PRICE */}
               <div className="mt-4 flex items-baseline gap-3">
-                <span className="text-lg font-normal text-[#000000]">
+                <span className="text-base sm:text-lg font-normal text-[#000000]">
                   {product.priceFormatted}
                 </span>
                 {product.originalPriceFormatted && (
@@ -261,8 +276,8 @@ export default function QuickViewModal({
 
           </div>
 
-          {/* ACTION BUTTONS */}
-          <div className="pt-6 border-t border-[#E5E5E5] flex gap-3 mt-8">
+          {/* ACTION BUTTONS (Sticky on mobile bottom) */}
+          <div className="sticky bottom-0 bg-white pt-3 pb-2 sm:py-0 border-t border-[#E5E5E5] flex gap-3 mt-6 -mx-5 px-5 sm:mx-0 sm:px-0">
             <button
               onClick={handleAdd}
               className="flex-1 py-4 bg-[#000000] hover:bg-[#222222] text-white text-xs font-normal tracking-wider transition-colors flex items-center justify-center gap-2 rounded-none"
@@ -282,7 +297,7 @@ export default function QuickViewModal({
 
             <button
               onClick={() => onToggleWishlist(product.id)}
-              className="p-4 border border-[#000000] text-[#000000] hover:bg-[#F9F9F9] transition-colors"
+              className="p-4 border border-[#000000] text-[#000000] hover:bg-[#F9F9F9] transition-colors shrink-0"
               title="افزودن به علاقمندی‌ها"
             >
               <Heart className={`w-4 h-4 stroke-[1.25] ${isWishlisted ? 'fill-[#000000]' : ''}`} />

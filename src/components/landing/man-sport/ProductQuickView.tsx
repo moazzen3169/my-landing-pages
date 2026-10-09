@@ -17,7 +17,6 @@ import {
   ChevronLeft,
   Plus,
   Minus,
-  Info,
   CheckCircle2,
 } from 'lucide-react';
 
@@ -83,22 +82,36 @@ export default function ProductQuickView({
   return (
     <>
       <div
-        className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto animate-in fade-in duration-200"
+        className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-0 sm:p-6 overflow-y-auto animate-in fade-in duration-200"
         dir="rtl"
       >
-        <div className="bg-[#111111] border border-white/15 text-white w-full max-w-5xl rounded-3xl p-5 sm:p-8 relative my-auto shadow-2xl space-y-6">
+        <div className="bg-[#111111] border-0 sm:border border-white/15 text-white w-full h-full sm:h-auto sm:max-h-[92vh] max-w-5xl rounded-none sm:rounded-3xl p-4 sm:p-8 relative shadow-2xl flex flex-col justify-between overflow-y-auto">
 
-          {/* CLOSE BUTTON */}
+          {/* STICKY MOBILE HEADER */}
+          <div className="sticky top-0 z-30 flex items-center justify-between pb-3 mb-3 bg-[#111111]/95 backdrop-blur-md border-b border-white/10 lg:hidden">
+            <span className="text-xs font-bold font-peyda text-white truncate pl-2">
+              {product.name}
+            </span>
+            <button
+              onClick={onClose}
+              className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors shrink-0"
+              title="بستن"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* DESKTOP CLOSE BUTTON */}
           <button
             onClick={onClose}
-            className="absolute top-4 left-4 p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors z-30"
+            className="hidden lg:flex absolute top-4 left-4 p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors z-30"
             title="بستن"
           >
             <X className="w-5 h-5" />
           </button>
 
           {/* TOP LAYOUT GRID */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 flex-1">
 
             {/* GALLERY AREA (5 COLS) */}
             <div className="lg:col-span-5 space-y-3">
@@ -275,7 +288,7 @@ export default function ProductQuickView({
                     className="text-xs font-medium font-peyda text-[#E04A24] hover:text-white flex items-center gap-1.5 bg-[#E04A24]/10 hover:bg-[#E04A24]/20 border border-[#E04A24]/30 px-3 py-1.5 rounded-xl transition-colors"
                   >
                     <Ruler className="w-3.5 h-3.5" />
-                    <span>راهنمای سایز و پیشنهاد هوشمند</span>
+                    <span>راهنمای سایز</span>
                   </button>
                 </div>
 
@@ -287,7 +300,7 @@ export default function ProductQuickView({
                         setSelectedSize(size);
                         setSizeWarning(false);
                       }}
-                      className={`px-4 py-2 rounded-xl font-mono text-xs font-bold border transition-all ${
+                      className={`px-4 py-2.5 rounded-xl font-mono text-xs font-bold border transition-all ${
                         selectedSize === size
                           ? 'bg-[#E04A24] text-white border-[#E04A24] shadow-md scale-105'
                           : 'bg-white/5 text-white border-white/10 hover:border-white/30'
@@ -305,8 +318,8 @@ export default function ProductQuickView({
                 )}
               </div>
 
-              {/* QUANTITY & ADD TO CART ACTION */}
-              <div className="pt-3 border-t border-white/10 space-y-3">
+              {/* QUANTITY & ADD TO CART ACTION - Sticky on Mobile Bottom */}
+              <div className="sticky bottom-0 bg-[#111111] pt-3 pb-2 border-t border-white/10 space-y-3 -mx-4 px-4 sm:mx-0 sm:px-0">
                 <div className="flex items-center gap-3">
                   {/* QUANTITY COUNTER */}
                   <div className="flex items-center border border-white/15 bg-white/5 rounded-2xl p-1 shrink-0">
@@ -332,7 +345,7 @@ export default function ProductQuickView({
                   {/* ADD TO CART BUTTON */}
                   <button
                     onClick={handleAdd}
-                    className={`flex-1 py-4 px-6 rounded-2xl font-bold font-peyda text-sm flex items-center justify-center gap-2 transition-all ${
+                    className={`flex-1 py-3.5 sm:py-4 px-4 rounded-2xl font-bold font-peyda text-xs sm:text-sm flex items-center justify-center gap-2 transition-all ${
                       isAdded
                         ? 'bg-[#2455FF] text-white'
                         : 'bg-[#E04A24] hover:bg-white text-white hover:text-black shadow-lg hover:shadow-xl'
@@ -355,14 +368,14 @@ export default function ProductQuickView({
                 </div>
 
                 {/* TRUST BADGES */}
-                <div className="grid grid-cols-3 gap-2 pt-1 text-[11px] font-peyda font-medium text-slate-400">
+                <div className="grid grid-cols-3 gap-2 text-[10px] sm:text-[11px] font-peyda font-medium text-slate-400">
                   <div className="flex items-center justify-center gap-1.5 py-1.5 rounded-xl bg-white/5 border border-white/5">
                     <Truck className="w-3.5 h-3.5 text-[#E04A24]" />
                     <span>ارسال سریع</span>
                   </div>
                   <div className="flex items-center justify-center gap-1.5 py-1.5 rounded-xl bg-white/5 border border-white/5">
                     <RotateCcw className="w-3.5 h-3.5 text-[#E04A24]" />
-                    <span>۷ روز ضمانت بازگشت</span>
+                    <span>۷ روز بازگشت</span>
                   </div>
                   <div className="flex items-center justify-center gap-1.5 py-1.5 rounded-xl bg-white/5 border border-white/5">
                     <ShieldCheck className="w-3.5 h-3.5 text-[#E04A24]" />
@@ -377,13 +390,13 @@ export default function ProductQuickView({
           </div>
 
           {/* LOWER SECTION: PRODUCT DESCRIPTION & SPECIFICATIONS TABS */}
-          <div className="pt-6 border-t border-white/10 space-y-4">
+          <div className="pt-6 mt-6 border-t border-white/10 space-y-4">
 
             {/* TAB BUTTONS */}
             <div className="flex items-center gap-3 border-b border-white/10 pb-2">
               <button
                 onClick={() => setActiveTab('desc')}
-                className={`pb-2 text-sm font-semibold font-peyda relative transition-colors ${
+                className={`pb-2 text-xs sm:text-sm font-semibold font-peyda relative transition-colors ${
                   activeTab === 'desc'
                     ? 'text-[#E04A24]'
                     : 'text-slate-400 hover:text-white'
@@ -397,13 +410,13 @@ export default function ProductQuickView({
 
               <button
                 onClick={() => setActiveTab('specs')}
-                className={`pb-2 text-sm font-semibold font-peyda relative transition-colors ${
+                className={`pb-2 text-xs sm:text-sm font-semibold font-peyda relative transition-colors ${
                   activeTab === 'specs'
                     ? 'text-[#E04A24]'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
-                مشخصات فنی و دستورالعمل شستشو
+                مشخصات فنی و نگهداری
                 {activeTab === 'specs' && (
                   <span className="absolute bottom-0 inset-x-0 h-0.5 bg-[#E04A24] rounded-full" />
                 )}
