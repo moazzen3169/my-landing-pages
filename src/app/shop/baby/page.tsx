@@ -211,7 +211,7 @@ function BabyContent() {
 
   return (
     <div
-      className="min-h-screen bg-[#fff] text-[#302D2A] font-vazir dir-rtl selection:bg-[#2B70C9] selection:text-white relative overflow-x-hidden"
+      className="min-h-screen bg-[#fff] text-[#302D2A] font-vazir dir-rtl selection:bg-[#2B70C9] selection:text-white relative overflow-x-hidden pb-16 lg:pb-0"
       dir="rtl"
     >
       {/* TOAST NOTIFICATION */}
@@ -236,29 +236,20 @@ function BabyContent() {
       <header className="sticky top-0 z-40 bg-[#FFFBF3] stransition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 py-3.5 flex items-center justify-between">
           {/* RIGHT: LOGO & MOBILE TOGGLE */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-3">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg text-[#302D2A] hover:bg-[#302D2A]/5"
+              className="lg:hidden p-2 rounded-xl text-[#302D2A] hover:bg-[#302D2A]/5 transition-colors"
               aria-label="منو"
             >
               <Menu className="w-6 h-6" />
             </button>
-          {/* Right: Logo */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-[#1E0001]/5"
-            >
-              <Menu className="w-6 h-6 text-[#1E0001]" />
-            </button>
             <Link href="/shop/baby" className="flex items-center gap-2 group">
-              <FlowerIcon className="w-7 h-7 transition-transform group-hover:rotate-45 duration-300" />
+              <FlowerIcon className="w-7 h-7 text-[#F36A21] transition-transform group-hover:rotate-45 duration-300" />
               <span className="font-bold text-xl md:text-2xl tracking-tight text-[#1E0001]">
                 {storeName}
               </span>
             </Link>
-          </div>
           </div>
 
           {/* CENTER: DESKTOP NAVIGATION WITH MEGA MENU TRIGGER */}
@@ -434,72 +425,148 @@ function BabyContent() {
 
       {/* MOBILE MENU DRAWER */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs lg:hidden flex justify-end">
-          <div className="w-full max-w-xs bg-[#F8F5EF] text-[#302D2A] h-full p-6 space-y-6 overflow-y-auto">
-            <div className="flex items-center justify-between border-b border-[#302D2A]/10 pb-4">
-              <span className="font-peyda font-bold text-lg">منوی فروشگاه</span>
-              <button onClick={() => setMobileMenuOpen(false)} className="p-1">
-                <X className="w-6 h-6" />
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm lg:hidden flex justify-end animate-in fade-in duration-200">
+          <div className="w-full max-w-xs sm:max-w-sm bg-[#FFFBF3] text-[#302D2A] h-full p-6 space-y-6 overflow-y-auto flex flex-col justify-between shadow-2xl relative">
+            <div className="space-y-6">
+              {/* BRAND HEADER */}
+              <div className="flex items-center justify-between border-b border-[#302D2A]/10 pb-4">
+                <div className="flex items-center gap-2">
+                  <FlowerIcon className="w-6 h-6 text-[#F36A21]" />
+                  <span className="font-peyda font-extrabold text-lg text-[#1E0001]">
+                    {storeName}
+                  </span>
+                </div>
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="p-2 rounded-full hover:bg-[#302D2A]/5 text-[#302D2A]"
+                  aria-label="بستن منو"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* QUICK SEARCH BUTTON IN MOBILE MENU */}
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setIsSearchOpen(true);
+                }}
+                className="w-full py-2.5 px-4 rounded-2xl bg-[#F8F5EF] border border-[#302D2A]/10 flex items-center justify-between text-xs text-[#302D2A]/70 hover:bg-white transition-colors"
+              >
+                <span className="flex items-center gap-2">
+                  <Search className="w-4 h-4 text-[#2B70C9]" />
+                  <span>جستجو در محصولات...</span>
+                </span>
+                <span className="text-[10px] bg-[#2B70C9]/10 text-[#2B70C9] px-2 py-0.5 rounded-full font-bold">
+                  یافتن
+                </span>
               </button>
+
+              {/* CATEGORIES NAVIGATION */}
+              <div className="space-y-4 text-right">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#2B70C9] block font-peyda">
+                  دسته‌بندی‌های اصلی
+                </span>
+
+                <div className="space-y-3">
+                  {MEGA_MENU_CATEGORIES.map((cat) => (
+                    <div
+                      key={cat.id}
+                      className="bg-[#FFFFFF] p-3.5 rounded-2xl border border-[#302D2A]/10 space-y-2"
+                    >
+                      <a
+                        href="#categories-section"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="font-peyda font-bold text-sm text-[#1E0001] flex items-center justify-between hover:text-[#2B70C9]"
+                      >
+                        <span className="flex items-center gap-2">
+                          <span className="text-base">{cat.icon}</span>
+                          <span>{cat.title}</span>
+                        </span>
+                        <ChevronLeft className="w-4 h-4 text-[#302D2A]/40" />
+                      </a>
+                      <div className="pr-6 pt-1 grid grid-cols-2 gap-1.5 text-[11px] text-[#302D2A]/70 font-medium border-t border-[#302D2A]/5">
+                        {cat.subcategories.slice(0, 4).map((sub, i) => (
+                          <a
+                            key={i}
+                            href="#categories-section"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="py-1 hover:text-[#2B70C9] transition-colors block"
+                          >
+                            {sub}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* FEATURED QUICK LINKS */}
+                <div className="pt-2 space-y-2 border-t border-[#302D2A]/10">
+                  <a
+                    href="#sale-section"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between p-3 rounded-2xl bg-[#D96C5F]/10 text-[#D96C5F] font-bold text-xs hover:bg-[#D96C5F]/20 transition-colors"
+                  >
+                    <span className="flex items-center gap-2">
+                      <Sparkles className="w-4 h-4" />
+                      <span>تخفیف‌های ویژه والدین</span>
+                    </span>
+                    <span className="text-[10px] bg-[#D96C5F] text-white px-2 py-0.5 rounded-full">
+                      تا ۵۰٪
+                    </span>
+                  </a>
+
+                  <a
+                    href="#brands-section"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between p-3 rounded-2xl bg-[#2B70C9]/10 text-[#2B70C9] font-bold text-xs hover:bg-[#2B70C9]/20 transition-colors"
+                  >
+                    <span className="flex items-center gap-2">
+                      <Award className="w-4 h-4" />
+                      <span>برندهای مطرح سیسمونی</span>
+                    </span>
+                    <ChevronLeft className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
             </div>
 
-            <div className="space-y-4 text-right">
-              {MEGA_MENU_CATEGORIES.map((cat) => (
-                <div key={cat.id} className="space-y-2">
-                  <div className="font-peyda font-bold text-sm text-[#2B70C9] flex items-center gap-2">
-                    <span>{cat.icon}</span>
-                    <span>{cat.title}</span>
-                  </div>
-                  <div className="pr-6 space-y-1 text-xs text-[#302D2A]/70">
-                    {cat.subcategories.slice(0, 4).map((sub, i) => (
-                      <div key={i} className="py-1">
-                        {sub}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-
-              <a
-                href="#brands-section"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block py-2 font-bold text-sm text-[#302D2A]"
-              >
-                برندها
-              </a>
-              <a
-                href="#sale-section"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block py-2 font-bold text-sm text-[#D96C5F]"
-              >
-                تخفیف‌های ویژه
-              </a>
+            {/* DRAWER FOOTER */}
+            <div className="pt-4 border-t border-[#302D2A]/10 text-right space-y-2">
+              <div className="flex items-center justify-between text-xs text-[#302D2A]/70 font-medium">
+                <span className="flex items-center gap-1.5">
+                  <Phone className="w-3.5 h-3.5 text-[#2B70C9]" />
+                  <span>پشتیبانی: ۰۲۱-۸۸۸۸۴۴۴۴</span>
+                </span>
+                <span className="text-[10px] text-[#20C98A] font-bold">پاسخگوی آنلاین</span>
+              </div>
             </div>
           </div>
         </div>
       )}
 
       {/* ================= HERO SECTION (REFERENCE MATCH) ================= */}
-      <section className="relative pt-8 md:pt-12 pb-16 md:pb-12 px-4 md:px-12 bg-[#FFFBF3] overflow-hidden min-h-[600px] md:min-h-[720px] flex flex-col justify-between">
+      <section className="relative pt-6 sm:pt-8 md:pt-12 pb-8 md:pb-12 px-4 md:px-12 bg-[#FFFBF3] overflow-hidden min-h-[480px] sm:min-h-[600px] md:min-h-[720px] flex flex-col justify-between">
         {/* Layer 1: Oversized Editorial Headline */}
         <div className="text-center relative z-10 select-none">
-          <h1 className="text-[64px] sm:text-[96px] md:text-[140px] lg:text-[170px] font-black leading-[0.85] tracking-tight text-[#1E0001] opacity-95">
+          <h1 className="text-4xl sm:text-6xl md:text-[140px] lg:text-[170px] font-black leading-[0.95] md:leading-[0.85] tracking-tight text-[#1E0001] opacity-95">
             دنیــــای کوچولوها
           </h1>
         </div>
 
         {/* Layer 2: Floating Organic Decorative Shapes */}
         {/* Yellow Flower Top Left */}
-        <div className="absolute top-12 left-[10%] md:left-[15%] z-20 animate-pulse pointer-events-none">
-          <FlowerIcon className="w-16 h-16 md:w-24 md:h-24" fill="#FFD500" />
+        <div className="absolute top-6 sm:top-12 left-4 md:left-[15%] z-20 animate-pulse pointer-events-none">
+          <FlowerIcon className="w-10 h-10 sm:w-16 md:w-24 sm:h-16 md:h-24" fill="#FFD500" />
         </div>
         {/* Green Flower Bottom Right */}
-        <div className="absolute bottom-48 right-[25%] md:right-[25%] z-200 pointer-events-none">
-          <FlowerIcon className="w-14 h-14 md:w-20 md:h-20" fill="#20C98A" />
+        <div className="absolute bottom-20 md:bottom-48 right-4 md:right-[25%] z-20 pointer-events-none">
+          <FlowerIcon className="w-8 h-8 sm:w-14 md:w-20 sm:h-14 md:h-20" fill="#20C98A" />
         </div>
 
         {/* Layer 3: Central Cut-out Hero Product (Overlapping Headline) */}
-        <div className="absolute bottom-[-400px] left-1/2 -translate-x-1/2 -translate-y-[48%] z-20 w-[650px] h-[650px]  pointer-events-none flex flex-col items-center justify-end">
+        <div className="absolute bottom-[-180px] sm:bottom-[-260px] md:bottom-[-400px] left-1/2 -translate-x-1/2 -translate-y-[20%] sm:-translate-y-[30%] md:-translate-y-[48%] z-20 w-[280px] h-[280px] sm:w-[420px] sm:h-[420px] md:w-[650px] md:h-[650px] pointer-events-none flex flex-col items-center justify-end">
           <div className="relative w-full h-full">
             <img
               src="/images/BABY/hero5.png"
@@ -507,18 +574,17 @@ function BabyContent() {
               className="w-full h-full object-contain drop-shadow-2xl"
             />
           </div>
-          {/* Primary CTA Pill positioned cleanly over product base */}
         </div>
 
-        {/* Layer 4: Supporting Text & Primary CTA (Bottom Right/Left Composition) */}
-        <div className="relative z-30 mb-26  flex justify-between items-center gap-6 pt-4 md:pt-6">
+        {/* Layer 4: Supporting Text & Primary CTA */}
+        <div className="relative z-30 mt-36 sm:mt-48 md:mt-0 mb-4 md:mb-26 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 md:gap-6 pt-4 md:pt-6">
           {/* Supporting Copy */}
-          <div className="space-y-2 max-w-xs">
+          <div className="space-y-2 max-w-none md:max-w-xs text-center md:text-right">
             <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#F36A21]">
               <Sparkles className="w-3.5 h-3.5" />
               منتخب والدین هوشمند
             </span>
-            <p className="text-lg md:text-xl font-bold text-[#1E0001] leading-tight">
+            <p className="text-base sm:text-lg md:text-xl font-bold text-[#1E0001] leading-tight">
               ایمن، دوست‌داشتنی، برای روزهای کوچک و بزرگ
             </p>
             <p className="text-xs md:text-sm text-[#1E0001]/70 leading-relaxed">
@@ -527,12 +593,12 @@ function BabyContent() {
             </p>
           </div>
 
-          {/* Empty Center Space (CTA is embedded under product) */}
+          {/* Empty Center Space (CTA is embedded under product on desktop) */}
           <div className="hidden md:block"></div>
 
           {/* Promotional Card inside Hero (Bottom Left) */}
-          <div className="flex justify-end">
-            <div className="bg-[#FFF0E1] border border-[#1E0001]/15 rounded-[18px] p-3.5 md:p-4 max-w-xs w-full shadow-lg flex items-center gap-3 relative overflow-hidden group">
+          <div className="flex justify-center md:justify-end">
+            <div className="bg-[#FFF0E1] border border-[#1E0001]/15 rounded-[18px] p-3.5 md:p-4 max-w-sm md:max-w-xs w-full shadow-lg flex items-center gap-3 relative overflow-hidden group">
               <div className="w-16 h-16 md:w-20 md:h-20 relative bg-white/70 rounded-xl overflow-hidden shrink-0">
                 <img
                   src="/images/BABY/DinnerwareCutlerySet_Sage.webp"
@@ -540,7 +606,7 @@ function BabyContent() {
                   className="w-full h-full object-contain p-1 group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <div className="space-y-1">
+              <div className="space-y-1 text-right">
                 <span className="text-[10px] font-bold bg-[#F36A21] text-white px-2 py-0.5 rounded-full">
                   پیشنهاد ویژه
                 </span>
@@ -551,7 +617,7 @@ function BabyContent() {
                   ظروف نسوز سیلیکونی
                 </p>
                 <a
-                  href="#products-section"
+                  href="#sale-section"
                   className="inline-flex items-center gap-1 text-xs font-bold text-[#F36A21] hover:underline pt-0.5"
                 >
                   <span>مشاهده مجموعه</span>
@@ -566,14 +632,14 @@ function BabyContent() {
       {/* 5. CATEGORY DISCOVERY - ASYMMETRIC GRID */}
       <section
         id="categories-section"
-        className="py-16 px-4 sm:px-8 max-w-7xl mx-auto"
+        className="py-10 md:py-16 px-4 sm:px-8 max-w-7xl mx-auto"
       >
-        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-10 gap-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-6 md:mb-10 gap-3 md:gap-4">
           <div className="text-right">
-            <span className="text-xs font-bold font-peyda text-[#2B70C9] tracking-wider uppercase">
+            <span className="text-[11px] sm:text-xs font-bold font-peyda text-[#2B70C9] tracking-wider uppercase">
               CATEGORY DISCOVERY
             </span>
-            <h2 className="font-peyda font-extrabold text-3xl sm:text-4xl text-[#302D2A] mt-1">
+            <h2 className="font-peyda font-extrabold text-2xl sm:text-4xl text-[#302D2A] mt-1">
               دسته‌بندی‌های پیشنهادی
             </h2>
           </div>
@@ -584,25 +650,25 @@ function BabyContent() {
         </div>
 
         {/* ASYMMETRIC GRID SYSTEM */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-3.5 sm:gap-5">
           {/* CARD 1: LARGE - CLOTHING (#F1C9BD) */}
           <a
             href="#shop-by-age"
-            className="md:col-span-7 bg-[#F1C9BD]/40 hover:bg-[#F1C9BD]/70 rounded-[32px] p-6 sm:p-8 border border-[#302D2A]/10 transition-all duration-300 group flex flex-col justify-between min-h-[320px] relative overflow-hidden"
+            className="md:col-span-7 bg-[#F1C9BD]/40 hover:bg-[#F1C9BD]/70 rounded-[28px] sm:rounded-[32px] p-5 sm:p-8 border border-[#302D2A]/10 transition-all duration-300 group flex flex-col justify-between min-h-[220px] sm:min-h-[320px] relative overflow-hidden"
           >
-            <div className="space-y-2 z-10 text-right max-w-xs">
-              <span className="text-xs font-bold px-3 py-1 rounded-full bg-white/80 text-[#302D2A] inline-block">
+            <div className="space-y-1.5 sm:space-y-2 z-10 text-right max-w-[65%] sm:max-w-xs">
+              <span className="text-[10px] sm:text-xs font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/80 text-[#302D2A] inline-block">
                 پرطرفدارترین
               </span>
-              <h3 className="font-peyda font-extrabold text-2xl sm:text-3xl text-[#302D2A]">
+              <h3 className="font-peyda font-extrabold text-xl sm:text-3xl text-[#302D2A]">
                 لباس کودک
               </h3>
-              <p className="text-xs sm:text-sm text-[#302D2A]/80 font-medium">
+              <p className="text-xs sm:text-sm text-[#302D2A]/80 font-medium line-clamp-2 sm:line-clamp-none">
                 نرم، راحت، دوست‌داشتنی و تهیه شده از پنبه ارگانیک خالص.
               </p>
             </div>
 
-            <div className="flex items-center justify-between pt-6 z-10">
+            <div className="flex items-center justify-between pt-4 sm:pt-6 z-10">
               <span className="text-xs font-bold font-peyda text-[#2B70C9] group-hover:underline flex items-center gap-1">
                 <span>مشاهده محصولات لباس</span>
                 <ArrowLeft className="w-4 h-4" />
@@ -612,17 +678,17 @@ function BabyContent() {
             <img
               src="/images/BABY/hero4.png"
               alt="Clothing"
-              className="absolute -bottom-6 -left-6 w-56 sm:w-72 h-56 sm:h-72 object-contain transition-transform duration-500 group-hover:scale-105"
+              className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 w-40 sm:w-72 h-40 sm:h-72 object-contain transition-transform duration-500 group-hover:scale-105"
             />
           </a>
 
           {/* CARD 2: MEDIUM - TOYS (#F2E3A9) */}
           <a
             href="#shop-by-age"
-            className="md:col-span-5 bg-[#F2E3A9]/50 hover:bg-[#F2E3A9]/80 rounded-[32px] p-6 sm:p-8 border border-[#302D2A]/10 transition-all duration-300 group flex flex-col justify-between min-h-[320px] relative overflow-hidden"
+            className="md:col-span-5 bg-[#F2E3A9]/50 hover:bg-[#F2E3A9]/80 rounded-[28px] sm:rounded-[32px] p-5 sm:p-8 border border-[#302D2A]/10 transition-all duration-300 group flex flex-col justify-between min-h-[200px] sm:min-h-[320px] relative overflow-hidden"
           >
-            <div className="space-y-2 z-10 text-right">
-              <h3 className="font-peyda font-extrabold text-2xl text-[#302D2A]">
+            <div className="space-y-1.5 sm:space-y-2 z-10 text-right max-w-[65%] sm:max-w-none">
+              <h3 className="font-peyda font-extrabold text-xl sm:text-2xl text-[#302D2A]">
                 اسباب‌بازی و رشد
               </h3>
               <p className="text-xs text-[#302D2A]/80 font-medium">
@@ -630,7 +696,7 @@ function BabyContent() {
               </p>
             </div>
 
-            <div className="pt-6 z-10">
+            <div className="pt-4 sm:pt-6 z-10">
               <span className="text-xs font-bold font-peyda text-[#2B70C9] group-hover:underline flex items-center gap-1">
                 <span>مشاهده اسباب‌بازی‌ها</span>
                 <ArrowUpLeft className="w-4 h-4" />
@@ -640,17 +706,17 @@ function BabyContent() {
             <img
               src="/images/BABY/hero.png"
               alt="Toys"
-              className="absolute bottom-4  left-4 w-48 h-48 object-contain transition-transform duration-500 group-hover:scale-105"
+              className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 w-36 sm:w-48 h-36 sm:h-48 object-contain transition-transform duration-500 group-hover:scale-105"
             />
           </a>
 
           {/* CARD 3: SMALL - CARE (#D7E5E9) */}
           <a
             href="#shop-by-age"
-            className="md:col-span-4 bg-[#D7E5E9]/60 hover:bg-[#D7E5E9]/90 rounded-[32px] p-6 border border-[#302D2A]/10 transition-all duration-300 group flex flex-col justify-between min-h-[260px] relative overflow-hidden"
+            className="md:col-span-4 bg-[#D7E5E9]/60 hover:bg-[#D7E5E9]/90 rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#302D2A]/10 transition-all duration-300 group flex flex-col justify-between min-h-[180px] sm:min-h-[260px] relative overflow-hidden"
           >
-            <div className="space-y-1 z-10 text-right">
-              <h3 className="font-peyda font-extrabold text-xl text-[#302D2A]">
+            <div className="space-y-1 z-10 text-right max-w-[65%] sm:max-w-none">
+              <h3 className="font-peyda font-extrabold text-lg sm:text-xl text-[#302D2A]">
                 مراقبت و بهداشت
               </h3>
               <p className="text-xs text-[#302D2A]/80">
@@ -658,7 +724,7 @@ function BabyContent() {
               </p>
             </div>
 
-            <span className="text-xs font-bold font-peyda text-[#2B70C9] z-10 flex items-center gap-1">
+            <span className="text-xs font-bold font-peyda text-[#2B70C9] z-10 flex items-center gap-1 pt-3">
               <span>دیدن بهداشتی‌ها</span>
               <ArrowUpLeft className="w-3.5 h-3.5" />
             </span>
@@ -666,17 +732,17 @@ function BabyContent() {
             <img
               src="/images/BABY/hero2.png"
               alt="Care"
-              className="absolute -bottom-4 -left-4 w-40 h-40 object-contain transition-transform duration-500 group-hover:scale-105"
+              className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 w-32 sm:w-40 h-32 sm:h-40 object-contain transition-transform duration-500 group-hover:scale-105"
             />
           </a>
 
           {/* CARD 4: MEDIUM - FEEDING (#D5E1D0) */}
           <a
             href="#shop-by-age"
-            className="md:col-span-4 bg-[#D5E1D0]/60 hover:bg-[#D5E1D0]/90 rounded-[32px] p-6 border border-[#302D2A]/10 transition-all duration-300 group flex flex-col justify-between min-h-[260px] relative overflow-hidden"
+            className="md:col-span-4 bg-[#D5E1D0]/60 hover:bg-[#D5E1D0]/90 rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#302D2A]/10 transition-all duration-300 group flex flex-col justify-between min-h-[180px] sm:min-h-[260px] relative overflow-hidden"
           >
-            <div className="space-y-1 z-10 text-right">
-              <h3 className="font-peyda font-extrabold text-xl text-[#302D2A]">
+            <div className="space-y-1 z-10 text-right max-w-[65%] sm:max-w-none">
+              <h3 className="font-peyda font-extrabold text-lg sm:text-xl text-[#302D2A]">
                 تغذیه و شیشه
               </h3>
               <p className="text-xs text-[#302D2A]/80">
@@ -684,7 +750,7 @@ function BabyContent() {
               </p>
             </div>
 
-            <span className="text-xs font-bold font-peyda text-[#2B70C9] z-10 flex items-center gap-1">
+            <span className="text-xs font-bold font-peyda text-[#2B70C9] z-10 flex items-center gap-1 pt-3">
               <span>دیدن لوازم تغذیه</span>
               <ArrowUpLeft className="w-3.5 h-3.5" />
             </span>
@@ -692,17 +758,17 @@ function BabyContent() {
             <img
               src="/images/BABY/hero1.png"
               alt="Feeding"
-              className="absolute -bottom-4 -left-4 w-40 h-40 object-contain transition-transform duration-500 group-hover:scale-105"
+              className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 w-32 sm:w-40 h-32 sm:h-40 object-contain transition-transform duration-500 group-hover:scale-105"
             />
           </a>
 
           {/* CARD 5: SMALL - NURSERY (#E7E1DA) */}
           <a
             href="#shop-by-age"
-            className="md:col-span-4 bg-[#E7E1DA]/70 hover:bg-[#E7E1DA] rounded-[32px] p-6 border border-[#302D2A]/10 transition-all duration-300 group flex flex-col justify-between min-h-[260px] relative overflow-hidden"
+            className="md:col-span-4 bg-[#E7E1DA]/70 hover:bg-[#E7E1DA] rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#302D2A]/10 transition-all duration-300 group flex flex-col justify-between min-h-[180px] sm:min-h-[260px] relative overflow-hidden"
           >
-            <div className="space-y-1 z-10 text-right">
-              <h3 className="font-peyda font-extrabold text-xl text-[#302D2A]">
+            <div className="space-y-1 z-10 text-right max-w-[65%] sm:max-w-none">
+              <h3 className="font-peyda font-extrabold text-lg sm:text-xl text-[#302D2A]">
                 اتاق کودک و گهواره
               </h3>
               <p className="text-xs text-[#302D2A]/80">
@@ -710,7 +776,7 @@ function BabyContent() {
               </p>
             </div>
 
-            <span className="text-xs font-bold font-peyda text-[#2B70C9] z-10 flex items-center gap-1">
+            <span className="text-xs font-bold font-peyda text-[#2B70C9] z-10 flex items-center gap-1 pt-3">
               <span>دیدن اتاق کودک</span>
               <ArrowUpLeft className="w-3.5 h-3.5" />
             </span>
@@ -718,7 +784,7 @@ function BabyContent() {
             <img
               src="/images/BABY/hero3.png"
               alt="Nursery"
-              className="absolute -bottom-4 -left-4 w-40 h-40 object-contain transition-transform duration-500 group-hover:scale-105"
+              className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 w-32 sm:w-40 h-32 sm:h-40 object-contain transition-transform duration-500 group-hover:scale-105"
             />
           </a>
         </div>
@@ -747,7 +813,7 @@ function BabyContent() {
           </div>
 
           {/* PRODUCT CARDS GRID */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
             {saleProducts.map((product) => (
               <ProductCard
                 key={product.id}
@@ -788,7 +854,7 @@ function BabyContent() {
         </div>
 
         {/* BEST SELLERS GRID */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
           {bestSellerProducts.slice(0, 4).map((product) => (
             <ProductCard
               key={product.id}
@@ -823,7 +889,7 @@ function BabyContent() {
           </div>
 
           {/* AGE NAVIGATION TABS */}
-          <div className="flex items-center justify-center gap-2 overflow-x-auto pb-4 scrollbar-none mb-10">
+          <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-3 scrollbar-none mb-6 sm:mb-10 px-1">
             {AGE_CATEGORIES.map((cat) => {
               const isSelected = selectedAgeId === cat.id;
               return (
@@ -843,28 +909,28 @@ function BabyContent() {
           </div>
 
           {/* SELECTED AGE SUMMARY & PRODUCTS */}
-          <div className="bg-[#FFFFFF] rounded-[32px] p-6 sm:p-8 border border-[#302D2A]/10 space-y-8">
-            <div className="flex flex-col sm:flex-row items-center gap-6 border-b border-[#302D2A]/10 pb-6 text-right">
+          <div className="bg-[#FFFFFF] rounded-2xl sm:rounded-[32px] p-4 sm:p-8 border border-[#302D2A]/10 space-y-6 sm:space-y-8">
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 border-b border-[#302D2A]/10 pb-5 sm:pb-6 text-center sm:text-right">
               <img
                 src={activeAgeCategoryObj.image}
                 alt={activeAgeCategoryObj.title}
-                className="w-24 h-24 sm:w-28 sm:h-28 object-contain rounded-2xl bg-[#F8F5EF] p-2"
+                className="w-20 h-20 sm:w-28 sm:h-28 object-contain rounded-2xl bg-[#F8F5EF] p-2 shrink-0"
               />
               <div className="space-y-1">
                 <span className="text-xs font-bold text-[#2B70C9] font-peyda">
                   {activeAgeCategoryObj.subhead}
                 </span>
-                <h3 className="font-peyda font-bold text-xl sm:text-2xl text-[#302D2A]">
+                <h3 className="font-peyda font-bold text-lg sm:text-2xl text-[#302D2A]">
                   {activeAgeCategoryObj.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#302D2A]/80 max-w-xl">
+                <p className="text-xs sm:text-sm text-[#302D2A]/80 max-w-xl leading-relaxed">
                   {activeAgeCategoryObj.description}
                 </p>
               </div>
             </div>
 
             {/* AGE FILTERED PRODUCTS GRID */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
               {ageFilteredProducts.length === 0 ? (
                 <p className="col-span-full text-center text-xs text-[#302D2A]/60 py-8">
                   محصولات این رده سنی به زودی اضافه خواهند شد.
@@ -888,26 +954,26 @@ function BabyContent() {
       </section>
 
       {/* 10. EDITORIAL / LIFESTYLE STORY */}
-      <section className="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
-        <div className="bg-[#302D2A] text-[#F8F5EF] rounded-[40px] p-8 sm:p-14 relative overflow-hidden">
+      <section className="py-12 sm:py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div className="bg-[#302D2A] text-[#F8F5EF] rounded-3xl sm:rounded-[40px] p-6 sm:p-14 relative overflow-hidden">
           {/* DECORATIVE LIGHT BLUR */}
           <div className="absolute -top-10 -right-10 w-96 h-96 bg-[#F1C9BD] rounded-full blur-[140px] opacity-20 pointer-events-none" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center relative z-10">
             {/* COPY (6 COLS) */}
-            <div className="lg:col-span-6 space-y-6 text-right">
-              <span className="inline-block px-3.5 py-1.5 rounded-full bg-[#2B70C9] text-[#F8F5EF] text-xs font-bold font-peyda border border-[#F2E3A9]/30">
+            <div className="lg:col-span-6 space-y-4 sm:space-y-6 text-right">
+              <span className="inline-block px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#2B70C9] text-[#F8F5EF] text-[11px] sm:text-xs font-bold font-peyda border border-[#F2E3A9]/30">
                 EDITORIAL & LIFESTYLE STORY
               </span>
 
-              <h2 className="font-peyda font-extrabold text-3xl sm:text-5xl text-[#F8F5EF] ">
+              <h2 className="font-peyda font-extrabold text-2xl sm:text-5xl text-[#F8F5EF] leading-snug">
                 کوچک‌ترین لحظه‌ها، <br />
                 <span className="text-[#F2E3A9]">
                   بزرگ‌ترین خاطره‌ها هستند.
                 </span>
               </h2>
 
-              <p className="text-sm sm:text-base text-[#F8F5EF]/80 font-normal leading-relaxed">
+              <p className="text-xs sm:text-base text-[#F8F5EF]/80 font-normal leading-relaxed">
                 محصولاتی را انتخاب کرده‌ایم که در روزهای واقعی زندگی، کنار شما و
                 فرزندتان باشند. کیفیت بی‌نظیر، استانداردهای سلامتی اروپا و
                 زیبایی ماندگار اسکاندیناوی.
@@ -916,7 +982,7 @@ function BabyContent() {
               <div>
                 <a
                   href="#categories-section"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-[#F2E3A9] hover:bg-[#2B70C9] text-[#302D2A] hover:text-white font-peyda font-bold text-sm rounded-2xl transition-all duration-300"
+                  className="inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-[#F2E3A9] hover:bg-[#2B70C9] text-[#302D2A] hover:text-white font-peyda font-bold text-xs sm:text-sm rounded-2xl transition-all duration-300"
                 >
                   <span>دنیای کوچولوها را ببینید</span>
                   <ArrowUpLeft className="w-4 h-4" />
@@ -925,15 +991,15 @@ function BabyContent() {
             </div>
 
             {/* EDITORIAL IMAGES (6 COLS) */}
-            <div className="lg:col-span-6 grid grid-cols-2 gap-4">
-              <div className="aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 bg-[#F8F5EF]/10 p-2">
+            <div className="lg:col-span-6 grid grid-cols-2 gap-3 sm:gap-4">
+              <div className="aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 bg-[#F8F5EF]/10 p-2">
                 <img
                   src="/images/BABY/BearRobe_Fog_a6ebae70-1475-4668-8b82-9b96cc6412de.webp"
                   alt="Editorial"
                   className="w-full h-full object-contain"
                 />
               </div>
-              <div className="aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 bg-[#F8F5EF]/10 p-2 mt-6">
+              <div className="aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 bg-[#F8F5EF]/10 p-2 mt-4 sm:mt-6">
                 <img
                   src="/images/BABY/The-Play-Tent-A1.webp"
                   alt="Editorial 2"
@@ -961,7 +1027,7 @@ function BabyContent() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
           {newArrivalProducts.map((product) => (
             <ProductCard
               key={product.id}
@@ -1060,13 +1126,13 @@ function BabyContent() {
       </section>
 
       {/* 13. CURATED COLLECTION / NURSERY BUNDLE */}
-      <section className="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
-        <div className="bg-[#F1C9BD]/30 rounded-[40px] p-8 sm:p-12 border border-[#302D2A]/10">
-          <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
-            <span className="text-xs font-bold font-peyda text-[#2B70C9] uppercase tracking-wider">
+      <section className="py-12 sm:py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div className="bg-[#F1C9BD]/30 rounded-3xl sm:rounded-[40px] p-5 sm:p-12 border border-[#302D2A]/10 space-y-6">
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <span className="text-[11px] sm:text-xs font-bold font-peyda text-[#2B70C9] uppercase tracking-wider">
               NURSERY STARTER BUNDLE
             </span>
-            <h2 className="font-peyda font-extrabold text-3xl sm:text-4xl text-[#302D2A]">
+            <h2 className="font-peyda font-extrabold text-2xl sm:text-4xl text-[#302D2A]">
               {CURATED_NURSERY_BUNDLE.title}
             </h2>
             <p className="text-xs sm:text-sm text-[#302D2A]/80 font-medium">
@@ -1074,24 +1140,24 @@ function BabyContent() {
             </p>
           </div>
 
-          {/* BUNDLE ITEMS ROW */}
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 mb-8">
+          {/* BUNDLE ITEMS ROW - Horizontal scroll on small screens */}
+          <div className="flex sm:grid sm:grid-cols-5 gap-3 overflow-x-auto pb-2 scrollbar-none">
             {CURATED_NURSERY_BUNDLE.items.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl p-3 text-center border border-[#302D2A]/10 space-y-2"
+                className="shrink-0 w-36 sm:w-auto bg-white rounded-2xl p-3 text-center border border-[#302D2A]/10 space-y-2"
               >
-                <div className="aspect-square  rounded-xl bg-[#F8F5EF]  overflow-hidden">
+                <div className="aspect-square rounded-xl bg-[#F8F5EF] overflow-hidden p-1">
                   <img
                     src={item.img}
                     alt={item.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover rounded-lg"
                   />
                 </div>
                 <span className="text-[10px] font-bold text-[#2B70C9] block">
                   {item.brand}
                 </span>
-                <h5 className="font-bold text-xs text-[#302D2A] line-clamp-1">
+                <h5 className="font-bold text-[11px] sm:text-xs text-[#302D2A] line-clamp-1">
                   {item.title}
                 </h5>
               </div>
@@ -1099,13 +1165,13 @@ function BabyContent() {
           </div>
 
           {/* BUNDLE PRICE & CTA */}
-          <div className="bg-white rounded-3xl p-6 border border-[#302D2A]/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="text-right space-y-1">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-[#302D2A]/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+            <div className="text-center sm:text-right space-y-1">
               <span className="text-xs text-[#D96C5F] font-bold font-peyda block">
                 🔥 {CURATED_NURSERY_BUNDLE.discountAmount}
               </span>
-              <div className="flex items-baseline gap-2">
-                <span className="font-peyda font-extrabold text-2xl text-[#302D2A]">
+              <div className="flex items-baseline justify-center sm:justify-start gap-2">
+                <span className="font-peyda font-extrabold text-xl sm:text-2xl text-[#302D2A]">
                   {formatPrice(CURATED_NURSERY_BUNDLE.totalPrice)} تومان
                 </span>
                 <span className="text-xs text-[#302D2A]/40 line-through">
@@ -1120,9 +1186,9 @@ function BabyContent() {
                 addToCart(BABY_PRODUCTS[0]);
                 addToCart(BABY_PRODUCTS[2]);
               }}
-              className="px-8 py-4 bg-[#2B70C9] hover:bg-[#302D2A] text-[#F8F5EF] font-peyda font-bold text-sm rounded-2xl transition-colors shadow-md flex items-center gap-2"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-[#2B70C9] hover:bg-[#302D2A] text-[#F8F5EF] font-peyda font-bold text-xs sm:text-sm rounded-2xl transition-colors shadow-md flex items-center justify-center gap-2"
             >
-              <ShoppingBag className="w-5 h-5" />
+              <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>افزودن کامل پک به سبد خرید</span>
             </button>
           </div>
@@ -1544,6 +1610,60 @@ function BabyContent() {
           formatPrice={formatPrice}
         />
       )}
+      {/* FLOATING MOBILE BOTTOM NAVIGATION BAR */}
+      <div className="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-[#FFFBF3]/95 backdrop-blur-md border-t border-[#302D2A]/10 px-3 py-2 flex items-center justify-around shadow-2xl">
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="flex flex-col items-center gap-0.5 text-[#302D2A]/70 hover:text-[#2B70C9] transition-colors"
+        >
+          <FlowerIcon className="w-5 h-5 text-[#F36A21]" />
+          <span className="text-[10px] font-bold font-peyda">خانه</span>
+        </button>
+
+        <a
+          href="#categories-section"
+          className="flex flex-col items-center gap-0.5 text-[#302D2A]/70 hover:text-[#2B70C9] transition-colors"
+        >
+          <SlidersHorizontal className="w-5 h-5" />
+          <span className="text-[10px] font-bold font-peyda">دسته‌ها</span>
+        </a>
+
+        <button
+          onClick={() => setIsSearchOpen(true)}
+          className="flex flex-col items-center gap-0.5 text-[#302D2A]/70 hover:text-[#2B70C9] transition-colors"
+        >
+          <Search className="w-5 h-5" />
+          <span className="text-[10px] font-bold font-peyda">جستجو</span>
+        </button>
+
+        <button
+          onClick={() => setIsWishlistOpen(true)}
+          className="flex flex-col items-center gap-0.5 text-[#302D2A]/70 hover:text-[#2B70C9] transition-colors relative"
+        >
+          <Heart className="w-5 h-5" />
+          <span className="text-[10px] font-bold font-peyda">علاقه‌مندی</span>
+          {wishlistIds.length > 0 && (
+            <span className="absolute -top-1 right-2 w-4 h-4 bg-[#D96C5F] text-white text-[9px] font-bold rounded-full flex items-center justify-center">
+              {wishlistIds.length}
+            </span>
+          )}
+        </button>
+
+        <button
+          onClick={() => setIsCartOpen(true)}
+          className="flex flex-col items-center gap-0.5 text-[#2B70C9] font-bold transition-colors relative"
+        >
+          <div className="relative">
+            <ShoppingBag className="w-5 h-5" />
+            {cartCount > 0 && (
+              <span className="absolute -top-1.5 -right-2 w-4 h-4 bg-[#F2E3A9] text-[#302D2A] text-[9px] font-bold rounded-full flex items-center justify-center shadow-xs">
+                {cartCount}
+              </span>
+            )}
+          </div>
+          <span className="text-[10px] font-bold font-peyda">سبد خرید</span>
+        </button>
+      </div>
     </div>
   );
 }
@@ -1573,10 +1693,10 @@ function ProductCard({
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
 
   return (
-    <div className="group flex flex-col bg-[#FFFFFF] rounded-3xl overflow-hidden border border-[#302D2A]/10 hover:border-[#2B70C9]/50 transition-all duration-300 relative text-right">
+    <div className="group flex flex-col bg-[#FFFFFF] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#302D2A]/10 hover:border-[#2B70C9]/50 transition-all duration-300 relative text-right shadow-xs hover:shadow-md">
       {/* SALE BADGE */}
       {product.discountPercent && (
-        <span className="absolute top-3 right-3 z-20 bg-[#D96C5F] text-white text-[10px] font-bold font-peyda px-2.5 py-1 rounded-full pointer-events-none">
+        <span className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-20 bg-[#D96C5F] text-white text-[9px] sm:text-[10px] font-bold font-peyda px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full pointer-events-none shadow-xs">
           {product.discountPercent}٪ تخفیف
         </span>
       )}
@@ -1585,10 +1705,10 @@ function ProductCard({
       <button
         onClick={(e) => onToggleWishlist(product.id, e)}
         aria-label="افزودن به علاقه‌مندی"
-        className="absolute top-3 left-3 z-20 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-xs"
+        className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-20 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-xs"
       >
         <Heart
-          className={`w-4 h-4 transition-colors ${
+          className={`w-3.5 h-3.5 sm:w-4 sm:h-4 transition-colors ${
             isWishlisted ? "text-[#D96C5F] fill-[#D96C5F]" : "text-[#302D2A]"
           }`}
         />
@@ -1597,70 +1717,83 @@ function ProductCard({
       {/* IMAGE CONTAINER WITH BACKGROUND TINT NORMALIZATION */}
       <div
         onClick={() => onOpenDetail(product)}
-        className="w-full aspect-[4/5] relative overflow-hidden p-4 group/img cursor-pointer transition-colors"
+        className="w-full aspect-[4/5] relative overflow-hidden p-2.5 sm:p-4 group/img cursor-pointer transition-colors"
         style={{ backgroundColor: product.bgTint || "#F8F5EF" }}
       >
         <img
           src={product.images[currentImgIndex] || product.images[0]}
           alt={product.name}
-          className="w-full h-full accept-[4/5] object-cover rounded-2xl transition-transform duration-500 group-hover/img:scale-105"
+          className="w-full h-full object-cover rounded-xl sm:rounded-2xl transition-transform duration-500 group-hover/img:scale-105"
         />
 
-        {/* HOVER QUICK ACTION CTA */}
+        {/* HOVER QUICK ACTION CTA FOR DESKTOP */}
         <button
           onClick={(e) => {
             e.stopPropagation();
             onAddToCart(product);
           }}
-          className="absolute inset-x-3 bottom-3 z-20 py-2.5 bg-[#2B70C9] hover:bg-[#302D2A] text-white text-xs font-bold font-peyda rounded-xl opacity-0 group-hover/img:opacity-100 transition-all duration-300 transform translate-y-2 group-hover/img:translate-y-0"
+          className="hidden md:block absolute inset-x-3 bottom-3 z-20 py-2.5 bg-[#2B70C9] hover:bg-[#302D2A] text-white text-xs font-bold font-peyda rounded-xl opacity-0 group-hover/img:opacity-100 transition-all duration-300 transform translate-y-2 group-hover/img:translate-y-0 shadow-md"
         >
           افزودن سریع به سبد
         </button>
       </div>
 
       {/* PRODUCT INFORMATION */}
-      <div className="p-4 flex flex-col justify-between flex-1 space-y-2">
+      <div className="p-3 sm:p-4 flex flex-col justify-between flex-1 space-y-1.5 sm:space-y-2">
         <div
           onClick={() => onOpenDetail(product)}
-          className="space-y-1 cursor-pointer"
+          className="space-y-0.5 sm:space-y-1 cursor-pointer"
         >
-          <span className="text-[10px] font-bold font-mono uppercase text-[#302D2A]/50 tracking-wider block">
+          <span className="text-[9px] sm:text-[10px] font-bold font-mono uppercase text-[#302D2A]/50 tracking-wider block">
             {product.brand}
           </span>
-          <h3 className="font-bold text-xs sm:text-sm text-[#302D2A] line-clamp-1 hover:text-[#2B70C9] transition-colors">
+          <h3 className="font-bold text-xs sm:text-sm text-[#302D2A] line-clamp-1 hover:text-[#2B70C9] transition-colors leading-snug">
             {product.name}
           </h3>
         </div>
 
         {/* RATING */}
-        <div className="flex items-center gap-1 text-[11px] text-[#302D2A]/70">
-          <Star className="w-3.5 h-3.5 text-[#F2E3A9] fill-[#F2E3A9]" />
+        <div className="flex items-center gap-1 text-[10px] sm:text-[11px] text-[#302D2A]/70">
+          <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#F2E3A9] fill-[#F2E3A9]" />
           <span className="font-bold">{product.rating}</span>
           <span className="text-[#302D2A]/40">({product.reviewCount})</span>
         </div>
 
         {/* PRICE & DISCOUNT */}
-        <div className="flex items-baseline justify-between pt-1 border-t border-[#302D2A]/5">
+        <div className="flex items-center justify-between pt-1.5 sm:pt-2 border-t border-[#302D2A]/5">
           <div className="flex flex-col">
             <span className="font-bold text-xs sm:text-sm text-[#302D2A]">
               {formatPrice(product.price)}{" "}
-              <span className="text-[10px] font-normal text-[#302D2A]/60">
+              <span className="text-[9px] sm:text-[10px] font-normal text-[#302D2A]/60">
                 تومان
               </span>
             </span>
             {product.originalPrice && (
-              <span className="text-[11px] text-[#302D2A]/40 line-through">
+              <span className="text-[10px] sm:text-[11px] text-[#302D2A]/40 line-through">
                 {formatPrice(product.originalPrice)}
               </span>
             )}
           </div>
 
-          <button
-            onClick={() => onOpenDetail(product)}
-            className="text-[11px] font-bold text-[#2B70C9] hover:underline"
-          >
-            جزئیات
-          </button>
+          <div className="flex items-center gap-1">
+            {/* MOBILE QUICK ADD BUTTON */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onAddToCart(product);
+              }}
+              className="md:hidden p-1.5 sm:p-2 rounded-xl bg-[#2B70C9] text-white hover:bg-[#302D2A] transition-colors shadow-xs"
+              aria-label="افزودن سریع"
+            >
+              <Plus className="w-3.5 h-3.5" />
+            </button>
+            <button
+              onClick={() => onOpenDetail(product)}
+              className="hidden md:block text-[11px] font-bold text-[#2B70C9] hover:underline"
+            >
+              جزئیات
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -1700,17 +1833,17 @@ function ProductDetailModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/60 backdrop-blur-md animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-6 bg-black/60 backdrop-blur-md animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="bg-[#fff] text-[#302D2A] w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-[32px] p-5 sm:p-8 shadow-2xl relative border border-[#302D2A]/10 text-right space-y-6"
+        className="bg-[#fff] text-[#302D2A] w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-t-[32px] sm:rounded-[32px] p-5 sm:p-8 shadow-2xl relative border border-[#302D2A]/10 text-right space-y-6"
         onClick={(e) => e.stopPropagation()}
       >
         {/* CLOSE BUTTON */}
         <button
           onClick={onClose}
-          className="absolute top-5 left-5 z-30 p-2.5 rounded-full bg-[#302D2A]/5 hover:bg-[#302D2A] hover:text-white transition-colors"
+          className="absolute top-4 left-4 sm:top-5 sm:left-5 z-30 p-2.5 rounded-full bg-[#302D2A]/5 hover:bg-[#302D2A] hover:text-white transition-colors"
           aria-label="بستن"
         >
           <X className="w-5 h-5" />
@@ -1720,7 +1853,7 @@ function ProductDetailModal({
           {/* LEFT: IMAGE GALLERY (6 COLS) */}
           <div className="md:col-span-6 space-y-3">
             <div
-              className="w-full aspect-square rounded-3xl overflow-hidden p-6 relative border border-[#302D2A]/10"
+              className="w-full aspect-square rounded-2xl sm:rounded-3xl overflow-hidden p-4 sm:p-6 relative border border-[#302D2A]/10"
               style={{ backgroundColor: product.bgTint || "#FFFFFF" }}
             >
               <img
@@ -1732,10 +1865,10 @@ function ProductDetailModal({
               {/* WISHLIST BUTTON */}
               <button
                 onClick={(e) => onToggleWishlist(product.id, e)}
-                className="absolute top-4 left-4 z-20 p-2.5 rounded-full bg-white/90 backdrop-blur-md shadow-md transition-transform hover:scale-110"
+                className="absolute top-3 left-3 sm:top-4 sm:left-4 z-20 p-2.5 rounded-full bg-white/90 backdrop-blur-md shadow-md transition-transform hover:scale-110"
               >
                 <Heart
-                  className={`w-5 h-5 ${
+                  className={`w-4 h-4 sm:w-5 sm:h-5 ${
                     isWishlisted
                       ? "text-[#D96C5F] fill-[#D96C5F]"
                       : "text-[#302D2A]"
@@ -1745,12 +1878,12 @@ function ProductDetailModal({
             </div>
 
             {/* THUMBNAILS */}
-            <div className="grid grid-cols-4 gap-3">
+            <div className="grid grid-cols-4 gap-2 sm:gap-3">
               {product.images.map((img, idx) => (
                 <button
                   key={idx}
                   onClick={() => setSelectedImgIndex(idx)}
-                  className={`aspect-square rounded-2xl overflow-hidden bg-white p-1 border-2 transition-all ${
+                  className={`aspect-square rounded-xl sm:rounded-2xl overflow-hidden bg-white p-1 border-2 transition-all ${
                     selectedImgIndex === idx
                       ? "border-[#2B70C9] scale-105 shadow-md"
                       : "border-transparent opacity-70 hover:opacity-100"
@@ -1767,19 +1900,19 @@ function ProductDetailModal({
           </div>
 
           {/* RIGHT: SPECS & BUY (6 COLS) */}
-          <div className="md:col-span-6 space-y-5">
+          <div className="md:col-span-6 space-y-4 sm:space-y-5">
             <div className="space-y-1">
               <span className="text-xs font-mono font-bold uppercase text-[#2B70C9] tracking-wider">
                 {product.brand}
               </span>
-              <h2 className="font-peyda font-extrabold text-xl sm:text-2xl text-[#302D2A] leading-snug">
+              <h2 className="font-peyda font-extrabold text-lg sm:text-2xl text-[#302D2A] leading-snug">
                 {product.name}
               </h2>
             </div>
 
             {/* PRICE & DISCOUNT */}
-            <div className="flex items-baseline gap-3 p-3.5 bg-white rounded-2xl border border-[#302D2A]/10">
-              <span className="font-peyda font-extrabold text-2xl text-[#302D2A]">
+            <div className="flex items-baseline gap-3 p-3 sm:p-3.5 bg-white rounded-2xl border border-[#302D2A]/10">
+              <span className="font-peyda font-extrabold text-xl sm:text-2xl text-[#302D2A]">
                 {formatPrice(product.price)}{" "}
                 <span className="text-xs font-medium text-[#302D2A]/70">
                   تومان
@@ -1806,7 +1939,7 @@ function ProductDetailModal({
             )}
 
             {/* QUANTITY & ADD TO CART CTA */}
-            <div className="space-y-3 pt-3 border-t border-[#302D2A]/10">
+            <div className="space-y-3 pt-3 border-t border-[#302D2A]/10 sticky bottom-0 bg-white sm:static py-2 sm:py-0">
               <div className="flex items-center gap-3">
                 <span className="text-xs font-bold text-[#302D2A]">تعداد:</span>
                 <div className="flex items-center border border-[#302D2A]/20 rounded-xl bg-white p-1">
@@ -1833,9 +1966,9 @@ function ProductDetailModal({
                   onAddToCart(product, selectedColor, "استاندارد", quantity);
                   onClose();
                 }}
-                className="w-full py-4 bg-[#2B70C9] hover:bg-[#302D2A] text-white font-peyda font-bold text-sm rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
+                className="w-full py-3.5 sm:py-4 bg-[#2B70C9] hover:bg-[#302D2A] text-white font-peyda font-bold text-xs sm:text-sm rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
               >
-                <ShoppingBag className="w-5 h-5" />
+                <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span>
                   افزودن به سبد خرید ({formatPrice(product.price * quantity)}{" "}
                   تومان)
@@ -1848,7 +1981,6 @@ function ProductDetailModal({
     </div>
   );
 }
-
 
 export default function BabyLandingPage() {
   return (
